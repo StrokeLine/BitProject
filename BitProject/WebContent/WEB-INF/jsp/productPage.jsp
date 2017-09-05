@@ -57,7 +57,7 @@
 				</div>
 			</div>
 			<div class="product_inquiry">
-				<h3> 상품 문의aaaaaaaaaaaa</h3>
+				<h3> 상품 문의</h3>
 				<div class="product_inquiry_btn" style="float: right;">
 					<input type="button" value="등록"> 
 				</div>
