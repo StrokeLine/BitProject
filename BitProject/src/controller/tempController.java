@@ -67,4 +67,27 @@ public class tempController {
 		return mav;
 	}
 //>>>>>>> branch 'master' of https://github.com/StrokeLine/BitProject
+	
+
+	@RequestMapping("myPage.do")
+	public ModelAndView myPage() {
+		ModelAndView mav=new ModelAndView();
+		mav.setViewName("myPage");
+		return mav;
+	}
+	
+	@RequestMapping("myPageCtrl.do")
+	public String myPageCtrl(String myPageNum) {
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("myPageNum", myPageNum);
+		return "myPageCtrl";
+	}
+	
+	@RequestMapping("fnPageCtrl.do")
+	public String fnPageCtrl(String fnPageNum) {
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("fnPageNum", fnPageNum);
+		return "fnPageCtrl";
+	}
+	
 }
