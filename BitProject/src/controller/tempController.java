@@ -17,6 +17,38 @@ public class tempController {
 		return mav;
 	}
 	
+//<<<<<<< HEAD
+	
+	@RequestMapping("productDibs.do")
+	public ModelAndView productDibs(){
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("productDibs");		
+		return mav;		
+	}
+	
+	@RequestMapping("productBasket.do")
+	public ModelAndView productBsket(){
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("productBasket");		
+		return mav;		
+	}
+	
+	@RequestMapping("modifyMember.do")
+	public ModelAndView modifyMember(){
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("modifyMember");		
+		return mav;		
+	}
+	
+	@RequestMapping("deleteMember.do")
+	public ModelAndView deleteMember(){
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("deleteMember");		
+		return mav;		
+	}
+	
+	
+//=======
 	@RequestMapping("dibsCheck.do")
 	public ModelAndView dibsCheck() {
 		ModelAndView mav = new ModelAndView();
@@ -34,4 +66,5 @@ public class tempController {
 		
 		return mav;
 	}
+//>>>>>>> branch 'master' of https://github.com/StrokeLine/BitProject
 }

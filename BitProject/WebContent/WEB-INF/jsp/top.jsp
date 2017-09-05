@@ -7,7 +7,6 @@
 		<img src="/BitProject/images/m.jpg" alt="FreeHaGae" />
 	</a>
 </h1>
-
 <div id="member_Menu" style="float: right; position: relative; top: 7px;">
 	<c:choose>
 		<c:when test="${empty check}">
