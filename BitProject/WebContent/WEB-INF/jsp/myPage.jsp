@@ -2,8 +2,12 @@
     pageEncoding="UTF-8"%>
 <%
 String myPageCtrl=request.getParameter("myPageCtrl");
+/* 관심스토어 알림 */
 String fnPageCtrl=null;
 fnPageCtrl=request.getParameter("fnPageCtrl");
+/* 문의사항 */
+String qnaPageCtrl=null;
+qnaPageCtrl=request.getParameter("qnaPageCtrl");
 %>
 <form>
 	<table>
@@ -14,8 +18,8 @@ fnPageCtrl=request.getParameter("fnPageCtrl");
 			<td>My Page</td>
 			<td rowspan="9">
 			<%
-			if(myPageCtrl=="followingNoti"){
-				if(fnPageCtrl!=null){
+			if(myPageCtrl=="followingNoti"){	//관심스토어 알림
+				if(fnPageCtrl!=null){	//하위분류 정보 있을 때
 					%>
 					<jsp:include page='followingNoti.jsp' flush="false">
 						<jsp:param value="<%=fnPageCtrl%>" name="fnPageCtrl"/>
@@ -26,13 +30,25 @@ fnPageCtrl=request.getParameter("fnPageCtrl");
 				<jsp:include page='followingNoti.jsp' flush="false"></jsp:include>
 				<%
 				}
-			}else if(myPageCtrl!=null){
+			}else if(myPageCtrl=="qAndA"){	//문의사항
+				if(qnaPageCtrl!=null){	//하위분류 정보 있을 때
+					%>
+					<jsp:include page='qAndA.jsp' flush="false">
+						<jsp:param value="<%=qnaPageCtrl%>" name="qnaPageCtrl"/>
+					</jsp:include>
+					<%
+				}else{
+				%>
+				<jsp:include page='qAndA.jsp' flush="false"></jsp:include>
+				<%
+				}
+			}else if(myPageCtrl!=null){	//관심스토어 알림, 문의사항 외 카테고리 선택
 			%>
 				<jsp:include page='<%=myPageCtrl+".jsp" %>' flush="false"></jsp:include>
 			<%
-			}else{
+			}else{	//기본화면
 			%>
-				받은 내용 없음
+				<jsp:include page='modifyMember.jsp' flush="false"></jsp:include>
 			<%
 			}
 			%>
