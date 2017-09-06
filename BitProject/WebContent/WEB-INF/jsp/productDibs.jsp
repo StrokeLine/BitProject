@@ -11,7 +11,7 @@
 	<div class="dibsPage" style="margin: 0px 200px 0px 200px;">
 		<form method="post">	
 			<div class="dibs_top" style="height:300" align="right">
-				<input type="submit" value="삭제" height="100" style="font-size: 50;">
+				<input type="button" value="삭제" height="100" style="font-size: 50;">
 			</div>			
 					
 			<table border="1"> 				
@@ -22,21 +22,21 @@
 					<th width="200">금액</th>
 					<th width="200">배송비</th>		
 				</tr>		
-				<tr>
 				<c:forEach items="">
+				<tr>				
 					<td>
 						<input type="checkbox" name="checkRow">
 					</td>
 					<td>이미지 영역 </td>
 					<td>상품명</td>				
 					<td>상품가격</td>	
-					<td>배송비</td>
-				</c:forEach>
-				</tr>								
+					<td>배송비</td>				
+				</tr>	
+				</c:forEach>							
 			</table>	
 				
 			<div class="dibs_bottom" style="height:300;" align="right">
-				<input type="submit" value="장바구니로 이동">	
+				<input type="button" value="장바구니로 이동">	
 			</div>	
 		</form>	
 	</div>

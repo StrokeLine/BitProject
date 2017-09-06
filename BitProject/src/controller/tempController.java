@@ -47,6 +47,13 @@ public class tempController {
 		return mav;		
 	}
 	
+	@RequestMapping("customerCenter.do")
+	public ModelAndView customerCenter(){
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("customerCenter");		
+		return mav;		
+	}
+	
 	
 //=======
 	@RequestMapping("dibsCheck.do")
