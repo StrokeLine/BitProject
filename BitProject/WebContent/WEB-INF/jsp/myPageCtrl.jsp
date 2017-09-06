@@ -7,7 +7,7 @@ String myPageCtrl=null;
 <%
 switch(myPageNum){
 	case 1:	//회원정보 수정
-		myPageCtrl="";
+		myPageCtrl="modifyMember";
 		break;
 	case 2:	//판매자 등록/내 상점
 		myPageCtrl="";
@@ -16,22 +16,22 @@ switch(myPageNum){
 		myPageCtrl="followingNoti";
 		break;
 	case 4:	//찜
-		myPageCtrl="";
+		myPageCtrl="productDibs";
 		break;
 	case 5:	//장바구니
-		myPageCtrl="";
+		myPageCtrl="productBasket";
 		break;
 	case 6:	//주문/배송
 		myPageCtrl="";
 		break;
 	case 7:	//문의사항
-		myPageCtrl="";
+		myPageCtrl="qAndA";
 		break;
 	case 8:	//고객센터
 		myPageCtrl="";
 		break;
 	case 9: //탈퇴하기
-		myPageCtrl="";
+		myPageCtrl="deleteMember";
 		break;
 	default:	//회원정보 수정
 		myPageCtrl="";
