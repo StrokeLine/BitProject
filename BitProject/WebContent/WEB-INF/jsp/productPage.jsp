@@ -86,6 +86,7 @@
 						<input type="text" id="i_user_id">				
 						<div class="product_inquiry_btn" style="float: right;">
 							<input type="button" value="µî·Ï" onclick="insertInquiry()"> 
+							
 						</div>
 					</div>
 				</div>

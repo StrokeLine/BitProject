@@ -45,6 +45,7 @@ function insertGrade() {
 	
 	gradeList.appendChild(h5Tag);
 	
+	
 	return;
 }
 
