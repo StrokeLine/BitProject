@@ -35,8 +35,6 @@ public class tempController {
 		return mav;
 	}
 	
-//<<<<<<< HEAD
-	
 	@RequestMapping("productDibs.do")
 	public ModelAndView productDibs(){
 		ModelAndView mav = new ModelAndView();
@@ -64,9 +62,7 @@ public class tempController {
 		mav.setViewName("deleteMember");		
 		return mav;		
 	}
-	
-	
-//=======
+
 	@RequestMapping("dibsCheck.do")
 	public ModelAndView dibsCheck() {
 		ModelAndView mav = new ModelAndView();
@@ -84,9 +80,7 @@ public class tempController {
 		
 		return mav;
 	}
-//>>>>>>> branch 'master' of https://github.com/StrokeLine/BitProject
 	
-
 	@RequestMapping("myPage.do")
 	public ModelAndView myPage() {
 		ModelAndView mav=new ModelAndView();
