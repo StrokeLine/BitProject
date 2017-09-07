@@ -1,15 +1,34 @@
 @CHARSET "UTF-8";
+.logo{
+	position:absolute;
+}
+.member_Menu{
+	right: 50px;
+	position: fixed;
+}
+.wrap{
+    width : 100%;
+    height : 90%;
+}
+.freehagae{
+	width : 100px;
+	height : auto;
+}
 .main_menu{
-position : relative;
-margin-top: 150px;
-}
+	position : relative;
+	margin-top: 20px;
+	}
 .content{
-position :relative;
-margin-top : 15px;
-}
+	position :relative;
+	display : inline-block;
+	margin-top : 10px;
+	margin-right : 10px;
+	max-width : 300px;
+	}
 .bottom{
-position:fixed;
-}
+	position:fixed;}
+
+/* BootStrap */
 .navbar{
 position:relative;
 display:-ms-flexbox;
@@ -20,7 +39,7 @@ flex-wrap:wrap;
 align-items:center;
 -ms-flex-pack:justify;
 justify-content:space-between;
-padding:.5rem 1rem
+padding:2rem 1rem
 }
 .navbar>.container,.navbar>.container-fluid
 {
