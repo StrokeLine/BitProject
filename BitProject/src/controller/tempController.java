@@ -17,6 +17,24 @@ public class tempController {
 		return mav;
 	}
 	
+	@RequestMapping("productReg.do")
+	public ModelAndView productReg() {
+		ModelAndView mav = new ModelAndView();
+		
+		mav.setViewName("productReg");
+		
+		return mav;
+	}
+	
+	@RequestMapping("sellerMyStore.do")
+	public ModelAndView sellerMyStore() {
+		ModelAndView mav = new ModelAndView();
+		
+		mav.setViewName("sellerMyStore");
+		
+		return mav;
+	}
+	
 //<<<<<<< HEAD
 	
 	@RequestMapping("productDibs.do")
