@@ -13,9 +13,14 @@
 
 	<div id="top">
 		<%@ include file="top.jsp" %>
-		아아아아아아아아아아아
 	</div>
-
+	
+	<div id="main-menu">main_menu</div>
+    
+    <div id="content">내용</div>
+    
+    <div id="bottom">bottom</div>
+	
 </div>
 
 </body>

@@ -108,4 +108,11 @@ public class tempController {
 		return "fnPageCtrl";
 	}
 	
+	@RequestMapping("qnaPageCtrl.do")
+	public String qnaPageCtrl(String qnaPageNum) {
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("qnaPageNum", qnaPageNum);
+		return "qnaPageCtrl";
+	}
+	
 }

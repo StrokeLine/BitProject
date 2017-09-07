@@ -21,9 +21,10 @@
 					<th width="350">상품명</th>
 					<th width="200">금액</th>
 					<th width="200">배송비</th>		
-				</tr>		
+				</tr>
+				<%-- 
+				<c:forEach var="" items="">
 				<tr>
-				<c:forEach items="">
 					<td>
 						<input type="checkbox" name="checkRow">
 					</td>
@@ -31,8 +32,9 @@
 					<td>상품명</td>				
 					<td>상품가격</td>	
 					<td>배송비</td>
-				</c:forEach>
 				</tr>								
+				</c:forEach>
+				 --%>
 			</table>	
 				
 			<div class="dibs_bottom" style="height:300;" align="right">

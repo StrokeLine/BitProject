@@ -23,9 +23,10 @@
 					<th width="200">금액</th>
 					<th width="200">배송비</th>	
 					<th width="200">최종금액</th>	
-				</tr>		
-				<tr>
+				</tr>
+				<%-- 
 				<c:forEach items="" var="">
+				<tr>
 					<td>
 						<input type="checkbox" name="checkRow">
 					</td>
@@ -39,8 +40,9 @@
 					<td>상품가격</td>	
 					<td>배송비</td>
 					<td>최종금액</td>
-				</c:forEach>
 				</tr>				
+				</c:forEach>
+				 --%>
 			</table>
 			
 			<div class="basket_bottom" align="right">
