@@ -3,7 +3,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<script src="/BitProject/js/productScript.js"></script>
+<script src="/BitProject/resources/js/productScript.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 </head>
 <body>
@@ -50,16 +50,45 @@
 			</center>
 		</div>
 		<div class="product_bottom">
-			<div class="product_content">
+			<div class="product_grade">
 				<h3> 상품평 or 후기</h3>
-				<div class="product_content_btn" style="float: right;">
-					<input type="button" value="등록" onclick=""> 
+				<div class="product_grade_list_header">
+					<h5>|    상품평    |    이미지    |    내용    |    아이디    |    작성일    |</h5>
+				</div>
+				<div class="product_grade_list" id="grade_list"></div>
+				<div class="product_grade_add">
+					<div class="grade_add_form">
+						<input type="text" id="g_grade_num">
+						<input type="file" id="g_img_src">
+						<input type="text" id="g_content">
+						<input type="text" id="g_user_id">
+						<div class="product_grade_btn" style="float: right;">
+							<input type="button" value="등록" onclick="insertGrade()">
+						</div>
+					</div>
 				</div>
 			</div>
 			<div class="product_inquiry">
 				<h3> 상품 문의</h3>
-				<div class="product_inquiry_btn" style="float: right;">
-					<input type="button" value="등록"> 
+				<div class="product_inquiry_list_header">
+					<h5>|    문의유형    |    문의/답변    |    작성자    |    작성일    |</h5>
+				</div>
+				<div class="product_inquiry_list" id="inquiry_list"></div>
+				<div class="product_inquiry_add">
+					<div class="inquiry_add_form">
+						<select id="i_type">
+							<option value="상품">상품</option>
+							<option value="배송">배송</option>
+							<option value="반품">반품</option>
+							<option value="기타">기타</option>
+						</select>
+						<input type="text" id="i_classify">
+						<input type="text" id="i_user_id">				
+						<div class="product_inquiry_btn" style="float: right;">
+							<input type="button" value="등록" onclick="insertInquiry()"> 
+							
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
