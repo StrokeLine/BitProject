@@ -53,7 +53,7 @@
 			<div class="product_content">
 				<h3> 상품평 or 후기</h3>
 				<div class="product_content_btn" style="float: right;">
-					<input type="button" value="등록"> 
+					<input type="button" value="등록" onclick=""> 
 				</div>
 			</div>
 			<div class="product_inquiry">
