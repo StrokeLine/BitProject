@@ -2,12 +2,12 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-<h1 style="float: left; width: 150px">
+<div id ="logo" class="logo">
 	<a href="main.do">
-		<img src="/BitProject/images/m.jpg" alt="FreeHaGae" />
+		<img src="resources/images/logo.jpg" class="freehagae" alt="FreeHaGae" />
 	</a>
-</h1>
-<div id="member_Menu" style="float: right; position: relative; top: 7px;">
+</div>
+<div id="member_Menu" class="member_Menu">
 	<c:choose>
 		<c:when test="${empty check}">
 			<input type="button" value="로그인" onclick="location='loginForm.do'">
