@@ -15,7 +15,7 @@ qnaPageCtrl=request.getParameter("qnaPageCtrl");
 			<td colspan="2">프리하개</td>
 		</tr>
 		<tr>
-			<td>My Page</td>
+			<td><a href="myPage.do">My Page</a></td>
 			<td rowspan="9">
 			<%
 			if(myPageCtrl=="followingNoti"){	//관심스토어 알림
@@ -48,14 +48,14 @@ qnaPageCtrl=request.getParameter("qnaPageCtrl");
 			<%
 			}else{	//기본화면
 			%>
-				<jsp:include page='modifyMember.jsp' flush="false"></jsp:include>
+				<jsp:include page='memberInfo.jsp' flush="false"></jsp:include>
 			<%
 			}
 			%>
 			</td>
 		</tr>
 		<tr>
-			<td><a href="myPageCtrl.do?myPageNum=1">회원정보 수정</a></td>
+			<td><a href="myPageCtrl.do?myPageNum=1">내 정보</a></td>
 		</tr>
 		<tr>
 			<td><a href="myPageCtrl.do?myPageNum=2">판매자 등록/내 상점</a></td>

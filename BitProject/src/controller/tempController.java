@@ -82,8 +82,11 @@ public class tempController {
 	}
 	
 	@RequestMapping("myPage.do")
-	public ModelAndView myPage() {
+	public ModelAndView myPage(String myPageCtrl) {
 		ModelAndView mav=new ModelAndView();
+		if(myPageCtrl!=null){
+			mav.addObject("myPageCtrl", myPageCtrl);
+		}
 		mav.setViewName("myPage");
 		return mav;
 	}

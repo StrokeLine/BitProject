@@ -6,8 +6,8 @@ String myPageCtrl=null;
 %>
 <%
 switch(myPageNum){
-	case 1:	//회원정보 수정
-		myPageCtrl="modifyMember";
+	case 1:	//내 정보
+		myPageCtrl="memberInfo";
 		break;
 	case 2:	//판매자 등록/내 상점
 		myPageCtrl="";
@@ -22,7 +22,7 @@ switch(myPageNum){
 		myPageCtrl="productBasket";
 		break;
 	case 6:	//주문/배송
-		myPageCtrl="";
+		myPageCtrl="consumerContractList";
 		break;
 	case 7:	//문의사항
 		myPageCtrl="qAndA";
@@ -33,8 +33,8 @@ switch(myPageNum){
 	case 9: //탈퇴하기
 		myPageCtrl="deleteMember";
 		break;
-	default:	//회원정보 수정
-		myPageCtrl="";
+	default:	//내 정보
+		myPageCtrl="memberInfo";
 }
 %>
 <jsp:forward page="myPage.jsp">
