@@ -24,7 +24,7 @@
 			<td></td>
 		</tr>
 		<tr>
-			<td colspan="2"><input type="button" value="수정" onclick="modifyMember.jsp"></td>
+			<td colspan="2"><input type="button" value="수정" onclick="location='myPage.do?myPageCtrl=modifyMember'"></td>
 		</tr>
 	</table>
 </form>

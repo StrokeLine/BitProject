@@ -28,7 +28,7 @@ switch(myPageNum){
 		myPageCtrl="qAndA";
 		break;
 	case 8:	//고객센터
-		myPageCtrl="";
+		myPageCtrl="customerCenter";
 		break;
 	case 9: //탈퇴하기
 		myPageCtrl="deleteMember";
