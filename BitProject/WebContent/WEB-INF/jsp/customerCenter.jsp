@@ -26,6 +26,7 @@
 				</c:forEach>
 			</table>
 		</div><br><br><br>
+		
 		<div class="customerCenter_add">
 			<h3>문의하기</h3>
 			<table border="1">
@@ -43,6 +44,7 @@
 				</tr>
 			</table>				
 		</div>
+		
 		<div class="customerCenter_btn">
 			<input type="button" value="문의하기">
 		</div>
