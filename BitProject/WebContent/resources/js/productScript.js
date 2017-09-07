@@ -13,7 +13,6 @@ function dibsCheck() {
 }
 
 // 장바구니 확인 페이지
-
 function shoppingBasketCheck() {
 	var url = "shoppingBasketCheck.do";
 	var windowW = 200;  // 창의 가로 길이
@@ -23,6 +22,7 @@ function shoppingBasketCheck() {
     open(url,"찜 확인 페이지","top="+top+", left="+left+", height="+windowH+", width="+windowW);
 }
 
+//문의사항 작성 및 추가
 function insertGrade() {
 	var gradeList =	document.getElementById("grade_list");
 	var date = new Date();
@@ -49,6 +49,7 @@ function insertGrade() {
 	return;
 }
 
+// 문의사항 작성 및 추가
 function insertInquiry() {
 	var inquiryList = document.getElementById("inquiry_list");
 	var date = new Date();
