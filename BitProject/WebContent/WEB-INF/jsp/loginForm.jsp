@@ -39,7 +39,7 @@
 		
 		<div>
 			<button type="submit" class="btn btn-success">로그인</button>
-			<button type="reset" class="btn btn-warning">취소</button>
+			<button type="reset" class="btn btn-warning" onclick="location='main.do'">취소</button>
 		</div>
 
 	</form>
