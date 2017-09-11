@@ -17,6 +17,7 @@ public class tempController {
 		return mav;
 	}
 	
+	
 	@RequestMapping("productPage.do")
 	public ModelAndView productPage() {
 		ModelAndView mav = new ModelAndView();
