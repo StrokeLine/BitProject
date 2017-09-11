@@ -17,6 +17,23 @@ public class tempController {
 		return mav;
 	}
 	
+	@RequestMapping("loginForm.do")
+	public ModelAndView loginForm() {
+		ModelAndView mav = new ModelAndView();
+		
+		mav.setViewName("loginForm");
+		
+		return mav;
+	}
+	
+	@RequestMapping("joinForm.do")
+	public ModelAndView joinForm(){
+		ModelAndView mav = new ModelAndView();
+		
+		mav.setViewName("joinForm");
+		
+		return mav;
+	}
 	
 	@RequestMapping("productPage.do")
 	public ModelAndView productPage() {
