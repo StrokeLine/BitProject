@@ -4,11 +4,15 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" href="resources/css/bootstrap.css" type="text/css" />
+<link rel="stylesheet" href="resources/css/style.css" type="text/css" />
 <title>Insert title here</title>
 </head>
 <body>
-	<form>
+	<div class="wrap">
+		
+		<div class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+			<%@ include file="top.jsp" %>
+		</div>
 		
 		<div class="joinId" id="joinId">
 			<label for="join_id">아이디(이메일)</label>
@@ -34,12 +38,19 @@
 			<button type="button" class="btn btn-danger">인증</button>
 		</div>
 		
+		<div class="join_Bt" id="join_Bt">
+			<button type="submit" class="btn btn-primary">회원가입</button>
+			<button type="reset" class="btn btn-success" onclick="location='main.do'">취소</button>
+		</div>		
 		
-		
-		
-	</form>
+	</div>
 
 	<script	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<script type="text/javascript" src="js/bootstrap.js"></script>
+	
+	<footer>
+		<%@ include file="footer.jsp" %>
+	</footer>
+	
 </body>
 </html>

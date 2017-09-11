@@ -12,9 +12,11 @@
 <body>
 
 <div class="wrap">
+
 	<div class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
 		<%@ include file="top.jsp" %>
 	</div>
+
 	<div class="main_menu">
 		<%@ include file="main_meun.jsp" %>
 	</div>
@@ -22,18 +24,28 @@
     <div class="content">
     <img src="resources/images/logo.jpg" class="freehagae" alt="FreeHaGae" />
     </div>
+    
     <div class="content">
     <img src="resources/images/logo.jpg" class="freehagae" alt="FreeHaGae" />
     </div>
+    
     <div class="content">
     <img src="resources/images/logo.jpg" class="freehagae" alt="FreeHaGae" />
     </div>
+    
     <div class="content">
     <img src="resources/images/logo.jpg" class="freehagae" alt="FreeHaGae" />
-    </div>	
+    </div>
+    
+    <div class="sidebar">
+    	확인중
+    </div>
+    	
 </div>
+
     <footer>
-		<%@ include file="bottom.jsp" %>
+		<%@ include file="footer.jsp" %>
 	</footer>
+
 </body>
 </html>

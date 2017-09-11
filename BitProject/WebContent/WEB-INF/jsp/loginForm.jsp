@@ -4,12 +4,15 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" href="resources/css/bootstrap.css" type="text/css" />
+<link rel="stylesheet" href="resources/css/style.css" type="text/css" />
 <title>Insert title here</title>
 </head>
 <body>
 
-	<form>
+	<div class="wrap">
+		<div class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+			<%@ include file="top.jsp" %>
+		</div>
 		<div class="loginId" id="loginId">
 			<label for="login_ID">아이디(이메일)</label> <input type="text"
 				class="form-control" id="login_inputID" placeholder="아이디를 입력하세요.">
@@ -20,7 +23,7 @@
 				class="form-control" id="login_inputPW" placeholder="비밀번호를 입력하세요.">
 		</div>
 
-		<div class="checkbox_Id">
+		<div class="checkbox_Id" id="checkbox_Id">
 			<label>
 				<input type="checkbox"> 아이디 저장
 			</label>
@@ -32,19 +35,26 @@
 			</label>
 		</div>
 		
-		<div>
+		<div class="id_Find" id="id_Find">
 			<p class="text-success">아이디 찾기</p>
+		</div>
+		
+		<div class="pw_Find" id="pw_Find">
 			<p class="text-success">비밀번호 찾기</p>
 		</div>
 		
-		<div>
+		<div class="login_Bt" id="login_Bt">
 			<button type="submit" class="btn btn-success">로그인</button>
 			<button type="reset" class="btn btn-warning" onclick="location='main.do'">취소</button>
 		</div>
 
-	</form>
+	</div>
 
 	<script	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<script type="text/javascript" src="js/bootstrap.js"></script>
+	
+	<footer>
+		<%@ include file="footer.jsp" %>
+	</footer>
 </body>
 </html>
