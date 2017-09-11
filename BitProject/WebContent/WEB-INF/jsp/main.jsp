@@ -7,6 +7,7 @@
 <meta name="Keywords" content="메인페이지" />
 <meta name="Description" content="메인페이지" />
 <link rel="stylesheet" href="resources/css/style.css" type="text/css">
+
 <title>Insert title here</title>
 </head>
 <body>
