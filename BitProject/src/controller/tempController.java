@@ -8,6 +8,15 @@ import org.springframework.web.servlet.ModelAndView;
 public class tempController {
 		
 	
+	@RequestMapping("main.do")
+	public ModelAndView main() {
+		ModelAndView mav = new ModelAndView();
+		
+		mav.setViewName("main");
+		
+		return mav;
+	}
+	
 	@RequestMapping("productPage.do")
 	public ModelAndView productPage() {
 		ModelAndView mav = new ModelAndView();
