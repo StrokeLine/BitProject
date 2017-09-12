@@ -34,8 +34,38 @@
 }
 	
 .footer{
-	position:fixed;}
+	position:fixed;
+	margin: o auto;
+}
 
+/*form size*/
+
+.loginId{
+	width: 30%;
+	margin: auto;
+}
+
+.loginPw{
+	width: 30%;
+	margin: auto;
+}
+
+.checkbox_ID{
+	text-align: center;
+}
+
+.checkbox_AUTO{
+	text-align: center;
+}
+
+.find_Bt{
+	text-align: center;
+}
+
+.login_Bt{
+	margin-top: 10px;
+	text-align: center;
+}
 /* BootStrap */
 .navbar{
 position:relative;

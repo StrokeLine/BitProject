@@ -15,8 +15,8 @@
 			<%@ include file="top.jsp" %>
 		</div>
 		<div class="loginId" id="loginId">
-			<label for="login_ID">아이디(이메일)</label> <input type="text"
-				class="form-control" id="login_inputID" placeholder="아이디를 입력하세요.">
+			<label for="login_ID">아이디(이메일)</label> 
+			<input type="text" class="form-control" id="login_inputID" placeholder="아이디를 입력하세요.">
 		</div>
 
 		<div class="loginPw" id="loginPw">
@@ -24,29 +24,22 @@
 				class="form-control" id="login_inputPW" placeholder="비밀번호를 입력하세요.">
 		</div>
 
-		<div class="checkbox_Id" id="checkbox_Id">
-			<label>
-				<input type="checkbox"> 아이디 저장
-			</label>
+		<div class="checkbox_ID" id="checkbox_ID">
+			<input type="checkbox">아이디 저장
 		</div>
 		
-		<div class="checkbox_Auto">
-			<label>
-				<input type="checkbox"> 자동로그인 
-			</label>
+		<div class="checkbox_AUTO" id="checkbox_AUTO">     
+			<input type="checkbox">자동로그인
 		</div>
-		
-		<div class="id_Find" id="id_Find">
-			<p class="text-success">아이디 찾기</p>
-		</div>
-		
-		<div class="pw_Find" id="pw_Find">
-			<p class="text-success">비밀번호 찾기</p>
+			
+		<div class="find_Bt" id="find_Bt">
+			<button type="button" class="btn btn-default" onclick="idFind.do">아이디 찾기</button>
+			<button type="button" class="btn btn-default" onclick="pwFind.do">비밀번호 찾기</button>
 		</div>
 		
 		<div class="login_Bt" id="login_Bt">
-			<button type="submit" class="btn btn-success">로그인</button>
-			<button type="reset" class="btn btn-warning" onclick="location='main.do'">취소</button>
+			<button type="submit" class="btn btn-info">로그인</button>
+			<button type="reset" class="btn btn-info" onclick="location='main.do'">취소</button>
 		</div>
 
 	</div>
