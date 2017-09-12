@@ -44,26 +44,6 @@
 					</div>
 				</div>
 			</div>
-			<div class="seller_my_store_bottom">
-				<div class="store_notice_main">
-					<div class="store_notice" style="width: 100%;">
-						<center>
-							<h3>공지사항</h3>
-						</center>
-					</div>
-					<div class="store_notice_content" style="margin: 25px">
-						<div class="notice_subject" style="width: 30%; display: inline-block ;">
-							<h5>제목</h5>
-						</div>
-						<div class="notice_content" style="width: 30%; display: inline-block ;">
-							<h5>내용</h5>
-						</div>
-						<div class="notice_date" style="width: 30%; display: inline-block ;">
-							<h5>등록일</h5>
-						</div>
-					</div>
-				</div>
-			</div>
 		</div>
 	</div>
 </body>

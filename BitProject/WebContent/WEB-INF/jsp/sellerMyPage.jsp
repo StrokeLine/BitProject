@@ -10,7 +10,7 @@
 		<div class="seller_my_page_left" style="width: 20%; float: left;">
 			<div class="seller_my_page_menu">
 				<h3><a href="sellerMyPage.do?method=sellerMyStore">상점정보</a></h3>
-				<h3><a href="sellerMyPage.do?method=sellerMyStore">공지사항</a></h3>
+				<h3><a href="sellerMyPage.do?method=customerNotice">공지사항</a></h3>
 				<h3>상품관리</h3>
 				<h4><a href="sellerMyPage.do?method=productReg">등록</a></h4>
 				<h4><a href="sellerMyPage.do?method=customerProduct">수정/삭제</a></h4>
@@ -19,8 +19,8 @@
 				<h4>반품(환불)</h4>
 				<h4>교환</h4>
 				<h3>문의관리</h3>
-				<h4>상품문의</h4>
-				<h4>상점문의</h4>
+				<h4><a href="sellerMyPage.do?method=customerProductInquiry">상품문의</a></h4>
+				<h4><a href="sellerMyPage.do?method=customerStoreInquiry">상점문의</a></h4>
 			</div>
 		</div>
 		<div class="seller_my_content" style="width: 79%; float: left;">
