@@ -11,7 +11,7 @@
 	<div class="basketPage" style="margin: 0px 200px 0px 200px;">
 		<form method="post">
 			<div class="basket_top" align="right">
-				<input type="submit" value="삭제" height="100" style="font-size: 50;">
+				<input type="submit" value="삭제">
 			</div>		
 		
 			<table border="1"> 					

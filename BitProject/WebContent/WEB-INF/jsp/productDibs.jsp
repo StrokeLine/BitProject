@@ -11,7 +11,7 @@
 	<div class="dibsPage" style="margin: 0px 200px 0px 200px;">
 		<form method="post">	
 			<div class="dibs_top" style="height:300" align="right">
-				<input type="submit" value="삭제" height="100" style="font-size: 50;">
+				<input type="submit" value="삭제">
 			</div>			
 					
 			<table border="1"> 				
@@ -36,7 +36,6 @@
 				</c:forEach>
 				 --%>
 			</table>	
-				
 			<div class="dibs_bottom" style="height:300;" align="right">
 				<input type="submit" value="장바구니로 이동">	
 			</div>	
