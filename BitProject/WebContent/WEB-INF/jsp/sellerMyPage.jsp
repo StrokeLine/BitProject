@@ -13,7 +13,7 @@
 				<h3><a href="sellerMyPage.do?method=sellerMyStore">공지사항</a></h3>
 				<h3>상품관리</h3>
 				<h4><a href="sellerMyPage.do?method=productReg">등록</a></h4>
-				<h4>수정/삭제</h4>
+				<h4><a href="sellerMyPage.do?method=customerProduct">수정/삭제</a></h4>
 				<h3>주문/배송 관리</h3>
 				<h4>주문/배송</h4>
 				<h4>반품(환불)</h4>
