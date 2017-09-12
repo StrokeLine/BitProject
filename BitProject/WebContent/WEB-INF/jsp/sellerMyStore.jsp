@@ -7,19 +7,6 @@
 </head>
 <body>
 	<div class="seller_my_store_main" style="margin: 0px 200px 0px 200px;">
-		<div class="seller_my_store_left" style="width: 200px; float: left;">
-			<div class="seller_my_store_menu">
-				<div class="seller_product_control">
-					<h3>惑前包府</h3>
-					<ul style="list-style-type: none;">
-						<li>殿废</li>
-						<li>荐沥/昏力</li>
-					</ul>
-				</div>
-				<h3>林巩/硅价 包府</h3>
-				<h3>巩狼包府</h3>
-			</div>
-		</div>
 		<div class="seller_my_store_right" style="width: 69%; float: left;">
 			<div class="seller_my_store_top">
 				<div class="seller_my_store_img" style="width: 100%; display: inline-block;">

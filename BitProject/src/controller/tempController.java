@@ -62,6 +62,24 @@ public class tempController {
 		return mav;
 	}
 	
+	@RequestMapping("sellerMyPage.do")
+	public ModelAndView sellerMyPage() {
+		ModelAndView mav = new ModelAndView();
+		
+		mav.setViewName("sellerMyPage");
+		
+		return mav;
+	}
+	
+	@RequestMapping("modifyProduct.do")
+	public ModelAndView modifyProduct() {
+		ModelAndView mav = new ModelAndView();
+		
+		mav.setViewName("modifyProduct");
+		
+		return mav;
+	}
+	
 	@RequestMapping("productDibs.do")
 	public ModelAndView productDibs(){
 		ModelAndView mav = new ModelAndView();
