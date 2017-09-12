@@ -15,9 +15,9 @@
 				<h4><a href="sellerMyPage.do?method=productReg">등록</a></h4>
 				<h4><a href="sellerMyPage.do?method=customerProduct">수정/삭제</a></h4>
 				<h3>주문/배송 관리</h3>
-				<h4>주문/배송</h4>
-				<h4>반품(환불)</h4>
-				<h4>교환</h4>
+				<h4><a href="sellerMyPage.do?method=customerOrderDelivery">주문/배송</a></h4>
+				<h4><a href="sellerMyPage.do?method=customerTakeBack">반품(환불)</a></h4>
+				<h4><a href="sellerMyPage.do?method=customerSwap">교환</a></h4>
 				<h3>문의관리</h3>
 				<h4><a href="sellerMyPage.do?method=customerProductInquiry">상품문의</a></h4>
 				<h4><a href="sellerMyPage.do?method=customerStoreInquiry">상점문의</a></h4>
