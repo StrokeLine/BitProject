@@ -8,5 +8,11 @@ function myPagebutton(url){
 		location.reload(true);
 		return;
 	}
-	$(".container").load(url);
+	
+	if(url == "myPage"){
+		$(".container").load("myPageCtrl?myPageNum=1");
+	}else {
+		$(".container").load(url);		
+	}
+	
 }
