@@ -6,9 +6,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
 <body>
-		<frameset col="50%, * , 50%">
-			<frame src="main">
-		</frameset>
 	<div class="seller_my_page_main" style="margin: 0px 200px 0px 200px;">
 		<div class="seller_my_page_left" style="width: 20%; float: left;">
 			<div class="seller_my_page_menu">

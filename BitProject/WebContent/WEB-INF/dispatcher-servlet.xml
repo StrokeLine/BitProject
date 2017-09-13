@@ -12,8 +12,6 @@
 		<property name="suffix" value=".jsp"></property>
 	</bean>
 	
-	
-	
 	<bean class="org.springframework.web.multipart.commons.CommonsMultipartResolver" id="multipartResolver">
 	</bean>
 
@@ -21,10 +19,10 @@
 
 	<mvc:annotation-driven></mvc:annotation-driven>
 	
-	<mvc:resources location="resources/css/**" mapping="/css/" />
-	<mvc:resources location="resources/fonts/**" mapping="/fonts/" />
-	<mvc:resources location="resources/images/**" mapping="/images/" />
-	<mvc:resources location="resources/js/**" mapping="/js/" />
+	<mvc:resources location="resources/css/" mapping="/css/**" />
+	<mvc:resources location="resources/fonts/" mapping="/fonts/**" />
+	<mvc:resources location="resources/images/" mapping="/images/**" />
+	<mvc:resources location="resources/js/" mapping="/js/**" />
 	
 	
 <!-- 

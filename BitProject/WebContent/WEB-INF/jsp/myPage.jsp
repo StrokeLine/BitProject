@@ -22,7 +22,7 @@ qnaPageCtrl=request.getParameter("qnaPageCtrl");
 				if(fnPageCtrl!=null){	//하위분류 정보 있을 때
 					%>
 					<jsp:include page='followingNoti.jsp' flush="false">
-						<jsp:param value="<%=fnPageCtrl%>" name="fnPageCtrl"/>
+						<jsp:param value="followingNotiProduct" name="method"/>
 					</jsp:include>
 					<%
 				}else{

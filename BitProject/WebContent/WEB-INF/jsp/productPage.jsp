@@ -1,26 +1,26 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<script src="/BitProject/resources/js/productScript.js"></script>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<script src="/js/productScript.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
 <body>
 	<div class="productPage_Main" style="margin: 0px 200px 0px 200px;">
 		<div class="product_top">
 			<div class="product_img" style="width: 49%; display: inline-block;">
-				<h3>ÀÌ¹ÌÁö ¿µ¿ª</h3>
+				<h3>ì´ë¯¸ì§€ ì˜ì—­</h3>
 			</div>
 			<div class="productInfo" style="width: 49%; display: inline-block;">
 				<div class="product_name">
-					<h3>»óÇ°¸í</h3>
+					<h3>ìƒí’ˆëª…</h3>
 				</div>
 				<div class="product_price">
-					<h3>»óÇ°°¡°Ý</h3>
+					<h3>ìƒí’ˆê°€ê²©</h3>
 				</div>
 				<div class="product_option">
-					<h3>¿É¼Ç</h3>
+					<h3>ì˜µì…˜</h3>
 				</div>
 				<div class="product_num">
 					<input type="button" value="-">
@@ -29,31 +29,31 @@
 				</div>
 				<div class="product_fee">
 					<ul style="padding: 0px 0px 0px 0px; list-style-type: none;">
-						<li><em style="font-style: normal;">¹è¼Ûºñ</em></li>
-						<li><em style="font-style: normal;">¹è¼Ûºñ °áÁ¦ : </em> ÁÖ¹®½Ã °áÁ¦</li>
+						<li><em style="font-style: normal;">ë°°ì†¡ë¹„</em></li>
+						<li><em style="font-style: normal;">ë°°ì†¡ë¹„ ê²°ì œ : </em> ì£¼ë¬¸ì‹œ ê²°ì œ</li>
 					</ul>
 				</div>
 				<div class="product_total">
-					<div class="label_total" style="width: 50%; float: left;">ÃÑ »óÇ°±Ý¾×</div>
-					<div class="label_price" style="width: 50%; float: left;">2500<span>¿ø</span></div>
+					<div class="label_total" style="width: 50%; float: left;">ì´ ìƒí’ˆê¸ˆì•¡</div>
+					<div class="label_price" style="width: 50%; float: left;">2500<span>ì›</span></div>
 				</div>
 				<div class="product_btn_other">
-					<input type="button" value="Âò" onclick="dibsCheck()">
-					<input type="button" value="Àå¹Ù±¸´Ï" onclick="shoppingBasketCheck()">
-					<input type="button" value="ÁÖ¹®ÇÏ±â">
+					<input type="button" value="ì°œ" onclick="dibsCheck()">
+					<input type="button" value="ìž¥ë°”êµ¬ë‹ˆ" onclick="shoppingBasketCheck()">
+					<input type="button" value="ì£¼ë¬¸í•˜ê¸°">
 				</div>
 			</div>
 		</div>
 		<div class="product_middle">
 			<center>
-				<h3>»óÇ° Á¤º¸ ¿µ¿ª</h3>
+				<h3>ìƒí’ˆ ì •ë³´ ì˜ì—­</h3>
 			</center>
 		</div>
 		<div class="product_bottom">
 			<div class="product_grade">
-				<h3> »óÇ°Æò or ÈÄ±â</h3>
+				<h3> ìƒí’ˆí‰ or í›„ê¸°</h3>
 				<div class="product_grade_list_header">
-					<h5>|    »óÇ°Æò    |    ÀÌ¹ÌÁö    |    ³»¿ë    |    ¾ÆÀÌµð    |    ÀÛ¼ºÀÏ    |</h5>
+					<h5>|    ìƒí’ˆí‰    |    ì´ë¯¸ì§€    |    ë‚´ìš©    |    ì•„ì´ë””    |    ìž‘ì„±ì¼    |</h5>
 				</div>
 				<div class="product_grade_list" id="grade_list"></div>
 				<div class="product_grade_add">
@@ -63,29 +63,29 @@
 						<input type="text" id="g_content">
 						<input type="text" id="g_user_id">
 						<div class="product_grade_btn" style="float: right;">
-							<input type="button" value="µî·Ï" onclick="insertGrade()">
+							<input type="button" value="ë“±ë¡" onclick="insertGrade()">
 						</div>
 					</div>
 				</div>
 			</div>
 			<div class="product_inquiry">
-				<h3> »óÇ° ¹®ÀÇ</h3>
+				<h3> ìƒí’ˆ ë¬¸ì˜</h3>
 				<div class="product_inquiry_list_header">
-					<h5>|    ¹®ÀÇÀ¯Çü    |    ¹®ÀÇ/´äº¯    |    ÀÛ¼ºÀÚ    |    ÀÛ¼ºÀÏ    |</h5>
+					<h5>|    ë¬¸ì˜ìœ í˜•    |    ë¬¸ì˜/ë‹µë³€    |    ìž‘ì„±ìž    |    ìž‘ì„±ì¼    |</h5>
 				</div>
 				<div class="product_inquiry_list" id="inquiry_list"></div>
 				<div class="product_inquiry_add">
 					<div class="inquiry_add_form">
 						<select id="i_type">
-							<option value="»óÇ°">»óÇ°</option>
-							<option value="¹è¼Û">¹è¼Û</option>
-							<option value="¹ÝÇ°">¹ÝÇ°</option>
-							<option value="±âÅ¸">±âÅ¸</option>
+							<option value="ìƒí’ˆ">ìƒí’ˆ</option>
+							<option value="ë°°ì†¡">ë°°ì†¡</option>
+							<option value="ë°˜í’ˆ">ë°˜í’ˆ</option>
+							<option value="ê¸°íƒ€">ê¸°íƒ€</option>
 						</select>
 						<input type="text" id="i_classify">
 						<input type="text" id="i_user_id">				
 						<div class="product_inquiry_btn" style="float: right;">
-							<input type="button" value="µî·Ï" onclick="insertInquiry()"> 
+							<input type="button" value="ë“±ë¡" onclick="insertInquiry()"> 
 							
 						</div>
 					</div>
