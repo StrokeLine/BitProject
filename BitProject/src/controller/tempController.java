@@ -184,4 +184,13 @@ public class tempController {
 		return "qnaPageCtrl";
 	}
 	
+	@RequestMapping("followingNotiProduct")
+	public String followingNotiProduct() {
+		return "followingNotiProduct";
+	}
+	
+	@RequestMapping("followingNotiStore")
+	public String followingNotiStore() {
+		return "followingNotiStore";
+	}
 }

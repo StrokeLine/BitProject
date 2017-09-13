@@ -86,7 +86,6 @@
 						<input type="text" id="i_user_id">				
 						<div class="product_inquiry_btn" style="float: right;">
 							<input type="button" value="등록" onclick="insertInquiry()"> 
-							
 						</div>
 					</div>
 				</div>

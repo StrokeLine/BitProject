@@ -18,18 +18,12 @@ qnaPageCtrl=request.getParameter("qnaPageCtrl");
 			<td><a href="myPage">My Page</a></td>
 			<td rowspan="9">
 			<%
-			if(myPageCtrl=="followingNoti"){	//관심스토어 알림
-				if(fnPageCtrl!=null){	//하위분류 정보 있을 때
-					%>
+			if(myPageCtrl.equals("followingNoti")){	//관심스토어 알림
+				%>
 					<jsp:include page='followingNoti.jsp' flush="false">
 						<jsp:param value="followingNotiProduct" name="method"/>
 					</jsp:include>
-					<%
-				}else{
-				%>
-				<jsp:include page='followingNoti.jsp' flush="false"></jsp:include>
 				<%
-				}
 			}else if(myPageCtrl=="qAndA"){	//문의사항
 				if(qnaPageCtrl!=null){	//하위분류 정보 있을 때
 					%>

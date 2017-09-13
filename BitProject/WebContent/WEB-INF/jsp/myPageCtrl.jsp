@@ -36,6 +36,7 @@ switch(myPageNum){
 	default:	//내 정보
 		myPageCtrl="memberInfo";
 }
+
 %>
 <jsp:forward page="myPage.jsp">
 	<jsp:param value="<%=myPageCtrl%>" name="myPageCtrl"/>
