@@ -7,7 +7,7 @@ function changePage(url) {
 		location.reload(true);
 		return;
 	}
-	/*
+	
 	$.ajax({
 		type: 'POST',
 		url: url,
@@ -23,6 +23,8 @@ function changePage(url) {
 			alert(error);
 		}
 	});
-	*/
+	
+	/*
 	$(".followingNoti_content").load(url);
+	*/
 }
