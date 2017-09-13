@@ -25,6 +25,6 @@ function changePage(url) {
 	});
 	*/
 	
-	$(".followingNoti_content").html(url);
+	$(".followingNoti_content").load(url);
 	
 }
