@@ -7,7 +7,7 @@
 <meta name="Keywords" content="메인페이지" />
 <meta name="Description" content="메인페이지" />
 <link rel="stylesheet" href="/css/style.css" type="text/css">
-
+<script src="/js/pageScript.js"></script>
 <title>Insert title here</title>
 </head>
 <body>
@@ -17,30 +17,10 @@
 	<div class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
 		<%@ include file="topLogin.jsp" %>
 	</div>
-
-	<div class="main_menu">
-		<%@ include file="main_meun.jsp" %>
+	
+	<div class="container">
+		<%@ include file="container.jsp"%>
 	</div>
-    
-    <div class="content">
-    <img src="resources/images/logo.jpg" class="freehagae" alt="FreeHaGae" />
-    </div>
-    
-    <div class="content">
-    <img src="resources/images/logo.jpg" class="freehagae" alt="FreeHaGae" />
-    </div>
-    
-    <div class="content">
-    <img src="resources/images/logo.jpg" class="freehagae" alt="FreeHaGae" />
-    </div>
-    
-    <div class="content">
-    <img src="resources/images/logo.jpg" class="freehagae" alt="FreeHaGae" />
-    </div>
-    
-    <div class="sidebar">
-    	확인중
-    </div>
     	
 </div>
 

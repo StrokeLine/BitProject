@@ -7,20 +7,21 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="/css/bootstrap.css" type="text/css" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="/js/pageScript.js"></script>
 <title>Insert title here</title>
 </head>
 <body>
 
 <div id ="logo" class="logo">
 	<a href="main.do">
-		<img src="resources/images/logo.jpg" class="freehagae" alt="FreeHaGae" />
+		<img src="/images/logo.jpg" class="freehagae" alt="FreeHaGae" />
 	</a>
 </div>
 <div id="member_Menu" class="member_Menu">
 	<button type="button" class="btn btn-primary" onclick="location='main.do'">로그아웃</button>
-	<button type="button" class="btn btn-primary" onclick="location='myPage.do'">마이페이지</button>
+	<button type="button" class="btn btn-primary" onclick="myPagebutton('myPage')">마이페이지</button>
 </div>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script type="text/javascript" src="/js/bootstrap.js"></script>
 </body>
-</html>s
+</html>
