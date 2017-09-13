@@ -1,20 +1,20 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>ΘΈΏψ Ε»Επ</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>νμ› νƒν‡΄</title>
 </head>
 <body>
 	<div class="delete_page">
 		<div class="delete_info">
-			ΎΖΐΜµπ<br>
-			ΊρΉΠΉψΘ£ <input type="password" name="passwd"><br>
-			Ε»Επ»ηΐ―<textarea style="height:120px;width:380px;" ></textarea><br>
+			μ•„μ΄λ””<br>
+			λΉ„λ°€λ²νΈ <input type="password" name="passwd"><br>
+			νƒν‡΄μ‚¬μ <textarea style="height:120px;width:380px;" ></textarea><br>
 		</div>
 		<div class="delete_btn">
-			<input type="button" value="Ε»ΕπΗΟ±β">		
+			<input type="button" value="νƒν‡΄ν•κΈ°">		
 		</div>
 	</div>
 </body>

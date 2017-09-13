@@ -4,17 +4,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>찜 확인 페이지</title>
+<title>Insert title here</title>
 </head>
 <body>
-	<div class="dibsMain">
-		<div class="dibs_subject">
-			<h3>찜 확인 페이지</h3>
-		</div>
-		<div class="dibs_btn">
-			<input type="button" value="확인">
-			<input type="button" value="취소">
-		</div>
-	</div>
+
 </body>
 </html>

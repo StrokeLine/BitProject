@@ -1,19 +1,19 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>厘官备聪 犬牢 其捞瘤</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>鞛ル皵甑媹 頇曥澑 韼橃澊歆�</title>
 </head>
 <body>
 	<div class="shoppingBasketMain">
 		<div class="shoppingBasket_subject">
-			<h3>厘官备聪 犬牢 其捞瘤</h3>
+			<h3>鞛ル皵甑媹 頇曥澑 韼橃澊歆�</h3>
 		</div>
 		<div class="shoppingBasket_btn">
-			<input type="button" value="犬牢">
-			<input type="button" value="秒家">
+			<input type="button" value="頇曥澑">
+			<input type="button" value="旆唽">
 		</div>
 	</div>
 </body>

@@ -1,28 +1,28 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>Àå¹Ù±¸´Ï</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>ìž¥ë°”êµ¬ë‹ˆ</title>
 </head>
 <body>
 	<div class="basketPage" style="margin: 0px 200px 0px 200px;">
 		<form method="post">
 			<div class="basket_top" align="right">
-				<input type="submit" value="»èÁ¦">
+				<input type="submit" value="ì‚­ì œ">
 			</div>		
 		
 			<table border="1"> 					
 				<tr>
 					<td><input type="checkbox" name="checkAll"></td>
-					<th width="250">»óÇ° ÀÌ¹ÌÁö</th>
-					<th width="350">»óÇ°¸í</th>
-					<th width="200">¼ö·®</th>
-					<th width="200">±Ý¾×</th>
-					<th width="200">¹è¼Ûºñ</th>	
-					<th width="200">ÃÖÁ¾±Ý¾×</th>	
+					<th width="250">ìƒí’ˆ ì´ë¯¸ì§€</th>
+					<th width="350">ìƒí’ˆëª…</th>
+					<th width="200">ìˆ˜ëŸ‰</th>
+					<th width="200">ê¸ˆì•¡</th>
+					<th width="200">ë°°ì†¡ë¹„</th>	
+					<th width="200">ìµœì¢…ê¸ˆì•¡</th>	
 				</tr>
 				<%-- 
 				<c:forEach items="" var="">
@@ -30,23 +30,23 @@
 					<td>
 						<input type="checkbox" name="checkRow">
 					</td>
-					<td>ÀÌ¹ÌÁö ¿µ¿ª </td>
-					<td>»óÇ°¸í</td>	
+					<td>ì´ë¯¸ì§€ ì˜ì—­ </td>
+					<td>ìƒí’ˆëª…</td>	
 					<td>
 						<input type="button" value="-">
 						<input type="text" style="width: 25px;" value="1">
 						<input type="button" value="+">
 					</td>			
-					<td>»óÇ°°¡°Ý</td>	
-					<td>¹è¼Ûºñ</td>
-					<td>ÃÖÁ¾±Ý¾×</td>
+					<td>ìƒí’ˆê°€ê²©</td>	
+					<td>ë°°ì†¡ë¹„</td>
+					<td>ìµœì¢…ê¸ˆì•¡</td>
 				</tr>				
 				</c:forEach>
 				 --%>
 			</table>
 			
 			<div class="basket_bottom" align="right">
-				<input type="submit" value="ÁÖ¹®ÇÏ±â">	
+				<input type="submit" value="ì£¼ë¬¸í•˜ê¸°">	
 			</div>	
 		</form>	
 	</div>

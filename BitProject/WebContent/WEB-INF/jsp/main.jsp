@@ -23,21 +23,7 @@
 	</div>
     
     <div class="container">
-	    <div class="content">
-	    	<img src="resources/images/logo.jpg" class="freehagae" alt="FreeHaGae" />
-	    </div>
-	    
-	    <div class="content">
-	   		<img src="resources/images/logo.jpg" class="freehagae" alt="FreeHaGae" />
-	    </div>
-	    
-	    <div class="content">
-	    	<img src="resources/images/logo.jpg" class="freehagae" alt="FreeHaGae" />
-	    </div>
-	    
-	    <div class="content">
-	    	<img src="resources/images/logo.jpg" class="freehagae" alt="FreeHaGae" />
-	    </div>
+	    <%@ include file="container.jsp" %>
     </div>
     
     <div class="sidebar">
