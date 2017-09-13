@@ -13,7 +13,7 @@
 
 <div id ="logo" class="logo">
 	<a href="main">
-		<img src="resources/images/logo.jpg" class="freehagae" alt="FreeHaGae" />
+		<img src="/images/logo.jpg" class="freehagae" alt="FreeHaGae" />
 	</a>
 </div>
 <div id="member_Menu" class="member_Menu">
@@ -29,6 +29,6 @@
 	</c:choose>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script type="text/javascript" src="js/bootstrap.js"></script>
+<script type="text/javascript" src="/js/bootstrap.js"></script>
 </body>
 </html>
