@@ -13,7 +13,7 @@
 			<h4><a href="javascript:changePage('followingNotiProduct')">상품별 조회</a></h4>
 		</div>
 		<div class="followingNoti_store" style="display: inline-block;">
-			<h4><a href="javascript:changePage('followingNotiStore')">상품별 조회</a></h4>		
+			<h4><a href="javascript:changePage('followingNotiStore')">상점별 조회</a></h4>		
 		</div>
 	</div>
 	<div class="followingNoti_bottom">
