@@ -33,8 +33,8 @@
 		</div>
 			
 		<div class="find_Bt" id="find_Bt">
-			<button type="button" class="btn btn-default" onclick="idFind.do">아이디 찾기</button>
-			<button type="button" class="btn btn-default" onclick="pwFind.do">비밀번호 찾기</button>
+			<button type="button" class="btn btn-default" onclick="location='idFind.do'">아이디 찾기</button>
+			<button type="button" class="btn btn-default" onclick="location='pwFind.do'">비밀번호 찾기</button>
 		</div>
 		
 		<div class="login_Bt" id="login_Bt">

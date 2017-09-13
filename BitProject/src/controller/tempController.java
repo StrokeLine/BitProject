@@ -35,6 +35,15 @@ public class tempController {
 		return mav;
 	}
 	
+	@RequestMapping("idFind.do")
+	public ModelAndView idFind(){
+		ModelAndView mav = new ModelAndView();
+		
+		mav.setViewName("idFind");
+		
+		return mav;
+	}
+	
 	@RequestMapping("productPage.do")
 	public ModelAndView productPage() {
 		ModelAndView mav = new ModelAndView();
