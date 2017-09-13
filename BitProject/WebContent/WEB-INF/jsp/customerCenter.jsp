@@ -1,21 +1,21 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
 	<div class="customerCenter_page">
 		<div class="customerCenter_list">
-			<h3>³ªÀÇ ¹®ÀÇ³»¿ª</h3>
+			<h3>ë‚˜ì˜ ë¬¸ì˜ë‚´ì—­</h3>
 			<table border="1">
 				<tr>
 					<td width="40" align="center">NO</td>
-					<td width="500" align="center">¹®ÀÇ³»¿ë</td>					
-					<td width="100" align="center">¹®ÀÇÀÏ</td>
+					<td width="500" align="center">ë¬¸ì˜ë‚´ìš©</td>					
+					<td width="100" align="center">ë¬¸ì˜ì¼</td>
 				</tr>
 				<c:forEach items="">
 				<tr>				
@@ -28,25 +28,25 @@
 		</div><br><br><br>
 		
 		<div class="customerCenter_add">
-			<h3>¹®ÀÇÇÏ±â</h3>
+			<h3>ë¬¸ì˜í•˜ê¸°</h3>
 			<table border="1">
 				<tr>
-					<td>¹®ÀÇ Á¦¸ñ</td>
+					<td>ë¬¸ì˜ ì œëª©</td>
 					<td><input type="text" size="50"></td>			
 				</tr>
 				<tr>
-					<td>¹®ÀÇ ³»¿ë</td>
+					<td>ë¬¸ì˜ ë‚´ìš©</td>
 					<td><textarea style="height:120px;width:380px;"></textarea></td>			
 				</tr>
 				<tr>
-					<td>´äº¯¹ÞÀ¸½Ç email ÁÖ¼Ò</td>	
+					<td>ë‹µë³€ë°›ìœ¼ì‹¤ email ì£¼ì†Œ</td>	
 					<td><input type="text" size="50"></td>		
 				</tr>
 			</table>				
 		</div>
 		
 		<div class="customerCenter_btn">
-			<input type="button" value="¹®ÀÇÇÏ±â">
+			<input type="button" value="ë¬¸ì˜í•˜ê¸°">
 		</div>
 	</div>
 </body>
