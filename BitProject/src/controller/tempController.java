@@ -8,7 +8,7 @@ import org.springframework.web.servlet.ModelAndView;
 public class tempController {
 		
 	
-	@RequestMapping("main.do")
+	@RequestMapping("main")
 	public ModelAndView main() {
 		ModelAndView mav = new ModelAndView();
 		
@@ -17,7 +17,7 @@ public class tempController {
 		return mav;
 	}
 	
-	@RequestMapping("loginForm.do")
+	@RequestMapping("loginForm")
 	public ModelAndView loginForm() {
 		ModelAndView mav = new ModelAndView();
 		
@@ -26,7 +26,7 @@ public class tempController {
 		return mav;
 	}
 	
-	@RequestMapping("joinForm.do")
+	@RequestMapping("joinForm")
 	public ModelAndView joinForm(){
 		ModelAndView mav = new ModelAndView();
 		
@@ -35,7 +35,7 @@ public class tempController {
 		return mav;
 	}
 	
-	@RequestMapping("productPage.do")
+	@RequestMapping("productPage")
 	public ModelAndView productPage() {
 		ModelAndView mav = new ModelAndView();
 		
@@ -44,7 +44,7 @@ public class tempController {
 		return mav;
 	}
 	
-	@RequestMapping("productReg.do")
+	@RequestMapping("productReg")
 	public ModelAndView productReg() {
 		ModelAndView mav = new ModelAndView();
 		
@@ -53,7 +53,7 @@ public class tempController {
 		return mav;
 	}
 	
-	@RequestMapping("sellerMyStore.do")
+	@RequestMapping("sellerMyStore")
 	public ModelAndView sellerMyStore() {
 		ModelAndView mav = new ModelAndView();
 		
@@ -62,7 +62,7 @@ public class tempController {
 		return mav;
 	}
 	
-	@RequestMapping("sellerMyPage.do")
+	@RequestMapping("sellerMyPage")
 	public ModelAndView sellerMyPage() {
 		ModelAndView mav = new ModelAndView();
 		
@@ -71,7 +71,7 @@ public class tempController {
 		return mav;
 	}
 	
-	@RequestMapping("modifyProduct.do")
+	@RequestMapping("modifyProduct")
 	public ModelAndView modifyProduct() {
 		ModelAndView mav = new ModelAndView();
 		
@@ -80,35 +80,35 @@ public class tempController {
 		return mav;
 	}
 	
-	@RequestMapping("productDibs.do")
+	@RequestMapping("productDibs")
 	public ModelAndView productDibs(){
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("productDibs");		
 		return mav;		
 	}
 	
-	@RequestMapping("productBasket.do")
+	@RequestMapping("productBasket")
 	public ModelAndView productBsket(){
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("productBasket");		
 		return mav;		
 	}
 	
-	@RequestMapping("modifyMember.do")
+	@RequestMapping("modifyMember")
 	public ModelAndView modifyMember(){
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("modifyMember");		
 		return mav;		
 	}
 	
-	@RequestMapping("deleteMember.do")
+	@RequestMapping("deleteMember")
 	public ModelAndView deleteMember(){
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("deleteMember");		
 		return mav;		
 	}
 
-	@RequestMapping("dibsCheck.do")
+	@RequestMapping("dibsCheck")
 	public ModelAndView dibsCheck() {
 		ModelAndView mav = new ModelAndView();
 		
@@ -117,7 +117,7 @@ public class tempController {
 		return mav;
 	}
 	
-	@RequestMapping("shoppingBasketCheck.do")
+	@RequestMapping("shoppingBasketCheck")
 	public ModelAndView shoppingBasketCheck() {
 		ModelAndView mav = new ModelAndView();
 		
@@ -126,7 +126,7 @@ public class tempController {
 		return mav;
 	}
 	
-	@RequestMapping("myPage.do")
+	@RequestMapping("myPage")
 	public ModelAndView myPage(String myPageCtrl) {
 		ModelAndView mav=new ModelAndView();
 		if(myPageCtrl!=null){
@@ -136,21 +136,21 @@ public class tempController {
 		return mav;
 	}
 	
-	@RequestMapping("myPageCtrl.do")
+	@RequestMapping("myPageCtrl")
 	public String myPageCtrl(String myPageNum) {
 		ModelAndView mav=new ModelAndView();
 		mav.addObject("myPageNum", myPageNum);
 		return "myPageCtrl";
 	}
 	
-	@RequestMapping("fnPageCtrl.do")
+	@RequestMapping("fnPageCtrl")
 	public String fnPageCtrl(String fnPageNum) {
 		ModelAndView mav=new ModelAndView();
 		mav.addObject("fnPageNum", fnPageNum);
 		return "fnPageCtrl";
 	}
 	
-	@RequestMapping("qnaPageCtrl.do")
+	@RequestMapping("qnaPageCtrl")
 	public String qnaPageCtrl(String qnaPageNum) {
 		ModelAndView mav=new ModelAndView();
 		mav.addObject("qnaPageNum", qnaPageNum);

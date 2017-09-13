@@ -8,8 +8,8 @@ qnaPageCtrl=request.getParameter("qnaPageCtrl");
 <form>
 	<table>
 		<tr>
-			<td><a href="qnaPageCtrl.do?qnaPageNum=1">상품문의</a></td>
-			<td><a href="qnaPageCtrl.do?qnaPageNum=2">상점문의</a></td>
+			<td><a href="qnaPageCtrl?qnaPageNum=1">상품문의</a></td>
+			<td><a href="qnaPageCtrl?qnaPageNum=2">상점문의</a></td>
 		</tr>
 		<tr>
 			<td colspan="2">

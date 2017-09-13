@@ -15,7 +15,7 @@ qnaPageCtrl=request.getParameter("qnaPageCtrl");
 			<td colspan="2">프리하개</td>
 		</tr>
 		<tr>
-			<td><a href="myPage.do">My Page</a></td>
+			<td><a href="myPage">My Page</a></td>
 			<td rowspan="9">
 			<%
 			if(myPageCtrl=="followingNoti"){	//관심스토어 알림
@@ -55,43 +55,43 @@ qnaPageCtrl=request.getParameter("qnaPageCtrl");
 			</td>
 		</tr>
 		<tr>
-			<td><a href="myPageCtrl.do?myPageNum=1">내 정보</a></td>
+			<td><a href="myPageCtrl?myPageNum=1">내 정보</a></td>
 		</tr>
 		<tr>
-			<td><a href="myPageCtrl.do?myPageNum=2">판매자 등록/내 상점</a></td>
+			<td><a href="myPageCtrl?myPageNum=2">판매자 등록/내 상점</a></td>
 		</tr>
 		<tr>
 			<td>
 			<%
 			if(fnPageCtrl!=null){
 				%>
-				<a href="myPageCtrl.do?myPageNum=3&fnPageCtrl=<%=fnPageCtrl%>">관심스토어 알림</a>
+				<a href="myPageCtrl?myPageNum=3&fnPageCtrl=<%=fnPageCtrl%>">관심스토어 알림</a>
 				<%
 			}else{
 				%>
-				<a href="myPageCtrl.do?myPageNum=3">관심스토어 알림</a>
+				<a href="myPageCtrl?myPageNum=3">관심스토어 알림</a>
 				<%
 			}
 			%>
 			</td>
 		</tr>
 		<tr>
-			<td><a href="myPageCtrl.do?myPageNum=4">찜</a></td>
+			<td><a href="myPageCtrl?myPageNum=4">찜</a></td>
 		</tr>
 		<tr>
-			<td><a href="myPageCtrl.do?myPageNum=5">장바구니</a></td>
+			<td><a href="myPageCtrl?myPageNum=5">장바구니</a></td>
 		</tr>
 		<tr>
-			<td><a href="myPageCtrl.do?myPageNum=6">주문/배송</a></td>
+			<td><a href="myPageCtrl?myPageNum=6">주문/배송</a></td>
 		</tr>
 		<tr>
-			<td><a href="myPageCtrl.do?myPageNum=7">문의사항</a></td>
+			<td><a href="myPageCtrl?myPageNum=7">문의사항</a></td>
 		</tr>
 		<tr>
-			<td><a href="myPageCtrl.do?myPageNum=8">고객센터</a></td>
+			<td><a href="myPageCtrl?myPageNum=8">고객센터</a></td>
 		</tr>
 		<tr>
-			<td><a href="myPageCtrl.do?myPageNum=9">탈퇴하기</a></td>
+			<td><a href="myPageCtrl?myPageNum=9">탈퇴하기</a></td>
 		</tr>
 	</table>
 </form>

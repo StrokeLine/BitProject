@@ -7,8 +7,8 @@ fnPageCtrl=request.getParameter("fnPageCtrl");
 <form>
 	<table>
 		<tr>
-			<td><a href="fnPageCtrl.do?fnPageNum=1">상품별 조회</a></td>
-			<td><a href="fnPageCtrl.do?fnPageNum=2">상점별 조회</a></td>
+			<td><a href="fnPageCtrl?fnPageNum=1">상품별 조회</a></td>
+			<td><a href="fnPageCtrl?fnPageNum=2">상점별 조회</a></td>
 		</tr>
 		<tr>
 			<td colspan="2">

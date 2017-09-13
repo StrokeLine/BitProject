@@ -41,7 +41,7 @@
 		
 		<div class="join_Bt" id="join_Bt">
 			<button type="submit" class="btn btn-primary">회원가입</button>
-			<button type="reset" class="btn btn-success" onclick="location='main.do'">취소</button>
+			<button type="reset" class="btn btn-success" onclick="location='main'">취소</button>
 		</div>		
 		
 	</div>

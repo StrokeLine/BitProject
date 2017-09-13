@@ -6,21 +6,24 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
 <body>
+		<frameset col="50%, * , 50%">
+			<frame src="main">
+		</frameset>
 	<div class="seller_my_page_main" style="margin: 0px 200px 0px 200px;">
 		<div class="seller_my_page_left" style="width: 20%; float: left;">
 			<div class="seller_my_page_menu">
-				<h3><a href="sellerMyPage.do?method=sellerMyStore">상점정보</a></h3>
-				<h3><a href="sellerMyPage.do?method=customerNotice">공지사항</a></h3>
+				<h3><a href="sellerMyPage?method=sellerMyStore">상점정보</a></h3>
+				<h3><a href="sellerMyPage?method=customerNotice">공지사항</a></h3>
 				<h3>상품관리</h3>
-				<h4><a href="sellerMyPage.do?method=productReg">등록</a></h4>
-				<h4><a href="sellerMyPage.do?method=customerProduct">수정/삭제</a></h4>
+				<h4><a href="sellerMyPage?method=productReg">등록</a></h4>
+				<h4><a href="sellerMyPage?method=customerProduct">수정/삭제</a></h4>
 				<h3>주문/배송 관리</h3>
-				<h4><a href="sellerMyPage.do?method=customerOrderDelivery">주문/배송</a></h4>
-				<h4><a href="sellerMyPage.do?method=customerTakeBack">반품(환불)</a></h4>
-				<h4><a href="sellerMyPage.do?method=customerSwap">교환</a></h4>
+				<h4><a href="sellerMyPage?method=customerOrderDelivery">주문/배송</a></h4>
+				<h4><a href="sellerMyPage?method=customerTakeBack">반품(환불)</a></h4>
+				<h4><a href="sellerMyPage?method=customerSwap">교환</a></h4>
 				<h3>문의관리</h3>
-				<h4><a href="sellerMyPage.do?method=customerProductInquiry">상품문의</a></h4>
-				<h4><a href="sellerMyPage.do?method=customerStoreInquiry">상점문의</a></h4>
+				<h4><a href="sellerMyPage?method=customerProductInquiry">상품문의</a></h4>
+				<h4><a href="sellerMyPage?method=customerStoreInquiry">상점문의</a></h4>
 			</div>
 		</div>
 		<div class="seller_my_content" style="width: 79%; float: left;">

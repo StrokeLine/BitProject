@@ -33,13 +33,13 @@
 		</div>
 			
 		<div class="find_Bt" id="find_Bt">
-			<button type="button" class="btn btn-default" onclick="idFind.do">아이디 찾기</button>
-			<button type="button" class="btn btn-default" onclick="pwFind.do">비밀번호 찾기</button>
+			<button type="button" class="btn btn-default" onclick="idFind">아이디 찾기</button>
+			<button type="button" class="btn btn-default" onclick="pwFind">비밀번호 찾기</button>
 		</div>
 		
 		<div class="login_Bt" id="login_Bt">
 			<button type="submit" class="btn btn-info">로그인</button>
-			<button type="reset" class="btn btn-info" onclick="location='main.do'">취소</button>
+			<button type="reset" class="btn btn-info" onclick="location='main'">취소</button>
 		</div>
 
 	</div>

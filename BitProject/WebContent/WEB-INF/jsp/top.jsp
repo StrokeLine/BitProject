@@ -6,25 +6,25 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" href="resources/css/bootstrap.css" type="text/css" />
+<link rel="stylesheet" href="/css/bootstrap.css" type="text/css" />
 <title>Insert title here</title>
 </head>
 <body>
 
 <div id ="logo" class="logo">
-	<a href="main.do">
+	<a href="main">
 		<img src="resources/images/logo.jpg" class="freehagae" alt="FreeHaGae" />
 	</a>
 </div>
 <div id="member_Menu" class="member_Menu">
 	<c:choose>
 		<c:when test="${empty check}">
-			<button type="button" class="btn btn-primary" onclick="location='loginForm.do'">로그인</button>
-			<button type="button" class="btn btn-primary" onclick="location='joinForm.do'">회원가입</button>
+			<button type="button" class="btn btn-primary" onclick="location='loginForm'">로그인</button>
+			<button type="button" class="btn btn-primary" onclick="location='joinForm'">회원가입</button>
 		</c:when>
 		<c:otherwise>
-			<input type="button" value="로그아웃" onclick="location='main.do'">
-			<input type="button" value="마이페이지" onclick="location='mypage.do'">
+			<input type="button" value="로그아웃" onclick="location='main'">
+			<input type="button" value="마이페이지" onclick="location='mypage'">
 		</c:otherwise>
 	</c:choose>
 </div>
