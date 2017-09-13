@@ -4,9 +4,33 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="/css/style.css" type="text/css">
+
 <title>Insert title here</title>
 </head>
 <body>
+	<div class="main_menu">
+		<%@ include file="main_meun.jsp"%>
+	</div>
+
+	<div class="content" id="content">
+		<img src="/images/logo.jpg" class="freehagae" alt="FreeHaGae" />
+	</div>
+	
+	<div class="content" id="content">
+		<img src="/images/logo.jpg" class="freehagae" alt="FreeHaGae" />
+	</div>
+	
+	<div class="content" id="content">
+		<img src="/images/logo.jpg" class="freehagae" alt="FreeHaGae" />
+	</div>
+	
+	<div class="content" id="content">
+		<img src="/images/logo.jpg" class="freehagae" alt="FreeHaGae" />
+	</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script type="text/javascript" src="/js/bootstrap.js"></script>
 
 </body>
 </html>

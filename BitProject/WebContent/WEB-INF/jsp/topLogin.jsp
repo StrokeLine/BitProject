@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" href="resources/css/bootstrap.css" type="text/css" />
+<link rel="stylesheet" href="/css/bootstrap.css" type="text/css" />
 <title>Insert title here</title>
 </head>
 <body>
@@ -21,6 +21,6 @@
 	<button type="button" class="btn btn-primary" onclick="location='myPage.do'">마이페이지</button>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script type="text/javascript" src="js/bootstrap.js"></script>
+<script type="text/javascript" src="/js/bootstrap.js"></script>
 </body>
 </html>s

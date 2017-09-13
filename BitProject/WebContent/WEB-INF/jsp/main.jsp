@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -12,32 +12,23 @@
 </head>
 <body>
 
-<div class="wrap">
+	<div class="wrap">
+		<div class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+			<%@ include file="top.jsp"%>
+		</div>
 
-	<div class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-		<%@ include file="top.jsp" %>
+		
+		<div class="container">
+			<%@ include file="container.jsp"%>
+		</div>
+
 	</div>
 
-	<div class="main_menu">
-		<%@ include file="main_meun.jsp" %>
-	</div>
-    
-    <div class="container">
-	    <%@ include file="container.jsp" %>
-    </div>
-    
-    <div class="sidebar">
-    	확인중
-    </div>
-    	
-</div>
-
-    <footer>
-		<%@ include file="footer.jsp" %>
+	<footer> <%@ include file="footer.jsp"%>
 	</footer>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script type="text/javascript" src="/js/bootstrap.js"></script>
+	<script	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script type="text/javascript" src="/js/bootstrap.js"></script>
 
 </body>
 </html>

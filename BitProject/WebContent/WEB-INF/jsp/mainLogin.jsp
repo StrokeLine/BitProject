@@ -6,7 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="Keywords" content="메인페이지" />
 <meta name="Description" content="메인페이지" />
-<link rel="stylesheet" href="resources/css/style.css" type="text/css">
+<link rel="stylesheet" href="/css/style.css" type="text/css">
 
 <title>Insert title here</title>
 </head>
@@ -47,6 +47,8 @@
     <footer>
 		<%@ include file="footer.jsp" %>
 	</footer>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script type="text/javascript" src="/js/bootstrap.js"></script>
 
 </body>
 </html>
