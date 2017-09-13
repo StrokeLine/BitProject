@@ -58,7 +58,7 @@ qnaPageCtrl=request.getParameter("qnaPageCtrl");
 			<td><a href="myPageCtrl?myPageNum=1">내 정보</a></td>
 		</tr>
 		<tr>
-			<td><a href="myPageCtrl?myPageNum=2">판매자 등록/내 상점</a></td>
+			<td><a href="sellerMyPage.do?method=sellerMyStore">판매자 등록/내 상점</a></td>
 		</tr>
 		<tr>
 			<td>

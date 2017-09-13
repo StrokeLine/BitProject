@@ -38,7 +38,7 @@
 		</div>
 		
 		<div class="login_Bt" id="login_Bt">
-			<button type="submit" class="btn btn-info">로그인</button>
+			<button type="submit" class="btn btn-info" onclick="location='mainLogin'">로그인</button>
 			<button type="reset" class="btn btn-info" onclick="location='main'">취소</button>
 		</div>
 

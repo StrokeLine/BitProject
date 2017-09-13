@@ -44,6 +44,24 @@ public class tempController {
 		return mav;
 	}
 	
+	@RequestMapping("pwFind")
+	public ModelAndView pwFind(){
+		ModelAndView mav = new ModelAndView();
+		
+		mav.setViewName("pwFind");
+		
+		return mav;
+	}
+	
+	@RequestMapping("mainLogin")
+	public ModelAndView mainLogin(){
+		ModelAndView mav = new ModelAndView();
+		
+		mav.setViewName("mainLogin");
+		
+		return mav;
+	}
+	
 	@RequestMapping("productPage")
 	public ModelAndView productPage() {
 		ModelAndView mav = new ModelAndView();
