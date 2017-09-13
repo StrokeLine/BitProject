@@ -193,4 +193,11 @@ public class tempController {
 	public String followingNotiStore() {
 		return "followingNotiStore";
 	}
+	
+	@RequestMapping("orderProduct")
+	public ModelAndView orderProduct() {
+		ModelAndView mav = new ModelAndView();		
+		mav.setViewName("orderProduct");		
+		return mav;
+	}
 }
