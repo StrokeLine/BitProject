@@ -72,8 +72,8 @@
 					<option value=""></option>						
 				</select>
 		</div>
-		<div class="paymentAcount">
-			<label><input type="radio" name="paymentMethod" value="acount">무통장 입금</label><br>
+		<div class="paymentAccount">
+			<label><input type="radio" name="paymentMethod" value="account">무통장 입금</label><br>
 				<select>
 					<option value=""></option>			
 				</select>
