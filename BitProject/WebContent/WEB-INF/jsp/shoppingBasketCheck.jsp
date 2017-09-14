@@ -12,9 +12,18 @@
 			<h3>장바구니 확인 페이지</h3>
 		</div>
 		<div class="shoppingBasket_btn">
-			<input type="button" value="확인">
-			<input type="button" value="취소">
+			<input type="button" value="확인" onclick="goMyBasket()">
+			<input type="button" value="취소" onclick="closePage()">
 		</div>
 	</div>
 </body>
+<script type="text/javascript">
+	function goMyBasket() {
+		
+	}
+	
+	function closePage() {
+		window.close();
+	}
+</script>
 </html>

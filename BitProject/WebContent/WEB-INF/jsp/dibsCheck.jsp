@@ -12,9 +12,18 @@
 			<h3>찜 확인 페이지</h3>
 		</div>
 		<div class="dibs_btn">
-			<input type="button" value="확인">
-			<input type="button" value="취소">
+			<input type="button" value="확인" onclick="goMyPage()">
+			<input type="button" value="취소" onclick="closePage()">
 		</div>
 	</div>
 </body>
+<script type="text/javascript">
+	function goMyPage() {
+		
+	}
+	
+	function closePage() {
+		window.close();
+	}
+</script>
 </html>

@@ -3,7 +3,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<script src="/js/productScript.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
 <body>
@@ -40,7 +39,7 @@
 				<div class="product_btn_other">
 					<input type="button" value="찜" onclick="dibsCheck()">
 					<input type="button" value="장바구니" onclick="shoppingBasketCheck()">
-					<input type="button" value="주문하기" onclick="location.href='orderProduct'">
+					<input type="button" value="주문하기" onclick="productClick('orderProduct')">
 				</div>
 			</div>
 		</div>
@@ -93,4 +92,6 @@
 		</div>
 	</div>
 </body>
+
+
 </html>
