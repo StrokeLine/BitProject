@@ -85,8 +85,19 @@
 				</select>
 		</div>	
 	<div class="order_btn">
-		<input type="button" value="결제하기" onclick="">	
+		<input type="button" value="결제하기" onclick="orderCheck()">	
 	</div>
 </div>
 </body>
+<script type="text/javascript">
+//장바구니 확인 페이지
+function orderCheck() {
+	var url = "orderCheck";
+	var windowW = 450;  // 창의 가로 길이
+    var windowH = 200;  // 창의 세로 길이
+    var left = (window.screen.width - windowW)/2;
+    var top = (window.screen.height - windowH)/3;
+    open(url,"결제 환료 페이지","top="+top+", left="+left+", height="+windowH+", width="+windowW);
+}
+</script>
 </html>

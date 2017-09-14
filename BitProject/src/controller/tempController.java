@@ -35,6 +35,15 @@ public class tempController {
 		return mav;
 	}
 	
+	@RequestMapping("petInfo")
+	public ModelAndView petInfo() {
+		ModelAndView mav = new ModelAndView();
+		
+		mav.setViewName("petInfo");
+		
+		return mav;
+	}
+	
 	@RequestMapping("idFind")
 	public ModelAndView idFind(){
 		ModelAndView mav = new ModelAndView();
@@ -152,7 +161,7 @@ public class tempController {
 		
 		return mav;
 	}
-	
+/*	
 	@RequestMapping("myPage")
 	public ModelAndView myPage(String myPageCtrl) {
 		ModelAndView mav=new ModelAndView();
@@ -162,7 +171,7 @@ public class tempController {
 		mav.setViewName("myPage");
 		return mav;
 	}
-	
+	*/
 	@RequestMapping("myPageCtrl")
 	public String myPageCtrl(String myPageNum) {
 		ModelAndView mav=new ModelAndView();
@@ -207,5 +216,93 @@ public class tempController {
 		mav.setViewName("sellerReg");		
 		return mav;
 	}	
+	
+	
+	@RequestMapping("orderCheck")
+	public ModelAndView orderCheck() {
+		ModelAndView mav = new ModelAndView();		
+		mav.setViewName("orderCheck");		
+		return mav;
+	}
+	
+	@RequestMapping("memberInfo")
+	public ModelAndView memberInfo() {
+		ModelAndView mav = new ModelAndView();		
+		mav.setViewName("memberInfo");		
+		return mav;
+	}
+	
+	@RequestMapping("followingNoti")
+	public ModelAndView followingNoti() {
+		ModelAndView mav = new ModelAndView();		
+		mav.setViewName("followingNoti");		
+		return mav;
+	}
+	@RequestMapping("consumerContractList")
+	public ModelAndView consumerContractList() {
+		ModelAndView mav = new ModelAndView();		
+		mav.setViewName("consumerContractList");		
+		return mav;
+	}
+	@RequestMapping("qAndA")
+	public ModelAndView qAndA() {
+		ModelAndView mav = new ModelAndView();		
+		mav.setViewName("qAndA");		
+		return mav;
+	}
+	@RequestMapping("customerCenter")
+	public ModelAndView customerCenter() {
+		ModelAndView mav = new ModelAndView();		
+		mav.setViewName("customerCenter");		
+		return mav;
+	}
+	@RequestMapping("myPageMain")
+	public ModelAndView myPageMain() {
+		ModelAndView mav = new ModelAndView();		
+		mav.setViewName("myPageMain");		
+		return mav;
+	}
+	@RequestMapping("myPageMenu")
+	public ModelAndView myPageMenu() {
+		ModelAndView mav = new ModelAndView();		
+		mav.setViewName("myPageMenu");		
+		return mav;
+	}
+	@RequestMapping("qAndAMenu")
+	public ModelAndView qAndAMenu() {
+		ModelAndView mav = new ModelAndView();		
+		mav.setViewName("qAndAMenu");		
+		return mav;
+	}
+	@RequestMapping("followingNotiMenu")
+	public ModelAndView followingNotiMenu() {
+		ModelAndView mav = new ModelAndView();		
+		mav.setViewName("followingNotiMenu");		
+		return mav;
+	}
+	@RequestMapping("qAndAMain")
+	public ModelAndView qAndAMain() {
+		ModelAndView mav = new ModelAndView();		
+		mav.setViewName("qAndAMain");		
+		return mav;
+	}
+	@RequestMapping("followingNotiMain")
+	public ModelAndView followingNotiMain() {
+		ModelAndView mav = new ModelAndView();		
+		mav.setViewName("followingNotiMain");		
+		return mav;
+	}
+	@RequestMapping("qAndAProduct")
+	public ModelAndView qAndAProduct() {
+		ModelAndView mav = new ModelAndView();		
+		mav.setViewName("qAndAProduct");		
+		return mav;
+	}
+	@RequestMapping("qAndAStore")
+	public ModelAndView qAndAStore() {
+		ModelAndView mav = new ModelAndView();		
+		mav.setViewName("qAndAStore");		
+		return mav;
+	}
 	
 }

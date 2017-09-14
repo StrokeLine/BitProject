@@ -15,12 +15,12 @@
 
 <div id ="logo" class="logo">
 	<a href="main.do">
-		<img src="/images/logo.jpg" class="freehagae" alt="FreeHaGae" />
+		<img src="/images/logo.png" class="freehagae" alt="FreeHaGae" />
 	</a>
 </div>
 <div id="member_Menu" class="member_Menu">
-	<button type="button" class="btn btn-primary" onclick="location='main.do'">로그아웃</button>
-	<button type="button" class="btn btn-primary" onclick="myPagebutton('myPage')">마이페이지</button>
+	<button type="button" class="btn btn-primary" onclick="location='main'">로그아웃</button>
+	<button type="button" class="btn btn-primary" onclick="myPagebutton('myPageMain')">마이페이지</button>
 </div>
 <script type="text/javascript" src="/js/bootstrap.js"></script>
 </body>

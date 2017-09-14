@@ -6,6 +6,15 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <link rel="stylesheet" href="/css/style.css" type="text/css" />
+<script type="text/javascript">
+	function petInfo(url) {
+		if(url == '') {
+			location.reload(true);
+			return;
+		}
+		$(".pet_Info").load(url);
+	}
+</script>
 <title>Insert title here</title>
 </head>
 <body>
@@ -38,6 +47,10 @@
 			<input type="text" class="form-control" id="join_inputTEL" placeholder="전화번호를 입력하세요">
 			<button type="button" class="btn btn-danger">인증</button>
 		</div>
+		
+		<div class="pet_Info" id="pet_Info">
+			<button type="button" class="btn btn-info">반려견 등록</button>
+		</div>		
 		
 		<div class="join_Bt" id="join_Bt">
 			<button type="submit" class="btn btn-primary">회원가입</button>

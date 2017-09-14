@@ -4,9 +4,40 @@
 <script src="https://code.jquery.com/jquery-3.0.0.js"></script>
 <script src="https://code.jquery.com/jquery-migrate-3.0.0.js"></script>
  -->
- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> 
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> 
 <script src="/js/followingNotiScript.js"></script>
-
+<script type="text/javascript">
+	/**
+	 * 관심목록 알림 페이지
+	 */
+	
+	function changePage(url) {
+		if(url == '') {
+			location.reload(true);
+			return;
+		}
+		
+		$.ajax({
+			type: 'POST',
+			url: url,
+			async: false,
+			data: "",
+			contentType: "application/x-www-form-urlencode; charset=UTF-8",
+			success: function(data) {
+				$('.followingNoti_content').html(data);
+		
+			},
+			
+			error: function(request, status, error) {
+				alert(error);
+			}
+		});
+		
+		
+	//	$(".followingNoti_content").html(url);
+		
+	}
+</script>
 <div class="followingNoti_main">
 	<div class="followingNoti_top">
 		<div class="followingNoti_product" style="display: inline-block;">

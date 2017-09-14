@@ -4,26 +4,26 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>찜 확인 페이지</title>
+<title>결제 환료 페이지</title>
 </head>
 <body>
 	<div class="dibsMain">
-		<div class="dibs_subject">
-			<h3>찜 확인 페이지</h3>
-		</div>
-		<div class="dibs_btn">
-			<input type="button" value="확인" onclick="goMyPage()">
-			<input type="button" value="취소" onclick="closePage()">
-		</div>
+		<center>
+			<div class="dibs_subject">
+				<h3>결제가 정상 처리되었습니다.</h3>
+			</div>
+			<div class="dibs_btn">
+				<input type="button" value="확인" onclick="goMain()">
+			</div>
+		</center>
 	</div>
 </body>
+
 <script type="text/javascript">
-	function goMyPage() {
-		
-	}
-	
-	function closePage() {
+	function goMain() {
+		opener.location.href="main";
 		window.close();
 	}
 </script>
+
 </html>
