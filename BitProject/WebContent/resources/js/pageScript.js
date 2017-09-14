@@ -16,3 +16,13 @@ function myPagebutton(url){
 	}
 	
 }
+
+function productClick(url){
+	if(url == '') {
+		location.reload(true);
+		return;
+	}
+
+		$(".container").load(url);		
+	
+} 

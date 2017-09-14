@@ -15,7 +15,7 @@
 
 <div id ="logo" class="logo">
 	<a href="main.do">
-		<img src="/images/logo.jpg" class="freehagae" alt="FreeHaGae" />
+		<img src="/images/logo.png" class="freehagae" alt="FreeHaGae" />
 	</a>
 </div>
 <div id="member_Menu" class="member_Menu">

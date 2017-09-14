@@ -14,19 +14,19 @@
 	</div>
 
 	<div class="content" id="content">
-		<img src="/images/logo.jpg" class="freehagae" alt="FreeHaGae" />
+		<img src="/images/product1.jpg" class="freehagae" alt="FreeHaGae" onclick="productClick('productPage')" />
 	</div>
 	
 	<div class="content" id="content">
-		<img src="/images/logo.jpg" class="freehagae" alt="FreeHaGae" />
+		<img src="/images/product1.jpg" class="freehagae" alt="FreeHaGae" />
 	</div>
 	
 	<div class="content" id="content">
-		<img src="/images/logo.jpg" class="freehagae" alt="FreeHaGae" />
+		<img src="/images/product1.jpg" class="freehagae" alt="FreeHaGae" />
 	</div>
 	
 	<div class="content" id="content">
-		<img src="/images/logo.jpg" class="freehagae" alt="FreeHaGae" />
+		<img src="/images/product1.jpg" class="freehagae" alt="FreeHaGae" />
 	</div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
