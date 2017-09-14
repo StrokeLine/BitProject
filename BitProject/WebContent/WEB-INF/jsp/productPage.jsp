@@ -40,7 +40,7 @@
 				<div class="product_btn_other">
 					<input type="button" value="찜" onclick="dibsCheck()">
 					<input type="button" value="장바구니" onclick="shoppingBasketCheck()">
-					<input type="button" value="주문하기">
+					<input type="button" value="주문하기" onclick="location.href='orderProduct'">
 				</div>
 			</div>
 		</div>

@@ -200,4 +200,11 @@ public class tempController {
 		mav.setViewName("orderProduct");		
 		return mav;
 	}
+	
+	@RequestMapping("orderCheck")
+	public ModelAndView orderCheck() {
+		ModelAndView mav = new ModelAndView();		
+		mav.setViewName("orderCheck");		
+		return mav;
+	}
 }
