@@ -35,6 +35,15 @@ public class tempController {
 		return mav;
 	}
 	
+	@RequestMapping("petInfo")
+	public ModelAndView petInfo() {
+		ModelAndView mav = new ModelAndView();
+		
+		mav.setViewName("petInfo");
+		
+		return mav;
+	}
+	
 	@RequestMapping("idFind")
 	public ModelAndView idFind(){
 		ModelAndView mav = new ModelAndView();
@@ -152,7 +161,7 @@ public class tempController {
 		
 		return mav;
 	}
-	
+/*	
 	@RequestMapping("myPage")
 	public ModelAndView myPage(String myPageCtrl) {
 		ModelAndView mav=new ModelAndView();
@@ -162,7 +171,7 @@ public class tempController {
 		mav.setViewName("myPage");
 		return mav;
 	}
-	
+	*/
 	@RequestMapping("myPageCtrl")
 	public String myPageCtrl(String myPageNum) {
 		ModelAndView mav=new ModelAndView();
