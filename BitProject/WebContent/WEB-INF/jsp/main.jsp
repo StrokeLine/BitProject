@@ -8,7 +8,7 @@
 <meta name="Description" content="메인페이지" />
 <link rel="stylesheet" href="/css/main.css" type="text/css">
 <script src="/js/pageScript.js"></script>
-<title>Insert title here</title>
+<title>FreeHaGae</title>
 </head>
 <body>
 	
@@ -18,10 +18,6 @@
 			<jsp:include page="header.jsp" />
 			
 		</div>
-	    
-	    <div id="main_menu">
-	    	<jsp:include page="main_meun.jsp" />
-	    </div>
 	    
 	    <div id="container">
 	

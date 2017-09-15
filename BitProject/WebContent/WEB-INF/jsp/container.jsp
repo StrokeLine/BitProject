@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" href="/bootstrap/css/bootstrap.css" type="text/css" />
+<link rel="stylesheet" href="/css/main.css" type="text/css" />
 
 <title>Insert title here</title>
 </head>
@@ -13,20 +13,20 @@
 		<%@ include file="main_meun.jsp"%>
 	</div>
 
-	<div class="content" id="content">
-		<img src="/images/product1.jpg" class="freehagae" alt="FreeHaGae" onclick="productClick('productPage')" />
+	<div class="content_c" id="content_i">
+		<img src="/images/product1.jpg" class="goods" alt="FreeHaGae" onclick="productClick('productPage')" />
 	</div>
 	
-	<div class="content" id="content">
-		<img src="/images/product1.jpg" class="freehagae" alt="FreeHaGae" />
+	<div class="content_c" id="content_i">
+		<img src="/images/product1.jpg" class="goods" alt="FreeHaGae" />
 	</div>
 	
-	<div class="content" id="content">
-		<img src="/images/product1.jpg" class="freehagae" alt="FreeHaGae" />
+	<div class="content_c" id="content_i">
+		<img src="/images/product1.jpg" class="goods" alt="FreeHaGae" />
 	</div>
 	
-	<div class="content" id="content">
-		<img src="/images/product1.jpg" class="freehagae" alt="FreeHaGae" />
+	<div class="content_c" id="content_i">
+		<img src="/images/product1.jpg" class="goods" alt="FreeHaGae" />
 	</div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
