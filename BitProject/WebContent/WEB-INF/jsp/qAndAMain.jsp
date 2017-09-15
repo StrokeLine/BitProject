@@ -12,7 +12,7 @@ html, body{margin:0; width:100%;	height:100%;}
 	height:100px;
 }
 #qAndAContent{
-	position: absolute;	height:100%; overflow:hidden;
+	height:100%; margin-right:100px;
 }
 </style>
 
@@ -23,7 +23,7 @@ html, body{margin:0; width:100%;	height:100%;}
 	<iframe name="qAndAMenu" src="qAndAMenu" width="100%" height="100%" style="border:0"></iframe>
 	</div>
 	<div id="qAndAContent">
-	<iframe name="qAndAContent" src="qAndAProduct" width="100%" height="100%" style="border:0"></iframe>
+	<iframe name="qAndAContent" src="qAndAProduct" style="width:100%; border:0"></iframe>
 	</div>
 </div>
 </body>

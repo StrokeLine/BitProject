@@ -2,53 +2,44 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-문의사항 상점별
+<div class="qAndAStore" style="width:100%;">
 
-<!-- 리스트 -->
-<div id="qAndAList"></div>
-<br>
-
-<!-- 본문과 댓글 -->
-<div id="qAndAContent" style="display:none">
-	<form name="qnaContentForm">
-		<table>
-			<tr><!-- 제목 -->
-				<th colspan="4"></th>
-			</tr>
-			<tr>
-				<td>상품명</td>
-				<td></td>
-				<td>등록일</td>
-				<td></td>
-			</tr>
-			<tr><!-- 내용 -->
-				<td colspan="4"></td>
-			</tr>
-			<tr>
-				<td><input type="button" value="삭제" onclick=""></td>
-			</tr>
-			<%--  답변
-			<c:forEach items="" var="">
-			<tr>
-				<td>작성자</td>
-				<td></td>
-				<td>등록일</td>
-				<td></td>
-			</tr>
-			<tr>	<%-- 답변 내용 --%><%--
-				<td colspan="4"></td>
-			</tr>
-			<tr>
-				<td colspan="4"><input type="button" value="삭제" onclick=""></td>
-			</tr>
-			</c:forEach>
-			 --%>
-			 <tr>
-			 	<td><textarea rows="3" cols="70"></textarea></td>
-			 </tr>
-			 <tr>
-				<td colspan="4"><input type="button" value="등록" onclick=""></td>
-			</tr>			 	
-		</table>
-	</form>
+	<!-- 리스트 -->
+	<div class="qAndAList"></div>
+	
+	<!-- 본문과 댓글 -->
+	<div class="qAndACommentReply"><!-- style="display:none" -->
+		<!-- 본문 -->
+		<div class="qAndAComment" style="width:100%">
+			<div class="qAndACommentSubject"></div>
+			<div class="qAndACommentInfo" align="right">
+				<div class="qAndACommentStoreName" style="float:left; padding:0px 5px 0px 5px">상점명</div>
+				<div class="qAndACommentRegDate" style="display:inline-block; padding:0px 5px 0px 5px">등록일</div>
+			</div>
+			<div class="qAndACommentContent" style="width:50%; height:100px;">
+				내용
+			</div>
+			<div class="deleteQAndAComment" align="right">
+				<input type="button" value="삭제" onclick=""/>
+			</div>
+		</div>
+		<!-- 댓글 -->
+		<div class="qAndAReply" style="width:100%">
+		<%-- <c:forEach items="" var=""> --%>
+			<div>
+				<div class="qAndAReplyInfo" align="right">
+					<div class="qAndAReplyWriter" style="float:left; padding:0px 5px 0px 5px">작성자</div>
+					<div class="qAndAReplyRegDate" style="display:inline-block; padding:0px 5px 0px 5px">등록일</div>
+				</div>
+				<div class="qAndACommentContent" style="width:50%; height:100px;">
+					내용
+				</div>
+				<div class="deleteQAndAComment" align="right">
+					<input type="button" value="삭제" onclick=""/>
+				</div>
+			</div>
+		<%-- </c:forEach> --%>
+		</div>
+	</div>
 </div>
+

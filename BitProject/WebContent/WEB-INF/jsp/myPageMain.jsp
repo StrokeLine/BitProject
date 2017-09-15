@@ -9,15 +9,6 @@
 <script src="/js/pageScript.js"></script>
 <title>Insert title here</title>
 </head>
-<body>
-<div>
-	<iframe name="myPageMenu" src="myPageMenu" onload="reSize(this)" frameborder="0" scrolling="no" style="width: 20%;"></iframe>
-	<iframe name="myPageContent" src="memberInfo" onload="reSize(this)" frameborder="0" scrolling="no" style="width: 79%;"></iframe>
-</div>
-<script type="text/javascript" src="/js/bootstrap.js"></script>
-</body>
-
-<<<<<<< HEAD
 <style>
 html, body{margin:0; width:100%;	height:100%;}
 #wrap{
@@ -41,13 +32,22 @@ html, body{margin:0; width:100%;	height:100%;}
 	</div>
 </div>
 </body>
+<body>
+<div>
+	<iframe name="myPageMenu" src="myPageMenu" onload="reSize(this)" frameborder="0" scrolling="no" style="width: 20%;"></iframe>
+	<iframe name="myPageContent" src="memberInfo" onload="reSize(this)" frameborder="0" scrolling="no" style="width: 79%;"></iframe>
+</div>
+<script type="text/javascript" src="/js/bootstrap.js"></script>
+</body>
 
-=======
+
+
+
 <script type="text/javascript">
 	function reSize(i) {
 		var newHeight = document.body.offsetHeight;
 		i.height = newHeight;
 	}
 </script>
->>>>>>> branch 'master' of https://github.com/StrokeLine/BitProject
+
 </html>
