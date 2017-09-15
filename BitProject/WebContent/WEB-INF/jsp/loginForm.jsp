@@ -12,7 +12,7 @@
 
 	<div class="wrap">
 		<div class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-			<%@ include file="top.jsp" %>
+			<%@ include file="header.jsp" %>
 		</div>
 		<div class="loginId" id="loginId">
 			<label for="login_ID">아이디(이메일)</label> 

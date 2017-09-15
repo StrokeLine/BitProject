@@ -6,30 +6,38 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="Keywords" content="메인페이지" />
 <meta name="Description" content="메인페이지" />
-<link rel="stylesheet" href="/css/style.css" type="text/css">
+<link rel="stylesheet" href="/css/main.css" type="text/css">
 <script src="/js/pageScript.js"></script>
 <title>Insert title here</title>
 </head>
 <body>
+	
+	<div id="wrap">
 
-	<div class="wrap">
-		<div class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-			<%@ include file="top.jsp"%>
+	    <div id="header">
+			<jsp:include page="header.jsp" />
 		</div>
-
-		
-		<div class="container">
-			<%@ include file="container.jsp"%>
-		</div>
-
-	</div>
-
-	<footer> 
-		<%@ include file="footer.jsp"%>
-	</footer>
-
+	    
+	    <div id="main_menu">
+	    	<jsp:include page="main_meun.jsp" />
+	    </div>
+	    
+	    <div id="container">
+	        <jsp:include page="container.jsp" />
+	    </div>
+	    
+	    <div id="sidebar">sidebar</div>
+	    
+	    <div id="extra">extra</div>
+	    
+    <div id="footer">
+    	<%@ include file="footer.jsp" %>
+    </div>
+    
+</div>
+	
 	<script	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-	<script type="text/javascript" src="/js/bootstrap.js"></script>
+	<script type="text/javascript" src="/bootstrap/js/bootstrap.js"></script>
 
 </body>
 </html>

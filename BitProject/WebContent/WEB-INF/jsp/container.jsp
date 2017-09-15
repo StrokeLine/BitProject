@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" href="/css/style.css" type="text/css">
+<link rel="stylesheet" href="/bootstrap/css/bootstrap.css" type="text/css" />
 
 <title>Insert title here</title>
 </head>
@@ -30,7 +30,7 @@
 	</div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script type="text/javascript" src="/js/bootstrap.js"></script>
+<script type="text/javascript" src="/bootstrap/js/bootstrap.js"></script>
 
 </body>
 </html>

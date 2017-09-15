@@ -21,7 +21,7 @@
 	<div class="wrap">
 		
 		<div class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-			<%@ include file="top.jsp" %>
+			<%@ include file="header.jsp" %>
 		</div>
 		
 		<div class="joinId" id="joinId">

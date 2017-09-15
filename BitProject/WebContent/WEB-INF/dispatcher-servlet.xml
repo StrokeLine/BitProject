@@ -20,10 +20,13 @@
 	<mvc:annotation-driven></mvc:annotation-driven>
 	
 	<mvc:resources location="resources/css/" mapping="/css/**" />
-	<mvc:resources location="resources/fonts/" mapping="/fonts/**" />
 	<mvc:resources location="resources/images/" mapping="/images/**" />
 	<mvc:resources location="resources/js/" mapping="/js/**" />
+	<mvc:resources location="resources/bootstrap/css/" mapping="/bootstrap/css/**" />
+	<mvc:resources location="resources/bootstrap/fonts/" mapping="/bootstrap/fonts/**" />
+	<mvc:resources location="resources/bootstrap/js/" mapping="/bootstrap/js/**" />
 	
+	<mvc:resources mapping="/favicon.ico" location="/favicon.ico" />
 	
 <!-- 
 	<mvc:interceptors>
