@@ -49,8 +49,10 @@
 		</div>
 		
 		<div class="pet_Info" id="pet_Info">
-			<button type="button" class="btn btn-info">반려견 등록</button>
+			<button type="button" class="btn btn-info" onclick="petInfo('petInfo')">반려견 등록</button>
 		</div>		
+		
+		<div class="pet_view"></div>
 		
 		<div class="join_Bt" id="join_Bt">
 			<button type="submit" class="btn btn-primary">회원가입</button>
