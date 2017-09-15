@@ -7,39 +7,51 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>찜한 상품</title>
 </head>
-<body>
-	<div class="dibsPage" style="margin: 0px 200px 0px 200px;">
-		<form method="post">	
-			<div class="dibs_top" style="height:300" align="right">
-				<input type="submit" value="삭제">
+<body>	
+	<div class="productDibs_Page" style="margin-left: 400px;">
+		<div class="deleteDibs_btn">
+			<input type="button" value="삭제">
+		</div>
+		
+		<div class="dibs_items">
+			<div class="item1" style="width:2%; display: inline-block;" >
+				<input type="checkbox" name="checkAll" value="">
+			</div>
+			<div class="item2" style="width:15%; display: inline-block;">
+				<h4>상품 이미지</h4>
+			</div>
+			<div class="item3" style="width:15%; display: inline-block;">
+				<h4>상품명</h4>
+			</div>
+			<div class="item4" style="width:10%; display: inline-block;">
+				<h4>금액</h4>
 			</div>			
-					
-			<table border="1"> 				
-				<tr>
-					<td><input type="checkbox" name="checkAll"></td>
-					<th width="250">상품 이미지</th>
-					<th width="350">상품명</th>
-					<th width="200">금액</th>
-					<th width="200">배송비</th>		
-				</tr>
-				<%-- 
-				<c:forEach var="" items="">
-				<tr>
-					<td>
-						<input type="checkbox" name="checkRow">
-					</td>
-					<td>이미지 영역 </td>
-					<td>상품명</td>				
-					<td>상품가격</td>	
-					<td>배송비</td>
-				</tr>								
-				</c:forEach>
-				 --%>
-			</table>	
-			<div class="dibs_bottom" style="height:300;" align="right">
-				<input type="submit" value="장바구니로 이동">	
-			</div>	
-		</form>	
-	</div>
+			<div class="item5" style="width:10%; display: inline-block;">
+				<h4>배송료</h4>
+			</div>		
+		</div>
+		<div class="dibs_list">
+			<%-- <c:forEach items="" var="">
+				<div class="checkbox" style="width:2%; display: inline-block;" >
+					<input type="checkbox" name="checkRow" value="">
+				</div>
+				<div class="productImg" style="width:15%; display: inline-block;">
+					상품 이미지
+				</div>
+				<div class="productName" style="width:15%; display: inline-block;">
+					상품명
+				</div>
+				<div class="productPrice" style="width:10%; display: inline-block;">
+					금액
+				</div>			
+				<div class="shippingFee" style="width:10%; display: inline-block;">
+					배송료
+				</div>					
+			</c:forEach>		 --%>
+		</div>
+		<div class="basket_btn" style="margin-top: 5%; margin-left: 350px;">
+				<input type="button" value="장바구니로 이동">	
+		</div>			
+	</div>	
 </body>
 </html>

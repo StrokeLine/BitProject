@@ -7,48 +7,63 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>장바구니</title>
 </head>
-<body>
-	<div class="basketPage" style="margin: 0px 200px 0px 200px;">
-		<form method="post">
-			<div class="basket_top" align="right">
-				<input type="submit" value="삭제">
-			</div>		
+<body>	
+	<div class="productBasket_Page" style="margin-left: 400px;">
+		<div class="deleteBasket_btn">
+			<input type="button" value="삭제">
+		</div>
 		
-			<table border="1"> 					
-				<tr>
-					<td><input type="checkbox" name="checkAll"></td>
-					<th width="250">상품 이미지</th>
-					<th width="350">상품명</th>
-					<th width="200">수량</th>
-					<th width="200">금액</th>
-					<th width="200">배송비</th>	
-					<th width="200">최종금액</th>	
-				</tr>
-				<%-- 
-				<c:forEach items="" var="">
-				<tr>
-					<td>
-						<input type="checkbox" name="checkRow">
-					</td>
-					<td>이미지 영역 </td>
-					<td>상품명</td>	
-					<td>
-						<input type="button" value="-">
-						<input type="text" style="width: 25px;" value="1">
-						<input type="button" value="+">
-					</td>			
-					<td>상품가격</td>	
-					<td>배송비</td>
-					<td>최종금액</td>
-				</tr>				
-				</c:forEach>
-				 --%>
-			</table>
-			
-			<div class="basket_bottom" align="right">
-				<input type="submit" value="주문하기">	
+		<div class="basket_items">
+			<div class="item1" style="width:2%; display: inline-block;" >
+				<input type="checkbox" name="checkAll" value="">
+			</div>
+			<div class="item2" style="width:15%; display: inline-block;">
+				<h4>상품 이미지</h4>
+			</div>
+			<div class="item3" style="width:15%; display: inline-block;">
+				<h4>상품명</h4>
+			</div>
+			<div class="item4" style="width:15%; display: inline-block;">
+				<h4>수량</h4>
+			</div>			
+			<div class="item5" style="width:10%; display: inline-block;">
+				<h4>금액</h4>
+			</div>			
+			<div class="item6" style="width:10%; display: inline-block;">
+				<h4>배송료</h4>
 			</div>	
-		</form>	
-	</div>
+			<div class="finalPrice" style="width:10%; display: inline-block;">
+				<h4>최종금액</h4>
+			</div>	
+		</div>
+		<div class="basket_list">
+			<%-- <c:forEach items="" var="">
+				<div class="checkRow" style="width:2%; display: inline-block;" >
+					<input type="checkbox" name="checkRow" value="">
+				</div>
+				<div class="productImg" style="width:15%; display: inline-block;">
+					상품 이미지>
+				</div>
+				<div class="productName" style="width:15%; display: inline-block;">
+					상품명
+				</div>
+				<div class="productQuantity" style="width:15%; display: inline-block;">
+					수량
+				</div>			
+				<div class="productPrice" style="width:10%; display: inline-block;">
+					금액
+				</div>			
+				<div class="shippingFee" style="width:10%; display: inline-block;">
+					배송료
+				</div>	
+				<div class="finalPrice" style="width:10%; display: inline-block;">
+					최종금액
+				</div>		
+			</c:forEach>		 --%>
+		</div>
+		<div class="order_btn" style="margin-top: 5%; margin-left: 500px;">
+				<input type="button" value="주문하기">	
+		</div>			
+	</div>		
 </body>
 </html>
