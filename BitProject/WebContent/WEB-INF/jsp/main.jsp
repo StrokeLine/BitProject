@@ -16,6 +16,7 @@
 
 	    <div id="header">
 			<jsp:include page="header.jsp" />
+			
 		</div>
 	    
 	    <div id="main_menu">
@@ -23,12 +24,18 @@
 	    </div>
 	    
 	    <div id="container">
-	        <jsp:include page="container.jsp" />
+	
+		    <div id="sidebar">sidebar</div>
+		    
+	        <div id="content">
+	        	<jsp:include page="container.jsp" />
+	   		</div>
+	   		
+		    <div id="extra">extra</div>
+	
 	    </div>
 	    
-	    <div id="sidebar">sidebar</div>
 	    
-	    <div id="extra">extra</div>
 	    
     <div id="footer">
     	<%@ include file="footer.jsp" %>

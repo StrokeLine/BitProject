@@ -6,14 +6,14 @@ html, body {
 }
 
 #wrap {
-    margin: 0 auto;
-    padding: 0;
-    
+    width: 940px;
+        margin: 0px auto;
+        padding: 20px;
 }
 
 #header {
-    width: 100%;
-    height: 48px;
+   padding: 20px;
+        margin-bottom: 20px;
 }
 
 #main_menu {
@@ -27,26 +27,30 @@ html, body {
 }
 
 #content {
-    margin-left: 175px;
-    margin-right: 205px;   
+	 width: 450px;
+        padding: 20px;
+        margin-bottom: 20px;
+        float: left;
 }
 
 #sidebar {
-	float: left;
-    width: 175px;
-    margin-left: -1000px;
+	 width: 160px;
+        padding: 20px;
+        margin-right: 20px;
+        margin-bottom: 20px;
+        float: left;
 }
 
 #extra {
-	float: left;
-    width: 205px;
-    margin-left: -250px;
+	width: 160px;
+        padding: 20px;
+        margin-bottom: 20px;
+        float: right;
 }
 
 #footer {
 	clear: both;
-    width: 1000px;
-    height: 70px;
+        padding: 20px;
 }
 /* header : 로고, 로그인 회원가입 버튼 */
 .logo_c{
@@ -63,4 +67,35 @@ html, body {
 	right: 50px;
 	position: fixed;
 }
+/*** Just for Looks ***/
+#header, #footer {
+    font-size: large;
+    text-align: center;
+    background: #999;
+}
 
+#main_menu {
+    font-size: large;
+    text-align: center;
+    background: #DAEAAA;
+}
+#content {
+    font-size: large;
+    text-align: center;
+    background: #DDD;
+    height: 100px;
+}
+
+#sidebar {
+    font-size: large;
+    text-align: center;
+    background: #66F;
+    height: 100px;
+}
+
+#extra {
+    font-size: large;
+    text-align: center;
+    background: #F66;
+    height: 100px;
+}
