@@ -13,7 +13,7 @@
 			return;
 		}
 		$(".pet_Info").load(url);
-	}
+	};
 </script>
 <title>Insert title here</title>
 </head>
@@ -52,7 +52,7 @@
 			<button type="button" class="btn btn-info" onclick="petInfo('petInfo')">반려견 등록</button>
 		</div>		
 		
-		<div class="pet_view"></div>
+		<!-- <div class="pet_view"></div> -->
 		
 		<div class="join_Bt" id="join_Bt">
 			<button type="submit" class="btn btn-primary">회원가입</button>
