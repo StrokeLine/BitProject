@@ -1,75 +1,125 @@
 @CHARSET "UTF-8";
 
 html, body {
-    margin: 0;
-    padding: 0;
+	margin: 0;
+	padding: 0;
 }
 
 #wrap {
-    width: 940px;
-        margin: 0px auto;
-        padding: 20px;
+	width: 940px;
+	margin: 0px auto;
+	padding: 20px;
 }
 
 #header {
-   padding: 20px;
-        margin-bottom: 20px;
+	padding: 20px;
+	margin-bottom: 20px;
 }
 
 #main_menu {
-    width: 100%;
-    height: 35px;    
+	width: 100%;
+	height: 35px;
 }
 
 #container {
 	float: left;
-    width: 100%;
+	width: 100%;
 }
 
 #content {
-	 width: 450px;
-     padding: 20px;
-     margin-bottom: 20px;
-     float: left;
+	width: 450px;
+	padding: 20px;
+	margin-bottom: 20px;
+	float: left;
 }
 
 #sidebar {
-	 width: 160px;
-     padding: 20px;
-     margin-right: 20px;
-     margin-bottom: 20px;
-     float: left;
+	width: 160px;
+	padding: 20px;
+	margin-right: 20px;
+	margin-bottom: 20px;
+	float: left;
 }
 
 #extra {
 	width: 160px;
-    padding: 20px;
-    margin-bottom: 20px;
-    float: right;
+	padding: 20px;
+	margin-bottom: 20px;
+	float: right;
 }
 
 #footer {
 	clear: both;
-    padding: 20px;
+	padding: 20px;
 }
+
+/* 반응형 (데스크톱) */
+@media (max-width: 480px ) {
+	#wrap{
+		width: auto;
+	}
+	
+	#content{
+		float: none;
+		width: auto;
+	}
+	
+	#sidebar{
+		float: none;
+		width: auto;
+	}
+	
+	#estra{
+		float: none;
+		width: auto;
+	}
+	
+}
+/* 반응형 (모바일) */
+@media (min-width: 481px) {
+	#wrap{
+		width: 940px;
+	}
+	
+	#content{
+		float: left;
+		width: auto;
+	}
+	
+	#sidebar{
+		float: left;
+		width: 130px;
+	}
+	
+	#estra{
+		float: right;
+		width: 130px;
+	}
+	
+	#footer{
+		clear: both;
+	}
+}
+
+
 /* header : 로고, 로그인 회원가입 버튼 */
-.logo_c{
+.logo_c {
 	left: 50px;
 	position: fixed;
 }
-.logo{
-	position: absolute;
-	width:  100px;
-	height: auto;
-}
 
-.member_Menu_c{
-	right: 50px;
-	position: fixed;
-}
-/* container */
-.goods{
+.logo {
+	position: absolute;
 	width: 100px;
 	height: auto;
 }
 
+.member_Menu_c {
+	right: 50px;
+	position: fixed;
+}
+/* container */
+.goods {
+	width: 100px;
+	height: auto;
+}
