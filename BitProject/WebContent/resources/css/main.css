@@ -81,14 +81,14 @@ html, body {
 		width: 940px;
 	}
 	
-	#content{
-		float: left;
-		width: auto;
-	}
-	
 	#sidebar{
 		float: left;
 		width: 130px;
+	}
+	
+	#content{
+		float: left;
+		width: auto;
 	}
 	
 	#estra{
@@ -102,14 +102,20 @@ html, body {
 }
 
 
-/* header : 로고, 로그인 회원가입 버튼 */
+/* header */
+.header_bar_c{
+	padding: 20px;
+	margin-bottom: 20px;
+}
+
+
 .logo_c {
 	left: 50px;
 	position: fixed;
 }
 
 .logo {
-	position: absolute;
+	position: relative;
 	width: 100px;
 	height: auto;
 }
