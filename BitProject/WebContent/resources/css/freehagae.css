@@ -22,7 +22,8 @@ html, body {
 }
 
 #content {
-	width: 100%        
+	float: left;
+	width: auto; 
 }
 
 #bottom {

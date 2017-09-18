@@ -20,7 +20,7 @@ function myPagebutton(url){
 		location.reload(true);
 		return;
 	}
-		
+/*		
 	$.ajax({
 		type: 'POST',
 		url: url,
@@ -28,7 +28,7 @@ function myPagebutton(url){
 		data: "",
 		contentType: "application/x-www-form-urlencode; charset=UTF-8",
 		success: function(data) {
-			$('.container').html(data);
+			$('.container').load(data);
 
 		},
 		
@@ -36,8 +36,8 @@ function myPagebutton(url){
 
 		}
 	});
-	
-//	$(".container").load(url);		
+	*/
+	$(".container").load(url);		
 }
 
 function productClick(url){
