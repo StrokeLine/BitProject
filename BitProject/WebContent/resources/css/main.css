@@ -12,6 +12,7 @@ html, body {
 }
 
 #header {
+	
 	padding: 20px;
 	margin-bottom: 20px;
 }
@@ -104,14 +105,15 @@ html, body {
 
 /* header */
 .header_bar_c{
+	width: 860px;
 	padding: 20px;
 	margin-bottom: 20px;
 }
 
 
 .logo_c {
-	left: 50px;
 	position: fixed;
+	margin-left: auto;
 }
 
 .logo {
@@ -121,8 +123,9 @@ html, body {
 }
 
 .member_Menu_c {
-	right: 50px;
-	position: fixed;
+	width: 155px;
+	margin-left: auto;
+	position: relative;	
 }
 /* container */
 .goods {

@@ -5,15 +5,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="/css/style.css" type="text/css" />
-
+<script src="/js/pageScript.js"></script>
 <title>Insert title here</title>
 </head>
 <body>
 
 	<div class="wrap">
-		<div class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-			<%@ include file="header.jsp" %>
-		</div>
 		<div class="loginId" id="loginId">
 			<label for="login_ID">아이디(이메일)</label> 
 			<input type="text" class="form-control" id="login_inputID" placeholder="아이디를 입력하세요.">
@@ -47,8 +44,5 @@
 	<script	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<script type="text/javascript" src="/js/bootstrap.js"></script>
 	
-	<footer>
-		<%@ include file="footer.jsp" %>
-	</footer>
 </body>
 </html>
