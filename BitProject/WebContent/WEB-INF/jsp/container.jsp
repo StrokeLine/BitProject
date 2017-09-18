@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" href="/css/main.css" type="text/css" />
+<link rel="stylesheet" href="/css/bootstrap.css" type="text/css" />
 
 <title>Insert title here</title>
 </head>
@@ -12,21 +12,57 @@
 	<div class="main_menu">
 		<%@ include file="main_meun.jsp"%>
 	</div>
-
-	<div class="content_c" id="content_i">
-		<img src="/images/product1.jpg" class="goods" alt="FreeHaGae" onclick="productClick('productPage')" />
+	
+	<div class="row">
+	
+	<div class="product_main">
+		<img src="/images/product.png" class="rounded-circle img-fluid d-block mx-auto" alt="FreeHaGae" onclick="productClick('productPage')" />
+		<h4>product NAME
+			<small>product PRICE</small>
+		</h4>
+		<p>여기는 간략한 상품 소개</p>
 	</div>
 	
-	<div class="content_c" id="content_i">
-		<img src="/images/product1.jpg" class="goods" alt="FreeHaGae" />
+	<div class="product_main">
+		<img src="/images/product.png" class="rounded-circle img-fluid d-block mx-auto" alt="FreeHaGae" onclick="productClick('productPage')" />
+		<h4>product NAME
+			<small>product PRICE</small>
+		</h4>
+		<p>여기는 간략한 상품 소개</p>
 	</div>
 	
-	<div class="content_c" id="content_i">
-		<img src="/images/product1.jpg" class="goods" alt="FreeHaGae" />
+	<div class="product_main">
+		<img src="/images/product.png" class="rounded-circle img-fluid d-block mx-auto" alt="FreeHaGae" onclick="productClick('productPage')" />
+		<h4>product NAME
+			<small>product PRICE</small>
+		</h4>
+		<p>여기는 간략한 상품 소개</p>
 	</div>
 	
-	<div class="content_c" id="content_i">
-		<img src="/images/product1.jpg" class="goods" alt="FreeHaGae" />
+	<div class="product_main">
+		<img src="/images/product.png" class="rounded-circle img-fluid d-block mx-auto" alt="FreeHaGae" onclick="productClick('productPage')" />
+		<h4>product NAME
+			<small>product PRICE</small>
+		</h4>
+		<p>여기는 간략한 상품 소개</p>
+	</div>
+	
+	<div class="product_main">
+		<img src="/images/product.png" class="rounded-circle img-fluid d-block mx-auto" alt="FreeHaGae" onclick="productClick('productPage')" />
+		<h4>product NAME
+			<small>product PRICE</small>
+		</h4>
+		<p>여기는 간략한 상품 소개</p>
+	</div>
+	
+	<div class="product_main">
+		<img src="/images/product.png" class="rounded-circle img-fluid d-block mx-auto" alt="FreeHaGae" onclick="productClick('productPage')" />
+		<h4>product NAME
+			<small>product PRICE</small>
+		</h4>
+		<p>여기는 간략한 상품 소개</p>
+	</div>
+	
 	</div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
