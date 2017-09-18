@@ -3,15 +3,7 @@
  */
 
 //로그인 버튼
-function login(url){
-	if(url == '') {
-		location.reload(true);
-		return;
-	}
-	
-	$(".container").load(url);		
-	
-} 
+
 
 
 //마이페이지 
