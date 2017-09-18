@@ -3,14 +3,20 @@
 
 <html>
 
+<style>
+.followingNotiMain{margin:50px 100px 0 100px;}
+.followingNotiMenu{width:1000px; height:100px; border:0;}
+.followingNotiContent{width:1000px; height:100%; border:0;}
+</style>
+
 <body>
-<h2>관심스토어 알림</h2>
-<div id="followingNotiMain" style="width:100%;	height:100%;	position: relative;	margin: 0px 20px 0px 50px;">
-	<div id="followingNotiMenu" style="height:100px;">
-	<iframe name="followingNotiMenu" src="followingNotiMenu" width="100%" height="100%" style="border:0"></iframe>
+<div class="followingNotiMain">
+	<h2>관심스토어 알림</h2>
+	<div class="followingNotiMenu">
+	<iframe class="followingNotiMenu" name="followingNotiMenu" src="followingNotiMenu"></iframe>
 	</div>
-	<div id="followingNotiContent" style="position: absolute;	top:100px;	width:100%;	overflow:hidden;">
-	<iframe name="followingNotiContent" src="followingNotiProduct" width="100%" height="100%" style="border:0"></iframe>
+	<div class="followingNotiContent">
+	<iframe class="followingNotiContent" name="followingNotiContent" src="followingNotiProduct"></iframe>
 	</div>
 </div>
 </body>
