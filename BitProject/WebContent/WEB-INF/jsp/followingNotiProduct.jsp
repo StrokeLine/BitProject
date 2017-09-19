@@ -3,23 +3,23 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <html>
-<style>
-.fnPTable{width:700px;}
-.fnPHeader{width:700px; height:50px}
-.fnPImgHeader{float:left; width:18%; margin-right:1%;}
-.fnPNameHeader{display:inline-block; width:18%; margin-right:1%;}
-.fnPPriceHeader{display:inline-block; width:18%; margin-right:1%;}
-.fnPStoreNameHeader{display:inline-block; width:18%; margin-right:1%;}
-.fnPRegDateHeader{display:inline-block; width:18%;}
-.fnPRows{width:700px; height:100px;}
-.fnPImg{float:left; width:18%; margin-right:1%;}
-.fnPName{display:inline-block; width:18%; margin-right:1%;}
-.fnPPrice{display:inline-block; width:18%; margin-right:1%;}
-.fnPStoreName{display:inline-block; width:18%; margin-right:1%;}
-.fnPRegDate{display:inline-block; width:18%;}
-.
 
+<style>
+.fnPTable{width:800px; border-style:solid none solid none;}
+.fnPHeader{width:800px; text-align:center; border-bottom:solid 1px;}
+.fnPImgHeader{float:left; width:17%; height:50px; margin-right:1px;}
+.fnPNameHeader{display:inline-block; width:17%; height:50px; margin-right:1px;}
+.fnPPriceHeader{display:inline-block; width:17%; height:50px; margin-right:1px;}
+.fnPStoreNameHeader{display:inline-block; width:17%; height:50px; margin-right:1px;}
+.fnPRegDateHeader{display:inline-block; width:17%; height:50px; margin-right:1px;}
+.fnPRows{width:800px;}
+.fnPImg{float:left; width:17%; height:100px; margin-right:1px;}
+.fnPName{display:inline-block;; width:17%; height:100px; margin-right:1px;}
+.fnPPrice{display:inline-block;; width:17%; height:100px; margin-right:1px;}
+.fnPStoreName{display:inline-block; width:17%; height:100px; margin-right:1px;}
+.fnPRegDate{display:inline-block; width:17%; height:100px; margin-right:1px;}
 </style>
+
 <div class="followingNotiPMain">
 	<div class="fnPTable">
 		<div class="fnPHeader">
@@ -33,13 +33,11 @@
 		<%-- 
 		<c:forEach var="" items="">
 		 --%>
-			<div>
-				<div class="fnPImg">(이미지)</div>
-				<div class="fnPName">(상품명)</div>
-				<div class="fnPPrice">(가격)</div>
-				<div class="fnPStoreName">(상점명)</div>
-				<div class="fnPRegDate">(등록일)</div>
-			</div>
+			<div class="fnPImg">(이미지)</div>
+			<div class="fnPName">(상품명)</div>
+			<div class="fnPPrice">(가격)</div>
+			<div class="fnPStoreName">(상점명)</div>
+			<div class="fnPRegDate">(등록일)</div>
 		<%-- 	
 		</c:forEach>
 		 --%>

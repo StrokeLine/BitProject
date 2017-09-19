@@ -3,20 +3,33 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <html>
-<div class="followingNotiProductMain">
-	<div class="fnProductList">
-		<div class="fnProductListHeader">
-			<h5>|    상점명    |    공지 제목    |    등록일    |</h5>
+<style>
+.fnSTable{width:800px; border-style:solid none solid none;}
+.fnSHeader{width:800px; text-align:center; border-bottom:solid 1px;}
+.fnSNameHeader{float:left; width:30%; margin-right:1px; height:50px;}
+.fnSSubjectHeader{display:inline-block; width:30%; margin-right:1px; height:50px;}
+.fnSRegDateHeader{display:inline-block; width:30%; margin-right:1px; height:50px;}
+.fnSRows{width:800px;}
+.fnSName{float:left; width:30%; margin-right:1px; height:100px;}
+.fnSSubject{display:inline-block; width:30%; margin-right:1px; height:100px;}
+.fnSRegDate{display:inline-block; width:30%; margin-right:1px; height:100px;}
+.
+
+</style>
+<div class="followingNotiSMain">
+	<div class="fnSTable">
+		<div class="fnSHeader">
+			<div class="fnSNameHeader"><h4>상점명</h4></div>
+			<div class="fnSSubjectHeader"><h4>제목</h4></div>
+			<div class="fnSRegDateHeader"><h4>등록일</h4></div>
 		</div>
-		<div class="fnProductList" id="fnProductList">
+		<div class="fnSRows">
 		<%-- 
 		<c:forEach var="" items="">
 		 --%>
-			<div>
-				<div style="float:left; padding:0px 5px 0px 5px">상점명</div>
-				<div style="display:inline-block; padding:0px 5px 0px 5px">공지 제목</div>
-				<div style="display:inline-block; padding:0px 5px 0px 5px">등록일</div>
-			</div>
+			<div class="fnSName">(상점명)</div>
+			<div class="fnSSubject">(제목)</div>
+			<div class="fnSRegDate">(등록일)</div>
 		<%-- 	
 		</c:forEach>
 		 --%>
@@ -24,3 +37,4 @@
 	</div>
 </div>
 </html>
+
