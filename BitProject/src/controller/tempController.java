@@ -7,11 +7,11 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class tempController {
 	
-	@RequestMapping("NewFile")
+	@RequestMapping("container")
 	public ModelAndView NewFile() {
 		ModelAndView mav = new ModelAndView();
 		
-		mav.setViewName("NewFile");
+		mav.setViewName("container");
 		
 		return mav;
 	}
