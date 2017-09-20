@@ -27,6 +27,12 @@
 	<mvc:resources location="resources/bootstrap/js/" mapping="/bootstrap/js/**" />
 	<mvc:resources location="resources/jquery/" mapping="/jquery/**" />
 	<mvc:resources location="resources/popper/" mapping="/popper/**" />
+	<mvc:resources location="resources/font-awesome/css/" mapping="/font-awesome/css/**" />
+	<mvc:resources location="resources/font-awesome/fonts/" mapping="/font-awesome/fonts/**" />
+	<mvc:resources location="resources/font-awesome/less/" mapping="/font-awesome/less/**" />
+	<mvc:resources location="resources/font-awesome/scss/" mapping="/font-awesome/scss/**" />
+	<mvc:resources location="resources/jquery-easing/" mapping="/jquery-easing/**" />
+	
 	
 	<mvc:resources mapping="/favicon.ico" location="/favicon.ico" />
 	
