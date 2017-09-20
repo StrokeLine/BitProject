@@ -1,11 +1,20 @@
 package controller;
 
+import java.util.Date;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import model.member_info;
+import service.MemberService;
+
 @Controller
 public class tempController {
+	
+	@Autowired
+	private MemberService memberService;
 	
 	@RequestMapping("container")
 	public ModelAndView NewFile() {
@@ -71,9 +80,21 @@ public class tempController {
 	}
 	
 	@RequestMapping("mainLogin")
-	public ModelAndView mainLogin(){
+	public ModelAndView mainLogin(member_info m){
 		ModelAndView mav = new ModelAndView();
-		
+		/*
+		m.setM_name("aaa");
+		m.setM_tel("010-1234-5678");
+		m.setM_tel_check(false);
+		m.setM_email("aaa@aaa.com");
+		m.setM_email_check(false);
+		m.setM_password("aaa");
+		m.setM_img("");
+		m.setM_admin(false);
+		Date now = new Date();
+		m.setM_date(now);
+		memberService.addMember(m);
+		*/
 		mav.setViewName("mainLogin");
 		
 		return mav;

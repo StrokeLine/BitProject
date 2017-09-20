@@ -53,11 +53,23 @@
 		</div>		
 		
 		<!-- <div class="pet_view"></div> -->
-		
+		<form action="mainLogin" method="post">
+			<input type="hidden" name="m_index" value="0">
+			<input type="hidden" name="m_name" value="aaa">
+			<input type="hidden" name="m_tel" value="010-4567-4564">
+			<input type="hidden" name="m_tel_check" value="false">
+			<input type="hidden" name="m_email" value="aaa@aaa.com">
+			<input type="hidden" name="m_email_check" value="false">
+			<input type="hidden" name="m_password" value="aaa">
+			<input type="hidden" name="m_img" value="">
+			<input type="hidden" name="m_admin" value="false">
+			<input type="hidden" name="m_date" value="2017-07-25">
+			<input type="submit" value="회원가입">
+		</form>		
 		<div class="join_Bt" id="join_Bt">
-			<button type="submit" class="btn btn-primary">회원가입</button>
+			<!-- <button type="submit" class="btn btn-primary">회원가입</button> -->
 			<button type="reset" class="btn btn-success" onclick="location='main'">취소</button>
-		</div>		
+		</div>
 		
 	</div>
 
