@@ -35,7 +35,7 @@
           <i class="fa fa-times"></i>
         </a>
         <li class="sidebar-brand">
-          <a class="js-scroll-trigger" href="#top"><img alt="FreeHaGae" src="/images/logo.png" width="130px"></a>
+          <a class="js-scroll-trigger" onclick="location='mainLogin'"><img alt="FreeHaGae" src="/images/logo.png" width="130px"></a>
         </li>
         <li>
           <a class="js-scroll-trigger" href="#top">Home</a>
@@ -47,7 +47,7 @@
           <a class="js-scroll-trigger" onclick="location='main'">Sign out</a>
         </li>
         <li>
-          <a class="js-scroll-trigger" onclick="myPagebutton('myPageMain')">My page</a>
+          <a class="js-scroll-trigger" onclick="location='myPageMain'">My page</a>
         </li>
         <li>
           <a class="js-scroll-trigger" href="#contact" onclick=$( "#menu-close").click();>Contact</a>

@@ -104,7 +104,7 @@ hr.small {
 .sidebar-nav li a {
     display: block;
     text-decoration: none;
-    color: #999;
+    color: #053F6F;/* 사이드바 폰트 컬러 */
 }
 
 .sidebar-nav li a:hover {

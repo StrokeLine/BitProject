@@ -35,7 +35,7 @@
           <i class="fa fa-times"></i>
         </a>
         <li class="sidebar-brand">
-          <a class="js-scroll-trigger" href="#top"><img alt="FreeHaGae" src="/images/logo.png" width="130px"></a>
+          <a class="js-scroll-trigger" onclick="location='main'"><img alt="FreeHaGae" src="/images/logo.png" width="130px"></a>
         </li>
         <li>
           <a class="js-scroll-trigger" href="#top">Home</a>
@@ -223,7 +223,7 @@
         <div class="row">
           <div class="col-lg-10 mx-auto text-center">
             <h4>
-              <strong>Start Bootstrap</strong>
+              <strong>FreeHaGae</strong>
             </h4>
             <p>3481 Melrose Place
               <br>Beverly Hills, CA 90210</p>

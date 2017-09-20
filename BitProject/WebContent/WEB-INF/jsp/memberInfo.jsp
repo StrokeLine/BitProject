@@ -48,7 +48,7 @@
 				<div class="memberPhone">(회원 전화번호)</div>
 			</div>
 			<div class="rowBtn">
-				<div class="memberModBtn"><input type="button" value="수정" onclick="location.href='modifyMember'"></div>
+				<div class="memberModBtn"><input type="button" class="btn btn-info" value="수정" onclick="location.href='modifyMember'"></div>
 			</div>
 		</div>
 	</div>
