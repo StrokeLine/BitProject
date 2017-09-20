@@ -2,26 +2,40 @@
     pageEncoding="UTF-8"%>
 
 <html>
+<head>
+	
+	<!-- Bootstrap Core CSS -->
+    <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-<style>
-.memberInfo{margin:50px 100px 0 100px;}
-.memberInfoTitle{width:700px;}
-.memberInfoTable{width:700px;}
-.rowId{width:700px; height:50px; border-top:solid 2px;;}
-.rowName{width:700px; height:50px;}
-.rowGender{width:700px; height:50px;}
-.rowAge{width:700px; height:50px;}
-.rowPhone{width:700px; height:50px;}
-.rowBtn{width:700px; height:50px; border-bottom:solid 2px;}
-.rowTitle{width:300px; float:left; margin-right:2px; height:30px; text-align:center;}
-.memberId{width:398px; display:inline-block; height:30px;}
-.memberName{width:398px; display:inline-block; height:30px;}
-.memberGender{width:398px; display:inline-block; height:30px;}
-.memberAge{width:398px; display:inline-block; height:30px;}
-.memberPhone{width:398px; display:inline-block; height:30px;}
-.memberModBtn{width:700px; float:left; height:30px; text-align:right;}
-</style>
+    <!-- Custom Fonts -->
+    <link href="/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
 
+    <!-- Custom CSS -->
+    <link href="/css/stylish-portfolio.css" rel="stylesheet">
+
+	<!-- java script -->
+	<script src="/js/pageScript.js"></script>
+	
+	<style>
+	.memberInfo{margin:50px 100px 0 100px;}
+	.memberInfoTitle{width:700px;}
+	.memberInfoTable{width:700px;}
+	.rowId{width:700px; height:50px; border-top:solid 2px;;}
+	.rowName{width:700px; height:50px;}
+	.rowGender{width:700px; height:50px;}
+	.rowAge{width:700px; height:50px;}
+	.rowPhone{width:700px; height:50px;}
+	.rowBtn{width:700px; height:50px; border-bottom:solid 2px;}
+	.rowTitle{width:300px; float:left; margin-right:2px; height:30px; text-align:center;}
+	.memberId{width:398px; display:inline-block; height:30px;}
+	.memberName{width:398px; display:inline-block; height:30px;}
+	.memberGender{width:398px; display:inline-block; height:30px;}
+	.memberAge{width:398px; display:inline-block; height:30px;}
+	.memberPhone{width:398px; display:inline-block; height:30px;}
+	.memberModBtn{width:700px; float:left; height:30px; text-align:right;}
+	</style>
+</head>
 	<body>
 	
 	<div class="memberInfo">
@@ -53,5 +67,16 @@
 		</div>
 	</div>
 	
+	<!-- Bootstrap core JavaScript -->
+    <script src="/jquery/jquery.min.js"></script>
+    <script src="/popper/popper.min.js"></script>
+    <script src="/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="/js/stylish-portfolio.js"></script>
+		
 	</body>
 </html>

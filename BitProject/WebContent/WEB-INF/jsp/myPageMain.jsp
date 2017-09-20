@@ -4,7 +4,6 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" href="/css/bootstrap.css" type="text/css" />
 
 	<!-- Bootstrap Core CSS -->
     <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -67,10 +66,10 @@ html, body{margin:0; width:100%;	height:100%;}
 
 	<div class="wrap">
 		<div class="myPageMenu">	
-		<iframe name="myPageMenu" src="myPageMenu" width="100%" height="100%" style="border:0"></iframe>
+			<iframe name="myPageMenu" src="myPageMenu" width="100%" height="100%" style="border:0px;"></iframe>
 		</div>
 		<div class="myPageContent">
-		<iframe name="myPageContent" src="memberInfo" width="100%" height="100%" style="border:0"></iframe>
+			<iframe name="myPageContent" src="memberInfo" width="100%" height="100%" style="border: 0px;"></iframe>
 		</div>
 	</div>
 	
