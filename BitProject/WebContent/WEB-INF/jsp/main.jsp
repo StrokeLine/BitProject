@@ -1,14 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
+﻿<!DOCTYPE html>
+<html lang="ko">
 
   <head>
 
-    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Stylish Portfolio - Start Bootstrap Template</title>
+    <title>Hand Made - Pet Product</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -61,7 +61,7 @@
         <h1>FreeHaGae</h1>
         <h3>Hand Made &amp; Pet Product</h3>
         <br>
-        <a href="#about" class="btn btn-dark btn-lg js-scroll-trigger">Shopping GO!!</a>
+        <a href="#services" class="btn btn-dark btn-lg js-scroll-trigger">Shopping GO!!</a>
       </div>
     </header>
 
@@ -72,7 +72,7 @@
       <div class="container">
         <div class="row text-center">
           <div class="col-lg-10 mx-auto">
-            <h2>Our Services</h2>
+            <h2>상품상품상품</h2>
             <hr class="small">
             <div class="row">
               <div class="col-md-3 col-sm-6">
@@ -82,10 +82,10 @@
                     <i class="fa fa-cloud fa-stack-1x text-primary"></i>
                   </span>
                   <h4>
-                    <strong>Service Name</strong>
+                    <strong>product Name</strong>
                   </h4>
                   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                  <a href="#" class="btn btn-light">Learn More</a>
+                  <a href="#" class="btn btn-light">제발</a>
                 </div>
               </div>
               <div class="col-md-3 col-sm-6">
@@ -95,7 +95,7 @@
                     <i class="fa fa-compass fa-stack-1x text-primary"></i>
                   </span>
                   <h4>
-                    <strong>Service Name</strong>
+                    <strong>product Name</strong>
                   </h4>
                   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
                   <a href="#" class="btn btn-light">Learn More</a>
@@ -108,7 +108,7 @@
                     <i class="fa fa-flask fa-stack-1x text-primary"></i>
                   </span>
                   <h4>
-                    <strong>Service Name</strong>
+                    <strong>product Name</strong>
                   </h4>
                   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
                   <a href="#" class="btn btn-light">Learn More</a>
@@ -121,7 +121,7 @@
                     <i class="fa fa-shield fa-stack-1x text-primary"></i>
                   </span>
                   <h4>
-                    <strong>Service Name</strong>
+                    <strong>product Name</strong>
                   </h4>
                   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
                   <a href="#" class="btn btn-light">Learn More</a>
