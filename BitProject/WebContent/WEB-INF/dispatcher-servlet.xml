@@ -32,6 +32,7 @@
 	<mvc:resources location="resources/font-awesome/less/" mapping="/font-awesome/less/**" />
 	<mvc:resources location="resources/font-awesome/scss/" mapping="/font-awesome/scss/**" />
 	<mvc:resources location="resources/jquery-easing/" mapping="/jquery-easing/**" />
+	<mvc:resources location="resources/images/portfolio/" mapping="/images/portfolio/**" />
 	
 	
 	<mvc:resources mapping="/favicon.ico" location="/favicon.ico" />
