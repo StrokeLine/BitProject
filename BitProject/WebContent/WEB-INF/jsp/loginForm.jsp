@@ -1,9 +1,9 @@
-<!DOCTYPE html>
-<html lang="ko">
-
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
 <head>
-
-<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description" content="">
@@ -22,7 +22,7 @@
 <!-- Custom styles for this template -->
 <link href="/css/freelancer.min.css" rel="stylesheet">
 </head>
-<body>
+<body id="page-top">
 	
 	<!-- Navigation -->
 	<nav class="navbar navbar-expand-lg navbar-light fixed-top"
