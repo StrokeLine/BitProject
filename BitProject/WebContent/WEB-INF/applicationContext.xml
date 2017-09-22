@@ -7,9 +7,9 @@
 
 	<bean class="org.springframework.jdbc.datasource.DriverManagerDataSource" id="dataSource">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
-		<property name="url" value="jdbc:mysql://localhost:3306/product_db"></property>
-		<property name="username" value="root"></property>
-		<property name="password" value="bit34"></property>
+		<property name="url" value="jdbc:mysql://freehagaedb.crojhtfyjww7.us-east-2.rds.amazonaws.com:3306/freehagae_db"></property>
+		<property name="username" value="dogidogi"></property>
+		<property name="password" value="freehagae"></property>
 	</bean>
 	
 	<bean class="org.mybatis.spring.SqlSessionFactoryBean" id="sqlSessionFactory">
@@ -21,9 +21,9 @@
 	<bean class="org.mybatis.spring.SqlSessionTemplate" id="sqlSession">
 		<constructor-arg ref="sqlSessionFactory"></constructor-arg>
 	</bean>
-<!-- 	
+	 	
 	<context:component-scan base-package="dao"></context:component-scan>
 	<context:component-scan base-package="service"></context:component-scan>
- -->
+ 
  
 </beans>
