@@ -40,7 +40,7 @@
 				<ul class="navbar-nav ml-auto">
 					<li class="nav-item"><a class="nav-link js-scroll-trigger" href="#portfolio">Shopping</a></li>
 					<li class="nav-item"><a class="nav-link js-scroll-trigger" onclick="location='loginForm'">Sign in</a></li>
-					<li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact">Contact</a></li>
+					<li class="nav-item"><a class="nav-link js-scroll-trigger" onclick="location='joinForm'">Sign up</a></li>
 				</ul>
 			</div>
 		</div>
