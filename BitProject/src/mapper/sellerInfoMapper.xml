@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"     
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace="dao.ISellerInfoDao">
+
+	<insert id="insertSellerInfo" parameterType="seller_Info" useGeneratedKeys="true" keyProperty="s_index">
+		insert into seller_info (s_index, m_index, s_nick, s_bank, s_holder, s_account, s_address, s_img) values(0, #{m_index}, #{s_nick}, #{s_bank}, #{s_holder}, #{s_account}, #{s_address}, #{s_img});
+	</insert>
+	
+	<update id="updateSellerInfo" parameterType="seller_Info">
+		update seller_info set s_nick=#{s_nick}, s_bank=#{s_bank}, s_holder=#{s_holder}, s_account=#{s_account}, s_address=#{s_address}, s_img=#{s_img}, s_visit=#{s_visit}, s_sale=#{s_sale}, s_grade=#{s_grade}, s_date=#{s_date} where s_index=#{s_index};
+	</update>
+	
+	<delete id="deleteSellerInfo" parameterType="int">
+		delete from seller_info where s_index=#{s_index};
+	</delete>
+	
+	<select id="selectSellerInfo" parameterType="int" resultType="sellerInfo">
+		select * from seller_info where s_index=#{s_index};
+	</select>
+
+</mapper>
