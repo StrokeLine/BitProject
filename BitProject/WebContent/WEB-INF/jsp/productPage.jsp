@@ -1,11 +1,28 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
-<jsp:include page="setting.jsp"></jsp:include>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="ko">
+
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
+
+<title>Hand Made - Pet Product</title>
+
+<!-- Bootstrap core CSS -->
+<link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Custom fonts for this template -->
+<link href="/font-awesome/css/font-awesome.min.css"	rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
+<!-- Custom styles for this template -->
+<link href="/css/freelancer.min.css" rel="stylesheet">
+
+<jsp:include page="setting.jsp" />
 </head>
 <body>
 	<div class="productPage_Main" style="margin: 0px 200px 0px 200px;">
@@ -39,7 +56,7 @@
 					<div class="label_price" style="width: 50%; float: left;">2500<span>원</span></div>
 				</div>
 				<div class="product_btn_other">
-					<input type="button" value="찜" onclick="dibsCheck()">
+					<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#productmodal">찜</button>
 					<input type="button" value="장바구니" onclick="shoppingBasketCheck()">
 					<input type="button" value="주문하기" onclick="productClick('orderProduct')">
 				</div>
@@ -93,5 +110,39 @@
 			</div>
 		</div>
 	</div>
+	
+	<!-- modal -->
+	<div class="modal fade" id="productmodal" role="dialog">
+		<div class="modal-dialog modal-sm">
+		<!-- modal content -->
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-body">찜</h4>
+			</div>
+			<div class="modal-footer">
+				<button type="submit" class="btn btn-default" data-dismiss="modal">확인</button>
+				<button type="reset" class="btn btn-default" data-dismiss="modal">취소</button>
+			</div>
+		</div>
+		</div>
+	</div>
+	
+	
+	<!-- Bootstrap core JavaScript -->
+	<script src="/jquery/jquery.min.js"></script>
+	<script src="/popper/popper.min.js"></script>
+	<script src="/bootstrap/js/bootstrap.min.js"></script>
+
+	<!-- Plugin JavaScript -->
+	<script src="/jquery-easing/jquery.easing.min.js"></script>
+
+	<!-- Contact Form JavaScript -->
+	<script src="/js/jqBootstrapValidation.js"></script>
+	<script src="/js/contact_me.js"></script>
+
+	<!-- Custom scripts for this template -->
+	<script src="/js/freelancer.min.js"></script>
+	
 </body>
 </html>

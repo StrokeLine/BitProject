@@ -283,8 +283,10 @@
 						<div class="rl"></div>
 					</div>
 				</div>
+				
+				<jsp:include page="productPage.jsp" />
+				
 				<div class="container">
-								<jsp:include page="productPage.jsp"></jsp:include>
 					<div class="row">
 						<div class="col-lg-8 mx-auto">
 							<div class="modal-body">
@@ -312,8 +314,7 @@
 									their website, you can download their free set with 16 icons,
 									or you can purchase the entire set with 146 icons for only $12!
 								</p> -->
-								<button class="btn btn-success" type="button"
-									data-dismiss="modal">
+								<button class="btn btn-success" type="button" data-dismiss="modal">
 									<i class="fa fa-times"></i> Close
 								</button>
 							</div>
@@ -518,8 +519,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="portfolio-modal modal fade" id="portfolioModal6"
-		tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" role="dialog" aria-hidden="true">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="close-modal" data-dismiss="modal">

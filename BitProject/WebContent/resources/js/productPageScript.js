@@ -80,6 +80,6 @@ function productClick(url){
 		return;
 	}
 
-		$(".container").load(url);		
+		$(".modal-body").load(url);		
 	
 } 

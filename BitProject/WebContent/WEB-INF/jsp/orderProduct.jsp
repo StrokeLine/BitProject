@@ -8,6 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+<div class="modal-dialog" role="document"></div>
 <div class="orderProduct_main">
 	<div class="product_info" style="margin-top: 50px">
 		<h3>주문상품 정보</h3>
