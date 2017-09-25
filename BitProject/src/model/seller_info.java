@@ -2,24 +2,38 @@ package model;
 
 import java.util.Date;
 
-public class seller_info {    //ÆÇ¸ÅÀÚÁ¤º¸
+public class seller_info {    //ï¿½Ç¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	private int    s_index;    //index
-	private int    m_index;    //È¸¿ø index
-	private String s_nick;     //»óÁ¡¸í
-	private String s_account;  //°èÁÂ¹øÈ£
-	private String s_imgSrc;   //ÀÌ¹ÌÁö
-    private String s_snsUrl;   //sns ÁÖ¼Ò
-    private String s_address;  //¿ÀÇÁ¶óÀÎ ÁÖ¼Ò
-    private int    s_visit;    //¹æ¹®ÀÚ¼ö
-    private int    s_sale;     //ÆÇ¸Å¼ö
-    private Float  s_grade;    //»óÁ¡ÆòÁ¡
-    private Date   s_date;     //µî·ÏÀÏ
+	private int    m_index;    //È¸ï¿½ï¿½ index
+	private String s_nick;     //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	private String s_bank;		//ì€í–‰ëª…
+	private String s_holder;	//ì˜ˆê¸ˆì£¼
+	private String s_account;  //ï¿½ï¿½ï¿½Â¹ï¿½È£
+	private String s_imgSrc;   //ï¿½Ì¹ï¿½ï¿½ï¿½
+    private String s_address;  //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö¼ï¿½
+    private int    s_visit;    //ï¿½æ¹®ï¿½Ú¼ï¿½
+    private int    s_sale;     //ï¿½Ç¸Å¼ï¿½
+    private Float  s_grade;    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    private Date   s_date;     //ï¿½ï¿½ï¿½ï¿½ï¿½
+  
     
 public int getS_index() {
 	return s_index;
 }
 public void setS_index(int s_index) {
 	this.s_index = s_index;
+}
+public String getS_bank() {
+	return s_bank;
+}
+public void setS_bank(String s_bank) {
+	this.s_bank = s_bank;
+}
+public String getS_holder() {
+	return s_holder;
+}
+public void setS_holder(String s_holder) {
+	this.s_holder = s_holder;
 }
 public int getM_index() {
 	return m_index;
@@ -44,12 +58,6 @@ public String getS_imgSrc() {
 }
 public void setS_imgSrc(String s_imgSrc) {
 	this.s_imgSrc = s_imgSrc;
-}
-public String getS_snsUrl() {
-	return s_snsUrl;
-}
-public void setS_snsUrl(String s_snsUrl) {
-	this.s_snsUrl = s_snsUrl;
 }
 public String getS_address() {
 	return s_address;
@@ -85,7 +93,7 @@ public void setS_date(Date s_date) {
 @Override
 public String toString() {
 	return "seller_info [s_index=" + s_index + ", m_index=" + m_index + ", s_nick=" + s_nick + ", s_account="
-			+ s_account + ", s_imgSrc=" + s_imgSrc + ", s_snsUrl=" + s_snsUrl + ", s_address=" + s_address
+			+ s_account + ", s_imgSrc=" + s_imgSrc + ", s_snsUrl=" + ", s_address=" + s_address
 			+ ", s_visit=" + s_visit + ", s_sale=" + s_sale + ", s_grade=" + s_grade + ", s_date=" + s_date + "]";
 }
 

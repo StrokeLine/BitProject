@@ -5,19 +5,19 @@
 	
 <mapper namespace="dao.ISellerInfoDao">
 
-	<insert id="insertSellerInfo" parameterType="seller_Info" useGeneratedKeys="true" keyProperty="s_index">
-		insert into seller_info (s_index, m_index, s_nick, s_bank, s_holder, s_account, s_address, s_img) values(0, #{m_index}, #{s_nick}, #{s_bank}, #{s_holder}, #{s_account}, #{s_address}, #{s_img});
+	<insert id="insertSellerInfo" parameterType="seller_info" useGeneratedKeys="true" keyProperty="s_index">
+		insert into seller_info (s_index, m_index, s_nick, s_bank, s_holder, s_account, s_address, s_imgSrc) values(0, #{m_index}, #{s_nick}, #{s_bank}, #{s_holder}, #{s_account}, #{s_address}, #{s_imgSrc});
 	</insert>
 	
-	<update id="updateSellerInfo" parameterType="seller_Info">
-		update seller_info set s_nick=#{s_nick}, s_bank=#{s_bank}, s_holder=#{s_holder}, s_account=#{s_account}, s_address=#{s_address}, s_img=#{s_img}, s_visit=#{s_visit}, s_sale=#{s_sale}, s_grade=#{s_grade}, s_date=#{s_date} where s_index=#{s_index};
+	<update id="updateSellerInfo" parameterType="seller_info">
+		update seller_info set s_nick=#{s_nick}, s_bank=#{s_bank}, s_holder=#{s_holder}, s_account=#{s_account}, s_address=#{s_address}, s_imgSrc=#{s_imgSrc}, s_visit=#{s_visit}, s_sale=#{s_sale}, s_grade=#{s_grade}, s_date=#{s_date} where s_index=#{s_index};
 	</update>
 	
 	<delete id="deleteSellerInfo" parameterType="int">
 		delete from seller_info where s_index=#{s_index};
 	</delete>
 	
-	<select id="selectSellerInfo" parameterType="int" resultType="sellerInfo">
+	<select id="selectSellerInfo" parameterType="int" resultType="seller_info">
 		select * from seller_info where s_index=#{s_index};
 	</select>
 
