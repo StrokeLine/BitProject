@@ -2,7 +2,7 @@ package model;
 
 import java.util.Date;
 
-public class take_back_inquiry {
+public class take_back {
 	private int tb_index;
 	private int s_index;
 	private int m_index;

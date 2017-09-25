@@ -2,7 +2,7 @@ package model;
 
 import java.util.Date;
 
-public class swap_inquiry {
+public class swap {
 	private int tb_index;
 	private int s_index;
 	private int m_index;

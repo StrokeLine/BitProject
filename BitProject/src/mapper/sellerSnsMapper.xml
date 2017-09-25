@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"     
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="dao.ISellerSnsDao">
+
+	<insert id="insertSellerSns" parameterType="seller_sns" useGeneratedKeys="true" keyProperty="pet_index">
+		insert into seller_sns values(0, #{m_index}, #{pet_name}, #{pet_sex}, #{pet_birthday}, #{pet_breeds}, #{pet_img}, #{pet_date});
+	</insert>
+	
+	<update id="updateSellerSns" parameterType="seller_sns">
+		update seller_sns set m_index=#{m_index}, pet_name=#{pet_name}, pet_sex=#{pet_sex}, pet_birthday=#{pet_birthday}, 
+		pet_breeds=#{pet_breeds}, pet_img=#{pet_img}, pet_date=#{pet_date} where pet_index=#{pet_index};
+	</update>
+	
+	<delete id="deleteSellerSns" parameterType="int">
+		delete from seller_sns where where pet_index=#{pet_index};
+	</delete>
+	 
+	<select id="selectSellerSns" parameterType="int" resultType="seller_Sns">
+		select * from seller_sns  where pet_index=#{pet_index};
+	</select>
+
+</mapper>
