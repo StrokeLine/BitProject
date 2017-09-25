@@ -82,19 +82,7 @@ public class tempController {
 	@RequestMapping("mainLogin")
 	public ModelAndView mainLogin(member_info m){
 		ModelAndView mav = new ModelAndView();
-		/*
-		m.setM_name("aaa");
-		m.setM_tel("010-1234-5678");
-		m.setM_tel_check(false);
-		m.setM_email("aaa@aaa.com");
-		m.setM_email_check(false);
-		m.setM_password("aaa");
-		m.setM_img("");
-		m.setM_admin(false);
-		Date now = new Date();
-		m.setM_date(now);
-		memberService.addMember(m);
-		*/
+		
 		mav.setViewName("mainLogin");
 		
 		return mav;

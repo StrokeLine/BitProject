@@ -33,7 +33,7 @@
   	<param-value>/WEB-INF/applicationContext.xml</param-value>
   </context-param>
   
-<!--   
+
   <filter>
   	<filter-name>myFilter</filter-name>
   	<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
@@ -42,7 +42,7 @@
   		<param-value>UTF-8</param-value>
   	</init-param>
   </filter>
-  
+<!--     
   <filter-mapping>
   	<filter-name>myFilter</filter-name>
   	<url-pattern>/*</url-pattern>

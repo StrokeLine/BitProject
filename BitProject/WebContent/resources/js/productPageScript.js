@@ -73,3 +73,13 @@ function insertInquiry() {
 	
 	return;
 }
+
+function productClick(url){
+	if(url == '') {
+		location.reload(true);
+		return;
+	}
+
+		$(".container").load(url);		
+	
+} 
