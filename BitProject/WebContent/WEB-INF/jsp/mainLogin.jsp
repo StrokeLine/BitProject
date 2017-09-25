@@ -1,11 +1,12 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="ko">
 
 <head>
 
 <meta charset="utf-8">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description" content="">
 <meta name="author" content="">
 
@@ -38,9 +39,10 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarResponsive">
 				<ul class="navbar-nav ml-auto">
+					<li class="nav-item"><a class="nav-link js-scroll-trigger" onclick="location='mainLogin'" style="cursor: pointer">Home</a></li>
 					<li class="nav-item"><a class="nav-link js-scroll-trigger" href="#portfolio">Shopping</a></li>
-					<li class="nav-item"><a class="nav-link js-scroll-trigger" onclick="location='main'">Sign Out</a></li>
-					<li class="nav-item"><a class="nav-link js-scroll-trigger" onclick="location=myPageMain">My Page</a></li>
+					<li class="nav-item"><a class="nav-link js-scroll-trigger" onclick="location='main'" style="cursor: pointer">Sign out</a></li>
+					<li class="nav-item"><a class="nav-link js-scroll-trigger" onclick="location='myPageMain'" style="cursor: pointer">My page</a></li>
 				</ul>
 			</div>
 		</div>
@@ -290,11 +292,11 @@
 								<hr class="star-primary">
 								<img class="img-fluid img-centered" src="/images/portfolio/cabin.png" alt="">
 								<ul class="list-inline item-details">
-									<li>상품명: <strong> <a
+									<li>����紐�: <strong> <a
 											href="http://startbootstrap.com">Product Name</a>
 									</strong>
 									</li>
-									<li>가격: <strong> <a
+									<li>媛�寃�: <strong> <a
 											href="http://startbootstrap.com">April 2014</a>
 									</strong>
 									</li>

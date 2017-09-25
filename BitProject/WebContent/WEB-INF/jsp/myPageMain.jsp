@@ -1,28 +1,33 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html lang="ko">
 
-<html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-	<!-- Bootstrap Core CSS -->
-    <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
 
-    <!-- Custom Fonts -->
-    <link href="/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+<title>Hand Made - Pet Product</title>
 
-    <!-- Custom CSS -->
-    <link href="/css/stylish-portfolio.css" rel="stylesheet">
+<!-- Bootstrap core CSS -->
+<link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-	<!-- java script -->
-	<script src="/js/pageScript.js"></script>
-<title>Insert title here</title>
+<!-- Custom fonts for this template -->
+<link href="/font-awesome/css/font-awesome.min.css"	rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
+<!-- Custom styles for this template -->
+<link href="/css/freelancer.min.css" rel="stylesheet">
+
 </head>
 <style>
 html, body{margin:0; width:100%;	height:100%;}
 .wrap{
-	width:100%;	height:100%;	position: relative;
+	width:100%;	height:700px;	position: relative;
 }
 .myPageMenu{
 	display:inline-block;	float:left;	width:200px;	height:100%;
@@ -35,35 +40,27 @@ html, body{margin:0; width:100%;	height:100%;}
 <body  background="/images/bg2.jpg">
 	
 	<!-- Navigation -->
-    <a id="menu-toggle" href="#" class="btn btn-dark btn-lg toggle">
-      <i class="fa fa-bars"></i>
-    </a>
-    <nav id="sidebar-wrapper">
-      <ul class="sidebar-nav">
-        <a id="menu-close" href="#" class="btn btn-light btn-lg pull-right toggle">
-          <i class="fa fa-times"></i>
-        </a>
-        <li class="sidebar-brand">
-          <a class="js-scroll-trigger" onclick="location='mainLogin'"><img alt="FreeHaGae" src="/images/logo.png" width="130px"></a>
-        </li>
-        <li>
-          <a class="js-scroll-trigger" onclick="location='mainLogin'">Home</a>
-        </li>
-        <li>
-          <a class="js-scroll-trigger" href="#services">Shopping</a>
-        </li>
-        <li>
-          <a class="js-scroll-trigger" onclick="location='main'">Sign out</a>
-        </li>
-        <li>
-          <a class="js-scroll-trigger" onclick="location='myPageMain'">My page</a>
-        </li>
-        <li>
-          <a class="js-scroll-trigger" href="#contact" onclick=$( "#menu-close").click();>Contact</a>
-        </li>
-      </ul>
-    </nav>
-
+	<nav class="navbar navbar-expand-lg navbar-light fixed-top"
+		id="mainNav">
+		<div class="container">
+			<a class="navbar-brand js-scroll-trigger" href="#page-top">FreeHaGae</a>
+			<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+				aria-controls="navbarResponsive" aria-expanded="false"
+				aria-label="Toggle navigation">
+				Menu <i class="fa fa-bars"></i>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarResponsive">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item"><a class="nav-link js-scroll-trigger" onclick="location='mainLogin'" style="cursor: pointer">Home</a></li>
+					<li class="nav-item"><a class="nav-link js-scroll-trigger" href="#portfolio">Shopping</a></li>
+					<li class="nav-item"><a class="nav-link js-scroll-trigger" onclick="location='main'" style="cursor: pointer">Sign out</a></li>
+					<li class="nav-item"><a class="nav-link js-scroll-trigger" onclick="location='myPageMain'" style="cursor: pointer">My page</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	
+	<section>
 	<div class="wrap">
 		<div class="myPageMenu">	
 			<iframe name="myPageMenu" src="myPageMenu" width="100%" height="100%" style="border:0px;"></iframe>
@@ -72,64 +69,84 @@ html, body{margin:0; width:100%;	height:100%;}
 			<iframe name="myPageContent" src="memberInfo" width="100%" height="100%" style="border: 0px;"></iframe>
 		</div>
 	</div>
+	</section>
 	
 	<!-- Footer -->
-    <footer>
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-10 mx-auto text-center">
-            <h4>
-              <strong>Start Bootstrap</strong>
-            </h4>
-            <p>3481 Melrose Place
-              <br>Beverly Hills, CA 90210</p>
-            <ul class="list-unstyled">
-              <li>
-                <i class="fa fa-phone fa-fw"></i>
-                (123) 456-7890</li>
-              <li>
-                <i class="fa fa-envelope-o fa-fw"></i>
-                <a href="mailto:name@example.com">name@example.com</a>
-              </li>
-            </ul>
-            <br>
-            <ul class="list-inline">
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fa fa-facebook fa-fw fa-3x"></i>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fa fa-twitter fa-fw fa-3x"></i>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fa fa-dribbble fa-fw fa-3x"></i>
-                </a>
-              </li>
-            </ul>
-            <hr class="small">
-            <p class="text-muted">Copyright &copy; Your Website 2017</p>
-          </div>
-        </div>
-      </div>
-      <a id="to-top" href="#top" class="btn btn-dark btn-lg js-scroll-trigger">
-        <i class="fa fa-chevron-up fa-fw fa-1x"></i>
-      </a>
-    </footer>
+	<footer class="text-center">
+		<div class="footer-above">
+			<div class="container">
+				<div class="row">
+					<div class="footer-col col-md-4">
+						<h3>Location</h3>
+						<p>
+							3481 Melrose Place <br>Beverly Hills, CA 90210
+						</p>
+					</div>
+					<div class="footer-col col-md-4">
+						<h3>Around the Web</h3>
+						<ul class="list-inline">
+							<li class="list-inline-item"><a
+								class="btn-social btn-outline" href="#"> <i
+									class="fa fa-fw fa-facebook"></i>
+							</a></li>
+							<li class="list-inline-item"><a
+								class="btn-social btn-outline" href="#"> <i
+									class="fa fa-fw fa-google-plus"></i>
+							</a></li>
+							<li class="list-inline-item"><a
+								class="btn-social btn-outline" href="#"> <i
+									class="fa fa-fw fa-twitter"></i>
+							</a></li>
+							<li class="list-inline-item"><a
+								class="btn-social btn-outline" href="#"> <i
+									class="fa fa-fw fa-linkedin"></i>
+							</a></li>
+							<li class="list-inline-item"><a
+								class="btn-social btn-outline" href="#"> <i
+									class="fa fa-fw fa-dribbble"></i>
+							</a></li>
+						</ul>
+					</div>
+					<div class="footer-col col-md-4">
+						<h3>About Freelancer</h3>
+						<p>
+							Freelance is a free to use, open source Bootstrap theme created
+							by <a href="http://startbootstrap.com">Start Bootstrap</a>.
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="footer-below">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12">Copyright &copy; Your Website 2017</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+	<!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
+	<div class="scroll-top d-lg-none">
+		<a class="btn btn-primary js-scroll-trigger" href="#page-top"> <i
+			class="fa fa-chevron-up"></i>
+		</a>
+	</div>
 	
 	<!-- Bootstrap core JavaScript -->
-    <script src="/jquery/jquery.min.js"></script>
-    <script src="/popper/popper.min.js"></script>
-    <script src="/bootstrap/js/bootstrap.min.js"></script>
+	<script src="/jquery/jquery.min.js"></script>
+	<script src="/popper/popper.min.js"></script>
+	<script src="/bootstrap/js/bootstrap.min.js"></script>
 
-    <!-- Plugin JavaScript -->
-    <script src="/jquery-easing/jquery.easing.min.js"></script>
+	<!-- Plugin JavaScript -->
+	<script src="/jquery-easing/jquery.easing.min.js"></script>
 
-    <!-- Custom scripts for this template -->
-    <script src="/js/stylish-portfolio.js"></script>
+	<!-- Contact Form JavaScript -->
+	<script src="/js/jqBootstrapValidation.js"></script>
+	<script src="/js/contact_me.js"></script>
+
+	<!-- Custom scripts for this template -->
+	<script src="/js/freelancer.min.js"></script>
 	
 </body>
 
