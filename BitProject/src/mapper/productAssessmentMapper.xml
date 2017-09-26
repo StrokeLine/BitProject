@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"     
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="dao.IAddressInfoDao">
+
+	<insert id="insertProductAssessment" parameterType="product_assessment" useGeneratedKeys="true" keyProperty="pa_index">
+		insert into address_info values(0, #{m_index}, #{p_index}, #{pa_content}, #{pa_grade}, 0, #{pa_date})
+	</insert>
+	
+	<update id="updateProductAssessment" parameterType="product_assessment">
+		update address_info set pa_content = #{pa_content}, pa_grade = #{pa_grade}, pa_view = #{pa_view} where pa_index = #{pa_index}
+	</update>
+	
+	<delete id="deleteProductAssessment" parameterType="int">
+		delete from product_assessment where pa_index = #{pa_index}
+	</delete>	
+	
+	<select id="selectProductAssessment" parameterType="int" resultType="product_assessment">
+		select * from product_assessment where m_index = #{m_index}
+	</select>
+	
+	<select id="selectAllProductAssessment" parameterType="int" resultType="product_assessment">
+		select * from product_assessment where m_index = #{m_index}
+	</select>
+	
+</mapper>

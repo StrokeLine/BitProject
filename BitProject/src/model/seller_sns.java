@@ -3,60 +3,47 @@ package model;
 import java.util.Date;
 
 public class seller_sns {
-	private int pet_index;
-	private int m_index;
-	private String pet_name;
-	private int pet_sex;
-	private Date pet_birthday;
-	private String pet_breeds;
-	private String pet_img;
-	private Date pet_date;
-	public int getPet_index() {
-		return pet_index;
+	private int ss_index;		// index
+	private int s_index;		// 상점 index
+	private String ss_sort;		// sns 구분
+	private String ss_address;	// 주소
+	private Date ss_date;		// 등록일
+	
+	
+	public int getSs_index() {
+		return ss_index;
 	}
-	public void setPet_index(int pet_index) {
-		this.pet_index = pet_index;
+	public void setSs_index(int ss_index) {
+		this.ss_index = ss_index;
 	}
-	public int getM_index() {
-		return m_index;
+	public int getS_index() {
+		return s_index;
 	}
-	public void setM_index(int m_index) {
-		this.m_index = m_index;
+	public void setS_index(int s_index) {
+		this.s_index = s_index;
 	}
-	public String getPet_name() {
-		return pet_name;
+	public String getSs_sort() {
+		return ss_sort;
 	}
-	public void setPet_name(String pet_name) {
-		this.pet_name = pet_name;
+	public void setSs_sort(String ss_sort) {
+		this.ss_sort = ss_sort;
 	}
-	public int getPet_sex() {
-		return pet_sex;
+	public String getSs_address() {
+		return ss_address;
 	}
-	public void setPet_sex(int pet_sex) {
-		this.pet_sex = pet_sex;
+	public void setSs_address(String ss_address) {
+		this.ss_address = ss_address;
 	}
-	public Date getPet_birthday() {
-		return pet_birthday;
+	public Date getSs_date() {
+		return ss_date;
 	}
-	public void setPet_birthday(Date pet_birthday) {
-		this.pet_birthday = pet_birthday;
+	public void setSs_date(Date ss_date) {
+		this.ss_date = ss_date;
 	}
-	public String getPet_breeds() {
-		return pet_breeds;
+	@Override
+	public String toString() {
+		return "seller_sns [ss_index=" + ss_index + ", s_index=" + s_index + ", ss_sort=" + ss_sort + ", ss_address="
+				+ ss_address + ", ss_date=" + ss_date + "]";
 	}
-	public void setPet_breeds(String pet_breeds) {
-		this.pet_breeds = pet_breeds;
-	}
-	public String getPet_img() {
-		return pet_img;
-	}
-	public void setPet_img(String pet_img) {
-		this.pet_img = pet_img;
-	}
-	public Date getPet_date() {
-		return pet_date;
-	}
-	public void setPet_date(Date pet_date) {
-		this.pet_date = pet_date;
-	}
+	
 }

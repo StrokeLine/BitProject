@@ -1,5 +1,7 @@
 package dao;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -22,12 +24,19 @@ public class SellerSnsDao implements ISellerSnsDao {
 	}
 
 	@Override
-	public int deleteSellerSns(int pet_index) {
-		return session.delete("dao.ISellerSnsDao.deleteSellerSns",  pet_index);
+	public int deleteSellerSns(int ss_index) {
+		return session.delete("dao.ISellerSnsDao.deleteSellerSns",  ss_index);
 	}
 
 	@Override
-	public seller_sns selectSellerSns(int pet_index) {
-		return session.selectOne("dao.ISellerSnsDao.selectSellerSns", pet_index);
+	public seller_sns selectSellerSns(int ss_index) {
+		return session.selectOne("dao.ISellerSnsDao.selectSellerSns", ss_index);
 	}
+
+	@Override
+	public List<seller_sns> selectAllSellerSns(int s_index) {
+		return session.selectList("dao.ISellerSnsDao.selectAllSellerSns", s_index);
+	}
+	
+	
 }

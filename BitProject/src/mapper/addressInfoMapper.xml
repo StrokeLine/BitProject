@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"     
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="dao.IAddressInfoDao">
+
+	<insert id="insertAddress" parameterType="address_info" useGeneratedKeys="true" keyProperty="add_index">
+		insert into address_info values(0, #{m_index}, #{add_address}, #{add_date})
+	</insert>
+	
+	<update id="updateAddress" parameterType="address_info">
+		update address_info set m_index = #{m_index}, add_address = #{add_address}, add_date = #{add_date} where add_index = #{add_index}
+	</update>
+	
+	<delete id="deleteAddress" parameterType="int">
+		delete from address_info where add_index = #{add_index}
+	</delete>	
+	
+	<select id="selectAddress" parameterType="int" resultType="address_info">
+		select * from address_info where add_index = #{add_index}
+	</select>
+	
+</mapper>
