@@ -3,7 +3,7 @@
 	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"     
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="dao.IAddressInfoDao">
+<mapper namespace="dao.IProductAssessmentDao">
 
 	<insert id="insertProductAssessment" parameterType="product_assessment" useGeneratedKeys="true" keyProperty="pa_index">
 		insert into address_info values(0, #{m_index}, #{p_index}, #{pa_content}, #{pa_grade}, 0, #{pa_date})
