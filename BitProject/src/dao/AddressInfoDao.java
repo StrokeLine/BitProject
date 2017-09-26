@@ -34,4 +34,5 @@ public class AddressInfoDao implements IAddressInfoDao {
 		return session.selectList("dao.IAddressInfoDao.selectAddress", m_index);
 	}
 	
+	
 }
