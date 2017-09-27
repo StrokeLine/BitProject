@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"     
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="dao.IStoreNoticeViewDao">
+
+	<select id="selectStoreNoticeView" parameterType="int" resultType="store_notice_view">
+		select * from store_notice_view where sc_index=#{sc_index}
+	</select>
+	
+	<select id="selectAllStoreNoticeViewS" parameterType="int" resultType="store_notice_view">
+		select * from store_notice_view where s_index=#{s_index}
+	</select>
+	
+	<select id="selectAllStoreNoticeViewM" parameterType="int" resultType="store_notice_view">
+		select * from store_notice_view where m_index=#{m_index}
+	</select>
+	
+	<select id="selectAllStoreNoticeViewV" parameterType="int" resultType="store_notice_view">
+		select * from store_notice_view where v_index=#{v_index}
+	</select>
+
+</mapper>
