@@ -17,4 +17,8 @@
 		delete from shopping_basket where sb_index=#{sb_index}
 	</delete>
 
+	<select id="insertShoppingBasket" parameterType="int" resultType="shopping_basket">
+		select * from shopping_basket where sb_index=#{sb_index}
+	</select>
+
 </mapper>

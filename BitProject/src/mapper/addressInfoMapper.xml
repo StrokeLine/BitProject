@@ -18,6 +18,10 @@
 	</delete>	
 	
 	<select id="selectAddress" parameterType="int" resultType="address_info">
+		select * from address_info where add_index = #{add_index}
+	</select>
+	
+	<select id="selectAllAddress" parameterType="int" resultType="address_info">
 		select * from address_info where m_index = #{m_index}
 	</select>
 	

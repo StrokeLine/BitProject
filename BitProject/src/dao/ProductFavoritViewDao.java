@@ -15,13 +15,13 @@ public class ProductFavoritViewDao implements IProductFavoritViewDao {
 	private SqlSession session;
 
 	@Override
-	public product_favorit_view selectProductFavoritView(int index) {
-		return session.selectOne("dao.IProductFavoritViewDao.selectProductFavoritView", index);
+	public product_favorit_view selectProductFavoritView(int pf_index) {
+		return session.selectOne("dao.IProductFavoritViewDao.selectProductFavoritView", pf_index);
 	}
 
 	@Override
-	public List<product_favorit_view> selectAllProductFavoritView(int index) {
-		return session.selectList("dao.IProductFavoritViewDao.selectAllProductFavoritView", index);
+	public List<product_favorit_view> selectAllProductFavoritView(int m_index) {
+		return session.selectList("dao.IProductFavoritViewDao.selectAllProductFavoritView", m_index);
 	}
 	
 }

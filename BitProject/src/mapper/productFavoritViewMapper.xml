@@ -6,11 +6,11 @@
 <mapper namespace="dao.IProductFavoritViewDao">
 
 	<select id="selectProductFavoritView" parameterType="int" resultType="product_favorit_view">
-		select * from product_favorit_view where m_index=#{index}
+		select * from product_favorit_view where pf_index=#{pf_index}
 	</select>
 
 	<select id="selectAllProductFavoritView" parameterType="int" resultType="product_favorit_view">
-		select * from product_favorit_view where m_index=#{index}
+		select * from product_favorit_view where m_index=#{m_index}
 	</select>
 	
 </mapper>

@@ -14,11 +14,7 @@
 	</delete>
 	
 	<select id="selectProductFavorite" parameterType="int" resultType="product_favorite">
-		select * from product_favorite where m_index=#{index}
-	</select>
-	
-	<select id="selectAllProductFavorite" parameterType="int" resultType="product_favorite">
-		select * from product_favorite where m_index=#{index}
+		select * from product_favorite where pf_index=#{pf_index}
 	</select>
 
 </mapper>

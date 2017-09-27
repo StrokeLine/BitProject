@@ -6,7 +6,7 @@
 <mapper namespace="dao.IStoreInquiryViewDao">
 
 	<select id="selectStoreInquiryView" parameterType="int" resultType="store_inquiry_view">
-		select * from store_inquiry_view where s_index=#{s_index}
+		select * from store_inquiry_view where si_index=#{si_index}
 	</select>
 	
 	<select id="selectAllStoreInquiryViewS" parameterType="int" resultType="store_inquiry_view">

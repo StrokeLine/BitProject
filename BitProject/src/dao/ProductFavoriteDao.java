@@ -25,13 +25,8 @@ public class ProductFavoriteDao implements IProductFavoriteDao {
 	}
 
 	@Override
-	public product_favorite selectProductFavorite(int index) {
-		return session.selectOne("dao.IProductFavoriteDao.selectProductFavorite", index);
-	}
-
-	@Override
-	public List<product_favorite> selectAllProductFavorite(int index) {
-		return session.selectList("dao.IProductFavoriteDao.selectAllProductFavorite", index);
+	public product_favorite selectProductFavorite(int pf_index) {
+		return session.selectOne("dao.IProductFavoriteDao.selectProductFavorite", pf_index);
 	}
 	
 }

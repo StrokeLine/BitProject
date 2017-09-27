@@ -30,7 +30,7 @@ public class ProductInquiryDao implements IProductInquiryDao {
 	}
 
 	@Override
-	public product_inquiry selectProductInquiry(int index) {
-		return session.selectOne("dao.IProductInquiryDao.selectProductInquiry", index);
+	public product_inquiry selectProductInquiry(int pi_index) {
+		return session.selectOne("dao.IProductInquiryDao.selectProductInquiry", pi_index);
 	}
 }

@@ -15,8 +15,8 @@ public class StoreInquiryViewDao implements IStoreInquiryViewDao {
 	private SqlSession session;
 
 	@Override
-	public store_inquiry_view selectStoreInquiryView(int s_index) {
-		return session.selectOne("dao.IStoreInquiryViewDao.selectStoreInquiryView", s_index);
+	public store_inquiry_view selectStoreInquiryView(int si_index) {
+		return session.selectOne("dao.IStoreInquiryViewDao.selectStoreInquiryView", si_index);
 	}
 
 	@Override

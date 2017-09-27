@@ -8,5 +8,6 @@ public interface IAddressInfoDao {
 	public int insertAddress(address_info address_info);
 	public int updateAddress(address_info address_info);
 	public int deleteAddress(int add_index);
-	public List<address_info> selectAddress(int m_index);
+	public address_info selectAddress(int add_index);
+	public List<address_info> selectAllAddress(int m_index);
 }
