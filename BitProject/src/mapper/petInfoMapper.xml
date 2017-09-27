@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"     
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="dao.IPetDao">
+	<insert id="insertPetInfo" parameterType="pet_info" useGeneratedKeys="true" keyProperty="pet_index">
+		insert into pet_info values(0, #{m_index}, #{pet_name}, #{pet_sex}, #{pet_birthday}, #{pet_breeds}, #{pet_img}, #{pet_date});
+	</insert>
+	
+	<update id="updatePetInfo" parameterType="pet_info">
+		update pet_info set m_index=#{m_index}, pet_name=#{pet_name}, pet=#{pet_sex}, 
+		pet_birthday=#{pet_birthday}, pet_breeds=#{pet_breeds}, pet_img=#{pet_img}, pet_date=#{pet_date} 
+		where pet_index=#{pet_index};
+	</update>
+	
+	<delete id="deletePetInfo" parameterType="int">
+		delete from pet_info where pet_index=#{pet_index};
+	</delete>
+	
+	<select id="selectPetInfo" parameterType="int" resultType="pet_info">
+		select * from pet_info where pet_index=#{pet_index};
+	</select>
+</mapper>

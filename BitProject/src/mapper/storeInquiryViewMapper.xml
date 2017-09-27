@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"     
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="dao.IStoreInquiryViewDao">
+
+	<select id="selectStoreInquiryView" parameterType="int" resultType="store_inquiry_view">
+		select * from store_inquiry_view where s_index=#{s_index}
+	</select>
+	
+	<select id="selectAllStoreInquiryViewS" parameterType="int" resultType="store_inquiry_view">
+		select * from store_inquiry_view where s_index=#{s_index}
+	</select>
+	
+	<select id="selectAllStoreInquiryViewM" parameterType="int" resultType="store_inquiry_view">
+		select * from store_inquiry_view where m_index=#{m_index}
+	</select>
+	
+	<select id="selectAllStoreInquiryViewT" parameterType="String" resultType="store_inquiry_view">
+		select * from store_inquiry_view where si_type=#{si_type}
+	</select>
+	
+	<select id="selectAllStoreInquiryViewV" parameterType="int" resultType="store_inquiry_view">
+		select * from store_inquiry_view where si_view=#{si_view}
+	</select>
+	
+</mapper>

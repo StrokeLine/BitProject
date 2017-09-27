@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"     
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="dao.IStoreNoticeDao">
+
+	<insert id="insertStoreNotice" parameterType="store_notice">
+		insert into store_notice values(0, #{s_index}, #{m_index}, #{sn_subject}, #{sn_content}, #{sn_view}, #{sn_date});
+	</insert>
+	
+	<update id="updateStoreNotice" parameterType="store_notice">
+		update store_notice set sn_subject=#{sn_subject}, sn_content=#{sn_content}, sn_view=#{sn_view}, sn_date=#{sn_date} where sn_index=#{sn_index} 
+	</update>
+	
+	<delete id="updateStoreNotice" parameterType="int">
+		delete from store_notice where sn_index=#{sn_index}
+	</delete>
+	
+	<select id="selectStoreNotice" parameterType="int" resultType="store_notice">
+		select * from store_notice where sn_index=#{sn_index}
+	</select>
+	
+	<select id="selectAllStoreNotice" parameterType="int" resultType="store_notice">
+		select * from store_notice where s_index=#{s_index}
+	</select>
+	
+</mapper>

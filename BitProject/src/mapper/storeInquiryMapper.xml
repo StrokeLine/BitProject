@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"     
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="dao.IStoreInquiryDao">
+
+	<insert id="insertStoreInquiry" parameterType="store_inquiry">
+		insert into store_inquiry values(0, #{s_index}, #{m_index}, #{si_reply_index}, #{si_type}, #{si_subject}, #{si_content}, #{si_view}, #{si_date});
+	</insert>
+	
+	<update id="updateStoreInquiry" parameterType="store_inquiry">
+		update store_inquiry set si_type=#{si_type}, si_subject=#{si_subject}, si_content=#{si_content}, si_view=#{si_view}, si_date=#{si_date} where si_index=#{si_index}
+	</update>
+	
+	<delete id="deleteStoreInquiry" parameterType="int">
+		delete from store_inquiry where si_index=#{si_index}
+	</delete>
+	
+	<select id="selectStoreInquiryS" parameterType="int">
+		select * from store_inquiry where s_index=#{s_index}
+	</select>
+	
+	<select id="selectStoreInquiryM" parameterType="int">
+		select * from store_inquiry where m_index=#{m_index}
+	</select>
+	
+</mapper>

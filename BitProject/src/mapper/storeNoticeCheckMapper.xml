@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"     
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="dao.IStoreNoticeCheckDao">
+
+	<insert id="insertStoreNoticeCheck" parameterType="store_notice_check">
+		insert into store_notice_check values(0, #{sn_index}, #{m_index}, #{sc_view}, #{sc_date});
+	</insert>
+	
+	<update id="updateStoreNoticeCheck" parameterType="store_notice_check">
+		update store_notice_check set sc_view=#{sc_view}
+	</update>
+	
+	<delete id="deleteStoreNoticeCheck" parameterType="int">
+		delete from store_notice_check where sc_index=#{sc_index}
+	</delete>
+	
+	<select id="selectStoreNoticeCheck" parameterType="int" resultType="store_notice_check">
+		select * from store_notice_check where sc_index=#{sc_index}
+	</select>
+
+</mapper>
