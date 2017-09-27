@@ -28,10 +28,16 @@ public class AddressInfoDao implements IAddressInfoDao {
 	public int deleteAddress(int add_index) {
 		return session.delete("dao.IAddressInfoDao.deleteAddress", add_index);
 	}
+	
 
 	@Override
-	public List<address_info> selectAddress(int m_index) {
-		return session.selectList("dao.IAddressInfoDao.selectAddress", m_index);
+	public address_info selectAddress(int add_index) {
+		return session.selectOne("dao.IAddressInfoDao.selectAddress", add_index);
+	}
+
+	@Override
+	public List<address_info> selectAllAddress(int m_index) {
+		return session.selectList("dao.IAddressInfoDao.selectAllAddress", m_index);
 	}
 	
 	

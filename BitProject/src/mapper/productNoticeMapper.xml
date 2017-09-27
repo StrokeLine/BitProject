@@ -14,7 +14,7 @@
 	</delete>
 	
 	<select id="selectProductNotice" parameterType="int" resultType="product_notice">
-		select * from product_notice where m_index = #{m_index}
+		select * from product_notice where pn_index = #{pn_index}
 	</select>
 	
 </mapper>

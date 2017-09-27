@@ -26,5 +26,12 @@ public class ShoppingBasketDao implements IShoppingBasketDao {
 	public int deleteShoppingBasket(int sb_index) {
 		return session.delete("dao.IShoppingBasketDao.deleteShoppingBasket", sb_index);
 	}
+
+	@Override
+	public shopping_basket insertShoppingBasket(int sb_index) {
+		return session.selectOne("dao.IShoppingBasketDao.insertShoppingBasket", sb_index);
+	}
+	
+	
 	
 }

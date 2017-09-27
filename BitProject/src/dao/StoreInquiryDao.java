@@ -28,6 +28,11 @@ public class StoreInquiryDao implements IStoreInquiryDao {
 	}
 
 	@Override
+	public store_inquiry selectStoreInquiry(int si_index) {
+		return session.selectOne("dao.IStoreInquiryDao.deleteStoreInquiry", si_index);
+	}
+
+	@Override
 	public store_inquiry selectStoreInquiryS(int s_index) {
 		return session.selectOne("dao.IStoreInquiryDao.deleteStoreInquiry", s_index);
 	}

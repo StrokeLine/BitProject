@@ -3,7 +3,7 @@
 	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"     
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="dao.IMemberDao">
+<mapper namespace="dao.IShoppingBasketDao">
 
 	<insert id="insertShoppingBasket" parameterType="shopping_basket">
 		insert into shopping_basket values(0, #{p_index}, #{m_index}, #{sb_num}, #{sb_date});
@@ -16,5 +16,9 @@
 	<delete id="deleteShoppingBasket" parameterType="int">
 		delete from shopping_basket where sb_index=#{sb_index}
 	</delete>
+
+	<select id="insertShoppingBasket" parameterType="int" resultType="shopping_basket">
+		select * from shopping_basket where sb_index=#{sb_index}
+	</select>
 
 </mapper>

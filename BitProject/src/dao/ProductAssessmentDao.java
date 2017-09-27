@@ -30,13 +30,13 @@ public class ProductAssessmentDao implements IProductAssessmentDao {
 	}
 
 	@Override
-	public product_assessment selectProductAssessment(int index) {
-		return session.selectOne("dao.IProductAssessmentDao.selectProductAssessment", index);
+	public product_assessment selectProductAssessment(int pa_index) {
+		return session.selectOne("dao.IProductAssessmentDao.selectProductAssessment", pa_index);
 	}
 
 	@Override
-	public List<product_assessment> selectAllProductAssessment(int index) {
-		return session.selectList("dao.IProductAssessmentDao.selectAllProductAssessment", index);
+	public List<product_assessment> selectAllProductAssessment(int p_index) {
+		return session.selectList("dao.IProductAssessmentDao.selectAllProductAssessment", p_index);
 	}
 	
 	
