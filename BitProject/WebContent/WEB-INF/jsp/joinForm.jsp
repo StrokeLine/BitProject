@@ -29,12 +29,11 @@
 			location.reload(true);
 			return;
 		}
-		$(".pet_Info").load(url);
+		$(".pet_info_view").load(url);
 	};
 </script>
 </head>
 <body id="page-top">
-	<div class="wrap">
 
 		<!-- Navigation -->
 		<section>
@@ -62,7 +61,7 @@
 		
 		<section>
 		<div class="joinId">
-			<label for="join_id">아이디(이메일)</label> 
+			<label for="join_id">이메일(아이디)</label> 
 			<input type="text" class="form-control" id="m_email" placeholder="이메일을 입력하세요">
 			<button type="button" class="btn btn-info">중복확인</button>
 		</div>
@@ -87,21 +86,21 @@
 		
 		<div class="joinImg">
 			<label for="join_img">프로필사진</label>
-			<input type="file" id="m_img">
+			<input type="file" id="m_img" class="form-control">
 		</div>
 		
-		<div class="pet_Info" id="pet_Info">
-			<button type="button" class="btn btn-info"
-				onclick="petInfo('petInfo')">반려견 등록</button>
+		<!-- <div class="pet_Info" id="pet_Info">
+			<input type="radio" name="inputpet" value="registration" onclick="petInfo('petInfo')">펫 등록
+			<input type="radio" name="inputpet" value="non-registered">등록안함
+			<div class="pet_info_view"></div>
 		</div>
-
+ -->
 		<div class="join_Bt" id="join_Bt">
 			
 			<button type="submit" class="btn btn-success" onclick="location='main'">회원가입</button>
 			<button type="reset" class="btn btn-success" onclick="location='main'">취소</button>
 		</div>
 
-	</div>
 	</section>
 	<!-- Footer -->
 	<footer class="text-center">

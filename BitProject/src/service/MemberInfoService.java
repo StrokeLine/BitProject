@@ -7,7 +7,7 @@ import dao.MemberInfoDao;
 import model.member_info;
 
 @Service
-public class MemberService {
+public class MemberInfoService {
 
 	@Autowired
 	private MemberInfoDao memberDao;

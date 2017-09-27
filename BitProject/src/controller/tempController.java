@@ -8,13 +8,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import model.member_info;
-import service.MemberService;
+import service.MemberInfoService;
 
 @Controller
 public class tempController {
 	
 	@Autowired
-	private MemberService memberService;
+	private MemberInfoService memberService;
 	
 	@RequestMapping("container")
 	public ModelAndView NewFile() {
