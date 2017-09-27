@@ -1,6 +1,6 @@
 package model;
 
-public class seller_following_view {
+public class store_following_view {
 	private int m_index;
 	private int s_index;
 	private String m_name;

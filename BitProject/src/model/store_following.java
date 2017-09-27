@@ -2,11 +2,11 @@ package model;
 
 import java.util.Date;
 
-public class seller_following { //ÆÇ¸ÅÀÚ ÆÈ·ÎÀ®
+public class store_following { //ï¿½Ç¸ï¿½ï¿½ï¿½ ï¿½È·ï¿½ï¿½ï¿½
     private int  sf_index;       //index
-    private int  s_index;        //ÆÇ¸ÅÀÚ index
-    private int  m_index;        //È¸¿ø index
-    private Date sf_date;        //µî·ÏÀÏ
+    private int  s_index;        //ï¿½Ç¸ï¿½ï¿½ï¿½ index
+    private int  m_index;        //È¸ï¿½ï¿½ index
+    private Date sf_date;        //ï¿½ï¿½ï¿½ï¿½ï¿½
     
 public int getSf_index() {
 	return sf_index;

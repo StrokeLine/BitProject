@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"     
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace="dao.ITakebackSwapDao">
+
+	<insert id="insertTakebackSwap" parameterType="takeback_swap" useGeneratedKeys="true" keyProperty="tb_index">
+		insert into takeback_swap values(0, #{s_index}, #{m_index}, #{p_index}, #{tb_diff}, #{tb_num}, #{tb_content}, 
+		#{tb_handling_state}, #{tb_view}, #{tb_date});
+	</insert>
+	
+	<update id="updateTakebackSwap" parameterType="takeback_swap">
+		update takeback_swap set s_index=#{s_index}, m_index=#{m_index}, p_index=#{p_index}, tb_diff=#{tb_diff}, 
+		tb_num=#{tb_num}, tb_content=#{tb_content}, tb_handling_state=#{tb_handling_state}, tb_view=#{tb_view}, 
+		tb_date=#{tb_date} where tb_index=#{tb_index};
+	</update>
+	
+	<delete id="deleteTakebackSwap" parameterType="int">
+		delete from takeback_swap where tb_index=#{tb_index};
+	</delete>
+	
+	<select id="selectTakebackSwap" parameterType="int" resultType="takeback_swap">
+		select * from takeback_swap where tb_index=#{tb_index};
+	</select>
+
+</mapper>

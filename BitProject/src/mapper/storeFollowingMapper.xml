@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"     
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="dao.IStoreFollowingDao">
+	
+	<insert id="insertStoreFollowing" parameterType="store_following" useGeneratedKeys="true" keyProperty="sf_index">
+		insert into store_following values(0, #{s_index}, #{m_index}, #{sf_date});
+	</insert>
+	
+	<update id="updateStoreFollowing" parameterType="store_following">
+		update store_following set s_index=#{s_index}, m_index=#{m_index}, sf_date=#{sf_date} where sf_index=#{sf_index};
+	</update>
+	
+	<delete id="deleteStoreFollowing" parameterType="int">
+		delete from store_following where sf_index=#{sf_index};
+	</delete>
+	
+	<select id="selectStoreFollowing" parameterType="int" resultType="store_following">
+		select * from store_following where sf_index=#{sf_index};
+	</select>
+	
+</mapper>

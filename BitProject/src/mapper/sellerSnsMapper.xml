@@ -5,21 +5,20 @@
 
 <mapper namespace="dao.ISellerSnsDao">
 
-	<insert id="insertSellerSns" parameterType="seller_sns" useGeneratedKeys="true" keyProperty="pet_index">
-		insert into seller_sns values(0, #{m_index}, #{pet_name}, #{pet_sex}, #{pet_birthday}, #{pet_breeds}, #{pet_img}, #{pet_date});
+	<insert id="insertSellerSns" parameterType="seller_sns" useGeneratedKeys="true" keyProperty="ss_index">
+		insert into seller_sns values(0, #{s_index}, #{ss_sort}, #{ss_address}, #{ss_date});
 	</insert>
 	
 	<update id="updateSellerSns" parameterType="seller_sns">
-		update seller_sns set m_index=#{m_index}, pet_name=#{pet_name}, pet_sex=#{pet_sex}, pet_birthday=#{pet_birthday}, 
-		pet_breeds=#{pet_breeds}, pet_img=#{pet_img}, pet_date=#{pet_date} where pet_index=#{pet_index};
+		update seller_sns set s_index=#{s_index}, ss_sort=#{ss_sort}, ss_address=#{ss_address}, ss_date=#{ss_date} where ss_index=#{ss_index};
 	</update>
 	
 	<delete id="deleteSellerSns" parameterType="int">
-		delete from seller_sns where where pet_index=#{pet_index};
+		delete from seller_sns where where ss_index=#{ss_index};
 	</delete>
 	 
 	<select id="selectSellerSns" parameterType="int" resultType="seller_Sns">
-		select * from seller_sns  where pet_index=#{pet_index};
+		select * from seller_sns  where ss_index=#{ss_index};
 	</select>
 
 </mapper>
