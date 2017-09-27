@@ -3,17 +3,17 @@ package service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import dao.MemberDao;
+import dao.MemberInfoDao;
 import model.member_info;
 
 @Service
 public class MemberService {
 
 	@Autowired
-	private MemberDao memberDao;
+	private MemberInfoDao memberDao;
 	
 	public int addMember(member_info m) {
-		int result = memberDao.insertMember(m);
+		int result = memberDao.insertMemberInfo(m);
 		
 		if( result > 0 ) {
 			return m.getM_index();

@@ -56,7 +56,7 @@
 					<div class="label_price" style="width: 50%; float: left;">2500<span>원</span></div>
 				</div>
 				<div class="product_btn_other">
-					<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#productmodal">찜</button>
+					<input type="button" value="찜" onclick="dibsCheck()">
 					<input type="button" value="장바구니" onclick="shoppingBasketCheck()">
 					<input type="button" value="주문하기" onclick="productClick('orderProduct')">
 				</div>
@@ -110,25 +110,7 @@
 			</div>
 		</div>
 	</div>
-	
-	<!-- modal -->
-	<div class="modal fade" id="productmodal" role="dialog">
-		<div class="modal-dialog modal-sm">
-		<!-- modal content -->
-		<div class="modal-content">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal">&times;</button>
-				<h4 class="modal-body">찜</h4>
-			</div>
-			<div class="modal-footer">
-				<button type="submit" class="btn btn-default" data-dismiss="modal">확인</button>
-				<button type="reset" class="btn btn-default" data-dismiss="modal">취소</button>
-			</div>
-		</div>
-		</div>
-	</div>
-	
-	
+		
 	<!-- Bootstrap core JavaScript -->
 	<script src="/jquery/jquery.min.js"></script>
 	<script src="/popper/popper.min.js"></script>

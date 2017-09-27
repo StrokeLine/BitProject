@@ -52,7 +52,7 @@ html, body{margin:0; width:100%;	height:100%;}
 			<div class="collapse navbar-collapse" id="navbarResponsive">
 				<ul class="navbar-nav ml-auto">
 					<li class="nav-item"><a class="nav-link js-scroll-trigger" onclick="location='mainLogin'" style="cursor: pointer">Home</a></li>
-					<li class="nav-item"><a class="nav-link js-scroll-trigger" href="#portfolio">Shopping</a></li>
+					<li class="nav-item"><a class="nav-link js-scroll-trigger" onclick="location='mainLogin#portfolio'">Shopping</a></li>
 					<li class="nav-item"><a class="nav-link js-scroll-trigger" onclick="location='main'" style="cursor: pointer">Sign out</a></li>
 					<li class="nav-item"><a class="nav-link js-scroll-trigger" onclick="location='myPageMain'" style="cursor: pointer">My page</a></li>
 				</ul>

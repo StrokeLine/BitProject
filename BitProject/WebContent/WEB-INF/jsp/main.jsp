@@ -23,6 +23,12 @@
 <!-- Custom styles for this template -->
 <link href="/css/freelancer.min.css" rel="stylesheet">
 
+<script type="text/javascript">
+$('.portfolio-link').click(function() {
+	document.location.reload();
+});
+</script>
+
 </head>
 
 <body id="page-top">
@@ -67,8 +73,8 @@
 			<hr class="star-primary">
 			<div class="row">
 				<div class="col-sm-4 portfolio-item">
-					<a class="portfolio-link" href="#portfolioModal1"
-						data-toggle="modal">
+					<!-- <a class="portfolio-link" href="#portfolioModal1" data-toggle="modal"> -->
+					<a class="portfolio-link" href="#portfolioModal1" data-toggle="modal">
 						<div class="caption">
 							<div class="caption-content">
 								<i class="fa fa-search-plus fa-3x"></i>
@@ -286,10 +292,11 @@
 				
 				<jsp:include page="productPage.jsp" />
 				
-				<div class="container">
+				<div class="container" >
 					<div class="row">
 						<div class="col-lg-8 mx-auto">
 							<div class="modal-body">
+								<div id="orderview"></div>
 								<!-- <h2>Product Info</h2>
 								<hr class="star-primary">
 								<img class="img-fluid img-centered" src="/images/portfolio/cabin.png" alt="">
