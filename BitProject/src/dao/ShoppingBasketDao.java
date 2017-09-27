@@ -28,7 +28,7 @@ public class ShoppingBasketDao implements IShoppingBasketDao {
 	}
 
 	@Override
-	public shopping_basket insertShoppingBasket(int sb_index) {
+	public shopping_basket selectShoppingBasket(int sb_index) {
 		return session.selectOne("dao.IShoppingBasketDao.insertShoppingBasket", sb_index);
 	}
 	
