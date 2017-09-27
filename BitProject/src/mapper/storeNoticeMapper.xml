@@ -10,19 +10,19 @@
 	</insert>
 	
 	<update id="updateStoreNotice" parameterType="store_notice">
-		update store_notice set sn_subject=#{sn_subject}, sn_content=#{sn_content}, sn_view=#{sn_view}, sn_date=#{sn_date} where sn_index=#{sn_index} 
+		update store_notice set sn_subject=#{sn_subject}, sn_content=#{sn_content}, sn_view=#{sn_view}, sn_date=#{sn_date} where sn_index=#{sn_index}; 
 	</update>
 	
-	<delete id="updateStoreNotice" parameterType="int">
-		delete from store_notice where sn_index=#{sn_index}
+	<delete id="deleteStoreNotice" parameterType="int">
+		delete from store_notice where sn_index=#{sn_index};
 	</delete>
 	
 	<select id="selectStoreNotice" parameterType="int" resultType="store_notice">
-		select * from store_notice where sn_index=#{sn_index}
+		select * from store_notice where sn_index=#{sn_index};
 	</select>
 	
 	<select id="selectAllStoreNotice" parameterType="int" resultType="store_notice">
-		select * from store_notice where s_index=#{s_index}
+		select * from store_notice where s_index=#{s_index};
 	</select>
 	
 </mapper>

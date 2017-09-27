@@ -60,53 +60,45 @@
 		</nav>
 		</section>
 		
-		
 		<section>
-		<div class="joinId" id="joinId">
+		<div class="joinId">
 			<label for="join_id">아이디(이메일)</label> 
-				<input type="text" class="form-control" id="m_email" placeholder="이메일을 입력하세요">
+			<input type="text" class="form-control" id="m_email" placeholder="이메일을 입력하세요">
 			<button type="button" class="btn btn-info">중복확인</button>
 		</div>
 
-		<div class="joinPw" id="joinPw">
+		<div class="joinPw">
 			<label for="join_pw">비밀번호</label> 
 			<input type="password" class="form-control" id="m_password" placeholder="비밀번호를 입력하세요">
 			<input type="password" class="form-control" id="m_repassword" placeholder="비밀번호를 한 번 더 입력하세요">
 		</div>
 
-		<div class="joinName" id="joinName">
+		<div class="joinName">
 			<label for="join_name">이름</label> 
 			<input type="text" class="form-control" id="m_name" placeholder="닉네임을 입력하세요">
 			<button type="button" class="btn btn-warning">중복확인</button>
 		</div>
 
-		<div class="joinTel" id="joinTel">
+		<div class="joinTel">
 			<label for="join_tel">전화번호</label> 
-				<input type="text" class="form-control" id="m_tel" placeholder="전화번호를 입력하세요">
+			<input type="text" class="form-control" id="m_tel" placeholder="전화번호를 입력하세요">
 			<button type="button" class="btn btn-danger">인증</button>
 		</div>
-
+		
+		<div class="joinImg">
+			<label for="join_img">프로필사진</label>
+			<input type="file" id="m_img">
+		</div>
+		
 		<div class="pet_Info" id="pet_Info">
 			<button type="button" class="btn btn-info"
 				onclick="petInfo('petInfo')">반려견 등록</button>
 		</div>
 
-		<!-- <div class="pet_view"></div> -->
-		<form action="mainLogin" method="post">
-			<input type="hidden" name="m_index" value="0"> <input
-				type="hidden" name="m_name" value="aaa"> <input
-				type="hidden" name="m_tel" value="010-4567-4564"> <input
-				type="hidden" name="m_tel_check" value="false"> <input
-				type="hidden" name="m_email" value="aaa@aaa.com"> <input
-				type="hidden" name="m_email_check" value="false"> <input
-				type="hidden" name="m_password" value="aaa"> <input
-				type="hidden" name="m_img" value=""> <input type="hidden"
-				name="m_admin" value="false"> <input type="hidden"
-				name="m_date" value="2017-07-25"> <input type="submit"
-				value="회원가입">
-		</form>
 		<div class="join_Bt" id="join_Bt">
-			<!-- <button type="submit" class="btn btn-primary">회원가입</button> -->
+			
+			<button type="submit" class="btn btn-success"
+				onclick="location='main'">회원가입</button>
 			<button type="reset" class="btn btn-success"
 				onclick="location='main'">취소</button>
 		</div>
