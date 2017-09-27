@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"     
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace="dao.IOrderStatementDao">
+	
+	<insert id="insertOrderStatement" parameterType="order_statement2">
+		insert into order_statement2 values(0, #{s_index}, #{m_index}, #{p_index}, #{os_num}, #{os_deposit_statement}, #{os_handling_state}, #{os_date});
+	</insert>
+	
+	<select id="selectOrderStatement" parameterType="int" resultType="order_statement2">
+		select * from order_statement2 where os_index = #{os_index};
+	</select>
+	
+</mapper>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"     
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace="dao.IProductDao">
+
+	<insert id="insertProduct" parameterType="product_info">
+		insert into product_info values (0, #{s_index}, #{p_hashTag}, #{p_major_value}, #{p_miner_value}, #{p_name}, #{p_num}, #{p_price}, #{p_fee}, #{p_imgSrc}, now());
+	</insert>
+	
+	<update id="updateProduct" parameterType="product_info">
+		update product_info set p_hashTag = #{p_hashTag}, p_major_value = #{p_major_value}, p_miner_value = #{p_miner_value}, p_name = #{p_name}, p_num = #{p_num}, p_price = #{p_price}, p_fee = #{p_fee}, p_imgSrc = #{p_imgSrc}, p_date = #{p_date} where id = #{p_index};
+	</update>
+	
+	<delete id="deleteProduct" parameterType="int">
+		delete * from product_info where id = #{p_index};
+	</delete>
+	
+	<select id="selectOneProduct" parameterType="int" resultType="product_info">
+		select * from product_info where p_index = #{p_index};
+	</select>
+	
+	<select id="selectAllProduct" parameterType="int" resultType="product_info">
+		select * from product_info where s_index=#{s_index};
+	</select>
+	
+</mapper>	

@@ -4,11 +4,14 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <title>Insert title here</title>
 </head>
 <body>
-	<div class="sellerReg_page">
-	<h3>판매자 등록</h3>
+	<div class="wrap" style="margin-left: 350px;">
+		<div class="sellerReg_title">
+			<h3>판매자 등록</h3>
+		</div>
 		<div class="sellerReg_contents">
 			<div class="storeName" style="margin-bottom: 30px;">
 				<h4>상점명</h4>
@@ -20,7 +23,7 @@
 			</div>
 			<div class="accountReg" style="margin-bottom: 30px;">
 				<h4>거래계좌</h4><br>
-				<div class="accountReg_">				
+				<div class="accountReg_bankSel">				
 					<label>은행선택
 						<select>
 							<option value=""></option>			
@@ -42,11 +45,12 @@
 				주소  <input type="text" name="offlineStore_address" style="width: 450px;" >			
 			</div>		
 		</div>	
-		<div class="sellerReg_btn">
-			<div>
-				<input type="button" value="등록" onclick="">
-			</div>		
+		<div class="sellerReg_btn">				
+			<button type="submit" class="btn btn-primary" onclick="">등록</button>			
 		</div>
-	</div>
+		
+	</div>	
+	<script	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script type="text/javascript" src="/js/bootstrap.js"></script>	
 </body>
 </html>

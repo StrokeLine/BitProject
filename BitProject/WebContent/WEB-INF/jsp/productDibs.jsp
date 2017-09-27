@@ -8,11 +8,10 @@
 <title>찜한 상품</title>
 </head>
 <body>	
-	<div class="productDibs_Page" style="margin-left: 400px;">
-		<div class="deleteDibs_btn">
+	<div class="wrap" style="margin-left: 350px;">
+		<div class="btn btn-default" style="float: right">
 			<input type="button" value="삭제">
-		</div>
-		
+		</div>		
 		<div class="dibs_items">
 			<div class="item1" style="width:2%; display: inline-block;" >
 				<input type="checkbox" name="checkAll" value="">
