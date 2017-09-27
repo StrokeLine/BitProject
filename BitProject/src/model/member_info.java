@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class member_info { // 회원정보
 	private int m_index; // index
-	private String m_name; // 이름
+	private String m_name; // 이름, 닉네임
 	private String m_tel; // 전화번호
 	private boolean m_tel_check; // 전화번호 인증
 	private String m_email; // 이메일

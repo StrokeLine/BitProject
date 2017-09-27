@@ -63,27 +63,26 @@
 		
 		<section>
 		<div class="joinId" id="joinId">
-			<label for="join_id">아이디(이메일)</label> <input type="text"
-				class="form-control" id="join_inputID" placeholder="이메일을 입력하세요">
+			<label for="join_id">아이디(이메일)</label> 
+				<input type="text" class="form-control" id="m_email" placeholder="이메일을 입력하세요">
 			<button type="button" class="btn btn-info">중복확인</button>
 		</div>
 
 		<div class="joinPw" id="joinPw">
-			<label for="join_pw">비밀번호</label> <input type="password"
-				class="form-control" id="join_inputPW" placeholder="비밀번호를 입력하세요">
-			<input type="password" class="form-control" id="join_inputRPW"
-				placeholder="비밀번호를 한 번 더 입력하세요">
+			<label for="join_pw">비밀번호</label> 
+			<input type="password" class="form-control" id="m_password" placeholder="비밀번호를 입력하세요">
+			<input type="password" class="form-control" id="m_repassword" placeholder="비밀번호를 한 번 더 입력하세요">
 		</div>
 
-		<div class="joinNick" id="joinNick">
-			<label for="join_nick">닉네임</label> <input type="text"
-				class="form-control" id="join_inputNICK" placeholder="닉네임을 입력하세요">
+		<div class="joinName" id="joinName">
+			<label for="join_name">이름</label> 
+			<input type="text" class="form-control" id="m_name" placeholder="닉네임을 입력하세요">
 			<button type="button" class="btn btn-warning">중복확인</button>
 		</div>
 
 		<div class="joinTel" id="joinTel">
-			<label for="join_tel">전화번호</label> <input type="text"
-				class="form-control" id="join_inputTEL" placeholder="전화번호를 입력하세요">
+			<label for="join_tel">전화번호</label> 
+				<input type="text" class="form-control" id="m_tel" placeholder="전화번호를 입력하세요">
 			<button type="button" class="btn btn-danger">인증</button>
 		</div>
 
