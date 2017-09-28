@@ -35,9 +35,9 @@ public class tempController {
 	}
 	
 	@RequestMapping("loginForm")
-	public ModelAndView loginForm() {
+	public ModelAndView loginForm(member_info member_info) {
 		ModelAndView mav = new ModelAndView();
-		
+		System.out.println(member_info.toString());
 		mav.setViewName("loginForm");
 		
 		return mav;

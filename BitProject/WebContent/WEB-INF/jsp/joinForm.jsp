@@ -59,7 +59,7 @@
 		</nav>
 		</section>
 		
-		<form method="POST" action="joinForm.do" name="inputForm" onsubmit="return inputCheck()">
+		<form action="loginForm" method="post">
 			<h2 class="text-center">회원가입</h2>
 			<hr class="star-primary">
 		<div class="joinEmail">
@@ -99,7 +99,7 @@
  -->
 		<div class="join_Bt" id="join_Bt">
 			
-			<button type="submit" class="btn btn-success" onclick="location='main'">회원가입</button>
+			<button type="submit" class="btn btn-success">회원가입</button>
 			<button type="reset" class="btn btn-success" onclick="location='main'">취소</button>
 		</div>
 
