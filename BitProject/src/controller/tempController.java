@@ -37,7 +37,9 @@ public class tempController {
 	@RequestMapping("loginForm")
 	public ModelAndView loginForm(member_info member_info) {
 		ModelAndView mav = new ModelAndView();
-		System.out.println(member_info.toString());
+		if(member_info.getM_email() != null){
+			memberService.addMember(member_info);	
+		}
 		mav.setViewName("loginForm");
 		
 		return mav;
@@ -80,7 +82,7 @@ public class tempController {
 	}
 	
 	@RequestMapping("mainLogin")
-	public ModelAndView mainLogin(member_info m){
+	public ModelAndView mainLogin(member_info member_info){
 		ModelAndView mav = new ModelAndView();
 		
 		mav.setViewName("mainLogin");
@@ -245,6 +247,8 @@ public class tempController {
 	@RequestMapping("memberInfo")
 	public ModelAndView memberInfo() {
 		ModelAndView mav = new ModelAndView();		
+		member_info m =  memberService.getMember(1);
+		mav.addObject("member", m);
 		mav.setViewName("memberInfo");		
 		return mav;
 	}

@@ -45,7 +45,7 @@
 			</div>
 		</div>
 	</nav>
-	<section>
+	<form action="mainLogin" method="post">
 	<div class="wrap">
 		<div class="loginId" id="loginId">
 			<label for="login_ID">아이디(이메일)</label> 
@@ -71,12 +71,12 @@
 		</div>
 		
 		<div class="login_Bt" id="login_Bt">
-			<button type="submit" class="btn btn-info" onclick="location='mainLogin'">로그인</button>
+			<button type="submit" class="btn btn-info">로그인</button>
 			<button type="reset" class="btn btn-info" onclick="location='main'">취소</button>
 		</div>
 
 	</div>
-	</section>
+	</form>
 	<!-- Footer -->
 	<footer class="text-center">
 		<div class="footer-above">

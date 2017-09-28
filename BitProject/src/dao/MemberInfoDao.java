@@ -28,7 +28,7 @@ public class MemberInfoDao implements IMemberInfoDao {
 	}
 
 	@Override
-	public int selectMemberInfo(int m_index) {
+	public member_info selectMemberInfo(int m_index) {
 		return session.selectOne("dao.IMemberInfoDao.selectMemberInfo", m_index);
 	}
 

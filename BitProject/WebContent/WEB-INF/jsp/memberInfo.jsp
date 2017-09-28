@@ -37,17 +37,16 @@
 	</style>
 </head>
 	<body>
-	
 	<div class="memberInfo">
 		<div class="memberInfoTitle"><h2>내 정보</h2></div>
 		<div class="memberInfoTable">
 			<div class="rowId">
 				<div class="rowTitle"><h4>아이디</h4></div>
-				<div class="memberId">(회원 아이디)</div>
+				<div class="memberId">${member.m_email}</div>
 			</div>
 			<div class="rowName">
 				<div class="rowTitle"><h4>이름</h4></div>
-				<div class="memberName">(회원 이름)</div>
+				<div class="memberName">${member.m_name}</div>
 			</div>
 			<div class="rowGender">
 				<div class="rowTitle"><h4>성별</h4></div>
@@ -59,14 +58,13 @@
 			</div>
 			<div class="rowPhone">
 				<div class="rowTitle"><h4>전화번호</h4></div>
-				<div class="memberPhone">(회원 전화번호)</div>
+				<div class="memberPhone">${member.m_tel}</div>
 			</div>
 			<div class="rowBtn">
 				<div class="memberModBtn"><input type="button" class="btn btn-info" value="수정" onclick="location.href='modifyMember'"></div>
 			</div>
 		</div>
 	</div>
-	
 	<!-- Bootstrap core JavaScript -->
     <script src="/jquery/jquery.min.js"></script>
     <script src="/popper/popper.min.js"></script>
