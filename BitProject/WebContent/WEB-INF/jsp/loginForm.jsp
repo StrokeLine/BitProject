@@ -45,38 +45,44 @@
 			</div>
 		</div>
 	</nav>
-	<form action="mainLogin" method="post">
-	<div class="wrap">
-		<div class="loginId" id="loginId">
-			<label for="login_ID">아이디(이메일)</label> 
-			<input type="text" class="form-control" id="login_inputID" placeholder="아이디를 입력하세요.">
-		</div>
-
-		<div class="loginPw" id="loginPw">
-			<label for="login_PW">비밀번호</label> <input type="password"
-				class="form-control" id="login_inputPW" placeholder="비밀번호를 입력하세요.">
-		</div>
-
-		<div class="checkbox_ID" id="checkbox_ID">
-			<input type="checkbox">아이디 저장
-		</div>
+	
+	<section>
+		<form action="mainLogin" method="post">
+			<div class="wrap" id="wrap_login">
+				<h2 class="text-center">회원가입</h2>
+				<hr class="star-primary">
+				
+				<div class="loginId" id="loginId">
+					<label for="login_ID">아이디(이메일)</label> 
+					<input type="text" class="form-control" id="login_inputID" name="m_email" placeholder="아이디를 입력하세요." >
+				</div>
 		
-		<div class="checkbox_AUTO" id="checkbox_AUTO">     
-			<input type="checkbox">자동로그인
-		</div>
-			
-		<div class="find_Bt" id="find_Bt">
-			<button type="button" class="btn btn-default" onclick="location='idFind'">아이디 찾기</button>
-			<button type="button" class="btn btn-default" onclick="location='pwFind'">비밀번호 찾기</button>
-		</div>
+				<div class="loginPw" id="loginPw">
+					<label for="login_PW">비밀번호</label> <input type="password"
+						class="form-control" id="login_inputPW" name="m_password" placeholder="비밀번호를 입력하세요.">
+				</div>
 		
-		<div class="login_Bt" id="login_Bt">
-			<button type="submit" class="btn btn-info">로그인</button>
-			<button type="reset" class="btn btn-info" onclick="location='main'">취소</button>
-		</div>
-
-	</div>
-	</form>
+				<div class="checkbox_ID" id="checkbox_ID">
+					<input type="checkbox">아이디 저장
+				</div>
+				
+				<div class="checkbox_AUTO" id="checkbox_AUTO">     
+					<input type="checkbox">자동로그인
+				</div>
+					
+				<div class="find_Bt" id="find_Bt">
+					<button type="button" class="btn btn-default" onclick="location='idFind'">아이디 찾기</button>
+					<button type="button" class="btn btn-default" onclick="location='pwFind'">비밀번호 찾기</button>
+				</div>
+				
+				<div class="login_Bt" id="login_Bt">
+					<button type="submit" class="btn btn-info">로그인</button>
+					<button type="reset" class="btn btn-info" onclick="location='main'">취소</button>
+				</div>
+		
+			</div>
+		</form>
+	</section>
 	<!-- Footer -->
 	<footer class="text-center">
 		<div class="footer-above">

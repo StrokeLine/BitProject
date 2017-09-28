@@ -69,7 +69,7 @@ hr.star-primary:after {
 }
 
 section {
-	padding: 100px 0
+	padding: 120px 0
 }
 
 section h2 {
@@ -607,4 +607,17 @@ footer .footer-below {
 
 .btn.active, .btn:active, .btn:focus {
 	outline: 0
+}
+
+#wrap_login{
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#login_inputID, #login_inputPW{
+	width: 400px;
+}
+.loginID, .loginPW, .checkbox_ID, .checkbox_AUTO, .find_Bt, .login_Bt {
+	margin-left: auto;
+	margin-right: auto;
 }
