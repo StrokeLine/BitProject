@@ -33,10 +33,25 @@ public class ProductInfoDao implements IProductInfoDao{
 	public product_info selectProduct(int p_index) {		
 		return session.selectOne("dao.IProductInfoDao.selectProductInfo", p_index);
 	}
+	
+	@Override
+	public List<product_info> selectAllProductInfoP(int p_index) {		
+		return session.selectList("dao.IProductInfoDao.selectAllProductP", p_index);
+	}
 
 	@Override
-	public List<product_info> selectAllProduct(int p_index) {		
-		return session.selectList("dao.IProductInfoDao.selectAllProductInfo", p_index);
+	public List<product_info> selectAllProductInfoH(String p_hashTag) {		
+		return session.selectList("dao.IProductInfoDao.selectAllProductInfoH", p_hashTag);
+	}
+
+	@Override
+	public List<product_info> selectAllProductInfoMJ(String p_major_value) {		
+		return session.selectList("dao.IProductInfoDao.selectAllProductInfoMJ", p_major_value);
+	}
+
+	@Override
+	public List<product_info> selectAllProductInfoMN(String p_miner_value) {		
+		return session.selectList("dao.IProductInfoDao.selectAllProductInfoMN", p_miner_value);
 	}
 	
 

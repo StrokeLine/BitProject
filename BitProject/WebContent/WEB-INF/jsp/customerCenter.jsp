@@ -23,16 +23,16 @@
 						<th>문의일</th>
 						<th></th>						
 					</tr>
-					<c:forEach items="${cc_inquiryList}" var="cc_inquiry">		
+					<c:forEach items="${customerCenterInquiryList}" var="customer_center_inquiry">		
 						<tr>
 							<td id="customerCenter_inquiryNumber">
-								${cc_inquiry.cc_index}
+								${customer_center_inquiry.cc_index}
 							</td>
 							<td id="customerCenter_inquirySubject">
-								${cc_inquiry.cc_subject}
+								${customer_center_inquiry.cc_subject}
 							</td>
 							<td id="customerCenter_inquiryDate">
-								<fmt:formatDate value="${cc_inquiry.regDate}" pattern="yyyy-MM-dd"/>
+								<fmt:formatDate value="${customer_center_inquiry.cc_date}" pattern="yyyy-MM-dd"/>
 							</td>
 							<td>
 								<a href="#"><button type="button" class="btn btn-default">내용보기(아이콘)</button></a>

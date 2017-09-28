@@ -5,12 +5,16 @@
 	
 <mapper namespace="dao.IOrderStatementDao">
 	
-	<insert id="insertOrderStatement" parameterType="order_statement2">
-		insert into order_statement2 values(0, #{s_index}, #{m_index}, #{p_index}, #{os_num}, #{os_deposit_statement}, #{os_handling_state}, #{os_date});
+	<insert id="insertOrderStatement" parameterType="order_statement">
+		insert into order_statement values(0, #{s_index}, #{m_index}, #{p_index}, #{os_num}, #{os_deposit_statement}, #{os_handling_state}, #{os_date});
 	</insert>
 	
-	<select id="selectOrderStatement" parameterType="int" resultType="order_statement2">
-		select * from order_statement2 where os_index = #{os_index};
+	<update id="updateOrderStatement" parameterType="order_statement">
+		update order_statement set s_index=#{s_index}, m_index=#{m_index}, p_index=#{p_index}, os_num=#{os_num}, os_deposit_statement=#{os_deposit_statement}, os_handling_state=#{os_handling_state}, os_date=#{os_date}
+	</update>
+	
+	<select id="selectOrderStatement" parameterType="int" resultType="order_statement">
+		select * from order_statement where os_index = #{os_index};
 	</select>
 	
 </mapper>
