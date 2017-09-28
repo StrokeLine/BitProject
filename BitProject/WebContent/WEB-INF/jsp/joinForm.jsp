@@ -59,34 +59,36 @@
 		</nav>
 		</section>
 		
-		<section>
-		<div class="joinId">
-			<label for="join_id">이메일(아이디)</label> 
-			<input type="text" class="form-control" id="m_email" placeholder="이메일을 입력하세요">
+		<form method="POST" action="joinForm.do" name="inputForm" onsubmit="return inputCheck()">
+			<h2 class="text-center">회원가입</h2>
+			<hr class="star-primary">
+		<div class="joinEmail">
+			<label for="join_email">이메일(아이디)</label> 
+			<input type="text" class="form-control" name="m_email" placeholder="이메일을 입력하세요" maxlength="20">
 			<button type="button" class="btn btn-info">중복확인</button>
 		</div>
 
 		<div class="joinPw">
 			<label for="join_pw">비밀번호</label> 
-			<input type="password" class="form-control" id="m_password" placeholder="비밀번호를 입력하세요">
-			<input type="password" class="form-control" id="m_repassword" placeholder="비밀번호를 한 번 더 입력하세요">
+			<input type="password" class="form-control" name="m_password" placeholder="비밀번호를 입력하세요" maxlength="20">
+			<input type="password" class="form-control" name="m_repassword" placeholder="비밀번호를 한 번 더 입력하세요" maxlength="20">
 		</div>
 
 		<div class="joinName">
 			<label for="join_name">이름</label> 
-			<input type="text" class="form-control" id="m_name" placeholder="닉네임을 입력하세요">
+			<input type="text" class="form-control" name="m_name" placeholder="닉네임을 입력하세요" maxlength="20">			
 			<button type="button" class="btn btn-warning">중복확인</button>
 		</div>
 
 		<div class="joinTel">
 			<label for="join_tel">전화번호</label> 
-			<input type="text" class="form-control" id="m_tel" placeholder="전화번호를 입력하세요">
+			<input type="text" class="form-control" name="m_tel" placeholder="전화번호를 입력하세요" maxlength="15">
 			<button type="button" class="btn btn-danger">인증</button>
 		</div>
 		
 		<div class="joinImg">
 			<label for="join_img">프로필사진</label>
-			<input type="file" id="m_img" class="form-control">
+			<input type="file" name="m_img" class="form-control">
 		</div>
 		
 		<!-- <div class="pet_Info" id="pet_Info">
@@ -101,7 +103,8 @@
 			<button type="reset" class="btn btn-success" onclick="location='main'">취소</button>
 		</div>
 
-	</section>
+	</form>
+	
 	<!-- Footer -->
 	<footer class="text-center">
 	<div class="footer-above">
