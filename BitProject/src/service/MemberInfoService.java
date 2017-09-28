@@ -13,7 +13,7 @@ import model.member_info;
 public class MemberInfoService {
 
 	@Autowired
-	private IMemberInfoDao memberDao;
+	private MemberInfoDao memberDao;
 	
 	public int addMember(member_info member_info) {
 		member_info.setM_email_check(false);

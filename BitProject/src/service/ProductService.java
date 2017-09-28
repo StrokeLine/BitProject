@@ -1,17 +1,22 @@
 package service;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import dao.IProductInfoDao;
+import dao.ProductInfoDao;
 import model.product_info;
 
+@Service
 public class ProductService {
 	
-	IProductInfoDao iProductDao;
+	@Autowired
+	private ProductInfoDao ProductDao;
 	
 	public int addProduct(product_info p, MultipartFile file){
 		
-		int result = iProductDao.insertProductInfo(p);
+		int result = ProductDao.insertProductInfo(p);
 		
 		if( result > 0 ){
 			return p.getP_index();
@@ -22,7 +27,7 @@ public class ProductService {
 	
 	public product_info getProduct(int p_index){
 		
-		return iProductDao.selectProduct(p_index);
+		return ProductDao.selectProduct(p_index);
 	}
 	
 }
