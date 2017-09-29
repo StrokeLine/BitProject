@@ -61,7 +61,7 @@
 		<div class="container">
 
 			<div class="row" id="pwd-container">
-				<div class="col-md-4"></div>
+				
 
 				<div class="col-md-4">
 					<section class="login-form">
@@ -86,7 +86,7 @@
 						</div>
 					</section>
 				</div>
-
+				<div class="col-md-4"></div>
 				<div class="col-md-4"></div>
 
 			</div>
