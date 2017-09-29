@@ -74,7 +74,7 @@
 
 				<div class="col-md-4">
 					<form method="post" action="">
-						<img alt="" src="/images/login.png" class="img-responsive">
+						<img alt="" src="/images/signup.png" class="img-responsive">
 
 						<div class="joinEmail">
 							<label for="join_email">이메일(아이디)</label> 
