@@ -1,12 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="ko">
 
 <head>
 
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description" content="">
 <meta name="author" content="">
 
@@ -16,72 +17,82 @@
 <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
 <!-- Custom fonts for this template -->
-<link href="/font-awesome/css/font-awesome.min.css"	rel="stylesheet" type="text/css">
-<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-<link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+<link href="/font-awesome/css/font-awesome.min.css" rel="stylesheet"
+	type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700"
+	rel="stylesheet" type="text/css">
+<link
+	href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic"
+	rel="stylesheet" type="text/css">
 
 <!-- Custom styles for this template -->
 <link href="/css/freelancer.min.css" rel="stylesheet">
+
+<script src="/js/login.js"></script>
+
 </head>
 <body id="page-top">
-	
+
 	<!-- Navigation -->
 	<nav class="navbar navbar-expand-lg navbar-light fixed-top"
 		id="mainNav">
 		<div class="container">
 			<a class="navbar-brand js-scroll-trigger" href="#page-top">FreeHaGae</a>
-			<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+			<button class="navbar-toggler navbar-toggler-right" type="button"
+				data-toggle="collapse" data-target="#navbarResponsive"
 				aria-controls="navbarResponsive" aria-expanded="false"
 				aria-label="Toggle navigation">
 				Menu <i class="fa fa-bars"></i>
 			</button>
 			<div class="collapse navbar-collapse" id="navbarResponsive">
 				<ul class="navbar-nav ml-auto">
-					<li class="nav-item"><a class="nav-link js-scroll-trigger" onclick="location='main'" style="cursor: pointer">Home</a></li>
-					<li class="nav-item"><a class="nav-link js-scroll-trigger" onclick="location='main#portfolio'">Shopping</a></li>
-					<li class="nav-item"><a class="nav-link js-scroll-trigger" onclick="location='loginForm'" style="cursor: pointer">Sign in</a></li>
-					<li class="nav-item"><a class="nav-link js-scroll-trigger" onclick="location='joinForm'" style="cursor: pointer">Sign up</a></li>
+					<li class="nav-item"><a class="nav-link js-scroll-trigger"
+						onclick="location='main'" style="cursor: pointer">Home</a></li>
+					<li class="nav-item"><a class="nav-link js-scroll-trigger"
+						onclick="location='main#portfolio'">Shopping</a></li>
+					<li class="nav-item"><a class="nav-link js-scroll-trigger"
+						onclick="location='loginForm'" style="cursor: pointer">Sign in</a></li>
+					<li class="nav-item"><a class="nav-link js-scroll-trigger"
+						onclick="location='joinForm'" style="cursor: pointer">Sign up</a></li>
 				</ul>
 			</div>
 		</div>
 	</nav>
-	
 	<section>
-		<form action="mainLogin" method="post">
-			<div class="wrap" id="wrap_login">
-				<h2 class="text-center">회원가입</h2>
-				<hr class="star-primary">
-				
-				<div class="loginId" id="loginId">
-					<label for="login_ID">아이디(이메일)</label> 
-					<input type="text" class="form-control" id="login_inputID" name="m_email" placeholder="아이디를 입력하세요." >
+		<div class="container">
+
+			<div class="row" id="pwd-container">
+				<div class="col-md-4"></div>
+
+				<div class="col-md-4">
+					<section class="login-form">
+						<form method="post" action="#" role="login">
+							<img src="/images/login.png" class="img-responsive" alt="" /> 
+							<input type="email" class="form-control input-lg" name="m_email" placeholder="Email" required  /> 
+							<input type="password" class="form-control input-lg" id="password" name="m_password" placeholder="Password" required="" />
+
+
+							<div class="pwstrength_viewport_progress"></div>
+
+
+							<button type="submit" name="go"	class="btn btn-lg btn-primary btn-block" onclick="mainLogin">Sign in</button>
+							<div>
+								<a href="#">Create account</a> or <a href="#">reset password</a>
+							</div>
+
+						</form>
+
+						<div class="form-links">
+							<a href="main">www.freehagae.com</a>
+						</div>
+					</section>
 				</div>
-		
-				<div class="loginPw" id="loginPw">
-					<label for="login_PW">비밀번호</label> <input type="password"
-						class="form-control" id="login_inputPW" name="m_password" placeholder="비밀번호를 입력하세요.">
-				</div>
-		
-				<div class="checkbox_ID" id="checkbox_ID">
-					<input type="checkbox">아이디 저장
-				</div>
-				
-				<div class="checkbox_AUTO" id="checkbox_AUTO">     
-					<input type="checkbox">자동로그인
-				</div>
-					
-				<div class="find_Bt" id="find_Bt">
-					<button type="button" class="btn btn-default" onclick="location='idFind'">아이디 찾기</button>
-					<button type="button" class="btn btn-default" onclick="location='pwFind'">비밀번호 찾기</button>
-				</div>
-				
-				<div class="login_Bt" id="login_Bt">
-					<button type="submit" class="btn btn-info">로그인</button>
-					<button type="reset" class="btn btn-info" onclick="location='main'">취소</button>
-				</div>
-		
+
+				<div class="col-md-4"></div>
+
 			</div>
-		</form>
+
+		</div>
 	</section>
 	<!-- Footer -->
 	<footer class="text-center">
