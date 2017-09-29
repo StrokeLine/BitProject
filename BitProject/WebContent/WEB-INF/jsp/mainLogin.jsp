@@ -53,7 +53,7 @@ ${sessionScope.m_index=m_index}
 		<div class="container">
 			<img class="img-fluid" src="/images/home.png" alt="">
 			<div class="intro-text">
-				<span class="name">FreeHaGea</span>
+				<span class="name">FreeHaGae</span>
 				<hr class="star-light">
 				<span class="skills">Hand Made - Pet Product</span>
 			</div>
