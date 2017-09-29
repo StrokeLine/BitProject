@@ -56,13 +56,16 @@ public class tempController {
 				mav.addObject("result", 1);
 				mav.addObject("m_index", member_info.getM_index());
 				mav.setViewName("mainLogin");
+				System.out.println("login success !!!");
 			} else {
 				mav.addObject("result", 0);
 				mav.setViewName("loginForm");
+				System.out.println("diff passwd !!!");
 			}
 		} else {
 			mav.addObject("result", -1);
 			mav.setViewName("loginForm");
+			System.out.println("diff email !!!");
 		}
 		
 		return mav;
@@ -105,7 +108,7 @@ public class tempController {
 	}
 	
 	@RequestMapping("mainLogin")
-	public ModelAndView mainLogin(member_info member_info){
+	public ModelAndView mainLogin(){
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("mainLogin");
 		

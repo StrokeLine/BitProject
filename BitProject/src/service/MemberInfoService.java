@@ -32,7 +32,7 @@ public class MemberInfoService {
 	public member_info getMember(int m_index) {
 		member_info member_info = memberDao.selectMemberInfo(m_index);
 		
-		if( member_info.getM_index() != 0 ) {
+		if( member_info != null ) {
 			return member_info;
 		} else {
 			return null;
@@ -43,7 +43,7 @@ public class MemberInfoService {
 		System.out.println("emailCheck start !!!");
 		member_info member_info = memberDao.selectMemberEmail(m_email);
 		System.out.println("emailCheck end !!!");
-		if( member_info.getM_index() != 0 ) {
+		if( member_info != null) {
 			System.out.println("emailCheck query success !!!");
 			return member_info;
 		} else {

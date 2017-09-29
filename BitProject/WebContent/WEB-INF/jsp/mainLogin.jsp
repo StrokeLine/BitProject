@@ -2,7 +2,6 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="ko">
-
 <head>
 
 <meta charset="utf-8">
@@ -26,6 +25,7 @@
 </head>
 
 <body id="page-top">
+${sessionScope.m_index=m_index}
 
 	<!-- Navigation -->
 	<nav class="navbar navbar-expand-lg navbar-light fixed-top"

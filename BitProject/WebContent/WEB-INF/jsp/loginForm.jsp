@@ -32,7 +32,6 @@
 
 </head>
 <body id="page-top">
-
 	<!-- Navigation -->
 	<nav class="navbar navbar-expand-lg navbar-light fixed-top"
 		id="mainNav">
