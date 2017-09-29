@@ -75,7 +75,7 @@
 							<div class="pwstrength_viewport_progress"></div>
 
 
-							<button type="submit" name="go"	class="btn btn-lg btn-primary btn-block" onclick="mainLogin">Sign in</button>
+							<button type="submit" name="go"	class="btn btn-lg btn-primary btn-block" onclick="location='mainLogin'">Sign in</button>
 							<div>
 								<a href="#">Create account</a> or <a href="#">reset password</a>
 							</div>

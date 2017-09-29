@@ -38,4 +38,6 @@ public class MemberInfoService {
 			return null;
 		}
 	}
+	
+	
 }
