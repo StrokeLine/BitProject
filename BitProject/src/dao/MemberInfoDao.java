@@ -26,6 +26,11 @@ public class MemberInfoDao implements IMemberInfoDao {
 	public int deleteMemberInfo(int m_index) {
 		return session.delete("dao.IMemberInfoDao.deleteMemberInfo", m_index);
 	}
+	
+	@Override
+	public member_info selectMemberEmail(String m_email) {
+		return session.selectOne("dao.IMemberInfoDao.selectMemberEmail", m_email);
+	}
 
 	@Override
 	public member_info selectMemberInfo(int m_index) {

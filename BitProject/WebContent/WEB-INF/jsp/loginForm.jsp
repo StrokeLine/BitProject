@@ -66,7 +66,7 @@
 
 				<div class="col-md-4">
 					<section class="login-form">
-						<form method="post" action="#" role="login">
+						<form method="post" action="loginPro" role="login">
 							<img src="/images/login.png" class="img-responsive" alt="" /> 
 							<input type="email" class="form-control input-lg" name="m_email" placeholder="Email" required  /> 
 							<input type="password" class="form-control input-lg" id="password" name="m_password" placeholder="Password" required="" />
@@ -75,7 +75,7 @@
 							<div class="pwstrength_viewport_progress"></div>
 
 
-							<button type="submit" name="go"	class="btn btn-lg btn-primary btn-block" onclick="location='mainLogin'">Sign in</button>
+							<button type="submit" name="go"	class="btn btn-lg btn-primary btn-block">Sign in</button>
 							<div>
 								<a href="#">Create account</a> or <a href="#">reset password</a>
 							</div>

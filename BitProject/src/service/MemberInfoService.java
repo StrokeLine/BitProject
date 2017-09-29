@@ -39,5 +39,15 @@ public class MemberInfoService {
 		}
 	}
 	
-	
+	public member_info emailCheck(String m_email) {
+		System.out.println("emailCheck start !!!");
+		member_info member_info = memberDao.selectMemberEmail(m_email);
+		System.out.println("emailCheck end !!!");
+		if( member_info.getM_index() != 0 ) {
+			System.out.println("emailCheck query success !!!");
+			return member_info;
+		} else {
+			return null;
+		}
+	}
 }

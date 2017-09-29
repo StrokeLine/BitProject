@@ -18,6 +18,10 @@
 		delete from member_info where m_index=#{m_index}; 
 	</delete>
 	
+	<select id="selectMemberEmail" parameterType="String" resultType="member_info">
+		select * from member_info where m_email like #{m_email}
+	</select>
+	
 	<select id="selectMemberInfo" parameterType="int" resultType="member_info">
 		select * from member_info where m_index=#{m_index};
 	</select>

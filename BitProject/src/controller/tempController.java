@@ -4,6 +4,7 @@ import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -37,9 +38,29 @@ public class tempController {
 	@RequestMapping("loginForm")
 	public ModelAndView loginForm() {
 		ModelAndView mav = new ModelAndView();
-		System.out.println("loginForm call !!!");
-		
 		mav.setViewName("loginForm");
+		
+		return mav;
+	}
+	
+	@RequestMapping("loginPro")
+	public ModelAndView loginPro(String m_email, String m_password) {
+		System.out.println(m_email + " " + m_password);
+		ModelAndView mav = new ModelAndView();
+		member_info member_info = memberService.emailCheck(m_email);
+		if(member_info != null) {
+			if(member_info.getM_password().equals(m_password)){
+				mav.addObject("result", 1);
+				mav.addObject("m_index", member_info.getM_index());
+				mav.setViewName("mainLogin");
+			} else {
+				mav.addObject("result", 0);
+				mav.setViewName("loginForm");
+			}
+		} else {
+			mav.addObject("result", -1);
+			mav.setViewName("loginForm");
+		}
 		
 		return mav;
 	}
@@ -85,7 +106,6 @@ public class tempController {
 	@RequestMapping("mainLogin")
 	public ModelAndView mainLogin(member_info member_info){
 		ModelAndView mav = new ModelAndView();
-		System.out.println("mainLogin call !!!");
 		mav.setViewName("mainLogin");
 		
 		return mav;
