@@ -73,7 +73,7 @@
 				<div class="col-md-4"></div>
 
 				<div class="col-md-4">
-					<form method="post" action="" role="">
+					<form method="post" action="" role="join">
 						<img alt="" src="/images/signup.png" class="img-responsive">
 
 						<div class="joinEmail">
