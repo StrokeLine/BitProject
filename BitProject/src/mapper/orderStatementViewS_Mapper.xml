@@ -5,6 +5,10 @@
 	
 <mapper namespace="dao.IOrderStatementViewSDao">
 
+	<select id="selectOrderStatementView" parameterType="int" resultType="order_statement_view_s">
+		select * from order_statement_view_s where os_index = #{os_index};
+	</select>
+
 	<select id="selectAllOrderStatementViewS" parameterType="int" resultType="order_statement_view_s">
 		select * from order_statement_view_s where s_index = #{s_index};
 	</select>

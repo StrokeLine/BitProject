@@ -13,16 +13,22 @@ public class OrderStatementViewMDao implements IOrderStatementViewMDao{
 	
 	@Autowired
 	private SqlSession session;
-
+	
+	@Override
+	public order_statement_view_m selectOrderStatementView(int om_index) {		
+		return session.selectOne("dao.IOrderStatementViewMDao.selectOrderStatementView", om_index);
+	}
+	
 	@Override
 	public List<order_statement_view_m> selectAllOrderStatementViewM(int m_index) {		
-		return session.selectList("dao.IOrderStatementViewDao_M.selectOrderStatementViewMView", m_index);
+		return session.selectList("dao.IOrderStatementViewMDao.selectAllOrderStatementViewM", m_index);
 	}
 
 	@Override
 	public List<order_statement_view_m> selectAllOrderStatementViewP(int p_index) {
-		return session.selectList("dao.IOrderStatementViewDao_M.selectOrderStatementViewMView", p_index);
+		return session.selectList("dao.IOrderStatementViewMDao.selectAllOrderStatementViewP", p_index);
 		
 	}	
+		
 
 }
