@@ -73,7 +73,7 @@
 				<div class="col-md-4"></div>
 
 				<div class="col-md-4">
-					<form method="post" action="" role="join">
+					<form method="post" action="loginForm" role="join">
 						<img alt="" src="/images/signup.png" class="img-responsive">
 
 						<div class="joinEmail">
@@ -114,8 +114,7 @@
 						<div class="join_Bt" id="join_Bt">
 
 							<button type="submit" class="btn btn-success">회원가입</button>
-							<button type="reset" class="btn btn-success"
-								onclick="location='main'">취소</button>
+							<button type="reset" class="btn btn-success" onclick="location='main'">취소</button>
 						</div>
 					</form>
 					
