@@ -73,7 +73,7 @@
 				<div class="col-md-4"></div>
 
 				<div class="col-md-4">
-					<form method="post" action="" role="join">
+					<form method="post" action="" role="">
 						<img alt="" src="/images/signup.png" class="img-responsive">
 
 						<div class="joinEmail">
@@ -118,7 +118,7 @@
 								onclick="location='main'">취소</button>
 						</div>
 					</form>
-					</section>
+					
 				</div>
 
 				<div class="col-md-4"></div>
