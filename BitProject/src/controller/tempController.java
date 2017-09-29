@@ -245,9 +245,9 @@ public class tempController {
 	}
 	
 	@RequestMapping("memberInfo")
-	public ModelAndView memberInfo() {
-		ModelAndView mav = new ModelAndView();		
-		member_info m =  memberService.getMember(1);
+	public ModelAndView memberInfo(int m_index) {
+		ModelAndView mav = new ModelAndView();
+		member_info m = memberService.getMember(m_index);
 		mav.addObject("member", m);
 		mav.setViewName("memberInfo");		
 		return mav;

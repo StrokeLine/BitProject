@@ -45,16 +45,8 @@
 				<div class="memberId">${member.m_email}</div>
 			</div>
 			<div class="rowName">
-				<div class="rowTitle"><h4>이름</h4></div>
+				<div class="rowTitle"><h4>닉네임</h4></div>
 				<div class="memberName">${member.m_name}</div>
-			</div>
-			<div class="rowGender">
-				<div class="rowTitle"><h4>성별</h4></div>
-				<div class="memberGender">(회원 성별)</div>
-			</div>
-			<div class="rowAge">
-				<div class="rowTitle"><h4>나이</h4></div>
-				<div class="memberAge">(회원 나이)</div>
 			</div>
 			<div class="rowPhone">
 				<div class="rowTitle"><h4>전화번호</h4></div>
