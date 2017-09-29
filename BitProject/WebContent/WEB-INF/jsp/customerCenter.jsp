@@ -23,7 +23,7 @@
 						<th>문의일</th>
 						<th></th>						
 					</tr>
-					<c:forEach items="${customerCenterInquiryList}" var="customer_center_inquiry">		
+					<c:forEach items="${customerCenterInquiry}" var="customer_center_inquiry">		
 						<tr>
 							<td id="customerCenter_inquiryNumber">
 								${customer_center_inquiry.cc_index}
@@ -42,7 +42,7 @@
 				</table>
 			</div>
 		</div>
-		<form action="" method="post">		
+		<form action="addCustomerCenterInquiry" method="post">		
 			<div class="customerCenter_inquiryReg-wrap" style="margin-top: 100px;">
 				<div class="customerCenter_inquiryReg_title">
 					<h3>문의하기</h3>
@@ -58,13 +58,13 @@
 						<h5>문의 내용</h5>
 					</div>
 					<div class="inquiryContent_input">
-						<textarea style="height:120px;width:500px;"></textarea>
+						<textarea name="customerCenterInquiry_content" style="height:120px;width:500px;"></textarea>
 					</div>				
 					<div class="customerCenter_inquiryEmail" style="margin-top: 50px;">
 						<h5>답변 받으실 email 주소</h5>
 					</div>
 					<div class="inquiryEmail_input">
-						<input type="text" name="customerCenter_inquiryEmail" style="width: 400px;">
+						<input type="text" name="customerCenterInquiry_email" style="width: 400px;">
 					</div>					
 				</div>
 				<div class="customerCenter_inquiryBtn" style="margin-top: 100px;">

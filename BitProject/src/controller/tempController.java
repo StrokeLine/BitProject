@@ -10,12 +10,15 @@ import org.springframework.web.servlet.ModelAndView;
 
 import model.member_info;
 import service.MemberInfoService;
+/*import model.customer_center_inquiry;
+import service.MemberInfoService;*/
 
 @Controller
 public class tempController {
 	
 	@Autowired
 	private MemberInfoService memberService;
+	/*private CustomerCenterInquiryService customerCenterInquiryService;*/
 	
 	@RequestMapping("container")
 	public ModelAndView NewFile() {
@@ -296,12 +299,13 @@ public class tempController {
 		mav.setViewName("qAndA");		
 		return mav;
 	}
-	@RequestMapping("customerCenter")
-	public ModelAndView customerCenter() {
-		ModelAndView mav = new ModelAndView();		
-		mav.setViewName("customerCenter");		
-		return mav;
-	}
+	/*@RequestMapping("customerCenterInquiry")
+	public ModelAndView customerCenter(int m_index) {
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("customerCenterInquiry", customerCenterInquiryService.getAllCustomerCenterInquiry(m_index)); 
+		mav.setViewName("customerCenterInquiry");		
+		return mav;		
+	}	*/
 	@RequestMapping("myPageMain")
 	public ModelAndView myPageMain() {
 		ModelAndView mav = new ModelAndView();		
@@ -350,5 +354,11 @@ public class tempController {
 		mav.setViewName("qAndAStore");		
 		return mav;
 	}
+	
+	/*@RequestMapping("addCustomerCenterInquiry")
+	public String addCustomerCenterInquiry(customer_center_inquiry customer_center_inquiry){
+		customerCenterInquiryService.addCustomerCenterInquiry(customer_center_inquiry);
+		return "redirect:customerCenterInquiry";
+	}	*/
 	
 }
