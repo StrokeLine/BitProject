@@ -118,6 +118,7 @@
 								onclick="location='main'">취소</button>
 						</div>
 					</form>
+					</section>
 				</div>
 
 				<div class="col-md-4"></div>
