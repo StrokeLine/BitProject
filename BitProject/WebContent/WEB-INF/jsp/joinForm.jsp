@@ -16,13 +16,9 @@
 <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
 <!-- Custom fonts for this template -->
-<link href="/font-awesome/css/font-awesome.min.css" rel="stylesheet"
-	type="text/css">
-<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700"
-	rel="stylesheet" type="text/css">
-<link
-	href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic"
-	rel="stylesheet" type="text/css">
+<link href="/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700"	rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
 
 <!-- Custom styles for this template -->
 <link href="/css/freelancer.min.css" rel="stylesheet">
@@ -35,6 +31,17 @@
 		}
 		$(".pet_info_view").load(url);
 	};
+	
+	function checkEmail() {
+		var email = document.getElementById("email").value;
+		var pattern = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+		var msgbox = document.getElementById("msgbox");
+		if( pattern.test(email) ) {
+			msgbox.innerHTML = "메일 주소가 올바르게 입력되었습니다.";
+		} else {
+			msgbox.innerHTML = "메일 주소가 유효하지 않습니다.";
+		}
+	}
 </script>
 </head>
 
@@ -68,36 +75,62 @@
 	</nav>
 	<section>
 		<div class="container">
-
-			<div class="row" id="pwd-container">
 				
-
-				<div class="col-md-4">
+				<div class="col-md-6 col-md-offset-3">
 					<form method="post" action="loginForm" role="join">
-						<img alt="" src="/images/signup.png" class="img-responsive">
-
-						<div class="joinEmail">
-							<label for="join_email">이메일(아이디)</label> 
-							<input type="text" class="form-control" name="m_email" placeholder="이메일을 입력하세요" maxlength="20">
-							<button type="button" class="btn btn-info">중복확인</button>
+						<div class="join-header">
+							<img alt="" src="/images/signup.png" class="img-responsive">
+						</div>
+						
+						<div class="form-group">
+							<label for="join_email">이메일(아이디)</label>
+								<div class="input-group">
+									<input type="email"  required class="form-control" name="m_email" placeholder="이메일을 입력하세요" maxlength="20" oninput="checkEmail()">
+										<span class="input-group-btn">
+											<button class="btn btn-success"> <i class="fa fa-check" aria-hidden="true"></i> 중복확인 </button>
+										</span>
+								</div>
+								<div id="msgbox"></div>
 						</div>
 
-						<div class="joinPw">
-							<label for="join_pw">비밀번호</label> 
-							<input type="password" class="form-control" name="m_password" placeholder="비밀번호를 입력하세요" maxlength="20"> 
-							<input type="password" class="form-control" name="m_repassword" placeholder="비밀번호를 한 번 더 입력하세요" maxlength="20">
+						<div class="form-group">
+							<label for="InputPassword1">비밀번호</label> 
+							<input type="password" class="form-control" id="InputPassword1" name="m_password" placeholder="비밀번호를 입력하세요" maxlength="20">
+						</div>
+						<div class="form-group">
+							<label for="InputPassword2">비밀번호 확인</label> 
+							<input type="password" class="form-control" id="InputPassword2" name="m_repassword" placeholder="비밀번호를 한 번 더 입력하세요" maxlength="20">
+							<p class="help-block">비밀번호 확인을 위해 다시한번 입력 해 주세요</p>
 						</div>
 
-						<div class="joinName">
-							<label for="join_name">이름</label> 
-							<input type="text" class="form-control" name="m_name" placeholder="닉네임을 입력하세요" maxlength="20">
-							<button type="button" class="btn btn-warning">중복확인</button>
+						<div class="form-group">
+							<label for="join_nick">별명</label>
+								<div class="input-group">
+									<input type="text" class="form-control" name="m_name" placeholder="별명을 입력하세요" maxlength="20">
+										<span class="input-group-btn">
+											<button class="btn btn-success"> <i class="fa fa-check" aria-hidden="true"></i> 중복확인 </button>
+										</span>
+								</div>
 						</div>
 
-						<div class="joinTel">
-							<label for="join_tel">전화번호</label> 
-							<input type="text" class="form-control" name="m_tel" placeholder="전화번호를 입력하세요" maxlength="15">
-							<button type="button" class="btn btn-danger">인증</button>
+						<div class="form-group">
+							<label for="join_tel">휴대전화</label>
+							<div class="input_tel">
+								<input type="tel" class="form-control" name="m_tel" placeholder="'-'를 제외한 휴대전화 번호를 입력하세요" maxlength="15">
+									<span class="envelope">
+										<button class="btn btn-success"> <i class="fa fa-envelope-o" aria-hidden="true"></i> 인증번호 전송 </button>
+									</span>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="VerificationCode">인증번호 입력</label>
+							<div class="input_tel">
+								<input type="text" class="form-control" name="m_tel_check" placeholder="인증번호를 입력하세요">
+									<span class="pencil">
+										<button class="btn btn-success"> <i class="fa fa-pencil" aria-hidden="true"></i> 인증번호 입력 </button>
+									</span>
+							</div>
 						</div>
 
 						<div class="joinImg">
@@ -111,17 +144,14 @@
 							<div class="pet_info_view"></div>
 						</div> -->
 
-						<div class="join_Bt" id="join_Bt">
+						<div class="form-group text-center">
 
-							<button type="submit" class="btn btn-success">회원가입</button>
-							<button type="reset" class="btn btn-success" onclick="location='main'">취소</button>
+							<button type="submit" class="btn btn-info">회원가입 <i class="fa fa-check" aria-hidden="true"></i> </button>
+							<button type="reset" class="btn btn-danger" onclick="location='main'">가입취소 <i class="fa fa-times" aria-hidden="true"></i></button>
 						</div>
 					</form>
 					
 				</div>
-				<div class="col-md-4"></div>
-				<div class="col-md-4"></div>
-			</div>
 
 		</div>
 	</section>
