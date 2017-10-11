@@ -17,6 +17,8 @@
     .desc .jibun {font-size: 11px;color: #888;margin-top: -2px;}
     .info .img {position: absolute;top: 6px;left: 5px;width: 73px;height: 71px;border: 1px solid #ddd;color: #888;overflow: hidden;}
     .info .link {color: #5085BB;}
+    .great_stars {position: relative; overflow: hidden; display: inline-block; width: 54px; height: 10px; background: no-repeat 0 0 url(/images/img_star.gif); vertical-align: text-top;}
+	.great_stars * {overflow: hidden; float: left; width: 0; height: 100%; background: no-repeat 0 -25px url(/images/img_star.gif);}
 </style>
 
 <script type="text/javascript">
@@ -134,11 +136,14 @@
 							            '                <div class="ellipsis">' + result[0].road_address.address_name + '</div>' + 
 							            '                <div class="jibun ellipsis">(우)' + result[0].road_address.zone_no + ' (지번) ' + addr + '</div>' + 
 							            '                <div><a href="http://www.kakaocorp.com/main" target="_blank" class="link">홈페이지</a></div>' + 
+							            '				 <span class="great_stars">' +
+							            '				 	<span class="stars" style="width: ' + (Math.floor(Math.random() * (100 - 0 + 1)) + 0) + '%;"></span>' +
+							            ' 				 </span>'
 							            '            </div>' + 
 							            '        </div>' + 
 							            '    </div>' +    
 							            '</div>';
-							            
+							
 							var markers = [{
 				        		content: content,
 				        		latlng: coords
