@@ -361,4 +361,10 @@ public class tempController {
 		return "redirect:customerCenterInquiry";
 	}	*/
 	
+	@RequestMapping("mapTest")
+	public ModelAndView mapTest() {
+		ModelAndView mav = new ModelAndView();		
+		mav.setViewName("mapTest");		
+		return mav;
+	}
 }
