@@ -32,16 +32,6 @@
 		$(".pet_info_view").load(url);
 	};
 	
-	function checkEmail() {
-		var email = document.getElementById("email").value;
-		var pattern = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-		var msgbox = document.getElementById("msgbox");
-		if( pattern.test(email) ) {
-			msgbox.innerHTML = "메일 주소가 올바르게 입력되었습니다.";
-		} else {
-			msgbox.innerHTML = "메일 주소가 유효하지 않습니다.";
-		}
-	}
 </script>
 </head>
 
@@ -61,14 +51,10 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarResponsive">
 				<ul class="navbar-nav ml-auto">
-					<li class="nav-item"><a class="nav-link js-scroll-trigger"
-						onclick="location='main'" style="cursor: pointer">Home</a></li>
-					<li class="nav-item"><a class="nav-link js-scroll-trigger"
-						onclick="location='main#portfolio'">Shopping</a></li>
-					<li class="nav-item"><a class="nav-link js-scroll-trigger"
-						onclick="location='loginForm'" style="cursor: pointer">Sign in</a></li>
-					<li class="nav-item"><a class="nav-link js-scroll-trigger"
-						onclick="location='joinForm'" style="cursor: pointer">Sign up</a></li>
+					<li class="nav-item"><a class="nav-link js-scroll-trigger" onclick="location='main'" style="cursor: pointer">Home</a></li>
+					<li class="nav-item"><a class="nav-link js-scroll-trigger" onclick="location='main#portfolio'">Shopping</a></li>
+					<li class="nav-item"><a class="nav-link js-scroll-trigger" onclick="location='loginForm'" style="cursor: pointer">Sign in</a></li>
+					<li class="nav-item"><a class="nav-link js-scroll-trigger" onclick="location='joinForm'" style="cursor: pointer">Sign up</a></li>
 				</ul>
 			</div>
 		</div>
@@ -87,10 +73,10 @@
 								<div class="input-group">
 									<input type="email"  required class="form-control" name="m_email" placeholder="이메일을 입력하세요" maxlength="20" oninput="checkEmail()">
 										<span class="input-group-btn">
-											<button class="btn btn-success"> <i class="fa fa-check" aria-hidden="true"></i> 중복확인 </button>
+											<button id="checkbtn" class="btn btn-success"> <i class="fa fa-check" aria-hidden="true"></i> 중복확인 </button>
 										</span>
 								</div>
-								<div id="msgbox"></div>
+								<div id="checkMsg"></div>
 						</div>
 
 						<div class="form-group">
