@@ -1,5 +1,7 @@
 package dao;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -30,5 +32,12 @@ public class SellerInfoDao implements ISellerInfoDao {
 	public seller_info selectSellerInfo(int s_index) {
 		return session.selectOne("dao.ISellerInfoDao.selectSellerInfo", s_index);
 	}
+
+	@Override
+	public List<seller_info> selectAllSellerInfo() {
+		return session.selectList("dao.ISellerInfoDao.selectAllSellerInfo");
+	}
+	
+	
 	
 }

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -33,7 +34,8 @@
 	
 	var errorMsg = ["알 수 없는 에러가 발생했습니다.", "위치정보를 수집할 권한이 없습니다.", "위치정보를 수집하는 시간을 초과하였습니다."];
 	
-	var address = new Array("서울 중구 덕수궁길 15", "서울 중구 무교로 21", "서울 중구 세종대로 110");
+	var store_list = new Array();
+	
 	
 	function geo_success(position) {
 		/* do_something(position.coords.latitube, posision.coords.longitude); */
@@ -85,9 +87,6 @@
 		
 	};
 	
-	function initMap() {
-		wpid = navigator.geolocation.getCurrentPosition(geo_success, geo_error, geo_options);
-	}
 	
 	var overlays = [];
 	
@@ -98,8 +97,8 @@
 	
 	function getAllAddress() {
 		var idx = 0;
-		for(var i in address) {
-			geocoder.addressSearch(address[i], function(result, status) {
+		for(var i in store_list) {
+			geocoder.addressSearch(store_list[i].s_address, function(result, status) {
 				
 				// 주소에서 좌표 값으로 변환
 			    // 정상적으로 검색이 완료됐으면 
@@ -126,7 +125,7 @@
 				        	var content = '<div class="wrap">' + 
 							            '    <div class="info">' + 
 							            '        <div class="title">' + 
-							            '            카카오 스페이스닷원' + 
+							            			store_list[idx].s_nick + 
 							            '        </div>' + 
 							            '        <div class="body">' + 
 							            '            <div class="img">' +
@@ -185,6 +184,28 @@
 	    };
 	}
 
+	function initMap() {
+		
+		<c:forEach var="store" items="${store_list}">
+			var obj = new Object();
+			obj.s_index = "${store.s_index}";
+			obj.m_index = "${store.m_index}";
+			obj.s_nick = "${store.s_nick}";
+			obj.s_bank = "${store.s_bank}";
+			obj.s_holder = "${store.s_holder}";
+			obj.s_account = "${store.s_account}";
+			obj.s_imgSrc = "${store.s_imgSrc}";
+			obj.s_address = "${store.s_address}";
+			obj.s_visit = "${store.s_visit}";
+			obj.s_sale = "${store.s_sale}";
+			obj.s_grade = "${store.s_grade}";
+			obj.s_date = "${store.s_date}";
+			store_list.push(obj);
+		</c:forEach>
+		
+		wpid = navigator.geolocation.getCurrentPosition(geo_success, geo_error, geo_options);
+	}
+	
 	window.onload = initMap();
 	
 </script>

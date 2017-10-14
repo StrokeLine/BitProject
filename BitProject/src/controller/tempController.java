@@ -1,6 +1,7 @@
 package controller;
 
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -9,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import model.member_info;
+import model.seller_info;
+import service.MapService;
 import service.MemberInfoService;
 /*import model.customer_center_inquiry;
 import service.MemberInfoService;*/
@@ -18,6 +21,10 @@ public class tempController {
 	
 	@Autowired
 	private MemberInfoService memberService;
+	
+	@Autowired
+	private MapService mapService;
+	
 	/*private CustomerCenterInquiryService customerCenterInquiryService;*/
 	
 	@RequestMapping("container")
@@ -363,7 +370,9 @@ public class tempController {
 	
 	@RequestMapping("mapTest")
 	public ModelAndView mapTest() {
-		ModelAndView mav = new ModelAndView();		
+		ModelAndView mav = new ModelAndView();
+		List<seller_info> store_list = mapService.getAllStore();
+		mav.addObject("store_list", store_list);
 		mav.setViewName("mapTest");		
 		return mav;
 	}
