@@ -53,7 +53,6 @@ public class tempController {
 	public ModelAndView loginForm() {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("loginForm");
-		
 		return mav;
 	}
 	
@@ -64,7 +63,6 @@ public class tempController {
 			memberService.addMember(member_info);	
 		}
 		mav.setViewName("loginForm");
-		
 		return mav;
 	}
 	

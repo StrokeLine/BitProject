@@ -16,9 +16,13 @@
 <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
 <!-- Custom fonts for this template -->
-<link href="/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700"	rel="stylesheet" type="text/css">
-<link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+<link href="/font-awesome/css/font-awesome.min.css" rel="stylesheet"
+	type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700"
+	rel="stylesheet" type="text/css">
+<link
+	href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic"
+	rel="stylesheet" type="text/css">
 
 <!-- Custom styles for this template -->
 <link href="/css/freelancer.min.css" rel="stylesheet">
@@ -51,93 +55,108 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarResponsive">
 				<ul class="navbar-nav ml-auto">
-					<li class="nav-item"><a class="nav-link js-scroll-trigger" onclick="location='main'" style="cursor: pointer">Home</a></li>
-					<li class="nav-item"><a class="nav-link js-scroll-trigger" onclick="location='main#portfolio'">Shopping</a></li>
-					<li class="nav-item"><a class="nav-link js-scroll-trigger" onclick="location='loginForm'" style="cursor: pointer">Sign in</a></li>
-					<li class="nav-item"><a class="nav-link js-scroll-trigger" onclick="location='joinForm'" style="cursor: pointer">Sign up</a></li>
+					<li class="nav-item"><a class="nav-link js-scroll-trigger"
+						onclick="location='main'" style="cursor: pointer">Home</a></li>
+					<li class="nav-item"><a class="nav-link js-scroll-trigger"
+						onclick="location='main#portfolio'">Shopping</a></li>
+					<li class="nav-item"><a class="nav-link js-scroll-trigger"
+						onclick="location='loginForm'" style="cursor: pointer">Sign in</a></li>
+					<li class="nav-item"><a class="nav-link js-scroll-trigger"
+						onclick="location='joinForm'" style="cursor: pointer">Sign up</a></li>
 				</ul>
 			</div>
 		</div>
 	</nav>
 	<section>
 		<div class="container">
-				
-				<div class="col-md-6 col-md-offset-3">
-					<form method="post" action="joinPro" role="join">
-						<div class="join-header">
-							<img alt="" src="/images/signup.png" class="img-responsive">
-						</div>
-						
-						<div class="form-group">
-							<label for="join_email">이메일(아이디)</label>
-								<div class="input-group">
-									<input type="email"  required class="form-control" name="m_email" placeholder="이메일을 입력하세요" maxlength="20" oninput="checkEmail()">
-										<span class="input-group-btn">
-											<button id="checkbtn" class="btn btn-success"> <i class="fa fa-check" aria-hidden="true"></i> 중복확인 </button>
-										</span>
-								</div>
-								<div id="checkMsg"></div>
-						</div>
 
-						<div class="form-group">
-							<label for="InputPassword1">비밀번호</label> 
-							<input type="password" class="form-control" id="InputPassword1" name="m_password" placeholder="비밀번호를 입력하세요" maxlength="20">
-						</div>
-						<div class="form-group">
-							<label for="InputPassword2">비밀번호 확인</label> 
-							<input type="password" class="form-control" id="InputPassword2" name="m_repassword" placeholder="비밀번호를 한 번 더 입력하세요" maxlength="20">
-							<p class="help-block">비밀번호 확인을 위해 다시한번 입력 해 주세요</p>
-						</div>
+			<div class="col-md-6 col-md-offset-3">
+				<form action="joinPro" method="post" role="join">
+					<div class="join-header">
+						<img alt="" src="/images/signup.png" class="img-responsive">
+					</div>
 
-						<div class="form-group">
-							<label for="join_nick">별명</label>
-								<div class="input-group">
-									<input type="text" class="form-control" name="m_name" placeholder="별명을 입력하세요" maxlength="20">
-										<span class="input-group-btn">
-											<button class="btn btn-success"> <i class="fa fa-check" aria-hidden="true"></i> 중복확인 </button>
-										</span>
-								</div>
+					<div class="form-group">
+						<label for="join_email">이메일(아이디)</label>
+						<div class="input-group">
+							<input type="email" required class="form-control" name="m_email"
+								placeholder="이메일을 입력하세요" maxlength="20"> <span
+								class="input-group-btn">
+								<button type="button" id="checkbtn" class="btn btn-success">
+									<i class="fa fa-check" aria-hidden="true"></i> 중복확인
+								</button>
+							</span>
 						</div>
+						<div id="checkMsg"></div>
+					</div>
 
-						<div class="form-group">
-							<label for="join_tel">휴대전화</label>
-							<div class="input_tel">
-								<input type="tel" class="form-control" name="m_tel" placeholder="'-'를 제외한 휴대전화 번호를 입력하세요" maxlength="15">
-									<span class="envelope">
-										<button class="btn btn-success"> <i class="fa fa-envelope-o" aria-hidden="true"></i> 인증번호 전송 </button>
-									</span>
-							</div>
+					<div class="form-group">
+						<label for="InputPassword1">비밀번호</label> <input type="password"
+							class="form-control" id="InputPassword1" name="m_password"
+							placeholder="비밀번호를 입력하세요" maxlength="20">
+					</div>
+					<div class="form-group">
+						<label for="InputPassword2">비밀번호 확인</label> <input type="password"
+							class="form-control" id="InputPassword2"
+							placeholder="비밀번호를 한 번 더 입력하세요" maxlength="20">
+						<p class="help-block">비밀번호 확인을 위해 다시한번 입력 해 주세요</p>
+					</div>
+
+					<div class="form-group">
+						<label for="join_nick">별명</label>
+						<div class="input-group">
+							<input type="text" class="form-control" name="m_name" placeholder="별명을 입력하세요" maxlength="20"> 
+							<span class="input-group-btn">
+							<button type="button" class="btn btn-success"><i class="fa fa-check" aria-hidden="true"></i> 중복확인 </button>
+							</span>
 						</div>
+					</div>
 
-						<div class="form-group">
-							<label for="VerificationCode">인증번호 입력</label>
-							<div class="input_tel">
-								<input type="text" class="form-control" name="m_tel_check" placeholder="인증번호를 입력하세요">
-									<span class="pencil">
-										<button class="btn btn-success"> <i class="fa fa-pencil" aria-hidden="true"></i> 인증번호 입력 </button>
-									</span>
-							</div>
+					<div class="form-group">
+						<label for="join_tel">휴대전화</label>
+						<div class="input_tel">
+							<input type="text" class="form-control" name="m_tel"placeholder="'-'를 제외한 휴대전화 번호를 입력하세요" maxlength="15"> 
+							<span class="envelope"><button type="button" class="btn btn-success" onclick="#"><i class="fa fa-envelope-o" aria-hidden="true"></i> 인증번호 전송
+								</button>
+							</span>
 						</div>
+					</div>
 
-						<div class="joinImg">
-							<label for="join_img">프로필사진</label> 
-							<input type="file" name="m_img" class="form-control">
+					<div class="form-group">
+						<label for="VerificationCode">인증번호 입력</label>
+						<div class="input_tel">
+							<input type="text" class="form-control" placeholder="인증번호를 입력하세요"> <span class="pencil">
+								<button type="button" class="btn btn-success" onclick="#">
+									<i class="fa fa-pencil" aria-hidden="true"></i> 인증번호 입력
+								</button>
+							</span>
 						</div>
+					</div>
 
-						<!-- <div class="pet_Info" id="pet_Info">
+					<div class="joinImg">
+						<label for="join_img">프로필사진</label> <input type="file"
+							name="m_img" class="form-control">
+					</div>
+
+					<!-- <div class="pet_Info" id="pet_Info">
 							<input type="radio" name="inputpet" value="registration" onclick="petInfo('petInfo')">펫 등록 
 							<input type="radio"	name="inputpet" value="non-registered">등록안함
 							<div class="pet_info_view"></div>
 						</div> -->
 
-						<div class="form-group text-center">
+					<div class="form-group text-center">
 
-							<button type="submit" class="btn btn-info">회원가입 <i class="fa fa-check" aria-hidden="true"></i> </button>
-							<button type="reset" class="btn btn-danger" onclick="location='main'">가입취소 <i class="fa fa-times" aria-hidden="true"></i></button>
-						</div>
-					</form>
-					
-				</div>
+						<button type="submit" class="btn btn-info">
+							회원가입 <i class="fa fa-check" aria-hidden="true"></i>
+						</button>
+						<button type="reset" class="btn btn-danger"
+							onclick="location='main'">
+							가입취소 <i class="fa fa-times" aria-hidden="true"></i>
+						</button>
+					</div>
+				</form>
+
+			</div>
 
 		</div>
 	</section>
