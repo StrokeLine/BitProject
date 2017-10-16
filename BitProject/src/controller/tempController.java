@@ -3,6 +3,8 @@ package controller;
 import java.util.Date;
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -57,7 +59,7 @@ public class tempController {
 	}
 	
 	@RequestMapping("loginPro")
-	public ModelAndView loginPro(String m_email, String m_password) {
+	public ModelAndView loginPro(HttpSession session, String m_email, String m_password) {
 		System.out.println(m_email + " " + m_password);
 		ModelAndView mav = new ModelAndView();
 		member_info member_info = memberService.emailCheck(m_email);
@@ -66,6 +68,7 @@ public class tempController {
 				mav.addObject("result", 1);
 				mav.addObject("m_index", member_info.getM_index());
 				mav.setViewName("mainLogin");
+				session.setAttribute("m_index", member_info.getM_index());
 				System.out.println("login success !!!");
 			} else {
 				mav.addObject("result", 0);
@@ -81,6 +84,13 @@ public class tempController {
 		return mav;
 	}
 	
+	@RequestMapping("logoutPro")
+	public ModelAndView logoutPro(HttpSession session) {
+		ModelAndView mav = new ModelAndView();
+		session.removeAttribute("m_index");
+		mav.setViewName("main");
+		return mav;
+	}
 	@RequestMapping("joinForm")
 	public ModelAndView joinForm(member_info member_info){
 		ModelAndView mav = new ModelAndView();
@@ -280,8 +290,9 @@ public class tempController {
 	}
 	
 	@RequestMapping("memberInfo")
-	public ModelAndView memberInfo(int m_index) {
+	public ModelAndView memberInfo(HttpSession session) {
 		ModelAndView mav = new ModelAndView();
+		int m_index = (Integer)session.getAttribute("m_index");
 		member_info m = memberService.getMember(m_index);
 		mav.addObject("member", m);
 		mav.setViewName("memberInfo");		
