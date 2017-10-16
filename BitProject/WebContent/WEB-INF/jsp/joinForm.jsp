@@ -63,7 +63,7 @@
 		<div class="container">
 				
 				<div class="col-md-6 col-md-offset-3">
-					<form method="post" action="loginForm" role="join">
+					<form method="post" action="joinPro" role="join">
 						<div class="join-header">
 							<img alt="" src="/images/signup.png" class="img-responsive">
 						</div>

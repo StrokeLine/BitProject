@@ -60,7 +60,6 @@ public class tempController {
 	@RequestMapping("joinPro")
 	public ModelAndView joinPro(member_info member_info) {
 		ModelAndView mav = new ModelAndView();
-		System.out.println("joinPro call!!!");
 		if(member_info.getM_email() != null){
 			memberService.addMember(member_info);	
 		}
