@@ -6,7 +6,7 @@
 <mapper namespace="dao.ICustomerCenterInquiryDao">
 
 	<insert id="insertCustomerCenterInquiry" parameterType="customer_center_inquiry">
-		insert into customer_center_inquiry values (0, #{m_index}, #{cc_sort}, #{cc_subject}, #{cc_content}, #{cc_email}, now());
+		insert into customer_center_inquiry values (0, #{m_index}, #{cc_sort}, #{cc_subject}, #{cc_content}, #{cc_email}, sysdate());
 	</insert>
 	
 	<delete id="deleteCustomerCenterInquiry" parameterType="int">

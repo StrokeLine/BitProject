@@ -7,7 +7,7 @@
 
 	<bean class="org.springframework.jdbc.datasource.DriverManagerDataSource" id="dataSource">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
-		<property name="url" value="jdbc:mysql://freehagaedb.crojhtfyjww7.us-east-2.rds.amazonaws.com:3306/freehagae_db"></property>
+		<property name="url" value="jdbc:mysql://freehagaedb.c9vcjubnxvwt.ap-northeast-2.rds.amazonaws.com:3306/freehagaedb"></property>
 		<property name="username" value="dogidogi"></property>
 		<property name="password" value="freehagae"></property>
 	</bean>

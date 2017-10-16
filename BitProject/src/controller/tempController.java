@@ -28,6 +28,7 @@ public class tempController {
 	@Autowired
 	private MapService mapService;
 	
+	@Autowired
 	private CustomerCenterInquiryService customerCenterInquiryService;
 	
 	@RequestMapping("container")
@@ -49,8 +50,17 @@ public class tempController {
 	}
 	
 	@RequestMapping("loginForm")
-	public ModelAndView loginForm(member_info member_info) {
+	public ModelAndView loginForm() {
 		ModelAndView mav = new ModelAndView();
+		mav.setViewName("loginForm");
+		
+		return mav;
+	}
+	
+	@RequestMapping("joinPro")
+	public ModelAndView joinPro(member_info member_info) {
+		ModelAndView mav = new ModelAndView();
+		System.out.println("joinPro call!!!");
 		if(member_info.getM_email() != null){
 			memberService.addMember(member_info);	
 		}
@@ -322,7 +332,7 @@ public class tempController {
 	public ModelAndView customerCenter(HttpSession session) {
 		ModelAndView mav = new ModelAndView();
 		int m_index = (Integer)session.getAttribute("m_index");
-		System.out.println("getAllCustomerCenterInquiry start !!!");
+		System.out.println("getAllCustomerCenterInquiry start !!!" + m_index);
 		List<customer_center_inquiry> inquiry_list = customerCenterInquiryService.getAllCustomerCenterInquiry(m_index);
 		mav.addObject("customerCenterInquiry", inquiry_list); 
 		System.out.println("getAllCustomerCenterInquiry Done !!!");
