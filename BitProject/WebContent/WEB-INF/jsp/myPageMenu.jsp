@@ -12,7 +12,7 @@
 	<h3><a href="productBasket" target="myPageContent">장바구니</a></h3>
 	<h3><a href="consumerContractList" target="myPageContent">주문/배송</a></h3>
 	<h3><a href="qAndAMain" target="myPageContent">문의사항</a></h3>
-	<h3><a href="customerCenter" target="myPageContent">고객센터</a></h3>
+	<h3><a href="customerCenterInquiry" target="myPageContent">고객센터</a></h3>
 	<h3><a href="deleteMember" target="myPageContent">탈퇴하기</a></h3>
 
 

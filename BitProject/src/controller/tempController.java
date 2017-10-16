@@ -13,10 +13,11 @@ import org.springframework.web.servlet.ModelAndView;
 
 import model.member_info;
 import model.seller_info;
+import service.CustomerCenterInquiryService;
 import service.MapService;
 import service.MemberInfoService;
-/*import model.customer_center_inquiry;
-import service.MemberInfoService;*/
+import model.customer_center_inquiry;
+import service.MemberInfoService;
 
 @Controller
 public class tempController {
@@ -27,7 +28,7 @@ public class tempController {
 	@Autowired
 	private MapService mapService;
 	
-	/*private CustomerCenterInquiryService customerCenterInquiryService;*/
+	private CustomerCenterInquiryService customerCenterInquiryService;
 	
 	@RequestMapping("container")
 	public ModelAndView NewFile() {
@@ -317,13 +318,17 @@ public class tempController {
 		mav.setViewName("qAndA");		
 		return mav;
 	}
-	/*@RequestMapping("customerCenterInquiry")
-	public ModelAndView customerCenter(int m_index) {
+	@RequestMapping("customerCenterInquiry")
+	public ModelAndView customerCenter(HttpSession session) {
 		ModelAndView mav = new ModelAndView();
-		mav.addObject("customerCenterInquiry", customerCenterInquiryService.getAllCustomerCenterInquiry(m_index)); 
-		mav.setViewName("customerCenterInquiry");		
+		int m_index = (Integer)session.getAttribute("m_index");
+		System.out.println("getAllCustomerCenterInquiry start !!!");
+		List<customer_center_inquiry> inquiry_list = customerCenterInquiryService.getAllCustomerCenterInquiry(m_index);
+		mav.addObject("customerCenterInquiry", inquiry_list); 
+		System.out.println("getAllCustomerCenterInquiry Done !!!");
+		mav.setViewName("customerCenter");		
 		return mav;		
-	}	*/
+	}	
 	@RequestMapping("myPageMain")
 	public ModelAndView myPageMain() {
 		ModelAndView mav = new ModelAndView();		
@@ -372,12 +377,11 @@ public class tempController {
 		mav.setViewName("qAndAStore");		
 		return mav;
 	}
-	
-	/*@RequestMapping("addCustomerCenterInquiry")
+	@RequestMapping("addCustomerCenterInquiry")
 	public String addCustomerCenterInquiry(customer_center_inquiry customer_center_inquiry){
 		customerCenterInquiryService.addCustomerCenterInquiry(customer_center_inquiry);
 		return "redirect:customerCenterInquiry";
-	}	*/
+	}	
 	
 	@RequestMapping("mapTest")
 	public ModelAndView mapTest() {

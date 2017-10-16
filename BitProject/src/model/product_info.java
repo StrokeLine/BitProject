@@ -2,18 +2,18 @@ package model;
 
 import java.util.Date;
 
-public class product_info {      //»óÇ°Á¤º¸
+public class product_info {      //ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½
    private int    p_index;        //index
-   private int    s_index;        //ÆÇ¸ÅÀÚ index
-   private String p_hashTag;      //ÇØ½ÃÅÂ±×
-   private String p_major_value;  //´ëºÐ·ù  
-   private String p_miner_value;  //¼ÒºÐ·ù
-   private String p_name;         //»óÇ°¸í
-   private int    p_num;          //°¹¼ö
-   private int    p_price;        //°¡°Ý
-   private int    p_fee;          //¹è¼Ûºñ
-   private String p_imgSrc;       //ÀÌ¹ÌÁö
-   private Date   p_date;         //µî·ÏÀÏ
+   private int    s_index;        //ï¿½Ç¸ï¿½ï¿½ï¿½ index
+   private String p_hashTag;      //ï¿½Ø½ï¿½ï¿½Â±ï¿½
+   private String p_major_value;  //ï¿½ï¿½Ð·ï¿½  
+   private String p_miner_value;  //ï¿½ÒºÐ·ï¿½
+   private String p_name;         //ï¿½ï¿½Ç°ï¿½ï¿½
+   private int    p_num;          //ï¿½ï¿½ï¿½ï¿½
+   private int    p_price;        //ï¿½ï¿½ï¿½ï¿½
+   private int    p_fee;          //ï¿½ï¿½Ûºï¿½
+   private String p_imgSrc;       //ï¿½Ì¹ï¿½ï¿½ï¿½
+   private Date   p_date;         //ï¿½ï¿½ï¿½ï¿½ï¿½
    
 public int getP_index() {
 	return p_index;
@@ -88,6 +88,5 @@ public String toString() {
 			+ p_major_value + ", p_miner_value=" + p_miner_value + ", p_name=" + p_name + ", p_num=" + p_num
 			+ ", p_price=" + p_price + ", p_fee=" + p_fee + ", p_imgSrc=" + p_imgSrc + ", p_date=" + p_date + "]";
 }
-
      
 }

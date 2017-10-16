@@ -65,7 +65,14 @@
 					</div>
 					<div class="inquiryEmail_input">
 						<input type="text" name="customerCenterInquiry_email" style="width: 400px;">
-					</div>					
+					</div>
+					<div>
+						<input type="hidden" name="customerCenterInquiry_cc_index">
+					</div>
+					<div>
+						<input type="hidden" name="customerCenterInquiry_m_index">
+					</div>
+										
 				</div>
 				<div class="customerCenter_inquiryBtn" style="margin-top: 100px;">
 					<button type="submit" class="btn btn-primary">문의하기</button>			

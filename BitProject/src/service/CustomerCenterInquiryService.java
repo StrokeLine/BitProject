@@ -27,6 +27,7 @@ public class CustomerCenterInquiryService {
 	}
 	
 	public List<customer_center_inquiry> getAllCustomerCenterInquiry(int m_index){
+		System.out.println("getAllCustomerCenterInquiry ing...");
 		return customerCenterInquiryDao.selectAllCustomerCenterInquiry(m_index);
 	}
 
