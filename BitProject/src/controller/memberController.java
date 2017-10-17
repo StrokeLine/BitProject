@@ -15,8 +15,10 @@ public class memberController {
 	private MemberInfoService memberinfoservice;
 	
 	@RequestMapping(value="checkID", method={RequestMethod.GET, RequestMethod.POST})
-	public @ResponseBody int idCheck(String m_email) {
-		member_info member = memberinfoservice.emailCheck(m_email);
+	public @ResponseBody int idCheck(String id) {
+		System.out.println(id);
+		member_info member = memberinfoservice.emailCheck(id);
+		System.out.println(member);
 		int result = 0;
 		if(member != null){
 			result = 1;
