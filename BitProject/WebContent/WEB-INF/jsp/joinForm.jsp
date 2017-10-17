@@ -153,7 +153,6 @@
 										<span class="input-group-addon"><i class="fa fa-envelope-o" aria-hidden="true"></i></span> 
 										<input type="text" class="form-control" name="m_email" id="emailid" placeholder="Enter your Email ID" value=""
 										oninput="checkId()">
-										<button type="button" id="checkbtn">중복확인</button>
 									</div>
 									<div id="result_check"></div>
 									<span id="idchk"></span>
