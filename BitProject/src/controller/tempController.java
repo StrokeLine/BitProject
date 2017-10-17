@@ -60,7 +60,7 @@ public class tempController {
 	public ModelAndView joinPro(member_info member_info) {
 		ModelAndView mav = new ModelAndView();
 		if(member_info.getM_email() != null){
-			memberService.addMember(member_info);	
+			memberService.addMember(member_info);
 		}
 		mav.setViewName("loginForm");
 		return mav;
@@ -199,13 +199,6 @@ public class tempController {
 	public ModelAndView productBsket(){
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("productBasket");		
-		return mav;		
-	}
-	
-	@RequestMapping("modifyMember")
-	public ModelAndView modifyMember(){
-		ModelAndView mav = new ModelAndView();
-		mav.setViewName("modifyMember");		
 		return mav;		
 	}
 	

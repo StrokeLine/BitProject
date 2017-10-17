@@ -18,38 +18,59 @@
 	<script src="/js/pageScript.js"></script>
 	
 	<style>
-	.memberInfo{margin:50px 100px 0 100px;}
+	body{
+		margin: 0 20px 0 0;
+		background-color: inherit;
+	}
+	.memberInfo{height: 100%;
+				color: #5d5d5d;
+				background: #f2f2f2;
+				padding: 26px;
+				border-radius: 10px;
+				-moz-border-radius: 10px;
+				-webkit-border-radius: 10px;}
+	.memberInfo > div {
+		font-size: 18px;
+		margin: 16px 0;
+	}		
 	.memberInfoTitle{width:700px;}
-	.memberInfoTable{width:700px;}
-	.rowId{width:700px; height:50px; border-top:solid 2px;;}
+	.memberInfoTable{width:700px;
+					 border: 2px solid #ccc;
+					 border-radius: 5px;
+					 padding: 10px;}
+	.rowId{width:700px; height:50px;}
 	.rowName{width:700px; height:50px;}
 	.rowGender{width:700px; height:50px;}
 	.rowAge{width:700px; height:50px;}
 	.rowPhone{width:700px; height:50px;}
-	.rowBtn{width:700px; height:50px; border-bottom:solid 2px;}
-	.rowTitle{width:300px; float:left; margin-right:2px; height:30px; text-align:center;}
-	.memberId{width:398px; display:inline-block; height:30px;}
-	.memberName{width:398px; display:inline-block; height:30px;}
-	.memberGender{width:398px; display:inline-block; height:30px;}
-	.memberAge{width:398px; display:inline-block; height:30px;}
-	.memberPhone{width:398px; display:inline-block; height:30px;}
-	.memberModBtn{width:700px; float:left; height:30px; text-align:right;}
+	.rowBtn{width:700px; height:50px;}
+	.rowTitle{width:150px; float:left; margin-right:10px; padding: 7px; height: 40px; text-align:center;
+			  background-color: #1abc9c;
+			  color: #fff;
+			  border: 1px solid #1abc9c;
+			  border-radius: 4px;}
+	.memberId{width:398px; display:inline-block; padding: 7px; height: 40px;}
+	.memberName{width:398px; display:inline-block; padding: 7px; height: 40px;}
+	.memberGender{width:398px; display:inline-block; padding: 7px; height: 40px;}
+	.memberAge{width:398px; display:inline-block; padding: 7px; height: 40px;}
+	.memberPhone{width:398px; display:inline-block; padding: 7px; height: 40px;}
+	.memberModBtn{width:670px; float:left; height:30px; text-align:right;}
 	</style>
 </head>
 	<body>
 	<div class="memberInfo">
-		<div class="memberInfoTitle"><h2>내 정보</h2></div>
+		<div class="memberInfoTitle"><h1>내 정보</h1></div>
 		<div class="memberInfoTable">
 			<div class="rowId">
-				<div class="rowTitle"><h4>아이디</h4></div>
+				<div class="rowTitle">아이디</div>
 				<div class="memberId">${member.m_email}</div>
 			</div>
 			<div class="rowName">
-				<div class="rowTitle"><h4>닉네임</h4></div>
+				<div class="rowTitle">닉네임</div>
 				<div class="memberName">${member.m_name}</div>
 			</div>
 			<div class="rowPhone">
-				<div class="rowTitle"><h4>전화번호</h4></div>
+				<div class="rowTitle">전화번호</div>
 				<div class="memberPhone">${member.m_tel}</div>
 			</div>
 			<div class="rowBtn">

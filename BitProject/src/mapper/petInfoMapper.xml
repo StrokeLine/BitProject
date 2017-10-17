@@ -3,7 +3,7 @@
 	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"     
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="dao.IPetDao">
+<mapper namespace="dao.IPetInfoDao">
 	<insert id="insertPetInfo" parameterType="pet_info" useGeneratedKeys="true" keyProperty="pet_index">
 		insert into pet_info values(0, #{m_index}, #{pet_name}, #{pet_sex}, #{pet_birthday}, #{pet_breeds}, #{pet_img}, #{pet_date});
 	</insert>
@@ -21,4 +21,9 @@
 	<select id="selectPetInfo" parameterType="int" resultType="pet_info">
 		select * from pet_info where pet_index=#{pet_index};
 	</select>
+	
+	<select id="selectAllPetInfo" parameterType="int" resultType="pet_info">
+		select * from pet_info where m_index=#{m_index};
+	</select>
+	
 </mapper>

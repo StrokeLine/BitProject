@@ -124,9 +124,9 @@
     }
 
     // check when email input lost foucus
-    $("#emailid").blur(function(){
+    function on_blur(){
       
-    	var email = $(this).val();
+    	var email = $('#emailid').val();
       // if value is empty then exit
       if( email == '' || email == 'undefined') return;
 
@@ -139,7 +139,7 @@
       else {
       	$("#result_check").text('Email address test OK.');
       }
-    });
+    }
     
 </script>
 </head>
@@ -188,7 +188,7 @@
 									<div class="input-group">
 										<span class="input-group-addon"><i class="fa fa-envelope-o" aria-hidden="true"></i></span> 
 										<input type="text" class="form-control" name="m_email" id="emailid" placeholder="Enter your Email ID" value=""
-										oninput="javascript:checkId();">
+										oninput="javascript:checkId();" onblur="on_blur()">
 									</div>
 									<div id="result_check"></div>
 									<span id="idchk"></span>

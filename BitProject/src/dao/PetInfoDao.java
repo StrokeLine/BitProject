@@ -1,5 +1,7 @@
 package dao;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -8,6 +10,7 @@ import model.pet_info;
 
 @Repository
 public class PetInfoDao implements IPetInfoDao {
+	
 	@Autowired
 	private SqlSession session;
 	
@@ -28,6 +31,13 @@ public class PetInfoDao implements IPetInfoDao {
 
 	@Override
 	public pet_info selectPetInfo(int pet_index) {
-		return session.selectOne("dao.IpetInfoDao.selectPetInfo", pet_index);
+		return session.selectOne("dao.IPetInfoDao.selectPetInfo", pet_index);
 	}
+
+	@Override
+	public List<pet_info> selectAllPetInfo(int m_index) {
+		return session.selectList("dao.IPetInfoDao.selectAllPetInfo", m_index);
+	}
+	
+	
 }

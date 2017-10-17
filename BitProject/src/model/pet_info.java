@@ -11,6 +11,7 @@ public class pet_info {
 	private String pet_breeds; // 견종
 	private String pet_img; // 이미지
 	private Date pet_date; // 펫 등록일
+	
 	public int getPet_index() {
 		return pet_index;
 	}
