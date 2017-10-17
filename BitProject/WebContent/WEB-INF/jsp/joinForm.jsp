@@ -12,17 +12,28 @@
 
 <title>Hand Made - Pet Product</title>
 
+<!-- Bootstrap core JavaScript -->
+<script src="/jquery/jquery.min.js"></script>
+<script src="/popper/popper.min.js"></script>
+<script src="/bootstrap/js/bootstrap.min.js"></script>
+
+<!-- Plugin JavaScript -->
+<script src="/jquery-easing/jquery.easing.min.js"></script>
+
+<!-- Contact Form JavaScript -->
+<script src="/js/jqBootstrapValidation.js"></script>
+<script src="/js/contact_me.js"></script>
+
+<!-- Custom scripts for this template -->
+<script src="/js/freelancer.min.js"></script>
+
 <!-- Bootstrap core CSS -->
 <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
 <!-- Custom fonts for this template -->
-<link href="/font-awesome/css/font-awesome.min.css" rel="stylesheet"
-	type="text/css">
-<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700"
-	rel="stylesheet" type="text/css">
-<link
-	href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic"
-	rel="stylesheet" type="text/css">
+<link href="/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700"	rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
 
 <!-- Custom styles for this template -->
 <link href="/css/freelancer.min.css" rel="stylesheet">
@@ -105,6 +116,31 @@
         }
     }
     
+ 	// email check function
+    function email_check(email) {    
+        
+        var regex=/([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+        return (email != '' && email != 'undefined' && regex.test(email)); 
+    }
+
+    // check when email input lost foucus
+    $("#emailid").blur(function(){
+      
+    	var email = $(this).val();
+      // if value is empty then exit
+      if( email == '' || email == 'undefined') return;
+
+      // valid check
+      if(! email_check(email) ) {
+      	$("#result_check").text('Not valid email.');
+        $(this).focus();
+        return false;
+      }
+      else {
+      	$("#result_check").text('Email address test OK.');
+      }
+    });
+    
 </script>
 </head>
 
@@ -152,7 +188,7 @@
 									<div class="input-group">
 										<span class="input-group-addon"><i class="fa fa-envelope-o" aria-hidden="true"></i></span> 
 										<input type="text" class="form-control" name="m_email" id="emailid" placeholder="Enter your Email ID" value=""
-										oninput="checkId()">
+										oninput="javascript:checkId();">
 									</div>
 									<div id="result_check"></div>
 									<span id="idchk"></span>
@@ -281,20 +317,7 @@
 		</div>
 	</footer>
 
-	<!-- Bootstrap core JavaScript -->
-	<script src="/jquery/jquery.min.js"></script>
-	<script src="/popper/popper.min.js"></script>
-	<script src="/bootstrap/js/bootstrap.min.js"></script>
-
-	<!-- Plugin JavaScript -->
-	<script src="/jquery-easing/jquery.easing.min.js"></script>
-
-	<!-- Contact Form JavaScript -->
-	<script src="/js/jqBootstrapValidation.js"></script>
-	<script src="/js/contact_me.js"></script>
-
-	<!-- Custom scripts for this template -->
-	<script src="/js/freelancer.min.js"></script>
+	
 
 </body>
 </html>
