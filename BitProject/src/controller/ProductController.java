@@ -20,12 +20,12 @@ public class ProductController {
 		return "redirect:";
 	}		
 	
-	@RequestMapping("downloadProductImg")
+	/*@RequestMapping("downloadProductImg")
 	public DownloadView productImgDownload(int p_index){
 		String productImgFileName = productService.getProduct(p_index).getP_imgSrc();
 		File productImgFile = new File("" + productImgFileName);
 		return new DownloadView(productImgFile, productImgFileName);
-	}	
+	}	*/
 	
 	@RequestMapping("modifyProductForm")
 	public String modifyProductForm(int p_index, Model model){		

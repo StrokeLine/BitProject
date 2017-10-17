@@ -79,9 +79,8 @@
 					<div class="form-group">
 						<label for="join_email">이메일(아이디)</label>
 						<div class="input-group">
-							<input type="email" required class="form-control" name="m_email"
-								placeholder="이메일을 입력하세요" maxlength="20"> <span
-								class="input-group-btn">
+							<input type="email" class="form-control" name="m_email" placeholder="이메일을 입력하세요" maxlength="50" required> 
+							<span class="input-group-btn">
 								<button type="button" id="checkbtn" class="btn btn-success">
 									<i class="fa fa-check" aria-hidden="true"></i> 중복확인
 								</button>
@@ -91,21 +90,19 @@
 					</div>
 
 					<div class="form-group">
-						<label for="InputPassword1">비밀번호</label> <input type="password"
-							class="form-control" id="InputPassword1" name="m_password"
-							placeholder="비밀번호를 입력하세요" maxlength="20">
+						<label for="InputPassword1">비밀번호</label> 
+						<input type="password" class="form-control" id="InputPassword1" name="m_password" placeholder="비밀번호를 입력하세요" maxlength="20" required>
 					</div>
 					<div class="form-group">
-						<label for="InputPassword2">비밀번호 확인</label> <input type="password"
-							class="form-control" id="InputPassword2"
-							placeholder="비밀번호를 한 번 더 입력하세요" maxlength="20">
+						<label for="InputPassword2">비밀번호 확인</label> 
+						<input type="password" class="form-control" id="InputPassword2"	placeholder="비밀번호를 한 번 더 입력하세요" maxlength="20">
 						<p class="help-block">비밀번호 확인을 위해 다시한번 입력 해 주세요</p>
 					</div>
 
 					<div class="form-group">
 						<label for="join_nick">별명</label>
 						<div class="input-group">
-							<input type="text" class="form-control" name="m_name" placeholder="별명을 입력하세요" maxlength="20"> 
+							<input type="text" class="form-control" name="m_name" placeholder="별명을 입력하세요" maxlength="20" required> 
 							<span class="input-group-btn">
 							<button type="button" class="btn btn-success"><i class="fa fa-check" aria-hidden="true"></i> 중복확인 </button>
 							</span>
@@ -115,7 +112,7 @@
 					<div class="form-group">
 						<label for="join_tel">휴대전화</label>
 						<div class="input_tel">
-							<input type="text" class="form-control" name="m_tel"placeholder="'-'를 제외한 휴대전화 번호를 입력하세요" maxlength="15"> 
+							<input type="text" class="form-control" name="m_tel"placeholder="'-'를 제외한 휴대전화 번호를 입력하세요" maxlength="15" required> 
 							<span class="envelope"><button type="button" class="btn btn-success" onclick="#"><i class="fa fa-envelope-o" aria-hidden="true"></i> 인증번호 전송
 								</button>
 							</span>
