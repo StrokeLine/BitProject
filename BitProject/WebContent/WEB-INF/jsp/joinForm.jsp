@@ -142,12 +142,14 @@
 		// valid check
 		if (!email_check(email)) {
 			$("#result_check").text('Not valid email.');
+			$("#result_check").css("color","red");
 			$("#inputjoin").prop("disabled", true);
 			$("#inputjoin").css("background-color", "#aaaaaa");
 			/* $(this).focus(); */
 			return false;
 		} else if (email_check(email)){
 			$("#result_check").text('Email address test OK.');
+			$("#result_check").css("color","blue");
 			emailCheck = 1;
 			if (idCheck == 1 && pwdCheck == 1 && emailCheck == 1 && passwdCheck == 1) {
 				$("#inputjoin").prop("disabled", false);
@@ -175,12 +177,14 @@
 		// valid check
 		if (!passwd_check(passwd)) {
 			$("#result_checkpwd").text('Not valid passwd.');
+			$("#result_checkpwd").css("color","red");
 			$("#inputjoin").prop("disabled", true);
 			$("#inputjoin").css("background-color", "#aaaaaa");
 			/* $(this).focus(); */
 			return false;
 		} else if (passwd_check(passwd)){
 			$("#result_checkpwd").text('passwd test OK.');
+			$("#result_checkpwd").css("color","blue");
 			passwdCheck = 1;
 			if (idCheck == 1 && pwdCheck == 1 && emailCheck == 1 && passwdCheck == 1) {
 				$("#inputjoin").prop("disabled", false);
