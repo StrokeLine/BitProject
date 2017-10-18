@@ -54,6 +54,7 @@
 	var idCheck = 0;
 	var pwdCheck = 0;
 	var emailCheck = 0;
+	var passwdCheck = 0;
 	//아이디 체크하여 가입버튼 비활성화, 중복확인.
 	function checkId() {
 		var inputed = $('#emailid').val();
@@ -71,7 +72,7 @@
 				} else if (data == '0') {
 					$("#emailid").css("background-color", "#B0F6AC");
 					idCheck = 1;
-					if (idCheck == 1 && pwdCheck == 1 && emailCheck == 1) {
+					if (idCheck == 1 && pwdCheck == 1 && emailCheck == 1 && passwdCheck == 1) {
 						$("#inputjoin").prop("disabled", false);
 						$("#inputjoin").css("background-color", "#4CAF50");
 						signupCheck();
@@ -97,7 +98,7 @@
 		} else if (inputed == reinputed) {
 			$("#cpassword").css("background-color", "#B0F6AC");
 			pwdCheck = 1;
-			if (idCheck == 1 && pwdCheck == 1 && emailCheck == 1) {
+			if (idCheck == 1 && pwdCheck == 1 && emailCheck == 1 && passwdCheck == 1) {
 				$("#inputjoin").prop("disabled", false);
 				$("#inputjoin").css("background-color", "#4CAF50");
 				signupCheck();
@@ -148,7 +149,40 @@
 		} else if (email_check(email)){
 			$("#result_check").text('Email address test OK.');
 			emailCheck = 1;
-			if (idCheck == 1 && pwdCheck == 1 && emailCheck == 1) {
+			if (idCheck == 1 && pwdCheck == 1 && emailCheck == 1 && passwdCheck == 1) {
+				$("#inputjoin").prop("disabled", false);
+				$("#inputjoin").css("background-color", "#4CAF50");
+			}
+		}
+	}
+	
+	// pwd check function
+	function passwd_check(passwd) {
+		var regex = /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{6,16}/;
+		return (passwd != '' && passwd != 'undefined' && regex.test(passwd));
+	}
+	
+	// check when passwd input lost foucus
+	function on_keypasswd() {
+
+		var passwd = $('#password').val();
+		// if value is empty then exit
+		if (passwd == '' || passwd == 'undefined') {
+			$("#inputjoin").prop("disabled", true);
+			$("#inputjoin").css("background-color", "#aaaaaa");
+			return;
+		}
+		// valid check
+		if (!passwd_check(passwd)) {
+			$("#result_checkpwd").text('Not valid passwd.');
+			$("#inputjoin").prop("disabled", true);
+			$("#inputjoin").css("background-color", "#aaaaaa");
+			/* $(this).focus(); */
+			return false;
+		} else if (passwd_check(passwd)){
+			$("#result_checkpwd").text('passwd test OK.');
+			passwdCheck = 1;
+			if (idCheck == 1 && pwdCheck == 1 && emailCheck == 1 && passwdCheck == 1) {
 				$("#inputjoin").prop("disabled", false);
 				$("#inputjoin").css("background-color", "#4CAF50");
 			}
@@ -209,7 +243,6 @@
 										oninput="javascript:checkId();" onkeyup="on_key()">
 								</div>
 								<div id="result_check"></div>
-								<span id="idchk"></span>
 							</div>
 						</div>
 
@@ -222,8 +255,9 @@
 										class="fa fa-expeditedssl" aria-hidden="true"></i></span> <input
 										type="password" class="form-control" name="m_password"
 										id="password" placeholder="Choose password (5-15 chars)"
-										value="" oninput="checkPwd()">
+										value="" oninput="checkPwd()" onkeyup="on_keypasswd()">
 								</div>
+								<div id="result_checkpwd"></div>
 							</div>
 						</div>
 						<div class="form-group">
