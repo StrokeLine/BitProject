@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -42,14 +44,11 @@
 <!-- Custom styles for this template -->
 <link href="/css/freelancer.min.css" rel="stylesheet">
 
-<script type="text/javascript">
-	/* 	function petInfo(url) {
-	 if (url == '') {
-	 location.reload(true);
-	 return;
-	 }
-	 $(".pet_info_view").load(url);
-	 }; */
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/js/select2.min.js"></script>
+
+<script type="text/javascript" >
+
 	//  아이디와 비밀번호가 맞지 않을 경우 가입버튼 비활성화를 위한 변수설정
 	var idCheck = 0;
 	var pwdCheck = 0;
@@ -334,6 +333,257 @@
 	
 	
 </script>
+<script type="text/javascript">
+	
+	function addPetForm(){
+		var div = document.createElement('div');
+		div.setAttribute("id", "addPetInfo");
+		div.innerHTML = '<div class="addPet_info">'
+					  + '	<div class="modifyPet_item" style="width: 10%; display: inline-block; margin-bottom: 30px; margin-left: 20px;">'
+					  + '		<div class="modifyPet_name_item">반려견 이름</div>'
+					  + '		<div class="modifyPet_type_item">반려견 종류</div>'	
+					  + '		<div class="modifyPet_age_item">반려견 생일</div>'
+					  + '		<div class="modifyPet_gender_item">반려견 성별</div>'				
+					  + '	</div>'
+					  + '	<div class="modifyPet_input" style="width: 40%; display: inline-block;">'
+					  + '		<div class="addPet_name">'
+					  + '			<input type="text" id="addPet_name">'
+					  + '		</div>'
+					  + '		<div class="addPet_breeds">'
+					  + '			<select id="addPet_breeds">'
+					  + '				<option selected disabled value="0">견종을 선택해주세요.</option>'
+					  + '			</select>'
+					  + '		</div>'
+					  + '		<div class="addPet_birthday">'
+					  + '			<input type="date" id="addPet_birthday">'		
+					  + '		</div>'
+					  + '		<div class="addPet_gender">'
+					  + '			<input type="radio" value="2" name="addPet_gender" value="2">암컷'
+					  + '			<input type="radio" value="1" name="addPet_gender" value="1">수컷'
+					  + '		</div>'
+					  + '	</div>'
+					  + '	<div class="addPet_delBtn">'
+					  + '		<input type="button" value="삭제" onclick="removePet()">'
+					  + '      	<input type="submit" value="추가" onclick="addPet()">'
+					  + '	</div>'
+					  + '</div>';
+        document.getElementById('addPet').appendChild(div);
+        document.getElementById("addPet_birthday").valueAsDate = new Date();
+        document.getElementById("addPetBtn").disabled = true;
+        
+        $("#addPet_breeds").select2({
+        	width : "300px",
+        	language: {
+	   		    noResults: function (params) {
+	   		      return "찾을 수 없는 견종입니다.";
+	   		    }
+	   		}
+        });
+        
+        $.ajax({
+	           url : "breedsList",
+	           success : function(data) {
+	            	$.each(data, function(k, v) {
+            			$('<option>').val(k.db_index).text(v.db_breeds).appendTo("#addPet_breeds");
+	            	});
+	           },
+	           error : function(err){
+	           		console.log(err.status);
+	           }
+	    });
+
+	}	
+	
+	function addPet() {
+		var pet_name = document.getElementById("addPet_name").value;
+		var pet_gender = null;
+		var pet_birthday = null;
+		var pet_breeds = null;
+		
+		var radio = document.getElementsByName("addPet_gender");
+		for(var i = 0; i < radio.length; i++) {
+			if(radio[i].checked == true) {
+				pet_gender = radio[i].value;
+			}
+		}
+		
+		var date = document.getElementById("addPet_birthday").value;
+		pet_birthday = new Date(date.split("-")[0], date.split("-")[1]-1, date.split("-")[2]);
+		
+		var select = document.getElementById("addPet_breeds");
+		pet_breeds = select.options[select.selectedIndex].text;
+		
+		if(pet_name == null || pet_name == "") {
+			alert("반려견의 이름을 입력해주세요.");
+			return false;
+		} else if(pet_gender == null){
+			alert("반려견의 성별을 선택해 주세요.");
+			return false;
+		} else if(pet_birthday == null || pet_birthday == "") {
+			alert("반려견의 생일을 선택해 주세요.");
+			return false;
+		} else if(pet_breeds == null || pet_breeds == "" || select.selectedIndex == 0){
+			alert("반려견의 견종을 선택해 주세요.");
+			return false;
+		}
+				
+ 		$.ajax({
+            data : {
+            	pet_name : pet_name,
+            	pet_gender : pet_gender,
+            	pet_birthday : pet_birthday,
+            	pet_breeds : pet_breeds
+            },
+            url : "addPet",
+            success : function(data) {
+            	if(data){
+					location.replace("modifyMember");
+            	} else {
+            		alert("펫 정보가 추가되지 않았습니다. 잠시 후 다시 시도해주세요");
+            	}
+            }
+        });
+ 		
+ 		document.getElementById("addPetBtn").disabled = false;
+	}
+	
+	function removePet(){
+		var deleteNode = document.getElementById("addPetInfo");
+		document.getElementById('addPet').removeChild(deleteNode);
+		document.getElementById("addPetBtn").disabled = false;
+	}
+	
+	function deletePet(pet, pet_index){
+		var check = confirm("정말로 당신의 반려견을 삭제하시겠습니까?");
+		if(check){
+			
+			var deleteNode = document.getElementById(pet.parentNode.parentNode.getAttribute("id"));
+			var pet_list = document.getElementById('myPet');
+			
+			$.ajax({
+	            data : {
+	                id : pet_index
+	            },
+	            url : "deletePet",
+	            success : function(data) {
+	            	if(data){
+						pet_list.removeChild(deleteNode);
+						alert("정상처리 되었습니다.");
+	            	} else {
+	            		alert("펫 정보가 삭제되지 않았습니다. 잠시 후 다시 시도해주세요");
+	            	}
+	            }
+	        });
+		}else {
+			alert("취소되었습니다.");
+		}
+	}
+	
+	function modifyPet(pet, pet_index, tag_num) {
+		var pet_name = document.getElementById("modifyPet_name"+tag_num).value;
+		var pet_gender = null;
+		var pet_birthday = null;
+		var pet_breeds = null;
+		
+		var radio = document.getElementsByName("gender"+tag_num);
+		for(var i = 0; i < radio.length; i++) {
+			if(radio[i].checked == true) {
+				pet_gender = radio[i].value;
+			}
+		}
+		
+		var date = document.getElementById("modifyPet_birthday"+tag_num).value;
+		pet_birthday = new Date(date.split("-")[0], date.split("-")[1]-1, date.split("-")[2]);
+		
+		var select = document.getElementById("modifyPet_breeds"+tag_num);
+		pet_breeds = select.options[select.selectedIndex].text;
+		
+		if(pet_name == null || pet_name == "") {
+			alert("반려견의 이름을 입력해주세요.");
+			return false;
+		} else if(pet_gender == null){
+			alert("반려견의 성별을 선택해 주세요.");
+			return false;
+		} else if(pet_birthday == null || pet_birthday == "") {
+			alert("반려견의 생일을 선택해 주세요.");
+			return false;
+		} else if(pet_breeds == null || pet_breeds == ""){
+			alert("반려견의 견종을 선택해 주세요.");
+			return false;
+		}
+				
+ 		$.ajax({
+            data : {
+            	pet_index : pet_index,
+            	pet_name : pet_name,
+            	pet_gender : pet_gender,
+            	pet_birthday : pet_birthday,
+            	pet_breeds : pet_breeds
+            },
+            url : "modifyPet",
+            success : function(data) {
+            	if(data){
+					alert("정상처리 되었습니다.");
+            	} else {
+            		alert("펫 정보가 수정되지 않았습니다. 잠시 후 다시 시도해주세요");
+            	}
+            }
+        });
+	}
+	
+	function addSelectOptions(tag_num){
+	   	var selectPetBreeds = document.getElementById("selectPetBreeds"+tag_num).value;
+	   	
+	   	$("#modifyPet_breeds"+tag_num).select2({
+	   		width : "300px",
+	   		language: {
+	   		    noResults: function (params) {
+	   		      return "찾을 수 없는 견종입니다.";
+	   		    }
+	   		}
+	   	});
+	   	
+		$.ajax({
+	           url : "breedsList",
+	           success : function(data) {
+	            	$.each(data, function(k, v) {
+	            		if(selectPetBreeds == v.db_breeds) {
+	            			$('<option>').val(k.db_index).text(v.db_breeds).attr("selected", "selected").appendTo("#modifyPet_breeds"+tag_num);
+	            		} else {
+		            		$('<option>').val(k.db_index).text(v.db_breeds).appendTo("#modifyPet_breeds"+tag_num);	            			
+	            		}
+	            	});
+	           },
+	           error : function(err){
+	           		console.log(err.status);
+	           }
+	    });
+		
+	}
+	
+	window.onload = function(){
+		var select = document.getElementsByName("modifyPet_breeds");
+		
+		for(var i = 0; i < select.length; i++) {
+			addSelectOptions(i);
+		}
+	}
+	
+	
+</script>
+
+<script type="text/javascript">
+function div_show(id){
+	if(id == "pet_info"){
+		document.getElementById("pet_info").style.display = '';        // 보이게
+	    document.getElementById("pet_info_no").style.display = 'none';	// 안보이게
+	} else{
+	    document.getElementById("pet_info").style.display = 'none';	// 안보이게
+		document.getElementById("pet_info_no").style.display = '';		// 보이게
+	} 
+	
+}
+</script>
 </head>
 
 <body id="page-top" class="body_join">
@@ -458,7 +708,33 @@
 								</div>
 							</div>
 						</div>
-
+						
+						<div class="form-group">
+							<label class="control-label col-sm-3">Pet<br>
+								<small>(optional)</small></label>
+							<div id="petinputselect">
+								<input type="radio" name="pet_info" value="pet_ok" onclick="div_show('pet_info');">등록
+								<input type="radio" name="pet_info" value="pet_no" onclick="div_show('pet_info_no');">등록 안함
+								<div id="pet_info" style="display: none;">
+								<label>Pet Name</label>
+								<div class="col-md-5 col-sm-8">
+									<div class="input-group">
+									
+									</div>
+								</div>
+								<label>Pet Breeds</label>
+								<label>Pet Birthday</label>
+								<label>Pet Gender</label>
+								
+								</div>
+								<div id="pet_info_no" style="display: none;">
+								등록안해!
+								</div>
+							</div>
+							
+							
+						</div>
+						
 						<div class="form-group">
 							<div class="col-xs-offset-3 col-xs-10">
 								<button type="submit" class="btn btn-info" id="inputjoin"
