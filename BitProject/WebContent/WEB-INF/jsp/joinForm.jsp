@@ -55,6 +55,8 @@
 	var pwdCheck = 0;
 	var emailCheck = 0;
 	var passwdCheck = 0;
+	var telCheck = 0;
+	var nameCheck = 0;
 	//아이디 체크하여 가입버튼 비활성화, 중복확인.
 	function checkId() {
 		var inputed = $('#emailid').val();
@@ -72,7 +74,7 @@
 				} else if (data == '0') {
 					$("#emailid").css("background-color", "#B0F6AC");
 					idCheck = 1;
-					if (idCheck == 1 && pwdCheck == 1 && emailCheck == 1 && passwdCheck == 1) {
+					if (idCheck == 1 && pwdCheck == 1 && emailCheck == 1 && passwdCheck == 1 && phoneCheck == 1 && telCheck == 1 && nameCheck == 1 && nickCheck == 1) {
 						$("#inputjoin").prop("disabled", false);
 						$("#inputjoin").css("background-color", "#4CAF50");
 						signupCheck();
@@ -98,7 +100,7 @@
 		} else if (inputed == reinputed) {
 			$("#cpassword").css("background-color", "#B0F6AC");
 			pwdCheck = 1;
-			if (idCheck == 1 && pwdCheck == 1 && emailCheck == 1 && passwdCheck == 1) {
+			if (idCheck == 1 && pwdCheck == 1 && emailCheck == 1 && passwdCheck == 1 && phoneCheck == 1 && telCheck == 1 && nameCheck == 1 && nickCheck == 1) {
 				$("#inputjoin").prop("disabled", false);
 				$("#inputjoin").css("background-color", "#4CAF50");
 				signupCheck();
@@ -112,9 +114,74 @@
 
 		}
 	}
+	
+	function checkPhone(){
+		var inputed = $('#mPhone').val();
+		$.ajax({
+			data : {
+				tel : inputed
+			},
+			url : "checkTEL",
+			success : function(data) {
+				if (inputed == "" && data == '0') {
+					$("#inputjoin").prop("disabled", true);
+					$("#inputjoin").css("background-color", "#aaaaaa");
+					$("#mPhone").css("background-color", "#FFCECE");
+					telCheck = 0;
+				} else if (data == '0') {
+					$("#mPhone").css("background-color", "#B0F6AC");
+					telCheck = 1;
+					if (idCheck == 1 && pwdCheck == 1 && emailCheck == 1 && passwdCheck == 1 && phoneCheck == 1 && telCheck == 1 && nameCheck == 1 && nickCheck == 1) {
+						$("#inputjoin").prop("disabled", false);
+						$("#inputjoin").css("background-color", "#4CAF50");
+						signupCheck();
+					}
+						
+				} else if (data == '1'){
+					$("#inputjoin").prop("disabled", true);
+					$("#inputjoin").css("background-color", "#aaaaaa");
+					$("#mPhone").css("background-color", "#FFCECE");
+					telCheck = 0;
+				}
+			}
+		});
+	}
+	
+	function checkName(){
+		var inputed = $('#mName').val();
+		$.ajax({
+			data : {
+				name : inputed
+			},
+			url : "checkNAME",
+			success : function(data) {
+				if (inputed == "" && data == '0') {
+					$("#inputjoin").prop("disabled", true);
+					$("#inputjoin").css("background-color", "#aaaaaa");
+					$("#mName").css("background-color", "#FFCECE");
+					nickCheck = 0;
+				} else if (data == '0') {
+					$("#mName").css("background-color", "#B0F6AC");
+					nickCheck = 1;
+					if (idCheck == 1 && pwdCheck == 1 && emailCheck == 1 && passwdCheck == 1 && phoneCheck == 1 && telCheck == 1 && nameCheck == 1 && nickCheck == 1) {
+						$("#inputjoin").prop("disabled", false);
+						$("#inputjoin").css("background-color", "#4CAF50");
+						signupCheck();
+					}
+						
+				} else if (data == '1'){
+					$("#inputjoin").prop("disabled", true);
+					$("#inputjoin").css("background-color", "#aaaaaa");
+					$("#mName").css("background-color", "#FFCECE");
+					nickCheck = 0;
+				}
+			}
+		});
+	}
+	
 	//닉네임 입력하지 않았을 경우 가입버튼 비활성화
 	function signupCheck() {
-		var nickname = $("#mem_name").val();
+		var nickname = $("#mName").val();
 		var MobilePhone = $("#mPhone").val();
 		if (nickname == "" || MobilePhone == "") {
 			$("#inputjoin").prop("disabled", true);
@@ -151,7 +218,7 @@
 			$("#result_check").text('Email address test OK.');
 			$("#result_check").css("color","blue");
 			emailCheck = 1;
-			if (idCheck == 1 && pwdCheck == 1 && emailCheck == 1 && passwdCheck == 1) {
+			if (idCheck == 1 && pwdCheck == 1 && emailCheck == 1 && passwdCheck == 1 && phoneCheck == 1 && telCheck == 1 && nameCheck == 1 && nickCheck == 1) {
 				$("#inputjoin").prop("disabled", false);
 				$("#inputjoin").css("background-color", "#4CAF50");
 			}
@@ -186,12 +253,86 @@
 			$("#result_checkpwd").text('passwd test OK.');
 			$("#result_checkpwd").css("color","blue");
 			passwdCheck = 1;
-			if (idCheck == 1 && pwdCheck == 1 && emailCheck == 1 && passwdCheck == 1) {
+			if (idCheck == 1 && pwdCheck == 1 && emailCheck == 1 && passwdCheck == 1 && phoneCheck == 1 && telCheck == 1 && nameCheck == 1 && nickCheck == 1) {
 				$("#inputjoin").prop("disabled", false);
 				$("#inputjoin").css("background-color", "#4CAF50");
 			}
 		}
 	}
+	
+	//phone
+	function phone_check(mPhone){
+		var regex = /^(01[016789]{1}|02|0[3-9]{1}[0-9]{1})([0-9]{3,4})([0-9]{4})$/;
+		return (mPhone != '' && mPhone != 'undefined' && regex.test(mPhone))
+	}
+	
+	function on_keyphone(){
+		var mPhone = $('#mPhone').val();
+		
+		
+		if (mPhone == '' || mPhone == 'undefined') {
+			$("#inputjoin").prop("disabled", true);
+			$("#inputjoin").css("background-color", "#aaaaaa");
+			return;
+		}
+		if (!phone_check(mPhone)) {
+			$("#mPhone").css("background-color", "#FFCECE");
+			$("#result_checkphone").text('Not valid phone number.');
+			$("#result_checkphone").css("color","red");
+			$("#inputjoin").prop("disabled", true);
+			$("#inputjoin").css("background-color", "#aaaaaa");
+			/* $(this).focus(); */
+			return false;
+		} else if (phone_check(mPhone)){
+			$("#mPhone").css("background-color", "#B0F6AC");
+			$("#result_checkphone").text('phone number test OK.');
+			$("#result_checkphone").css("color","blue");
+			phoneCheck = 1;
+			if (idCheck == 1 && pwdCheck == 1 && emailCheck == 1 && passwdCheck == 1 && phoneCheck == 1 && telCheck == 1 && nameCheck == 1 && nickCheck == 1) {
+				$("#inputjoin").prop("disabled", false);
+				$("#inputjoin").css("background-color", "#4CAF50");
+			}
+		}
+	
+	}
+	
+	//name
+	function name_check(mName){
+		var regex = /^[가-힣a-zA-Z0-9]+$/;
+		return (mName != '' && mName != 'undefined' && regex.test(mName))
+	}
+	
+	function on_keyname(){
+		var mName = $('#mName').val();
+		
+		
+		if (mName == '' || mName == 'undefined') {
+			$("#inputjoin").prop("disabled", true);
+			$("#inputjoin").css("background-color", "#aaaaaa");
+			return;
+		}
+		if (!name_check(mName)) {
+			$("#mName").css("background-color", "#FFCECE");
+			$("#result_checkname").text('Not valid name.');
+			$("#result_checkname").css("color","red");
+			$("#inputjoin").prop("disabled", true);
+			$("#inputjoin").css("background-color", "#aaaaaa");
+			/* $(this).focus(); */
+			return false;
+		} else if (name_check(mName)){
+			$("#mName").css("background-color", "#B0F6AC");
+			$("#result_checkname").text('name test OK.');
+			$("#result_checkname").css("color","blue");
+			nameCheck = 1;
+			if (idCheck == 1 && pwdCheck == 1 && emailCheck == 1 && passwdCheck == 1 && phoneCheck == 1 && telCheck == 1 && nameCheck == 1 && nickCheck == 1) {
+				$("#inputjoin").prop("disabled", false);
+				$("#inputjoin").css("background-color", "#4CAF50");
+			}
+		}
+	
+	}
+	
+	
 </script>
 </head>
 
@@ -283,9 +424,10 @@
 								class="text-danger">*</span></label>
 							<div class="col-md-8 col-sm-9">
 								<input type="text" class="form-control" name="m_name"
-									id="mem_name" placeholder="Enter your Name here" value=""
-									oninput="checkId()">
+									id="mName" placeholder="Enter your Name here" value=""
+									oninput="checkName()" onkeyup="on_keyname()">
 							</div>
+							<div id="result_checkname"></div>
 						</div>
 
 						<div class="form-group">
@@ -297,8 +439,9 @@
 										aria-hidden="true"></i></span> <input type="text"
 										class="form-control" name="m_tel" id="mPhone"
 										placeholder="Enter your Mobile Phone number." value=""
-										oninput="checkId()">
+										oninput="checkPhone()" onkeyup="on_keyphone()">
 								</div>
+								<div id="result_checkphone"></div>
 							</div>
 						</div>
 

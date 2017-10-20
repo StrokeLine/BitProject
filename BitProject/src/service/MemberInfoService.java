@@ -5,7 +5,6 @@ import java.util.Date;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import dao.IMemberInfoDao;
 import dao.MemberInfoDao;
 import model.member_info;
 
@@ -43,6 +42,26 @@ public class MemberInfoService {
 		member_info member_info = memberDao.selectMemberEmail(m_email);
 		if( member_info != null) {
 			System.out.println("emailCheck query success !!!");
+			return member_info;
+		} else {
+			return null;
+		}
+	}
+	
+	public member_info telCheck (String m_tel) {
+		member_info member_info =memberDao.selectMemberTel(m_tel);
+		if(member_info != null) {
+			System.out.println("telCheck query success !!!");
+			return member_info;
+		} else {
+			return null;
+		}
+	}
+	
+	public member_info nameCheck (String m_name) {
+		member_info member_info = memberDao.selectMemberName(m_name);
+		if(member_info != null) {
+			System.out.println("nameCheck query success !!!");
 			return member_info;
 		} else {
 			return null;

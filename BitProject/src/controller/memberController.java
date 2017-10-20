@@ -25,4 +25,28 @@ public class memberController {
 		}
 		return result;  
 	}
+	
+	@RequestMapping(value="checkTEL", method={RequestMethod.GET, RequestMethod.POST})
+	public @ResponseBody int telCheck (String tel) {
+		System.out.println(tel);
+		member_info member = memberinfoservice.telCheck(tel);
+		System.out.println(member);
+		int result = 0;
+		if(member != null){
+			result = 1;
+		}
+		return result;
+	}
+	
+	@RequestMapping(value="checkNAME", method={RequestMethod.GET, RequestMethod.POST})
+	public @ResponseBody int nameCheck (String name) {
+		System.out.println(name);
+		member_info member = memberinfoservice.nameCheck(name);
+		System.out.println(member);
+		int result = 0;
+		if(member != null){
+			result = 1;
+		}
+		return result;
+	}
 }

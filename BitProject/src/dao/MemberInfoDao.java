@@ -31,6 +31,16 @@ public class MemberInfoDao implements IMemberInfoDao {
 	public member_info selectMemberEmail(String m_email) {
 		return session.selectOne("dao.IMemberInfoDao.selectMemberEmail", m_email);
 	}
+	
+	@Override
+	public member_info selectMemberName(String m_name) {
+		return session.selectOne("dao.IMemberInfoDao.selectMemberName", m_name);
+	}
+	
+	@Override
+	public member_info selectMemberTel(String m_tel) {
+		return session.selectOne("dao.IMemberInfoDao.selectMemberTel", m_tel);
+	}
 
 	@Override
 	public member_info selectMemberInfo(int m_index) {
