@@ -403,7 +403,7 @@
 				</div>	
 			</div>			
 			<div class="modifyMember_btn" style="margin-top: 50px;">
-				<button type="submit" class="btn btn-primary">나가기</button>			
+				<button type="button" class="btn btn-primary" onclick="location='memberInfo'">나가기</button>			
 			</div>
 		</div>	
 	</div>	
