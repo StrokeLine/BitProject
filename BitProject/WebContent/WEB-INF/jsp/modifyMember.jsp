@@ -42,15 +42,22 @@
 					  + '		</div>'
 					  + '	</div>'
 					  + '	<div class="addPet_delBtn">'
-					  + '		<input type="button" value="삭제" onclick="removePet(this)">'
+					  + '		<input type="button" value="삭제" onclick="removePet()">'
 					  + '      	<input type="submit" value="추가" onclick="addPet()">'
 					  + '	</div>'
 					  + '</div>';
         document.getElementById('addPet').appendChild(div);
         document.getElementById("addPet_birthday").valueAsDate = new Date();
-        document.getElementById("addPetBtn").disabled = "true";
+        document.getElementById("addPetBtn").disabled = true;
         
-        $("#addPet_breeds").select2();
+        $("#addPet_breeds").select2({
+        	width : "300px",
+        	language: {
+	   		    noResults: function (params) {
+	   		      return "찾을 수 없는 견종입니다.";
+	   		    }
+	   		}
+        });
         
         $.ajax({
 	           url : "breedsList",
@@ -116,12 +123,13 @@
             }
         });
  		
- 		document.getElementById("addPetBtn").disabled = "false";
+ 		document.getElementById("addPetBtn").disabled = false;
 	}
 	
-	function removePet(pet){
-		var deleteNode = document.getElementById(pet.parentNode.parentNode.parentNode.parentNode.getAttribute("id"));
+	function removePet(){
+		var deleteNode = document.getElementById("addPetInfo");
 		document.getElementById('addPet').removeChild(deleteNode);
+		document.getElementById("addPetBtn").disabled = false;
 	}
 	
 	function deletePet(pet, pet_index){
@@ -205,7 +213,14 @@
 	function addSelectOptions(tag_num){
 	   	var selectPetBreeds = document.getElementById("selectPetBreeds"+tag_num).value;
 	   	
-	   	$("#modifyPet_breeds"+tag_num).select2();
+	   	$("#modifyPet_breeds"+tag_num).select2({
+	   		width : "300px",
+	   		language: {
+	   		    noResults: function (params) {
+	   		      return "찾을 수 없는 견종입니다.";
+	   		    }
+	   		}
+	   	});
 	   	
 		$.ajax({
 	           url : "breedsList",
@@ -388,7 +403,7 @@
 				</div>	
 			</div>			
 			<div class="modifyMember_btn" style="margin-top: 50px;">
-				<button type="submit" class="btn btn-primary">수정</button>			
+				<button type="submit" class="btn btn-primary">나가기</button>			
 			</div>
 		</div>	
 	</div>	
