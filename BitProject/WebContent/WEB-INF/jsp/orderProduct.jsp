@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -9,96 +9,133 @@
 </head>
 <body>
 <div class="modal-dialog" role="document"></div>
-<div class="orderProduct_main">
-	<div class="product_info" style="margin-top: 50px">
-		<h3>ÁÖ¹®»óÇ° Á¤º¸</h3>
-	</div>
-	<hr color="gray" style="width:70%;" align="left">		
-	<div class="productinfo_content" style="margin-left: 40px;">
-		<div class="product_img" style="width: 20%; display: inline-block;">
-			<h5>»óÇ°ÀÌ¹ÌÁö</h5>
+
+<form action="orderProduct" method="post" onsubmit="orderCheck()">
+	<div class="orderProduct_main">
+		<div class="product_info" style="margin-top: 50px">
+			<h3>ì£¼ë¬¸ìƒí’ˆ ì •ë³´</h3>
 		</div>
-		<div class="product_name" style="width: 20%; display: inline-block;">
-			<h5>»óÇ°¸í</h5>
-		</div>
-		<div class="product_price" style="width: 20%; display: inline-block;">
-			<h5>»óÇ°±Ý¾×</h5>
-		</div>						
-	</div>
-		
-	<div class="shippingAddress_info" style="margin-top: 50px">
-		<h3>¹è¼ÛÁö Á¤º¸</h3>
-	</div>	
-	<hr color="gray" style="width:70%;" align="left">		
-		<div class="shippingAddress_load">
-			±¸¸ÅÀÚ ±âº»Á¤º¸			
-			<ul>
-				<li>±¸¸ÅÀÚ ÀÌ   ¸§</li>
-				<li>±¸¸ÅÀÚ ¿¬¶ôÃ³</li>			
-			</ul>			
-		</div>			
-		<div class="shippingAdress_input">	
-			¹è¼ÛÁö ÀÔ·ÂÁ¤º¸			
-			<ul>
-				<li>¼ö·ÉÀÎ
-					<input type="text" name="name" width="100px"><br>
-				</li>				
-				<li>±¸¸ÅÀÚ ¿¬¶ôÃ³
-					<input type="text" name="address" width="100px"><br>
-				</li>
-				<li>¹è¼Û ¸Þ¸ð	
-					<textarea style="height:100px;width:300px;"></textarea><br>	
-				</ul>			
-		</div>					
-	<div class="finalPrice_info" style="margin-top: 50px">
-		<h3>ÃÖÁ¾ °áÁ¦±Ý¾×</h3>
-	</div>
-	<hr color="gray" style="width:70%;" align="left">
-		<div>
-			<ul>			
-				<li>»óÇ°±Ý¾×</li>
-				<li>¹è¼Ûºñ</li>
-				<li>ÃÖÁ¾±Ý¾×</li>	
-			</ul>
-		</div>
-	<div class="paymentMethod_info" style="margin-top: 50px">
-		<h3>°áÁ¦¼ö´Ü</h3>
-	</div>
-	<hr color="gray" style="width:70%;" align="left">	
-		<div class="paymentCard">
-			<label><input type="radio" name="paymentMethod" value="card">Ä«µå°áÁ¦</label><br>
-				<select>
-					<option value=""></option>
-					<option value=""></option>
-					<option value=""></option>						
-				</select>
-		</div>
-		<div class="paymentAccount">
-			<label><input type="radio" name="paymentMethod" value="account">¹«ÅëÀå ÀÔ±Ý</label><br>
-				<select>
-					<option value=""></option>			
-				</select>
-		</div>
-		<div class="paymentPhone">
-			<label><input type="radio" name="paymentMethod" value="phone">ÈÞ´ëÆù °áÁ¦</label><br>
-				<select>
-					<option value=""></option>			
-				</select>
+		<hr color="gray" style="width:70%;" align="left">
+		<div class="product_info">
+			<table class="table">
+				<thead>
+					<tr>
+						<th width="20">ìƒí’ˆì´ë¯¸ì§€</th>
+						<th width="20">ìƒí’ˆëª…</th>
+						<th width="10">ìƒí’ˆ ê¸ˆì•¡</th>
+						<th width="10">ë°°ì†¡ë¹„</th>
+						<th></th>						
+					</tr>			
+				</thead>
+				<tbody>
+					<tr>	
+						<td id="product_info_img">								
+							<img src="downloadProductImg?p_index=${product_info.p_index}" width="" height="" border="0">						
+						</td>					
+						<td id="product_info_name">
+							${product_info.p_name}
+						</td>
+						<td id="product_info_price">
+							${product_info.p_price} ì›
+						</td>
+						<td id="product_info_fee">
+							${product_info.p_fee}
+						</td>											
+					</tr>
+				</tbody>						
+			</table>
 		</div>	
-	<div class="order_btn">
-		<input type="button" value="°áÁ¦ÇÏ±â" onclick="orderCheck()">	
+			
+		<%-- <div class="productinfo_title" style="margin-left: 40px;">
+			<div class="title_product_img" style="width: 15%; display: inline-block;">
+				ìƒí’ˆì´ë¯¸ì§€
+			</div>
+			<div class="title_product_name" style="width: 15%; display: inline-block;">
+				ìƒí’ˆëª…
+			</div>
+			<div class="title_product_price" style="width: 10%; display: inline-block;">
+				ìƒí’ˆê¸ˆì•¡
+			</div>
+			<div class="title_product_fee" style="width: 10%; display: inline-block;">
+				ë°°ì†¡ë£Œ
+			</div>	
+		</div>		
+		<div class="productinfo_content" style="margin-left: 40px;">
+			<div class="product_img" style="width: 15%; display: inline-block;">
+				${product_info.p_imgSrc}
+			</div>
+			<div class="product_name" style="width: 15%; display: inline-block;">
+				${product_info.p_name}
+			</div>
+			<div class="product_price" style="width: 10%; display: inline-block;">
+				${product_info.p_price} ì›
+			</div>		
+			<div class="product_fee" style="width: 10%; display: inline-block;">
+				${product_info.p_fee} (ì£¼ë¬¸ì‹œ ê²°ì œ)
+			</div>							
+		</div> --%>		
+		
+		<div class="product_total">
+			<div class="label_total" style="width: 40%; background-color: gray;">
+				<center><h3>ìµœì¢… ê¸ˆì•¡</h3></center>
+			</div>
+			<div class="label_price" style="width: 20%; background-color: gray;">
+				<span>ì›</span>			
+			</div>
+		</div>	
+					
+		<div class="shippingAddress_info" style="margin-top: 50px">
+			<h3>ë°°ì†¡ì§€ ì •ë³´</h3>
+		</div>	
+		<hr color="gray" style="width:70%;" align="left">		
+			<div class="shippingAdress_input">						
+				ìˆ˜ë ¹ì¸
+					<input type="text" name="" width="100px"><br>
+				êµ¬ë§¤ìž ì—°ë½ì²˜
+					<input type="text" name="" width="100px"><br>
+				ë°°ì†¡ ë©”ëª¨	
+					<textarea name="" style="height:100px; width:300px;"></textarea><br>					
+			</div>					
+		
+		<div class="paymentMethod_info" style="margin-top: 50px">
+			<h3>ê²°ì œìˆ˜ë‹¨</h3>
+		</div>
+		<hr color="gray" style="width:70%;" align="left">	
+			<div class="paymentCard">
+				<label><input type="radio" name="paymentMethod" value="card">ì¹´ë“œê²°ì œ</label><br>
+					<select name="">
+						<option value=""></option>
+						<option value=""></option>
+						<option value=""></option>						
+					</select>
+			</div>
+			<div class="paymentAccount">
+				<label><input type="radio" name="paymentMethod" value="account">ë¬´í†µìž¥ ìž…ê¸ˆ</label><br>
+					<select name="">
+						<option value=""></option>			
+					</select>
+			</div>
+			<div class="paymentPhone">
+				<label><input type="radio" name="paymentMethod" value="phone">íœ´ëŒ€í° ê²°ì œ</label><br>
+					<select name="">
+						<option value=""></option>			
+					</select>
+			</div>	
+		<div class="order_btn">
+			<input type="submit" value="ê²°ì œí•˜ê¸°" >
+		</div>
 	</div>
-</div>
+</form>	
 </body>
 <script type="text/javascript">
-//Àå¹Ù±¸´Ï È®ÀÎ ÆäÀÌÁö
+//ìž¥ë°”êµ¬ë‹ˆ í™•ì¸ íŽ˜ì´ì§€
 function orderCheck() {
 	var url = "orderCheck";
-	var windowW = 450;  // Ã¢ÀÇ °¡·Î ±æÀÌ
-    var windowH = 200;  // Ã¢ÀÇ ¼¼·Î ±æÀÌ
+	var windowW = 450;  // ì°½ì˜ ê°€ë¡œ ê¸¸ì´
+    var windowH = 200;  // ì°½ì˜ ì„¸ë¡œ ê¸¸ì´
     var left = (window.screen.width - windowW)/2;
     var top = (window.screen.height - windowH)/3;
-    open(url,"°áÁ¦ È¯·á ÆäÀÌÁö","top="+top+", left="+left+", height="+windowH+", width="+windowW);
+    open(url,"ê²°ì œ í™˜ë£Œ íŽ˜ì´ì§€","top="+top+", left="+left+", height="+windowH+", width="+windowW);
 }
 </script>
 </html>

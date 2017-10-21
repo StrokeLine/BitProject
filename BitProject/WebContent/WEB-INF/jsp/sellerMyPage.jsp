@@ -11,9 +11,7 @@
 			<div class="seller_my_page_menu">
 				<h3><a href="sellerMyPage?method=sellerMyStore">상점정보</a></h3>
 				<h3><a href="sellerMyPage?method=customerNotice">공지사항</a></h3>
-				<h3>상품관리</h3>
-				<h4><a href="sellerMyPage?method=productReg">등록</a></h4>
-				<h4><a href="sellerMyPage?method=customerProduct">수정/삭제</a></h4>
+				<h3><a href="sellerMyPage?method=managementProduct">상품관리</a></h3>				
 				<h3>주문/배송 관리</h3>
 				<h4><a href="sellerMyPage?method=customerOrderDelivery">주문/배송</a></h4>
 				<h4><a href="sellerMyPage?method=customerTakeBack">반품(환불)</a></h4>

@@ -49,4 +49,12 @@ public class memberController {
 		}
 		return result;
 	}
+	
+	@RequestMapping(value="pwdCheck", method={RequestMethod.GET, RequestMethod.POST})
+	public @ResponseBody int pwdCheck(int id, String pwd) {
+		System.out.println("pwdCheck !!!");
+		int result = 0;
+		result = memberinfoservice.passwdCheck(id, pwd);
+		return result;  
+	}
 }

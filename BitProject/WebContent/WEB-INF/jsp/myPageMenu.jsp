@@ -5,7 +5,7 @@
 
 	<h1>My Page</h1>
 	<h3><a href="memberInfo" target="myPageContent">내 정보</a></h3>
-	<div id="sellerReg"><h3><a href="sellerReg" target="myPageContent">판매자 등록</a></h3></div>
+	<div id="sellerRegForm"><h3><a href="sellerRegForm" target="myPageContent">판매자 등록</a></h3></div>
 	<div id="sellerMyPage"><h3><a href="sellerMyPage?method=sellerMyStore" target="myPageContent">내 상점</a></h3></div>
 	<h3><a href="followingNotiMain" target="myPageContent">관심스토어 알림</a></h3>
 	<h3><a href="productDibs" target="myPageContent">찜한 상품</a></h3>

@@ -35,8 +35,13 @@ public class ProductInfoDao implements IProductInfoDao{
 	}
 	
 	@Override
-	public List<product_info> selectAllProductInfoP(int p_index) {		
-		return session.selectList("dao.IProductInfoDao.selectAllProductP", p_index);
+	public List<product_info> selectAllProductInfoS(int s_index) {		
+		return session.selectList("dao.IProductInfoDao.selectAllProductInfoS", s_index);
+	}
+	
+	@Override
+	public List<product_info> selectAllProductInfoM(int m_index) {		
+		return session.selectList("dao.IProductInfoDao.selectAllProductInfoM", m_index);
 	}
 
 	@Override

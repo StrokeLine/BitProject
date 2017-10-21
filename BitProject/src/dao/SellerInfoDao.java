@@ -24,13 +24,13 @@ public class SellerInfoDao implements ISellerInfoDao {
 	}
 
 	@Override
-	public int deleteSellerInfo(int s_index) {
-		return session.delete("dao.ISellerInfoDao.deleteSellerInfo", s_index);
+	public int deleteSellerInfo(int m_index) {
+		return session.delete("dao.ISellerInfoDao.deleteSellerInfo", m_index);
 	}
 	
 	@Override
-	public seller_info selectSellerInfo(int s_index) {
-		return session.selectOne("dao.ISellerInfoDao.selectSellerInfo", s_index);
+	public seller_info selectSellerInfo(int m_index) {
+		return session.selectOne("dao.ISellerInfoDao.selectSellerInfo", m_index);
 	}
 
 	@Override

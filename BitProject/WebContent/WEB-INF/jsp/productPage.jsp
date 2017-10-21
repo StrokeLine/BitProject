@@ -26,43 +26,48 @@
 </head>
 <body>
 	<div class="productPage_Main" style="margin: 0px 200px 0px 200px;">
-		<div class="product_top">
-			<div class="product_img" style="width: 49%; display: inline-block;">
-				<h3>이미지 영역</h3>
+		<form action="orderProductForm" method="post">
+			<div class="product_top">
+				<div class="product_img" style="width: 49%; display: inline-block;">
+					${product_info.p_imgSrc}
+				</div>
+				<div class="productInfo" style="width: 49%; display: inline-block;">
+					<div class="product_name">
+						<h3>${product_info.p_name}</h3>
+					</div>
+					<div class="product_price">
+						상품 금액  ${product_info.p_price}
+					</div>
+					<div class="product_option">
+						<h3>옵션</h3>
+						<select>
+							<option></option>
+							<option></option>
+						</select>
+					</div>
+					<div class="product_num">
+						<input type="button" value="-">
+						<input type="text" style="width: 25px;" value="1">
+						<input type="button" value="+">
+					</div>
+					<div class="product_fee">
+						<ul style="padding: 0px 0px 0px 0px; list-style-type: none;">
+							<li><em style="font-style: normal;">배송비 : ${product_info.fee} (주문시 결제)</em></li>						
+						</ul>
+					</div>
+					<div class="product_total">
+						<div class="label_total" style="width: 50%; float: left;">총 합계금액</div>
+						<div class="label_price" style="width: 50%; float: left;"><span>원</span></div>
+					</div>
+					<div class="product_btn_other">
+						<input type="button" value="찜" onclick="dibsCheck()">
+						<input type="button" value="장바구니" onclick="shoppingBasketCheck()">
+						<input type="submit" value="주문하기">
+					</div>
+				</div>
 			</div>
-			<div class="productInfo" style="width: 49%; display: inline-block;">
-				<div class="product_name">
-					<h3>상품명</h3>
-				</div>
-				<div class="product_price">
-					<h3>상품가격</h3>
-				</div>
-				<div class="product_option">
-					<h3>옵션</h3>
-				</div>
-				<div class="product_num">
-					<input type="button" value="-">
-					<input type="text" style="width: 25px;" value="1">
-					<input type="button" value="+">
-				</div>
-				<div class="product_fee">
-					<ul style="padding: 0px 0px 0px 0px; list-style-type: none;">
-						<li><em style="font-style: normal;">배송비</em></li>
-						<li><em style="font-style: normal;">배송비 결제 : </em> 주문시 결제</li>
-					</ul>
-				</div>
-				<div class="product_total">
-					<div class="label_total" style="width: 50%; float: left;">총 상품금액</div>
-					<div class="label_price" style="width: 50%; float: left;">2500<span>원</span></div>
-				</div>
-				<div class="product_btn_other">
-					<input type="button" value="찜" onclick="dibsCheck()">
-					<input type="button" value="장바구니" onclick="shoppingBasketCheck()">
-					<input type="button" value="주문하기" onclick="productClick('orderProduct')">
-				</div>
-			</div>
-		</div>
-		<div class="product_middle">
+		</form>	
+	<div class="product_middle">
 			<center>
 				<h3>상품 정보 영역</h3>
 			</center>

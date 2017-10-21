@@ -14,8 +14,12 @@
 						<h3>이미지 영역</h3>
 					</center>
 				</div>
-				<div class="seller_my_store_modify" style="float: right;">
-					<input type="button" value="상점정보수정">
+				<div class="seller_my_store_modify" style="float: right;">	
+				${seller_info.m_index}
+				${seller_info.s_index}
+				${seller_info.s_nick}							
+					<input type="button" value="상점정보수정" 
+							onclick="location.href='modifySellerForm?m_index=${seller_info.m_index}'">
 				</div>
 			</div>
 			<div class="seller_my_store_middle">
@@ -23,6 +27,8 @@
 					<div class="seller_my_store_info_content" style="width: 100%;">
 						<center>
 							<h3>상점 소개 영역</h3>
+							${seller_info.s_nick}
+							${seller_info.s_address}
 						</center>
 					</div>
 					<div class="seller_my_store_info_list">

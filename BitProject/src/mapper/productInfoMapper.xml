@@ -3,14 +3,14 @@
 	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"     
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 	
-<mapper namespace="dao.IProductDao">
+<mapper namespace="dao.IProductInfoDao">
 
 	<insert id="insertProductInfo" parameterType="product_info">
-		insert into product_info values (0, #{s_index}, #{p_hashTag}, #{p_major_value}, #{p_miner_value}, #{p_name}, #{p_num}, #{p_price}, #{p_fee}, #{p_imgSrc}, now());
+		insert into product_info values (0, #{s_index}, #{m_index}, #{p_hashTag}, #{p_major_value}, #{p_miner_value}, #{p_name}, #{p_num}, #{p_price}, #{p_fee}, #{p_imgSrc}, #{p_posting_deadline}, now(), #{p_content});
 	</insert>
 	
 	<update id="updateProductInfo" parameterType="product_info">
-		update product_info set p_hashTag = #{p_hashTag}, p_major_value = #{p_major_value}, p_miner_value = #{p_miner_value}, p_name = #{p_name}, p_num = #{p_num}, p_price = #{p_price}, p_fee = #{p_fee}, p_imgSrc = #{p_imgSrc}, p_date = #{p_date} where p_index = #{p_index};
+		update product_info set p_hashTag = #{p_hashTag}, p_major_value = #{p_major_value}, p_miner_value = #{p_miner_value}, p_name = #{p_name}, p_num = #{p_num}, p_price = #{p_price}, p_fee = #{p_fee}, p_imgSrc = #{p_imgSrc}, p_posting_deadline = #{p_posting_deadline}, p_date = #{p_date}, p_content = #{p_content} where p_index = #{p_index};
 	</update>
 	
 	<delete id="deleteProductInfo" parameterType="int">
@@ -25,16 +25,20 @@
 		select * from product_info where s_index=#{s_index};
 	</select>
 	
+	<select id="selectAllProductInfoM" parameterType="int" resultType="product_info">
+		select * from product_info where m_index=#{m_index};
+	</select>
+	
 	<select id="selectAllProductInfoH" parameterType="String" resultType="product_info">
 		select * from product_info where p_hashTag=#{p_hashTag};
 	</select>
 	
 	<select id="selectAllProductInfoMJ" parameterType="String" resultType="product_info">
-		select * from product_info where p_major_value=#{p_major_value};
+		select * from product_info where p_major_value = #{p_major_value};
 	</select>
 	
 	<select id="selectAllProductInfoMN" parameterType="String" resultType="product_info">
-		select * from product_info where p_miner_value=#{p_miner_value};
+		select * from product_info where p_miner_value = #{p_miner_value};
 	</select>
 	
 </mapper>	

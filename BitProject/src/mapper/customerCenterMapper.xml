@@ -6,19 +6,19 @@
 <mapper namespace="dao.ICustomerCenterInquiryDao">
 
 	<insert id="insertCustomerCenterInquiry" parameterType="customer_center_inquiry">
-		insert into customer_center_inquiry values (0, #{m_index}, #{cc_sort}, #{cc_subject}, #{cc_content}, #{cc_email}, sysdate());
+		insert into customer_center values (0, #{m_index}, #{cc_sort}, #{cc_subject}, #{cc_content}, #{cc_email}, now());
 	</insert>
 	
 	<delete id="deleteCustomerCenterInquiry" parameterType="int">
-		delete from customer_center_inquiry where cc_index = #{cc_index};
+		delete from customer_center where cc_index = #{cc_index};
 	</delete>
 	
 	<select id="selectCustomerCenterInquiry" parameterType="int" resultType="customer_center_inquiry">
-		select * from customer_center_inquiry where cc_index = #{cc_index};
+		select * from customer_center where cc_index = #{cc_index};
 	</select>
 	
 	<select id="selectAllCustomerCenterInquiry" parameterType="int" resultType="customer_center_inquiry">
-		select * from customer_center_inquiry where m_index = #{m_index};
+		select * from customer_center where m_index = #{m_index};
 	</select>
 	
 </mapper>	

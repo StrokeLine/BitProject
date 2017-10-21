@@ -67,4 +67,22 @@ public class MemberInfoService {
 			return null;
 		}
 	}
+	public int passwdCheck(int m_index, String m_password){
+		int result = 0;
+		member_info member_info = memberDao.selectMemberInfo(m_index);
+		
+		if(m_password.equals(member_info.getM_password())){
+			result = 1;
+		}		
+		return result;
+	}
+	
+	public boolean deleteMember(int m_index){
+		int member_info = memberDao.deleteMemberInfo(m_index);
+		if(member_info > 0){
+			return true;
+		} else {
+			return false;
+		}		
+	}
 }

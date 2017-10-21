@@ -1,5 +1,6 @@
 package controller;
 
+import java.io.File;
 import java.util.Date;
 import java.util.List;
 
@@ -9,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import model.member_info;
@@ -16,6 +19,7 @@ import model.seller_info;
 import service.CustomerCenterInquiryService;
 import service.MapService;
 import service.MemberInfoService;
+import service.SellerInfoService;
 import model.customer_center_inquiry;
 import service.MemberInfoService;
 
@@ -30,6 +34,10 @@ public class tempController {
 	
 	@Autowired
 	private CustomerCenterInquiryService customerCenterInquiryService;
+	
+	@Autowired
+	private SellerInfoService sellerInfoService;
+	
 	
 	@RequestMapping("container")
 	public ModelAndView NewFile() {
@@ -159,16 +167,7 @@ public class tempController {
 		mav.setViewName("productReg");
 		
 		return mav;
-	}
-	
-	@RequestMapping("sellerMyStore")
-	public ModelAndView sellerMyStore() {
-		ModelAndView mav = new ModelAndView();
-		
-		mav.setViewName("sellerMyStore");
-		
-		return mav;
-	}
+	}	
 	
 	@RequestMapping("sellerMyPage")
 	public ModelAndView sellerMyPage() {
@@ -179,14 +178,14 @@ public class tempController {
 		return mav;
 	}
 	
-	@RequestMapping("modifyProduct")
+	/*@RequestMapping("modifyProduct")
 	public ModelAndView modifyProduct() {
 		ModelAndView mav = new ModelAndView();
 		
 		mav.setViewName("modifyProduct");
 		
 		return mav;
-	}
+	}*/
 	
 	@RequestMapping("productDibs")
 	public ModelAndView productDibs(){
@@ -203,12 +202,26 @@ public class tempController {
 	}
 	
 	@RequestMapping("deleteMember")
-	public ModelAndView deleteMember(){
+	public ModelAndView deleteMember(HttpSession session, String m_password){
 		ModelAndView mav = new ModelAndView();
+		int m_index = (Integer)session.getAttribute("m_index");
+		mav.addObject("member", memberService.getMember(m_index));
 		mav.setViewName("deleteMember");		
 		return mav;		
+	}	
+	
+	@RequestMapping("deleteMemberPro")
+	public String deleteMember(HttpSession session, seller_info seller_info, member_info member_info){		
+		int m_index = (Integer)session.getAttribute("m_index");		
+		member_info.setM_index(m_index);		
+		seller_info sellerInfo = sellerInfoService.getSellerInfo(m_index);			
+		if(sellerInfo != null){			
+			sellerInfoService.deleteSeller(m_index);			
+		}		
+		memberService.deleteMember(m_index);
+		return "redirect:main";
 	}
-
+	
 	@RequestMapping("dibsCheck")
 	public ModelAndView dibsCheck() {
 		ModelAndView mav = new ModelAndView();
@@ -273,15 +286,7 @@ public class tempController {
 		ModelAndView mav = new ModelAndView();		
 		mav.setViewName("orderProduct");		
 		return mav;
-	}
-	
-	@RequestMapping("sellerReg")
-	public ModelAndView sellerReg() {
-		ModelAndView mav = new ModelAndView();		
-		mav.setViewName("sellerReg");		
-		return mav;
 	}	
-	
 	
 	@RequestMapping("orderCheck")
 	public ModelAndView orderCheck() {
@@ -318,17 +323,7 @@ public class tempController {
 		mav.setViewName("qAndA");		
 		return mav;
 	}
-	@RequestMapping("customerCenterInquiry")
-	public ModelAndView customerCenter(HttpSession session) {
-		ModelAndView mav = new ModelAndView();
-		int m_index = (Integer)session.getAttribute("m_index");
-		System.out.println("getAllCustomerCenterInquiry start !!!" + m_index);
-		List<customer_center_inquiry> inquiry_list = customerCenterInquiryService.getAllCustomerCenterInquiry(m_index);
-		mav.addObject("customerCenterInquiry", inquiry_list); 
-		System.out.println("getAllCustomerCenterInquiry Done !!!");
-		mav.setViewName("customerCenter");		
-		return mav;		
-	}	
+	
 	@RequestMapping("myPageMain")
 	public ModelAndView myPageMain() {
 		ModelAndView mav = new ModelAndView();		
@@ -377,10 +372,25 @@ public class tempController {
 		mav.setViewName("qAndAStore");		
 		return mav;
 	}
+	
 	@RequestMapping("addCustomerCenterInquiry")
-	public String addCustomerCenterInquiry(customer_center_inquiry customer_center_inquiry){
+	public String addCustomerCenterInquiry(HttpSession session, customer_center_inquiry customer_center_inquiry){
+		int m_index = (Integer)session.getAttribute("m_index");
+		customer_center_inquiry.setM_index(m_index);
 		customerCenterInquiryService.addCustomerCenterInquiry(customer_center_inquiry);
 		return "redirect:customerCenterInquiry";
+	}	
+	
+	@RequestMapping("customerCenterInquiry")
+	public ModelAndView customerCenter(HttpSession session) {
+		ModelAndView mav = new ModelAndView();
+		int m_index = (Integer)session.getAttribute("m_index");
+		System.out.println("getAllCustomerCenterInquiry start !!!" + m_index);
+		List<customer_center_inquiry> inquiry_list = customerCenterInquiryService.getAllCustomerCenterInquiry(m_index);
+		mav.addObject("customerCenterInquiry", inquiry_list); 
+		System.out.println("getAllCustomerCenterInquiry Done !!!");
+		mav.setViewName("customerCenter");		
+		return mav;		
 	}	
 	
 	@RequestMapping("mapTest")
@@ -391,4 +401,6 @@ public class tempController {
 		mav.setViewName("mapTest");		
 		return mav;
 	}
+	
+	
 }

@@ -2,6 +2,7 @@ package service;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,16 +18,16 @@ public class ProductService {
 	private ProductInfoDao productInfoDao;
 	
 	// 상품 추가
-	public int addProduct(product_info product_info, MultipartFile productImgFile){
+	public int addProduct(product_info product_info){		
 		
-		if(productImgFile != null){
-			String path = "";
-			String productImgFileName = productImgFile.getOriginalFilename();
-			File myFile = new File(path + productImgFileName);
+		/*if(p_imgSrc != null){
+			String path = "c:\\Upload\\image\\";
+			String p_imgSrcFileName = p_imgSrc.getOriginalFilename();
+			File p_imgSrcFile = new File(path + p_imgSrcFileName);
 			
 			try {
-				productImgFile.transferTo(myFile);
-				product_info.setP_imgSrc(productImgFileName);  			
+				p_imgSrc.transferTo(p_imgSrcFile);
+				product_info.setP_imgSrc(p_imgSrcFileName);  			
 			} catch (IllegalStateException e) {			
 				e.printStackTrace();
 			} catch (IOException e) {			
@@ -35,7 +36,7 @@ public class ProductService {
 		}		
 		if( product_info.getP_imgSrc() == null){
 			product_info.setP_imgSrc("default.jpg");
-		}
+		}*/
 		
 		int result = productInfoDao.insertProductInfo(product_info);		
 		if( result > 0 ){
@@ -48,6 +49,11 @@ public class ProductService {
 	public product_info getProduct(int p_index){
 		return productInfoDao.selectProduct(p_index);
 	}	
+	// 전체 상품 리스트
+	public List<product_info> getProductList(int m_index){
+		return productInfoDao.selectAllProductInfoM(m_index);
+	}
+	
 	// 상품 수정
 	public boolean modifyProduct(product_info product_info){
 		int result = productInfoDao.updateProductInfo(product_info);
