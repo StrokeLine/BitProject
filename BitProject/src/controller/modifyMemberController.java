@@ -39,6 +39,14 @@ public class modifyMemberController {
 		return mav;		
 	}
 	
+	@RequestMapping(value="updateMember", method={RequestMethod.GET, RequestMethod.POST})
+	public @ResponseBody int updateMember(HttpSession session, member_info member_info ) {
+		member_info originMember = memberService.getMember((Integer)session.getAttribute("m_index"));
+		
+		
+		return memberService.updateMember(member_info);  
+	}
+	
 	@RequestMapping(value="addPet", method={RequestMethod.GET, RequestMethod.POST})
 	public @ResponseBody int addPet(HttpSession session, pet_info pet_info) {
 		int result = 0;	

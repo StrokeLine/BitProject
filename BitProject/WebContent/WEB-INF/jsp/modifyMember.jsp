@@ -9,11 +9,11 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/css/select2.min.css" rel="stylesheet" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/js/select2.min.js"></script>
 <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-<link href="/bootstrap/css/bootstrap-select.css" rel="stylesheet">
-<script src="/bootstrap/js/bootstrap-select.js"></script>
 <script type="text/javascript" src="/bootstrap/js/bootstrap.js"></script>
+<!-- 펫처리 부분 -->
 <script type="text/javascript">
 	
+	// 추가할 펫 입력창 생성
 	function addPetForm(){
 		var div = document.createElement('div');
 		div.setAttribute("id", "addPetInfo");
@@ -73,6 +73,8 @@
 
 	}	
 	
+	
+	// 데이터베이스에 펫추가 부분
 	function addPet() {
 		var pet_name = document.getElementById("addPet_name").value;
 		var pet_gender = null;
@@ -126,12 +128,14 @@
  		document.getElementById("addPetBtn").disabled = false;
 	}
 	
+	// 추가 펫 입력창 삭제
 	function removePet(){
 		var deleteNode = document.getElementById("addPetInfo");
 		document.getElementById('addPet').removeChild(deleteNode);
 		document.getElementById("addPetBtn").disabled = false;
 	}
 	
+	// 기존에 추가된 펫정보 삭제
 	function deletePet(pet, pet_index){
 		var check = confirm("정말로 당신의 반려견을 삭제하시겠습니까?");
 		if(check){
@@ -158,6 +162,8 @@
 		}
 	}
 	
+	
+	// 기존에 추가된 펫 정보 수정
 	function modifyPet(pet, pet_index, tag_num) {
 		var pet_name = document.getElementById("modifyPet_name"+tag_num).value;
 		var pet_gender = null;
@@ -210,6 +216,7 @@
         });
 	}
 	
+	// select 태그에 견종 추가
 	function addSelectOptions(tag_num){
 	   	var selectPetBreeds = document.getElementById("selectPetBreeds"+tag_num).value;
 	   	
@@ -239,7 +246,8 @@
 	    });
 		
 	}
-	
+
+	// 웹 페이지 로딩 왼료 후 select 태그에 option을 추가하는 함수 호출
 	window.onload = function(){
 		var select = document.getElementsByName("modifyPet_breeds");
 		
@@ -248,8 +256,245 @@
 		}
 	}
 	
-	
 </script>
+<!-- 예외 처리 부분 -->
+<script type="text/javascript">
+	
+	var nameCheck = 1;
+	var nickCheck = 1;
+	var pwdCheck = 1;
+	var passwdCheck = 1;
+	var phoneCheck = 1;
+	var telCheck = 1;
+	
+	//name
+	function name_check(modifyMember_name){
+		var regex = /^[가-힣a-zA-Z0-9]+$/;
+		return (modifyMember_name != '' && modifyMember_name != 'undefined' && regex.test(modifyMember_name))
+	}
+	
+	function on_keyname(m_name){
+		var modifyMember_name = $('#modifyMember_name').val();
+		
+		if(m_name != modifyMember_name){
+			if (modifyMember_name == '' || modifyMember_name == 'undefined') {
+				$("#modifyMember_set").prop("disabled", true);
+				$("#modifyMember_name").css("background-color", "#FFCECE");
+				$("#result_checkname").text('사용할 닉네임을 입력해주세요.');
+				$("#result_checkname").css("color","red");
+				return;
+			}
+			if (!name_check(modifyMember_name)) {
+				$("#modifyMember_name").css("background-color", "#FFCECE");
+				$("#result_checkname").text('사용할 수 없는 닉네임입니다.');
+				$("#result_checkname").css("color","red");
+				$("#modifyMember_set").prop("disabled", true);
+				$(this).focus();
+				return false;
+			} else if (name_check(modifyMember_name)){
+				$("#modifyMember_name").css("background-color", "#B0F6AC");
+				$("#result_checkname").text('사용할 수 있는 닉네임입니다.');
+				$("#result_checkname").css("color","blue");
+				nameCheck = 1;
+				checkName();
+			}
+		}
+	}
+	function checkName(){
+		var inputed = $('#modifyMember_name').val();
+
+		$.ajax({
+			data : {
+				name : inputed
+			},
+			url : "checkNAME",
+			success : function(data) {
+				console.log(data);
+				if (inputed == "" && data == '0') {
+					$("#modifyMember_set").prop("disabled", true);
+					$("#modifyMember_name").css("background-color", "#FFCECE");
+					$("#result_checkname").css("color","red");
+					$("#result_checkname").text('사용할 수 없는 닉네임입니다.');
+					nickCheck = 0;
+				} else if (data == '0') {
+					$("#modifyMember_name").css("background-color", "#B0F6AC");
+					nickCheck = 1;
+					if (pwdCheck == 1 && passwdCheck == 1 && phoneCheck == 1 && telCheck == 1 && nameCheck == 1 && nickCheck == 1) {
+						$("#modifyMember_set").prop("disabled", false);
+						$("#result_checkname").css("color","blue");
+						$("#result_checkname").text('사용할 수 있는 닉네임입니다.');
+					}
+						
+				} else if (data == '1'){
+					$("#modifyMember_set").prop("disabled", true);
+					$("#modifyMember_name").css("background-color", "#FFCECE");
+					$("#result_checkname").text('사용할 수 없는 닉네임입니다.');
+					$("#result_checkname").css("color","red");
+					nickCheck = 0;
+				}
+			}
+		});			
+	}
+	
+	function passwd_check(passwd) {
+		var regex = /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{6,16}/;
+		return (passwd != '' && passwd != 'undefined' && regex.test(passwd));
+	}
+	
+	function checkPwd() {
+		var inputed = $('#modifyPasswd1').val();
+		var reinputed = $('#modifyPasswd2').val();
+		if (reinputed == "" && (inputed != reinputed || inputed == reinputed)) {
+			$("#modifyMember_set").prop("disabled", true);
+			$("#modifyPasswd2").css("background-color", "#FFCECE");
+			$("#result_checkpwd").text('다시 입력 해 주시기 바랍니다.');
+			$("#result_checkpwd").css("color","red");
+		} else if (inputed == reinputed) {
+			pwdCheck = 1;
+			$("#result_checkpwd").text('');
+			$("#result_checkpwd").css("color","none");
+			if (pwdCheck == 1 && passwdCheck == 1 && phoneCheck == 1 && telCheck == 1 && nameCheck == 1 && nickCheck == 1) {
+				$("#modifyMember_set").prop("disabled", false);
+				$("#modifyPasswd2").css("background-color", "#B0F6AC");
+				
+			}
+		} else if (inputed != reinputed) {
+			pwdCheck = 0;
+			$("#modifyMember_set").prop("disabled", true);
+			$("#modifyPasswd2").css("background-color", "#FFCECE");
+			$("#result_checkpwd").text('입력한 비밀번호와 맞지않습니다.');
+			$("#result_checkpwd").css("color","red");
+
+		}
+	}
+	
+	// check when passwd input lost foucus
+	function on_keypasswd() {
+		var passwd = $('#modifyPasswd1').val();
+		// if value is empty then exit
+		if (passwd == '' || passwd == 'undefined') {
+			$("#modifyMember_set").prop("disabled", true);
+			$("#modifyPasswd1").css("background-color", "#FFCECE");
+			return;
+		}
+		
+		pwdCheck = 0;
+		
+		// valid check
+		if (!passwd_check(passwd)) {
+			passwdCheck = 0;
+			$("#result_checkpwd").text('사용할 수 없는 비밀번호입니다.');
+			$("#result_checkpwd").css("color","red");
+			$("#modifyPasswd1").css("background-color", "#FFCECE");
+			$("#modifyMember_set").prop("disabled", true);
+			/* $(this).focus(); */
+			return false;
+		} else if (passwd_check(passwd)){
+			$("#result_checkpwd").text('사용할 수 있는 비밀번호입니다.');
+			$("#result_checkpwd").css("color","blue");
+			$("#modifyPasswd1").css("background-color", "#B0F6AC");
+			passwdCheck = 1;
+			if (pwdCheck == 1 && passwdCheck == 1 && phoneCheck == 1 && telCheck == 1 && nameCheck == 1 && nickCheck == 1) {
+				$("#modifyMember_set").prop("disabled", false);
+			}
+		}
+	}
+		
+		
+	//phone
+	function phone_check(mPhone){
+		var regex = /^(01[016789]{1}|02|0[3-9]{1}[0-9]{1})([0-9]{3,4})([0-9]{4})$/;
+		return (mPhone != '' && mPhone != 'undefined' && regex.test(mPhone))
+	}
+	
+	function on_keyphone(){
+		var mPhone = $('#modifyPhone').val();
+		
+		
+		if (mPhone == '' || mPhone == 'undefined') {
+			$("#modifyMember_set").prop("disabled", true);
+			$("#modifyPhone").css("background-color", "#FFCECE");
+			return;
+		}
+		if (!phone_check(mPhone)) {
+			$("#modifyPhone").css("background-color", "#FFCECE");
+			$("#result_checkphone").text('전화번호 형식이 맞지 않습니다.');
+			$("#result_checkphone").css("color","red");
+			$("#modifyMember_set").prop("disabled", true);
+			/* $(this).focus(); */
+			return false;
+		} else if (phone_check(mPhone)){
+			$("#modifyPhone").css("background-color", "#B0F6AC");
+			$("#result_checkphone").text('');
+			$("#result_checkphone").css("color","blue");
+			phoneCheck = 1;
+			checkPhone();
+		}
+	
+	}
+	
+	
+	function checkPhone(){
+		var inputed = $('#modifyPhone').val();
+		$.ajax({
+			data : {
+				tel : inputed
+			},
+			url : "checkTEL",
+			success : function(data) {
+				if (inputed == "" && data == '0') {
+					$("#modifyMember_set").prop("disabled", true);
+					$("#modifyPhone").css("background-color", "#FFCECE");
+					telCheck = 0;
+				} else if (data == '0') {
+					$("#modifyPhone").css("background-color", "#B0F6AC");
+					$("#result_checkphone").text('');
+					telCheck = 1;
+					if (pwdCheck == 1 && passwdCheck == 1 && phoneCheck == 1 && telCheck == 1 && nameCheck == 1 && nickCheck == 1) {
+						$("#modifyMember_set").prop("disabled", false);
+					}
+						
+				} else if (data == '1'){
+					$("#modifyMember_set").prop("disabled", true);
+					$("#modifyPhone").css("background-color", "#FFCECE");
+					$("#result_checkphone").text('이미 사용 중인 번호입니다.');
+					$("#result_checkphone").css("color","red");
+					telCheck = 0;
+				}
+			}
+		});
+	}
+</script>
+<!-- 데이터 처리 부분 -->
+<script type="text/javascript">
+	function modifyMember() {
+		var m_name = document.getElementById("modifyMember_name").value;
+		var m_tel = document.getElementById("modifyPhone").value;
+		var m_email = document.getElementById("modifyEmail").text;
+		var m_img = "";
+		
+		var m_password = (document.getElementById("modifyPasswd2").value != "") ? document.getElementById("modifyPasswd2").value : "";
+		
+		$.ajax({
+			data : {
+				m_name : m_name,
+				m_tel : m_tel,
+				m_email : m_email,
+				m_password : m_password,
+				m_img : m_img
+				
+			},
+			url : "",
+			success : function(data) {
+				
+			},
+			error : function(err) {
+				
+			}
+		});
+	}
+</script>
+
 <style type="text/css">
 	body{
 		margin: 0 20px 0 0;
@@ -296,6 +541,28 @@
 		width: 60%;
 		border-bottom: 1px solid #5d5d5d; 
 	}
+	.result_checkname{
+		width: 100%;
+		height: 30px;
+		margin-left: 160px;
+	}
+	.result_checkpassowrd{
+		width: 100%;
+		height: 30px;
+		margin-left: 213px;
+	}
+	.result_checkphone{
+		width: 100%;
+		height: 30px;
+		margin-left: 162px;
+	}
+	.none{
+		width: 20%;
+		padding: 7px;
+		margin-left: 50px;
+		display: inline-block;
+	}
+	
 </style>
 <title>회원정보 수정</title>
 </head>
@@ -309,31 +576,33 @@
 				<div class="modifyMember_form">			
 					<div class="modifyMember_list">
 						<div class="modifyMember_item">아이디</div>
-						<div class="modifyMember_info">${member.m_email}</div>
+						<div class="modifyMember_info" id="modifyEmail">${member.m_email}</div>
 						<div class="hr_line"></div>
 						<div class="modifyMember_item">닉네임</div>
-						<div class="modifyMember_info">${member.m_name}</div>	
+						<input type="text" id="modifyMember_name" value="${member.m_name}" onkeyup='on_keyname("${member.m_name}")'>
+						<div class="result_checkname" id="result_checkname"></div>
 						<div class="hr_line"></div>
 						<div class="modifyMember_pw_info">
 							<div class="modifyMember_item" style="width:100%">비밀번호</div>
 							<div class="hr_line"></div>
 							<div class="label">현재 비밀번호</div>
-							<input class="input-passwd" type="password" id="originPasswd">
+							<input class="input-passwd" type="password" id="originPasswd" maxlength="15">
 							<div class="label">새 비밀번호</div>
-							<input class="input-passwd" type="password" id="modifyPasswd1">
+							<input class="input-passwd" type="password" id="modifyPasswd1" maxlength="15" onkeyup="on_keypasswd()">
 							<div class="label">새 비밀번호 확인</div>
-							<input class="input-passwd" type="password" id="modifyPasswd2">
+							<input class="input-passwd" type="password" id="modifyPasswd2" maxlength="15" onkeyup="checkPwd()">
+							<div class="result_checkpassowrd" id="result_checkpwd"></div>
 						</div>
 						<div class="hr_line"></div>
-						<div class="modifyMember_item">연락처</div>			
-						<div class="modifyMember_info">
-							<input type="text" name="modifyTel" value="${member.m_tel }">			
-						</div>
+						<div class="modifyMember_item">연락처</div>
+						<input id="modifyPhone" type="text" name="modifyTel" value="${member.m_tel }" onkeyup="on_keyphone()">
+						<div class="result_checkphone" id="result_checkphone"></div>											
 						<div class="hr_line"></div>
 					</div>
 					<div class="modifyMember_input">
+						<input class="btn btn-primary" type="button" id="modifyMember_set" value="확인" onclick="modifyMember()" style="margin: 10px 210px;" disabled="disabled">
 					</div>
-				</div>		
+				</div>	
 			</div>		
 			<div class="modifyPet">
 				<div class="modifyPet_title">

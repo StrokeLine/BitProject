@@ -28,6 +28,12 @@ public class MemberInfoService {
 		}
 	}
 	
+	
+	public int updateMember(member_info member_info) {
+		
+		return memberDao.updateMemberInfo(member_info);
+	}
+	
 	public member_info getMember(int m_index) {
 		member_info member_info = memberDao.selectMemberInfo(m_index);
 		
