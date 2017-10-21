@@ -275,7 +275,10 @@
 	
 	function on_keyname(m_name){
 		var modifyMember_name = $('#modifyMember_name').val();
-		
+		$("#modifyMember_set").prop("disabled", true);
+		$("#modifyMember_name").css("background-color", "white");
+		$("#result_checkname").text('');
+		$("#result_checkname").css("color","none");
 		if(m_name != modifyMember_name){
 			if (modifyMember_name == '' || modifyMember_name == 'undefined') {
 				$("#modifyMember_set").prop("disabled", true);
@@ -344,7 +347,16 @@
 	function checkPwd() {
 		var inputed = $('#modifyPasswd1').val();
 		var reinputed = $('#modifyPasswd2').val();
-		if (reinputed == "" && (inputed != reinputed || inputed == reinputed)) {
+		
+		if (inputed == "") {
+			$("#modifyPasswd2").css("background-color", "white");
+			$("#result_checkpwd").text('');
+			$("#result_checkpwd").css("color","none");
+			pwdCheck = 1;
+			if (pwdCheck == 1 && passwdCheck == 1 && phoneCheck == 1 && telCheck == 1 && nameCheck == 1 && nickCheck == 1) {
+				$("#modifyMember_set").prop("disabled", false);
+			}
+		} else if (reinputed == "" && (inputed != reinputed || inputed == reinputed)) {
 			$("#modifyMember_set").prop("disabled", true);
 			$("#modifyPasswd2").css("background-color", "#FFCECE");
 			$("#result_checkpwd").text('다시 입력 해 주시기 바랍니다.');
@@ -371,10 +383,21 @@
 	// check when passwd input lost foucus
 	function on_keypasswd() {
 		var passwd = $('#modifyPasswd1').val();
+		var reinputed = $('#modifyPasswd2').val();
 		// if value is empty then exit
 		if (passwd == '' || passwd == 'undefined') {
-			$("#modifyMember_set").prop("disabled", true);
-			$("#modifyPasswd1").css("background-color", "#FFCECE");
+			$("#result_checkpwd").text('');
+			$("#modifyPasswd1").css("background-color", "white");
+			passwdCheck = 1;
+			
+			if(reinputed == ''){
+				pwdCheck = 1;
+			}
+			
+			if (pwdCheck == 1 && passwdCheck == 1 && phoneCheck == 1 && telCheck == 1 && nameCheck == 1 && nickCheck == 1) {
+				$("#modifyMember_set").prop("disabled", false);
+				$("#modifyPasswd2").css("background-color", "white");
+			}
 			return;
 		}
 		
@@ -407,28 +430,34 @@
 		return (mPhone != '' && mPhone != 'undefined' && regex.test(mPhone))
 	}
 	
-	function on_keyphone(){
+	function on_keyphone(m_tel){
 		var mPhone = $('#modifyPhone').val();
 		
+		$("#modifyPhone").css("background-color", "white");
+		$("#result_checkphone").text('');
+		$("#result_checkphone").css("color","none");
+		$("#modifyMember_set").prop("disabled", true);
 		
-		if (mPhone == '' || mPhone == 'undefined') {
-			$("#modifyMember_set").prop("disabled", true);
-			$("#modifyPhone").css("background-color", "#FFCECE");
-			return;
+		if(m_tel != mPhone){
+			if (mPhone == '' || mPhone == 'undefined') {
+				$("#modifyMember_set").prop("disabled", true);
+				$("#modifyPhone").css("background-color", "#FFCECE");
+				return;
+			}
+			if (!phone_check(mPhone)) {
+				$("#modifyPhone").css("background-color", "#FFCECE");
+				$("#result_checkphone").text('전화번호 형식이 맞지 않습니다.');
+				$("#result_checkphone").css("color","red");
+				$("#modifyMember_set").prop("disabled", true);
+				/* $(this).focus(); */
+				return false;
+			} else if (phone_check(mPhone)){
+				$("#modifyPhone").css("background-color", "#B0F6AC");
+				$("#result_checkphone").text('');
+				$("#result_checkphone").css("color","blue");
+				phoneCheck = 1;
+				checkPhone();
 		}
-		if (!phone_check(mPhone)) {
-			$("#modifyPhone").css("background-color", "#FFCECE");
-			$("#result_checkphone").text('전화번호 형식이 맞지 않습니다.');
-			$("#result_checkphone").css("color","red");
-			$("#modifyMember_set").prop("disabled", true);
-			/* $(this).focus(); */
-			return false;
-		} else if (phone_check(mPhone)){
-			$("#modifyPhone").css("background-color", "#B0F6AC");
-			$("#result_checkphone").text('');
-			$("#result_checkphone").css("color","blue");
-			phoneCheck = 1;
-			checkPhone();
 		}
 	
 	}
@@ -468,28 +497,39 @@
 <!-- 데이터 처리 부분 -->
 <script type="text/javascript">
 	function modifyMember() {
+		
+		var origin_password = document.getElementById("originPasswd").value;
+		var m_password = (document.getElementById("modifyPasswd2").value != "") ? document.getElementById("modifyPasswd2").value : "";
+		
+		if(origin_password == "" && m_password != ""){
+			alert("현재 비밀번호를 입력하세요.");
+			return false
+		}
+		
 		var m_name = document.getElementById("modifyMember_name").value;
 		var m_tel = document.getElementById("modifyPhone").value;
-		var m_email = document.getElementById("modifyEmail").text;
 		var m_img = "";
-		
-		var m_password = (document.getElementById("modifyPasswd2").value != "") ? document.getElementById("modifyPasswd2").value : "";
 		
 		$.ajax({
 			data : {
 				m_name : m_name,
 				m_tel : m_tel,
-				m_email : m_email,
 				m_password : m_password,
-				m_img : m_img
-				
+				m_img : m_img,
+				origin_password : origin_password
 			},
-			url : "",
+			url : "updateMember",
 			success : function(data) {
-				
+				if(data == 1){
+					alert("회원정보 수정이 정상 처리되었습니다.");
+				} else if(data == 2) {
+					alert("현재 비밀번호가 다릅니다.\n 다시 확인하여 입력 해주세요.");
+				} else {
+					alert("잠시 후 다시 시도해주십시오.");
+				}
 			},
 			error : function(err) {
-				
+				alert("잠시 후 다시 시도해주십시오.");
 			}
 		});
 	}
@@ -595,7 +635,7 @@
 						</div>
 						<div class="hr_line"></div>
 						<div class="modifyMember_item">연락처</div>
-						<input id="modifyPhone" type="text" name="modifyTel" value="${member.m_tel }" onkeyup="on_keyphone()">
+						<input id="modifyPhone" type="text" name="modifyTel" value="${member.m_tel }" onkeyup='on_keyphone("${member.m_tel }")'>
 						<div class="result_checkphone" id="result_checkphone"></div>											
 						<div class="hr_line"></div>
 					</div>

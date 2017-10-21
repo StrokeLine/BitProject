@@ -40,11 +40,18 @@ public class modifyMemberController {
 	}
 	
 	@RequestMapping(value="updateMember", method={RequestMethod.GET, RequestMethod.POST})
-	public @ResponseBody int updateMember(HttpSession session, member_info member_info ) {
+	public @ResponseBody int updateMember(HttpSession session, member_info member_info, String origin_password) {
 		member_info originMember = memberService.getMember((Integer)session.getAttribute("m_index"));
 		
+		if(!originMember.getM_password().equals(origin_password) && !origin_password.equals("")){
+			return 2;
+		}
 		
-		return memberService.updateMember(member_info);  
+		originMember.setM_name(member_info.getM_name());
+		originMember.setM_tel(member_info.getM_tel());
+		originMember.setM_password((member_info.getM_password().equals("")) ? originMember.getM_password() : member_info.getM_password());
+		
+		return memberService.updateMember(originMember);  
 	}
 	
 	@RequestMapping(value="addPet", method={RequestMethod.GET, RequestMethod.POST})
