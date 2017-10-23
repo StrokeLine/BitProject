@@ -1,5 +1,7 @@
 package controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -51,10 +53,9 @@ public class memberController {
 	}
 	
 	@RequestMapping(value="pwdCheck", method={RequestMethod.GET, RequestMethod.POST})
-	public @ResponseBody int pwdCheck(int id, String pwd) {
-		System.out.println("pwdCheck !!!");
+	public @ResponseBody int pwdCheck(HttpSession session, String m_password) {
 		int result = 0;
-		result = memberinfoservice.passwdCheck(id, pwd);
+		result = memberinfoservice.passwdCheck((Integer)session.getAttribute("m_index"), m_password);
 		return result;  
 	}
 }
