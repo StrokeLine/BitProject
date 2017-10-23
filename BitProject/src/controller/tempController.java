@@ -70,7 +70,7 @@ public class tempController {
 		if(member_info.getM_email() != null){
 			memberService.addMember(member_info);
 		}
-		mav.setViewName("loginForm");
+		mav.setViewName("joinResult");
 		return mav;
 	}
 	

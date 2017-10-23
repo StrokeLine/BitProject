@@ -331,6 +331,9 @@
 	
 	}
 	
+	//pet info
+	
+	
 	
 </script>
 
@@ -561,8 +564,7 @@
 			<div class="row">
 				<div class="col-md-8">
 					<h1 class="entry-title">
-						<span><img alt="" src="/images/signup.png"
-							class="img-responsive"></span>
+						<span><img alt="" src="/images/signup.png" class="img-responsive"></span>
 					</h1>
 					<hr>
 					<form class="form-horizontal" method="post" action="joinPro"
@@ -655,7 +657,7 @@
 							<label class="control-label col-sm-3">Pet Info<br> <small>(optional)</small></label>
 							<div id="petinfoselect">
 								<input type="radio" name="pet_info" value="pet_ok" onclick="div_show('pet_info')">등록
-								<input type="radio" name="pet_info" value="pet_no" onclick="div_show('pet_info_no')">등록 안함
+								<input type="radio" name="pet_info" value="pet_no" checked="checked" onclick="div_show('pet_info_no')">등록 안함
 							</div>
 							
 							<div id="pet_info" style="display: none;">
@@ -663,10 +665,8 @@
 									<label>Pet Name</label>
 									<div class="col-md-5 col-sm-8">
 										<div class="input-group">
-											<span class="input-group-addon"><i
-												class="fa fa-heart" aria-hidden="true"></i></span> <input
-												type="text" class="form-control" name="petName"
-												id="addPet_name" placeholder="Enter your Pet Name.">
+											<span class="input-group-addon"><i class="fa fa-heart" aria-hidden="true"></i></span> 
+											<input type="text" class="form-control" name="petName" id="addPet_name" placeholder="Enter your Pet Name.">
 										</div>
 									</div>
 								</div>
@@ -698,7 +698,7 @@
 									<div class="col-md-5 col-sm-8">
 										<div class="input-group">
 											<span class="input-group-addon"><i class="fa fa-heart" aria-hidden="true"></i></span>
-											<input type="radio" name="addPet_gender" value="1"><i class="fa fa-mars" aria-hidden="true"></i>
+											<input type="radio" name="addPet_gender" value="1" checked="checked"><i class="fa fa-mars" aria-hidden="true"></i>
 											<input type="radio" name="addPet_gender" value="2"><i class="fa fa-venus" aria-hidden="true"></i>
 										</div>
 									</div>
