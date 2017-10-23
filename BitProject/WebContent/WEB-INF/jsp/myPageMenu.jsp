@@ -2,13 +2,6 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
-
-	<script type="text/javascript">
-		window.onload = function (){
-			
-			console.log("s_index = "<c:out value='${s_index}'/>);
-		}
-	</script>
 	
 	<h1>My Page</h1>
 	<h3><a href="memberInfo" target="myPageContent">내 정보</a></h3>
