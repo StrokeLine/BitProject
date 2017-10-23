@@ -9,12 +9,17 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import model.member_info;
+import model.seller_info;
 import service.MemberInfoService;
+import service.SellerInfoService;
 
 @Controller
 public class memberController {
 	@Autowired
 	private MemberInfoService memberinfoservice;
+	
+	@Autowired
+	private SellerInfoService sellerInfoService;
 	
 	@RequestMapping(value="checkID", method={RequestMethod.GET, RequestMethod.POST})
 	public @ResponseBody int idCheck(String id) {
@@ -57,5 +62,18 @@ public class memberController {
 		int result = 0;
 		result = memberinfoservice.passwdCheck((Integer)session.getAttribute("m_index"), m_password);
 		return result;  
+	}
+	
+	@RequestMapping(value="deleteMemberPro", method={RequestMethod.GET, RequestMethod.POST})
+	public @ResponseBody boolean deleteMember(HttpSession session){		
+		int m_index = (Integer)session.getAttribute("m_index");		
+		boolean result = false;		
+		seller_info sellerInfo = sellerInfoService.getSellerInfo(m_index);			
+		if(sellerInfo != null){			
+			result = sellerInfoService.deleteSeller(m_index);
+		}		
+		result = memberinfoservice.deleteMember(m_index);
+		System.out.println("member " + result);
+		return result;
 	}
 }

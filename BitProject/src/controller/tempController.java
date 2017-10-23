@@ -219,18 +219,6 @@ public class tempController {
 		return mav;		
 	}	
 	
-	@RequestMapping("deleteMemberPro")
-	public String deleteMember(HttpSession session, seller_info seller_info, member_info member_info){		
-		int m_index = (Integer)session.getAttribute("m_index");		
-		member_info.setM_index(m_index);		
-		seller_info sellerInfo = sellerInfoService.getSellerInfo(m_index);			
-		if(sellerInfo != null){			
-			sellerInfoService.deleteSeller(m_index);			
-		}		
-		memberService.deleteMember(m_index);
-		return "redirect:main";
-	}
-	
 	@RequestMapping("dibsCheck")
 	public ModelAndView dibsCheck() {
 		ModelAndView mav = new ModelAndView();

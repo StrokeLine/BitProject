@@ -45,23 +45,37 @@ function passwdCheck(){
         }
     });
 }
+
+function deleteMember(){
+	$.ajax({
+        url : "deleteMemberPro",
+        success : function(data) {
+        	if(data){
+				location.href ="main";
+        	} else {
+        		alert("탈퇴처리가 정상처리되지 않았습니다. \n잠시 후 다시 시도 해 주세요.");
+        	}
+        },
+        error : function(err){
+        	alert("탈퇴처리가 정상처리되지 않았습니다. \n잠시 후 다시 시도 해 주세요.");
+        }
+    });
+}
 </script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>회원 탈퇴</title>
 </head>
 <body>
-	<form action="deleteMemberPro">
-		<div class="delete_page">
-			<div class="delete_info">				
-				<!-- 탈퇴사유<textarea name="" style="height:120px;width:380px;" ></textarea><br> -->
-				비밀번호 <input type="password" name="m_password" id="password">
-				<input type="button" value="확인" onclick='passwdCheck()'>
-				<div class="result_checkpassowrd" id="result_checkpwd"></div>
-			</div>
-			<div class="delete_btn">
-				<input type="submit" id="delete_btn" value="탈퇴하기" disabled="disabled">		
-			</div>
+	<div class="delete_page">
+		<div class="delete_info">				
+			<!-- 탈퇴사유<textarea name="" style="height:120px;width:380px;" ></textarea><br> -->
+			비밀번호 <input type="password" name="m_password" id="password">
+			<input type="button" value="확인" onclick='passwdCheck()'>
+			<div class="result_checkpassowrd" id="result_checkpwd"></div>
 		</div>
-	</form>	
+		<div class="delete_btn">
+			<input type="button" id="delete_btn" value="탈퇴하기" onclick="deleteMember()" disabled="disabled">		
+		</div>
+	</div>
 </body>
 </html>
