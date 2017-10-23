@@ -3,7 +3,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <script type="text/javascript" src="/bootstrap/js/bootstrap.js"></script>
 
@@ -73,13 +73,19 @@
 				<div class="hr_line"></div>		
 				<div class="sellerReg_item">
 					상점 이미지
-				</div>
-				<div class="input_sellerReg" style="margin-left: 20px;">	
-					<input type="file" id="input_storeImg" name="s_imgSrc" value="파일찾기">			
-				</div>
-				<div class="hr_line"></div>		
-				<div class="sellerReg_item">
-					거래계좌	
+				<div class="accountReg" style="margin-bottom: 30px;">
+					<h4>거래계좌</h4><br>
+					<div class="accountReg_bankSel">				
+						<label>은행선택
+							<select name="s_bank">
+								<option value="우리은행">우리은행</option>
+								<option value="국민은행">국민은행</option>
+								<option value="농협">농협</option>			
+							</select>
+						</label><br>
+						계좌번호<input type="text" name="s_account"><br>
+						예금주명<input type="text" name="s_holder">
+					</div>			
 				</div>
 				<div class="hr_line"></div>											
 				<div class="label">
@@ -117,7 +123,8 @@
 				<div class="input_sellerReg" style="margin-left: 20px;">					
 					<input type="text" name="s_address">			
 				</div>
-			</div>				
+			</div>					
+			</div>	
 			<div class="sellerReg_btn">				
 				<button type="submit" class="btn btn-primary">등록</button>			
 			</div>		
