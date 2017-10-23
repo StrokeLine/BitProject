@@ -15,6 +15,7 @@ public class SellerInfoDao implements ISellerInfoDao {
 
 	@Override
 	public int insertSellerInfo(seller_info seller_info) {
+		System.out.println(seller_info.toString());
 		return session.insert("dao.ISellerInfoDao.insertSellerInfo", seller_info);
 	}
 

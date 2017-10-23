@@ -6,7 +6,7 @@
 <mapper namespace="dao.ISellerInfoDao">
 
 	<insert id="insertSellerInfo" parameterType="seller_info" useGeneratedKeys="true" keyProperty="s_index">
-		insert into seller_info values(0, #{m_index}, #{s_nick}, #{s_bank}, #{s_holder}, #{s_account}, #{s_address}, #{s_imgSrc}, 0, 0, 0, now());
+		insert into seller_info values(0, #{m_index}, #{s_nick}, #{s_bank}, #{s_holder}, #{s_account}, #{s_imgSrc}, #{s_address}, 0, 0, 0, now());
 	</insert>
 	
 	<update id="updateSellerInfo" parameterType="seller_info">

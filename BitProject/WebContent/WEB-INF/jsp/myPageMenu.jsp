@@ -1,10 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 
+	<script type="text/javascript">
+		window.onload = function (){
+			
+			console.log("s_index = "<c:out value='${s_index}'/>);
+		}
+	</script>
+	
 	<h1>My Page</h1>
 	<h3><a href="memberInfo" target="myPageContent">내 정보</a></h3>
-	<div id="sellerRegForm"><h3><a href="sellerRegForm" target="myPageContent">판매자 등록</a></h3></div>
+		<c:if test='${s_index == ""}'>
+			<div id="sellerRegForm"><h3><a href="sellerRegForm" target="myPageContent">판매자 등록</a></h3></div>		
+		</c:if>
 	<div id="sellerMyMain"><h3><a href="sellerMyMain" target="_parent">내 상점</a></h3></div>
 	<h3><a href="followingNotiMain" target="myPageContent">관심스토어 알림</a></h3>
 	<h3><a href="productDibs" target="myPageContent">찜한 상품</a></h3>

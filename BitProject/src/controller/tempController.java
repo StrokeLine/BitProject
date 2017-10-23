@@ -328,8 +328,14 @@ public class tempController {
 		return mav;
 	}
 	@RequestMapping("myPageMenu")
-	public ModelAndView myPageMenu() {
-		ModelAndView mav = new ModelAndView();		
+	public ModelAndView myPageMenu(HttpSession session) {
+		ModelAndView mav = new ModelAndView();
+		seller_info sellerInfo = sellerInfoService.getSellerInfo((Integer)session.getAttribute("m_index"));
+		if(sellerInfo != null){
+			mav.addObject("s_index", sellerInfo.getS_index());			
+		} else {
+			mav.addObject("s_index", "");
+		}
 		mav.setViewName("myPageMenu");		
 		return mav;
 	}

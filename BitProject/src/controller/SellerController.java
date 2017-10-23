@@ -40,6 +40,7 @@ public class SellerController {
 		ModelAndView mav = new ModelAndView();
 		int m_index = (Integer)session.getAttribute("m_index");
 		seller_info.setM_index(m_index);
+		System.out.println(seller_info.getS_address());
 		sellerInfoService.addSeller(seller_info);		
 		seller_info sellerInfo = sellerInfoService.getSellerInfo(m_index);
 		mav.addObject("sellerReg", sellerInfo);		

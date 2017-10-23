@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -10,43 +10,43 @@
 	<form action="modifySeller" method="post">
 		<div class="wrap" style="margin-left: 350px;">
 			<div class="sellerReg_title">
-				<h3>»óÁ¡ ¼öÁ¤</h3>
+				<h3>ìƒì  ìˆ˜ì •</h3>
 			</div>
 			<div class="sellerReg_contents">
 				<div class="storeName" style="margin-bottom: 30px;">
-					<h4>»óÁ¡¸í</h4>
+					<h4>ìƒì ëª…</h4>
 					<input type="text" name="s_nick" value="${seller_info.s_nick}">			
 				</div>
 				<div class="storeImg" style="margin-bottom: 30px;">
-					<h4>»óÁ¡ ÀÌ¹ÌÁö</h4>
-					<input type="file" name="s_imgSrc" value="ÆÄÀÏÃ£±â">			
+					<h4>ìƒì  ì´ë¯¸ì§€</h4>
+					<input type="file" name="s_imgSrc" value="íŒŒì¼ì°¾ê¸°">			
 				</div>
 				<div class="accountReg" style="margin-bottom: 30px;">
-					<h4>°Å·¡°èÁÂ</h4><br>
+					<h4>ê±°ëž˜ê³„ì¢Œ</h4><br>
 					<div class="accountReg_bankSel">				
-						<label>ÀºÇà¼±ÅÃ
+						<label>ì€í–‰ì„ íƒ
 							<select name="s_bank" value="${seller_info.s_bank}">
-								<option value="¿ì¸®ÀºÇà">¿ì¸®ÀºÇà</option>
-								<option value="±¹¹ÎÀºÇà">±¹¹ÎÀºÇà</option>
-								<option value="³óÇù">³óÇù</option>			
+								<option value="ìš°ë¦¬ì€í–‰">ìš°ë¦¬ì€í–‰</option>
+								<option value="êµ­ë¯¼ì€í–‰">êµ­ë¯¼ì€í–‰</option>
+								<option value="ë†í˜‘">ë†í˜‘</option>			
 							</select>
 						</label><br>
-						°èÁÂ¹øÈ£<input type="text" name="s_account" value="${seller_info.s_account}"><br>
-						¿¹±ÝÁÖ¸í<input type="text" name="s_holder" value="${seller_info.s_holder}">
+						ê³„ì¢Œë²ˆí˜¸<input type="text" name="s_account" value="${seller_info.s_account}"><br>
+						ì˜ˆê¸ˆì£¼ëª…<input type="text" name="s_holder" value="${seller_info.s_holder}">
 					</div>			
 				</div>
 				<!-- <div class="siteUrl" style="margin-bottom: 30px;">
-					<h4>¿¬µ¿ÇÒ »çÀÌÆ® µî·Ï</h4><br>									
+					<h4>ì—°ë™í•  ì‚¬ì´íŠ¸ ë“±ë¡</h4><br>									
 					<input type="text" name="siteUrl">
-					<input type="button" value="Ãß°¡">			
+					<input type="button" value="ì¶”ê°€">			
 				</div> -->
 				<div class="offlineStore_reg" style="margin-bottom: 30px;">
-					<h4>¿ÀÇÁ¶óÀÎ ½ºÅä¾î</h4>					
-					ÁÖ¼Ò  <input type="text" name="s_address" style="width: 450px;" value="${seller_info.s_address}">			
+					<h4>ì˜¤í”„ë¼ì¸ ìŠ¤í† ì–´</h4>					
+					ì£¼ì†Œ  <input type="text" name="s_address" style="width: 450px;" value="${seller_info.s_address}">			
 				</div>		
 			</div>	
 			<div class="sellerReg_btn">				
-				<button type="submit" class="btn btn-primary">¼öÁ¤</button>			
+				<button type="submit" class="btn btn-primary">ìˆ˜ì •</button>			
 			</div>		
 		</div>
 	</form>		
