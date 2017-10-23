@@ -89,13 +89,12 @@ public Date getS_date() {
 public void setS_date(Date s_date) {
 	this.s_date = s_date;
 }
-
-@Override
-public String toString() {
-	return "seller_info [s_index=" + s_index + ", m_index=" + m_index + ", s_nick=" + s_nick + ", s_account="
-			+ s_account + ", s_imgSrc=" + s_imgSrc + ", s_snsUrl=" + ", s_address=" + s_address
-			+ ", s_visit=" + s_visit + ", s_sale=" + s_sale + ", s_grade=" + s_grade + ", s_date=" + s_date + "]";
-}
-
-
+	@Override
+	public String toString() {
+		return "seller_info [s_index=" + s_index + ", m_index=" + m_index + ", s_nick=" + s_nick + ", s_bank=" + s_bank
+				+ ", s_holder=" + s_holder + ", s_account=" + s_account + ", s_imgSrc=" + s_imgSrc + ", s_address="
+				+ s_address + ", s_visit=" + s_visit + ", s_sale=" + s_sale + ", s_grade=" + s_grade + ", s_date=" + s_date
+				+ "]";
+	}
+	
 }

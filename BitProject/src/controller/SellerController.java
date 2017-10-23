@@ -41,9 +41,9 @@ public class SellerController {
 		int m_index = (Integer)session.getAttribute("m_index");
 		seller_info.setM_index(m_index);
 		sellerInfoService.addSeller(seller_info);		
-		seller_info sellerInfo = sellerInfoService.getSellerInfo(m_index);
+		/*seller_info sellerInfo = sellerInfoService.getSellerInfo(m_index);
 		mav.addObject("sellerReg", sellerInfo);		
-		mav.setViewName("sellerMyStore");
+		mav.setViewName("sellerMyStore");*/
 		return mav;
 	}	
 	

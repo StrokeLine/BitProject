@@ -1,53 +1,125 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-<title>Insert title here</title>
+<script type="text/javascript" src="/bootstrap/js/bootstrap.js"></script>
+
+<style type="text/css">
+	body{
+		margin: 0 20px 0 0;
+		background-color: inherit;
+	}
+	.wrap{
+		height: 100%;
+		color: #5d5d5d;
+		background: #f2f2f2;
+		padding: 26px;
+		border-radius: 10px;
+		-moz-border-radius: 10px;
+		-webkit-border-radius: 10px;
+	}
+	.sellerReg_contents{
+		width:800px;
+		padding: 7px;
+	}
+	.sellerReg_item{
+		width: 20%;
+		padding: 7px;	
+		display: inline-block;	
+	}
+	.input_sellerReg{
+		width: 60%;
+		padding: 7px;
+		display: inline-block;
+	}
+	.hr_line{
+		width: 60%;
+		border-bottom: 1px solid #5d5d5d; 
+	}
+	.label{
+		width: 20%;
+		padding: 7px;
+		 margin-left: 20px;
+		display: inline-block;
+	}
+	.none{
+		width: 20%;
+		padding: 7px;
+		margin-left: 50px;
+		display: inline-block;
+	}
+		
+
+
+</style>
+<title>íŒë§¤ì ë“±ë¡</title>
 </head>
 <body>
 	<form action="sellerReg" method="post">
-		<div class="wrap" style="margin-left: 350px;">
+		<div class="wrap">
 			<div class="sellerReg_title">
-				<h3>ÆÇ¸ÅÀÚ µî·Ï</h3>
+				<h3>íŒë§¤ì ë“±ë¡</h3>
 			</div>
 			<div class="sellerReg_contents">
-				<div class="storeName" style="margin-bottom: 30px;">
-					<h4>»óÁ¡¸í</h4>
-					<input type="text" name="s_nick">			
+				<div class="sellerReg_item">
+					ìƒì ëª…
+				</div>	
+				<div class="input_sellerReg" style="margin-left: 20px;">
+					<input type="text" id="input_storeName" name="s_nick">
+				</div>	
+				<div class="hr_line"></div>		
+				<div class="sellerReg_item">
+					ìƒì  ì´ë¯¸ì§€
 				</div>
-				<div class="storeImg" style="margin-bottom: 30px;">
-					<h4>»óÁ¡ ÀÌ¹ÌÁö</h4>
-					<input type="file" name="s_imgSrc" value="ÆÄÀÏÃ£±â">			
+				<div class="input_sellerReg" style="margin-left: 20px;">	
+					<input type="file" id="input_storeImg" name="s_imgSrc" value="íŒŒì¼ì°¾ê¸°">			
 				</div>
-				<div class="accountReg" style="margin-bottom: 30px;">
-					<h4>°Å·¡°èÁÂ</h4><br>
-					<div class="accountReg_bankSel">				
-						<label>ÀºÇà¼±ÅÃ
-							<select name="s_bank">
-								<option value="¿ì¸®ÀºÇà">¿ì¸®ÀºÇà</option>
-								<option value="±¹¹ÎÀºÇà">±¹¹ÎÀºÇà</option>
-								<option value="³óÇù">³óÇù</option>			
-							</select>
-						</label><br>
-						°èÁÂ¹øÈ£<input type="text" name="s_account"><br>
-						¿¹±İÁÖ¸í<input type="text" name="s_holder">
-					</div>			
+				<div class="hr_line"></div>		
+				<div class="sellerReg_item">
+					ê±°ë˜ê³„ì¢Œ	
 				</div>
+				<div class="hr_line"></div>											
+				<div class="label">
+					ì€í–‰ì„ íƒ
+				</div>	
+				<div class="input_sellerReg">			
+					<select name="s_bank">
+						<option value="ìš°ë¦¬ì€í–‰">ìš°ë¦¬ì€í–‰</option>
+						<option value="êµ­ë¯¼ì€í–‰">êµ­ë¯¼ì€í–‰</option>
+						<option value="ë†í˜‘">ë†í˜‘</option>			
+					</select>
+				</div>	
+				<div class="label">
+					ê³„ì¢Œë²ˆí˜¸
+				</div>
+				<div class="input_sellerReg">
+					<input type="text" name="s_account">
+				</div>
+				<div class="label">
+					ì˜ˆê¸ˆì£¼ëª…
+				</div>
+				<div class="input_sellerReg">
+					<input type="text" name="s_holder">
+				</div>
+								
 				<!-- <div class="siteUrl" style="margin-bottom: 30px;">
-					<h4>¿¬µ¿ÇÒ »çÀÌÆ® µî·Ï</h4><br>									
+					<h4>ì—°ë™í•  ì‚¬ì´íŠ¸ ë“±ë¡</h4><br>									
 					<input type="text" name="siteUrl">
-					<input type="button" value="Ãß°¡">			
+					<input type="button" value="ì¶”ê°€">			
 				</div> -->
-				<div class="offlineStore_reg" style="margin-bottom: 30px;">
-					<h4>¿ÀÇÁ¶óÀÎ ½ºÅä¾î</h4>					
-					ÁÖ¼Ò  <input type="text" name="s_address" style="width: 450px;" >			
-				</div>		
-			</div>	
+				<div class="hr_line"></div>		
+				<div class="sellerReg_item">
+					ì˜¤í”„ë¼ì¸ ìƒì  ì£¼ì†Œ
+				</div>
+				<div class="input_sellerReg" style="margin-left: 20px;">					
+					<input type="text" name="s_address">			
+				</div>
+			</div>				
 			<div class="sellerReg_btn">				
-				<button type="submit" class="btn btn-primary">µî·Ï</button>			
+				<button type="submit" class="btn btn-primary">ë“±ë¡</button>			
 			</div>		
 		</div>
 	</form>		
