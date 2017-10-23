@@ -169,11 +169,20 @@ public class tempController {
 		return mav;
 	}	
 	
-	@RequestMapping("sellerMyPage")
+	@RequestMapping("sellerMyMain")
 	public ModelAndView sellerMyPage() {
 		ModelAndView mav = new ModelAndView();
 		
-		mav.setViewName("sellerMyPage");
+		mav.setViewName("sellerMyMain");
+		
+		return mav;
+	}
+	
+	@RequestMapping("sellerPageMenu")
+	public ModelAndView sellerPageMenu() {
+		ModelAndView mav = new ModelAndView();
+		
+		mav.setViewName("sellerPageMenu");
 		
 		return mav;
 	}

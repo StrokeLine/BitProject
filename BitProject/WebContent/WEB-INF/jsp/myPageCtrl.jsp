@@ -10,7 +10,7 @@ switch(myPageNum){
 		myPageCtrl="memberInfo";
 		break;
 	case 2:	//판매자 등록/내 상점
-		myPageCtrl="sellerMyPage";
+		myPageCtrl="sellerMyMain";
 		break;
 	case 3:	//관심스토어 알림
 		myPageCtrl="followingNoti";

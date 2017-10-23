@@ -22,14 +22,28 @@
 <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
 <script type="text/javascript">
-function passwdCheck(m_password){
+function passwdCheck(){
 	var passwd = document.getElementById("password").value;
-	alert(passwd)
-/* 	var pwd = sessionStorage.getItem("m_password"); */	
-	alert(m_password)	
-	if( passwd == m_password ){
-		$("#delete_btn").prop("disabled", false);
-	}
+	
+	$.ajax({
+        data : {
+        	m_password : passwd
+        },
+        url : "pwdCheck",
+        success : function(data) {
+        	if(data){
+				$("#result_checkpwd").text("비밀번호가 확인되었습니다. 탈퇴를 원하시면 '탈퇴하기' 버튼을 눌러주세요.");
+				$("#result_checkpwd").css("color","blue");
+				$("#delete_btn").prop("disabled", false);				
+        	} else {
+        		$("#result_checkpwd").text("비밀번호가 다릅니다. 다시 입력 후 '확인' 버튼을 눌러주세요.");
+				$("#result_checkpwd").css("color","red");
+        	}
+        },
+        error : function(err){
+        	alert("잠시 후 다시 시도해주세요.");
+        }
+    });
 }
 </script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -41,8 +55,8 @@ function passwdCheck(m_password){
 			<div class="delete_info">				
 				<!-- 탈퇴사유<textarea name="" style="height:120px;width:380px;" ></textarea><br> -->
 				비밀번호 <input type="password" name="m_password" id="password">
-				<input type="button" value="확인" onclick='passwdCheck("${member.m_password}")'>
-				<input type="hidden" name="m_index" value="${member.m_index}">
+				<input type="button" value="확인" onclick='passwdCheck()'>
+				<div class="result_checkpassowrd" id="result_checkpwd"></div>
 			</div>
 			<div class="delete_btn">
 				<input type="submit" id="delete_btn" value="탈퇴하기" disabled="disabled">		
