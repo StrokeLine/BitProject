@@ -333,8 +333,20 @@
 	
 	
 </script>
+
 <script type="text/javascript">
+	function div_show(id){
+		if(id == "pet_info"){
+			document.getElementById("pet_info").style.display = '';        // 보이게
+		    document.getElementById("pet_info_no").style.display = 'none';	// 안보이게
+		} else{
+		    document.getElementById("pet_info").style.display = 'none';	// 안보이게
+			document.getElementById("pet_info_no").style.display = '';		// 보이게
+		} 
+		
+	}
 	
+	// 추가할 펫 입력창 생성
 	function addPetForm(){
 		var div = document.createElement('div');
 		div.setAttribute("id", "addPetInfo");
@@ -394,6 +406,8 @@
 
 	}	
 	
+	
+	// 데이터베이스에 펫추가 부분
 	function addPet() {
 		var pet_name = document.getElementById("addPet_name").value;
 		var pet_gender = null;
@@ -447,90 +461,14 @@
  		document.getElementById("addPetBtn").disabled = false;
 	}
 	
+	// 추가 펫 입력창 삭제
 	function removePet(){
 		var deleteNode = document.getElementById("addPetInfo");
 		document.getElementById('addPet').removeChild(deleteNode);
 		document.getElementById("addPetBtn").disabled = false;
 	}
 	
-	function deletePet(pet, pet_index){
-		var check = confirm("정말로 당신의 반려견을 삭제하시겠습니까?");
-		if(check){
-			
-			var deleteNode = document.getElementById(pet.parentNode.parentNode.getAttribute("id"));
-			var pet_list = document.getElementById('myPet');
-			
-			$.ajax({
-	            data : {
-	                id : pet_index
-	            },
-	            url : "deletePet",
-	            success : function(data) {
-	            	if(data){
-						pet_list.removeChild(deleteNode);
-						alert("정상처리 되었습니다.");
-	            	} else {
-	            		alert("펫 정보가 삭제되지 않았습니다. 잠시 후 다시 시도해주세요");
-	            	}
-	            }
-	        });
-		}else {
-			alert("취소되었습니다.");
-		}
-	}
-	
-	function modifyPet(pet, pet_index, tag_num) {
-		var pet_name = document.getElementById("modifyPet_name"+tag_num).value;
-		var pet_gender = null;
-		var pet_birthday = null;
-		var pet_breeds = null;
-		
-		var radio = document.getElementsByName("gender"+tag_num);
-		for(var i = 0; i < radio.length; i++) {
-			if(radio[i].checked == true) {
-				pet_gender = radio[i].value;
-			}
-		}
-		
-		var date = document.getElementById("modifyPet_birthday"+tag_num).value;
-		pet_birthday = new Date(date.split("-")[0], date.split("-")[1]-1, date.split("-")[2]);
-		
-		var select = document.getElementById("modifyPet_breeds"+tag_num);
-		pet_breeds = select.options[select.selectedIndex].text;
-		
-		if(pet_name == null || pet_name == "") {
-			alert("반려견의 이름을 입력해주세요.");
-			return false;
-		} else if(pet_gender == null){
-			alert("반려견의 성별을 선택해 주세요.");
-			return false;
-		} else if(pet_birthday == null || pet_birthday == "") {
-			alert("반려견의 생일을 선택해 주세요.");
-			return false;
-		} else if(pet_breeds == null || pet_breeds == ""){
-			alert("반려견의 견종을 선택해 주세요.");
-			return false;
-		}
-				
- 		$.ajax({
-            data : {
-            	pet_index : pet_index,
-            	pet_name : pet_name,
-            	pet_gender : pet_gender,
-            	pet_birthday : pet_birthday,
-            	pet_breeds : pet_breeds
-            },
-            url : "modifyPet",
-            success : function(data) {
-            	if(data){
-					alert("정상처리 되었습니다.");
-            	} else {
-            		alert("펫 정보가 수정되지 않았습니다. 잠시 후 다시 시도해주세요");
-            	}
-            }
-        });
-	}
-	
+	// select 태그에 견종 추가
 	function addSelectOptions(tag_num){
 	   	var selectPetBreeds = document.getElementById("selectPetBreeds"+tag_num).value;
 	   	
@@ -560,29 +498,32 @@
 	    });
 		
 	}
-	
+
+	// 웹 페이지 로딩 왼료 후 select 태그에 option을 추가하는 함수 호출
 	window.onload = function(){
-		var select = document.getElementsByName("modifyPet_breeds");
 		
-		for(var i = 0; i < select.length; i++) {
-			addSelectOptions(i);
-		}
+		$("#addPet_breeds").select2({
+	   		width : "300px",
+	   		language: {
+	   		    noResults: function (params) {
+	   		      return "찾을 수 없는 견종입니다.";
+	   		    }
+	   		}
+	   	});
+		
+		$.ajax({
+	           url : "breedsList",
+	           success : function(data) {
+	            	$.each(data, function(k, v) {
+		            	$('<option>').val(k.db_index).text(v.db_breeds).appendTo("#addPet_breeds");	            			
+	            	});
+	           },
+	           error : function(err){
+	           		console.log(err.status);
+	           }
+	    });
 	}
 	
-	
-</script>
-
-<script type="text/javascript">
-function div_show(id){
-	if(id == "pet_info"){
-		document.getElementById("pet_info").style.display = '';        // 보이게
-	    document.getElementById("pet_info_no").style.display = 'none';	// 안보이게
-	} else{
-	    document.getElementById("pet_info").style.display = 'none';	// 안보이게
-		document.getElementById("pet_info_no").style.display = '';		// 보이게
-	} 
-	
-}
 </script>
 </head>
 
@@ -709,29 +650,70 @@ function div_show(id){
 							</div>
 						</div>
 						
+						<!-- Pet -->						
 						<div class="form-group">
-							<label class="control-label col-sm-3">Pet<br>
-								<small>(optional)</small></label>
-							<div id="petinputselect">
-								<input type="radio" name="pet_info" value="pet_ok" onclick="div_show('pet_info');">등록
-								<input type="radio" name="pet_info" value="pet_no" onclick="div_show('pet_info_no');">등록 안함
-								<div id="pet_info" style="display: none;">
-								<label>Pet Name</label>
-								<div class="col-md-5 col-sm-8">
-									<div class="input-group">
-									
-									</div>
-								</div>
-								<label>Pet Breeds</label>
-								<label>Pet Birthday</label>
-								<label>Pet Gender</label>
-								
-								</div>
-								<div id="pet_info_no" style="display: none;">
-								등록안해!
-								</div>
+							<label class="control-label col-sm-3">Pet Info<br> <small>(optional)</small></label>
+							<div id="petinfoselect">
+								<input type="radio" name="pet_info" value="pet_ok" onclick="div_show('pet_info')">등록
+								<input type="radio" name="pet_info" value="pet_no" onclick="div_show('pet_info_no')">등록 안함
 							</div>
 							
+							<div id="pet_info" style="display: none;">
+								<div class="form-group">
+									<label>Pet Name</label>
+									<div class="col-md-5 col-sm-8">
+										<div class="input-group">
+											<span class="input-group-addon"><i
+												class="fa fa-heart" aria-hidden="true"></i></span> <input
+												type="text" class="form-control" name="petName"
+												id="addPet_name" placeholder="Enter your Pet Name.">
+										</div>
+									</div>
+								</div>
+								
+								<div class="form-group">
+									<label>Pet Breeds</label>
+									<div class="col-md-5 col-sm-8">
+										<div class="input-group">
+											<span class="input-group-addon"><i class="fa fa-heart" aria-hidden="true"></i></span> 
+											<select	id="addPet_breeds">
+												<option selected disabled value="0">견종을 선택해주세요.</option>
+											</select>
+										</div>
+									</div>
+								</div>
+								
+								<div class="form-group">
+									<label>Pet Birthday</label>
+									<div class="col-md-5 col-sm-8">
+										<div class="input-group">
+											<span class="input-group-addon"><i class="fa fa-heart" aria-hidden="true"></i></span> 
+												<input type="date" id="addPet_birthday">
+										</div>
+									</div>
+								</div>
+								
+								<div class="form-group">
+									<label>Pet Gender</label>
+									<div class="col-md-5 col-sm-8">
+										<div class="input-group">
+											<span class="input-group-addon"><i class="fa fa-heart" aria-hidden="true"></i></span>
+											<input type="radio" name="addPet_gender" value="1"><i class="fa fa-mars" aria-hidden="true"></i>
+											<input type="radio" name="addPet_gender" value="2"><i class="fa fa-venus" aria-hidden="true"></i>
+										</div>
+									</div>
+								</div>
+								
+								<div class="addPet" id="addPet">
+									<div class="form-group">
+										<label>Pet Add</label>
+										<button type="button" class="btn btn-default" id="addPetBtn" onclick="addPetForm()"> + </button>
+									</div>
+								</div>
+								
+							</div>
+							
+							<div id="pet_info_no" style="display: none;">등록 안 할게요!</div>
 							
 						</div>
 						

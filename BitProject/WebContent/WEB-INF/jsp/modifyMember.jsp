@@ -37,8 +37,8 @@
 					  + '			<input type="date" id="addPet_birthday">'		
 					  + '		</div>'
 					  + '		<div class="addPet_gender">'
-					  + '			<input type="radio" value="2" name="addPet_gender" value="2">암컷'
-					  + '			<input type="radio" value="1" name="addPet_gender" value="1">수컷'
+					  + '			<input type="radio" value="2" name="addPet_gender">암컷'
+					  + '			<input type="radio" value="1" name="addPet_gender">수컷'
 					  + '		</div>'
 					  + '	</div>'
 					  + '	<div class="addPet_delBtn">'
@@ -249,7 +249,7 @@
 
 	// 웹 페이지 로딩 왼료 후 select 태그에 option을 추가하는 함수 호출
 	window.onload = function(){
-		var select = document.getElementsByName("modifyPet_breeds");
+		var select = document.getElementsByName("addPet_breeds");
 		
 		for(var i = 0; i < select.length; i++) {
 			addSelectOptions(i);

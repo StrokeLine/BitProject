@@ -59,7 +59,7 @@ $('.portfolio-link').click(function() {
 		<div class="container">
 			<img class="img-fluid" src="/images/home.png" alt="">
 			<div class="intro-text">
-				<span class="name">FreeHaGea</span>
+				<span class="name">FreeHaGae</span>
 				<hr class="star-light">
 				<span class="skills">Hand Made - Pet Product</span>
 			</div>
@@ -67,7 +67,7 @@ $('.portfolio-link').click(function() {
 	</header>
 
 	<!-- Portfolio Grid Section -->
-	<section id="portfolio" style="background-color: #B2E2F3">
+	<section id="portfolio" style="background-color: #FAEBD7">
 		<div class="container">
 			<h2 class="text-center">Shopping</h2>
 			<hr class="star-primary">
