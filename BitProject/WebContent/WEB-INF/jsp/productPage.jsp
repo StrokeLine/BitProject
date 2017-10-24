@@ -43,24 +43,24 @@
 		padding: 7px;
 	}
 	.product_img{		
-		width:30%;
+		width:40%;
 		height: 300px;
 		border:solid;
 		display: inline-block;	
 	}
 	.product_info{		
-		width:60%;
+		width:40%;
 		height: 300px;
 		display: inline-block;	
 	}	
 	.product_item{
 		width: 50%;
-		height: 40x;
+		height: 50x;
 		padding: 7px;	
 		display: inline-block;	
 	}
 	.product_value{
-		width: 500%;
+		width: 40%;
 		height: 40px;
 		padding: 7px;
 		display: inline-block;
@@ -113,16 +113,16 @@
 						</ul> --%>
 					</div>					
 					<div class="product_item">
-						총 합계금액
+						<h5>총 합계금액</h5>
 					</div>
 					<div class="product_value">
 						<span>원</span>
 					</div>
 				</div>					
 				<div class="product_btn">
-					<input type="button" class="order_btn" value="찜" onclick="dibsCheck()">
-					<input type="button" class="order_btn" value="장바구니" onclick="shoppingBasketCheck()">
-					<input type="submit" class="order_btn" value="주문하기">
+					<input type="button" class="btn btn-primary" value="찜" onclick="dibsCheck()">
+					<input type="button" class="btn btn-primary" value="장바구니" onclick="shoppingBasketCheck()">
+					<input type="submit" class="btn btn-primary" value="주문하기">
 				</div>
 			</div>
 		</form>	

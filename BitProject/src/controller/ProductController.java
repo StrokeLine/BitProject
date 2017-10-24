@@ -90,8 +90,7 @@ public class ProductController {
 	}
 	
 	@RequestMapping("orderProductForm")
-	public String orderProductForm(int p_index, Model model){
-		System.out.println("orderProductForm in !!! ");
+	public String orderProductForm(int p_index, Model model){		
 		product_info product_info = productService.getProduct(p_index);
 		return "orderProduct";		
 	}	
