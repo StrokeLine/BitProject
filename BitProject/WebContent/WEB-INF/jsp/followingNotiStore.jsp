@@ -10,10 +10,10 @@
 .fnSSubjectHeader{display:inline-block; width:30%; margin-right:1px; height:50px;}
 .fnSRegDateHeader{display:inline-block; width:30%; margin-right:1px; height:50px;}
 .fnSRows{width:800px;}
-.fnSName{float:left; width:30%; margin-right:1px; height:100px;}
-.fnSSubject{display:inline-block; width:30%; margin-right:1px; height:100px;}
-.fnSRegDate{display:inline-block; width:30%; margin-right:1px; height:100px;}
-.
+.fnSName{float:left; width:30%; margin-right:1px; height:30px; text-align: center;}
+.fnSSubject{display:inline-block; width:30%; margin-right:1px; height:30px; text-align: center;}
+.fnSRegDate{display:inline-block; width:30%; margin-right:1px; height:30px; text-align: center;}
+.fnSNoneRow{margin: 5% 39%;}
 
 </style>
 <div class="followingNotiSMain">
@@ -24,15 +24,17 @@
 			<div class="fnSRegDateHeader"><h4>등록일</h4></div>
 		</div>
 		<div class="fnSRows">
-		<%-- 
-		<c:forEach var="" items="">
-		 --%>
-			<div class="fnSName">(상점명)</div>
-			<div class="fnSSubject">(제목)</div>
-			<div class="fnSRegDate">(등록일)</div>
-		<%-- 	
+		
+		<c:if test='${notice_view_list == ""}'>
+			<div class="fnSNoneRow"> 등록된 정보가 없습니다.</div>
+		</c:if>
+		
+		<c:forEach var="notice_view" items="${notice_view_list}">
+			<div class="fnSName">${notice_view.s_nick }</div>
+			<div class="fnSSubject">${notice_view.sn_subject}</div>
+			<div class="fnSRegDate">${notice_view.sn_date}</div>
 		</c:forEach>
-		 --%>
+	
 		</div> 
 	</div>
 </div>

@@ -10,7 +10,7 @@
 		</c:if>
 	<div id="sellerMyMain"><h3><a href="sellerMyMain" target="_parent">내 상점</a></h3></div>
 	<h3><a href="followingNotiMain" target="myPageContent">관심스토어 알림</a></h3>
-	<h3><a href="productDibs" target="myPageContent">찜한 상품</a></h3>
+	<h3><a href="productFavorite" target="myPageContent">찜한 상품</a></h3>
 	<h3><a href="productBasket" target="myPageContent">장바구니</a></h3>
 	<h3><a href="consumerContractList" target="myPageContent">주문/배송</a></h3>
 	<h3><a href="qAndAMain" target="myPageContent">문의사항</a></h3>

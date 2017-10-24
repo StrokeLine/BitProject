@@ -2,7 +2,7 @@ package model;
 
 import java.sql.Date;
 
-public class product_favorit_view {
+public class product_favorite_view {
 	private int pf_index;	// index
 	private int m_index;	// 회원 index
 	private int p_index;	// 상품 index

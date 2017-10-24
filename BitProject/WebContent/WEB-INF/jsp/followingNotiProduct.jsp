@@ -13,11 +13,12 @@
 .fnPStoreNameHeader{display:inline-block; width:17%; height:50px; margin-right:1px;}
 .fnPRegDateHeader{display:inline-block; width:17%; height:50px; margin-right:1px;}
 .fnPRows{width:800px;}
-.fnPImg{float:left; width:17%; height:100px; margin-right:1px;}
-.fnPName{display:inline-block;; width:17%; height:100px; margin-right:1px;}
-.fnPPrice{display:inline-block;; width:17%; height:100px; margin-right:1px;}
-.fnPStoreName{display:inline-block; width:17%; height:100px; margin-right:1px;}
-.fnPRegDate{display:inline-block; width:17%; height:100px; margin-right:1px;}
+.fnPImg{float:left; width:17%; height:30px; margin-right:1px;}
+.fnPName{display:inline-block;; width:17%; height:30px; margin-right:1px; text-align: center;}
+.fnPPrice{display:inline-block;; width:17%; height:30px; margin-right:1px; text-align: center;}
+.fnPStoreName{display:inline-block; width:17%; height:30px; margin-right:1px; text-align: center;}
+.fnPRegDate{display:inline-block; width:17%; height:30px; margin-right:1px; text-align: center;}
+.fnPNoneRow{margin: 5% 39%;}
 </style>
 
 <div class="followingNotiPMain">
@@ -30,17 +31,23 @@
 			<div class="fnPRegDateHeader"><h4>등록일</h4></div>
 		</div>
 		<div class="fnPRows">
-		<%-- 
-		<c:forEach var="" items="">
-		 --%>
-			<div class="fnPImg">(이미지)</div>
-			<div class="fnPName">(상품명)</div>
-			<div class="fnPPrice">(가격)</div>
-			<div class="fnPStoreName">(상점명)</div>
-			<div class="fnPRegDate">(등록일)</div>
-		<%-- 	
+		
+		<c:if test='${notice_view_list == ""}'>
+			<div class="fnPNoneRow"> 등록된 정보가 없습니다.</div>
+		</c:if>
+		<c:forEach var="notice_view" items="${notice_view_list }">
+			<div class="fnPImg">(이미지)
+				<c:if test="${notice_view.p_img != null }">
+					<img src="${notice_view.p_img }">
+				</c:if>
+			</div>
+			<div class="fnPName">${notice_view.p_name }</div>
+			<div class="fnPPrice">${notice_view.p_price }</div>
+			<div class="fnPStoreName">${notice_view.s_nick}</div>
+			<div class="fnPRegDate">${notice_view.pn_date }</div>
+		 	
 		</c:forEach>
-		 --%>
+		
 		</div> 
 	</div>
 </div>
