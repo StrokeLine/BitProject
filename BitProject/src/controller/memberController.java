@@ -73,7 +73,7 @@ public class memberController {
 			result = sellerInfoService.deleteSeller(m_index);
 		}		
 		result = memberinfoservice.deleteMember(m_index);
-		System.out.println("member " + result);
+		session.removeAttribute("m_index");
 		return result;
 	}
 }

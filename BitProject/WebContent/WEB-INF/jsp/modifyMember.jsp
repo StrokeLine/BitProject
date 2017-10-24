@@ -9,6 +9,7 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/css/select2.min.css" rel="stylesheet" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/js/select2.min.js"></script>
 <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<script type="text/javascript" src="/popper/popper.js"></script>
 <script type="text/javascript" src="/bootstrap/js/bootstrap.js"></script>
 <!-- 펫처리 부분 -->
 <script type="text/javascript">
@@ -249,7 +250,7 @@
 
 	// 웹 페이지 로딩 왼료 후 select 태그에 option을 추가하는 함수 호출
 	window.onload = function(){
-		var select = document.getElementsByName("addPet_breeds");
+		var select = document.getElementsByName("modifyPet_breeds");
 		
 		for(var i = 0; i < select.length; i++) {
 			addSelectOptions(i);
