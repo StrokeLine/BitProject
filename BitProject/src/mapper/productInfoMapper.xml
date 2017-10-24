@@ -6,11 +6,11 @@
 <mapper namespace="dao.IProductInfoDao">
 
 	<insert id="insertProductInfo" parameterType="product_info">
-		insert into product_info values (0, #{s_index}, #{m_index}, #{p_hashTag}, #{p_major_value}, #{p_miner_value}, #{p_name}, #{p_num}, #{p_price}, #{p_fee}, #{p_imgSrc}, #{p_posting_deadline}, now(), #{p_content});
+		insert into product_info values (0, #{s_index}, #{m_index}, #{p_hashTag}, #{p_major_value}, #{p_miner_value}, #{p_name}, #{p_num}, #{p_price}, #{p_fee}, #{p_content}, #{p_imgSrc}, #{p_posting_deadline}, now());
 	</insert>
 	
 	<update id="updateProductInfo" parameterType="product_info">
-		update product_info set p_hashTag = #{p_hashTag}, p_major_value = #{p_major_value}, p_miner_value = #{p_miner_value}, p_name = #{p_name}, p_num = #{p_num}, p_price = #{p_price}, p_fee = #{p_fee}, p_imgSrc = #{p_imgSrc}, p_posting_deadline = #{p_posting_deadline}, p_date = #{p_date}, p_content = #{p_content} where p_index = #{p_index};
+		update product_info set p_hashTag = #{p_hashTag}, p_major_value = #{p_major_value}, p_miner_value = #{p_miner_value}, p_name = #{p_name}, p_num = #{p_num}, p_price = #{p_price}, p_fee = #{p_fee}, p_content = #{p_content}, p_imgSrc = #{p_imgSrc}, p_posting_deadline = #{p_posting_deadline}, p_date = #{p_date} where p_index = #{p_index};
 	</update>
 	
 	<delete id="deleteProductInfo" parameterType="int">

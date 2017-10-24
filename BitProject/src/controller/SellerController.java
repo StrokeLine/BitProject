@@ -22,8 +22,7 @@ public class SellerController {
 		ModelAndView mav = new ModelAndView();
 		int m_index = (Integer)session.getAttribute("m_index");
 		seller_info sellerInfo = sellerInfoService.getSellerInfo(m_index);
-		mav.addObject("seller_info", sellerInfo);
-		System.out.println(sellerInfo.toString());
+		mav.addObject("seller_info", sellerInfo);		
 		mav.setViewName("sellerMyStore");		
 		return mav;
 	}
@@ -34,19 +33,15 @@ public class SellerController {
 		mav.setViewName("sellerReg");
 		return mav;
 	}
-	
+		
 	@RequestMapping("sellerReg")
-	public ModelAndView sellerReg(HttpSession session, seller_info seller_info) {
-		ModelAndView mav = new ModelAndView();
+	public String sellerReg(HttpSession session, seller_info seller_info){
 		int m_index = (Integer)session.getAttribute("m_index");
-		seller_info.setM_index(m_index);
-		System.out.println(seller_info.getS_address());
-		sellerInfoService.addSeller(seller_info);		
-		/*seller_info sellerInfo = sellerInfoService.getSellerInfo(m_index);
-		mav.addObject("sellerReg", sellerInfo);		
-		mav.setViewName("sellerMyStore");*/
-		return mav;
-	}	
+		seller_info.setM_index(m_index);		
+		sellerInfoService.addSeller(seller_info);	
+		return "redirect:sellerMyStore";
+	}
+	
 	
 	@RequestMapping("modifySellerForm")
 	public String modifySellerForm(int m_index, Model model){

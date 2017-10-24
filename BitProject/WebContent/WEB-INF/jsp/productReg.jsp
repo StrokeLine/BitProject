@@ -35,10 +35,10 @@
 					<h4>수량</h4>
 					<input type="number" name="p_num" min=1 max=999 value="1">
 				</div>
-				<!-- <div class="close_date">
+				<div class="close_date">
 					<h4>게시마감일</h4>
 					<input type="date" name="p_posting_deadline">
-				</div> -->
+				</div>
 				<div class="content">
 					<h4>내용</h4>
 					<textarea name="p_content" rows="20" cols="80" lang="1000"></textarea>
@@ -60,7 +60,7 @@
 						<option value=""></option>
 						<option value=""></option>					
 					</select> -->							
-				</div>
+				</div>				
 			</div>
 			<center>
 				<div class="inputProduct_button">

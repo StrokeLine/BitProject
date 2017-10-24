@@ -33,7 +33,10 @@ public class ProductController {
 		ModelAndView mav = new ModelAndView();
 		int m_index = (Integer)session.getAttribute("m_index");
 		List<product_info> productInfo_list = productService.getProductList(m_index);
-		mav.addObject("managementProduct", productInfo_list);
+		System.out.println(productInfo_list.toString());
+		if(productInfo_list != null) {
+			mav.addObject("productInfo", productInfo_list);
+		}
 		mav.setViewName("managementProduct");	
 		return mav;
 	}
@@ -51,16 +54,15 @@ public class ProductController {
 		return "productReg";
 	}	
 	
-	/*@RequestMapping("addProduct")
-	public String addProduct(HttpSession session, product_info product_info){
-		System.out.println("상품등록 클릭 !!! ");
-		int s_index = (Integer)session.getAttribute("s_index");
-		product_info.setS_index(s_index);		
-		productService.addProduct(product_info);		
-		return "redirect:managementProduct?s_index=" + product_info.getS_index();
-	}*/
-	
 	@RequestMapping("addProduct")
+	public String addProduct(HttpSession session, product_info product_info){		
+		int m_index = (Integer)session.getAttribute("m_index");
+		product_info.setM_index(m_index);;
+		productService.addProduct(product_info);		
+		return "redirect:managementProduct";
+	}
+	
+	/*@RequestMapping("addProduct")
 	public ModelAndView addProduct(HttpSession session, product_info product_info){
 		ModelAndView mav = new ModelAndView();		
 		int m_index = (Integer)session.getAttribute("m_index");
@@ -70,7 +72,7 @@ public class ProductController {
 		mav.addObject("addProduct", productInfo);
 		mav.setViewName("managementProduct");		
 		return mav;
-	}
+	}*/
 		
 	/*@RequestMapping("productList")
 	public ModelAndView productList(int p_index){		

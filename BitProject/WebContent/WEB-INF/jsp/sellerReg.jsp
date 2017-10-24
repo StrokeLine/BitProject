@@ -27,11 +27,13 @@
 	}
 	.sellerReg_item{
 		width: 20%;
+		height: 60px;
 		padding: 7px;	
 		display: inline-block;	
 	}
 	.input_sellerReg{
 		width: 60%;
+		height: 60px;
 		padding: 7px;
 		display: inline-block;
 	}
@@ -40,19 +42,11 @@
 		border-bottom: 1px solid #5d5d5d; 
 	}
 	.label{
-		width: 20%;
+		width: 20%;		
 		padding: 7px;
 		 margin-left: 20px;
 		display: inline-block;
-	}
-	.none{
-		width: 20%;
-		padding: 7px;
-		margin-left: 50px;
-		display: inline-block;
-	}
-		
-
+	}	
 
 </style>
 <title>판매자 등록</title>
@@ -73,21 +67,15 @@
 				<div class="hr_line"></div>		
 				<div class="sellerReg_item">
 					상점 이미지
-				<div class="accountReg" style="margin-bottom: 30px;">
-					<h4>거래계좌</h4><br>
-					<div class="accountReg_bankSel">				
-						<label>은행선택
-							<select name="s_bank">
-								<option value="우리은행">우리은행</option>
-								<option value="국민은행">국민은행</option>
-								<option value="농협">농협</option>			
-							</select>
-						</label><br>
-						계좌번호<input type="text" name="s_account"><br>
-						예금주명<input type="text" name="s_holder">
-					</div>			
 				</div>
-				<div class="hr_line"></div>											
+				<div class="input_sellerReg" style="margin-left: 20px;">
+					<input type="file" name="s_imgSrc">
+				</div>	
+				<div class="hr_line"></div>				
+				<div class="sellerReg_item">
+					거래계좌
+				</div>
+				<div class="hr_line"></div>				
 				<div class="label">
 					은행선택
 				</div>	
@@ -123,12 +111,11 @@
 				<div class="input_sellerReg" style="margin-left: 20px;">					
 					<input type="text" name="s_address">			
 				</div>
-			</div>					
-			</div>	
+			</div>			
 			<div class="sellerReg_btn">				
-				<button type="submit" class="btn btn-primary">등록</button>			
-			</div>		
-		</div>
+				<button type="submit" class="btn btn-primary" style="margin-left: 20%;">등록</button>			
+			</div>
+		</div>			
 	</form>		
 	<script	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<script type="text/javascript" src="/js/bootstrap.js"></script>	

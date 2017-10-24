@@ -6,7 +6,27 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<script type="text/javascript" src="/bootstrap/js/bootstrap.js"></script>
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.9.0/jquery.js"></script> 
+<style type="text/css">
+	body{
+		margin: 0 20px 0 0;
+		background-color: inherit;
+	}
+	.wrap{
+		height: 100%;
+		color: #5d5d5d;
+		background: #f2f2f2;
+		padding: 26px;
+		border-radius: 10px;
+		-moz-border-radius: 10px;
+		-webkit-border-radius: 10px;
+	}.btn btn-primary{
+		margin: 0 0 30px o;
+	}
+</style>
+
 </head>
 <body>
 	<div class="wrap" style="margin: 0px 200px 0px 200px;">
@@ -18,14 +38,17 @@
 			</div>
 			<div class="managementProduct_middle">				
 				<div class="regProduct_button">
-					<input type="button" value="상품등록" style="float: right" onclick="location.href='addProductForm'">
+					<input type="button" value="상품등록" class="btn btn-primary" onclick="location.href='addProductForm'">
 				</div>
+<%-- 				${productInfo.p_name}				
+				${productInfo.p_major_value}
+				${productInfo.p_price} --%>
 				<div class="product_list" style="border: 1px solid black;">					
 					<table class="table" border="1">
 						<thead>
 							<tr>
 								<th><input type="checkbox" id="checkAll"></th>								
-								<th width="500">상품 이미지</th>
+								<!-- <th width="500">상품 이미지</th> -->
 								<th width="170">상품명</th>
 								<th width="50">수량</th>
 								<th width="80">가격</th>
@@ -35,16 +58,16 @@
 							</tr>					
 						</thead>
 						<tbody>
-							<c:forEach items="${productList}" var="product_info">
+							<c:forEach items="${productInfo}" var="product_info">
 								<tr>
 									<td><input type="checkbox" id="checkRow"></td>									
-									<td>
+									<%-- <td>
 										<a href="viewProduct?p_index=${product_info.p_index}">
 										<img src="downloadProductImg?p_index=${product_info.p_index}" width="" height="" border="0"></a>
-									</td>
+									</td> --%>
 									<td>
 										<h4>${product_info.p_name}<a href="viewProduct?p_index=${product_info.p_index}"></a><br></h4>									
-											${product_info.p_category}
+											${product_info.p_major_value}
 									</td>
 									<td>${product_info.p_num}</td>
 									<td>${product_info.p_price} 원</td>
