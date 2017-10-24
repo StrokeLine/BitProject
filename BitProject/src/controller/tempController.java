@@ -151,14 +151,14 @@ public class tempController {
 		return mav;
 	}
 	
-	@RequestMapping("productPage")
+	/*@RequestMapping("productPage")
 	public ModelAndView productPage() {
 		ModelAndView mav = new ModelAndView();
 		
 		mav.setViewName("productPage");
 		
 		return mav;
-	}
+	}*/
 	
 	@RequestMapping("productReg")
 	public ModelAndView productReg() {

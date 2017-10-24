@@ -40,9 +40,6 @@
 				<div class="regProduct_button">
 					<input type="button" value="상품등록" class="btn btn-primary" onclick="location.href='addProductForm'">
 				</div>
-<%-- 				${productInfo.p_name}				
-				${productInfo.p_major_value}
-				${productInfo.p_price} --%>
 				<div class="product_list" style="border: 1px solid black;">					
 					<table class="table" border="1">
 						<thead>
@@ -58,7 +55,7 @@
 							</tr>					
 						</thead>
 						<tbody>
-							<c:forEach items="${productInfo}" var="product_info">
+							<c:forEach items="${product_info}" var="product_info">
 								<tr>
 									<td><input type="checkbox" id="checkRow"></td>									
 									<%-- <td>
@@ -66,7 +63,7 @@
 										<img src="downloadProductImg?p_index=${product_info.p_index}" width="" height="" border="0"></a>
 									</td> --%>
 									<td>
-										<h4>${product_info.p_name}<a href="viewProduct?p_index=${product_info.p_index}"></a><br></h4>									
+										<h5><a href="productPage?p_index=${product_info.p_index}">${product_info.p_name}</a><br></h5>									
 											${product_info.p_major_value}
 									</td>
 									<td>${product_info.p_num}</td>

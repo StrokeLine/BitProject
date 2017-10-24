@@ -21,56 +21,113 @@
 
 <!-- Custom styles for this template -->
 <link href="/css/freelancer.min.css" rel="stylesheet">
-
 <jsp:include page="setting.jsp" />
 </head>
+
+<style type="text/css">
+	body{
+		margin: 0 20px 0 0;
+		background-color: inherit;
+	}
+	.productPage_Main{		
+		height: 100%;
+		color: #5d5d5d;
+		background: #f2f2f2;
+		padding: 26px;
+		border-radius: 10px;
+		-moz-border-radius: 10px;
+		-webkit-border-radius: 10px;
+	}
+	.product_top{
+		width:800px;
+		padding: 7px;
+	}
+	.product_img{		
+		width:30%;
+		height: 300px;
+		border:solid;
+		display: inline-block;	
+	}
+	.product_info{		
+		width:60%;
+		height: 300px;
+		display: inline-block;	
+	}	
+	.product_item{
+		width: 50%;
+		height: 40x;
+		padding: 7px;	
+		display: inline-block;	
+	}
+	.product_value{
+		width: 500%;
+		height: 40px;
+		padding: 7px;
+		display: inline-block;
+	}
+</style>
 <body>
-	<div class="productPage_Main" style="margin: 0px 200px 0px 200px;">
+	<div class="productPage_Main" >
 		<form action="orderProductForm" method="post">
 			<div class="product_top">
-				<div class="product_img" style="width: 49%; display: inline-block;">
+				<%-- <div class="product_img" style="width: 49%; display: inline-block;">
 					${product_info.p_imgSrc}
-				</div>
-				<div class="productInfo" style="width: 49%; display: inline-block;">
-					<div class="product_name">
-						<h3>${product_info.p_name}</h3>
+				</div> --%>				
+				<div class="product_img">
+					이미지 영역
+				</div>				
+				<div class="product_info">
+					<div class="product_item">
+						<h4>${product_info.p_name}</h4>
+					</div>				
+					<div class="product_item">
+						<h5>상품 금액</h5> 
 					</div>
-					<div class="product_price">
-						상품 금액  ${product_info.p_price}
+					<div class="product_value">
+						 ${product_info.p_price}
 					</div>
-					<div class="product_option">
-						<h3>옵션</h3>
-						<select>
+					<div class="product_item">
+						<h5>옵션</h5>
+					</div>
+					<div class="product_value">	
+						<select name="">
 							<option></option>
 							<option></option>
 						</select>
 					</div>
-					<div class="product_num">
+					<div class="product_item">
+						<h5>수량</h5>
+					</div>				
+					<div class="product_value">					
 						<input type="button" value="-">
-						<input type="text" style="width: 25px;" value="1">
+						<input type="text" name="" style="width: 25px;" value="1">
 						<input type="button" value="+">
 					</div>
-					<div class="product_fee">
-						<ul style="padding: 0px 0px 0px 0px; list-style-type: none;">
-							<li><em style="font-style: normal;">배송비 : ${product_info.fee} (주문시 결제)</em></li>						
-						</ul>
+					<div class="product_item">
+						<h5>배송비</h5>
+					</div>	
+					<div class="product_value">
+						${product_info.p_fee}
+						<%-- <ul style="padding: 0px 0px 0px 0px; list-style-type: none;">
+							<li><em style="font-style: normal;">배송비 : ${product_info.p_fee} (주문시 결제)</em></li>						
+						</ul> --%>
+					</div>					
+					<div class="product_item">
+						총 합계금액
 					</div>
-					<div class="product_total">
-						<div class="label_total" style="width: 50%; float: left;">총 합계금액</div>
-						<div class="label_price" style="width: 50%; float: left;"><span>원</span></div>
+					<div class="product_value">
+						<span>원</span>
 					</div>
-					<div class="product_btn_other">
-						<input type="button" value="찜" onclick="dibsCheck()">
-						<input type="button" value="장바구니" onclick="shoppingBasketCheck()">
-						<input type="submit" value="주문하기">
-					</div>
+				</div>					
+				<div class="product_btn">
+					<input type="button" class="order_btn" value="찜" onclick="dibsCheck()">
+					<input type="button" class="order_btn" value="장바구니" onclick="shoppingBasketCheck()">
+					<input type="submit" class="order_btn" value="주문하기">
 				</div>
 			</div>
 		</form>	
-	<div class="product_middle">
-			<center>
-				<h3>상품 정보 영역</h3>
-			</center>
+	<div class="product_middle">		
+		<h3>상품 정보 영역</h3>		
 		</div>
 		<div class="product_bottom">
 			<div class="product_grade">

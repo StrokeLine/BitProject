@@ -32,20 +32,17 @@ public class ProductController {
 	public ModelAndView managementProduct(HttpSession session){
 		ModelAndView mav = new ModelAndView();
 		int m_index = (Integer)session.getAttribute("m_index");
-		List<product_info> productInfo_list = productService.getProductList(m_index);
-		System.out.println(productInfo_list.toString());
-		if(productInfo_list != null) {
-			mav.addObject("productInfo", productInfo_list);
-		}
+		List<product_info> productInfo_list = productService.getProductList(m_index);		
+		mav.addObject("product_info", productInfo_list);		
 		mav.setViewName("managementProduct");	
 		return mav;
 	}
 	
-	@RequestMapping("viewProduct")
+	@RequestMapping("productPage")
 	public ModelAndView viewProduct(int p_index){
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("product_info", productService.getProduct(p_index));
-		mav.setViewName("managementProduct");	
+		mav.setViewName("productPage");	
 		return mav;	
 	}
 	
@@ -62,18 +59,6 @@ public class ProductController {
 		return "redirect:managementProduct";
 	}
 	
-	/*@RequestMapping("addProduct")
-	public ModelAndView addProduct(HttpSession session, product_info product_info){
-		ModelAndView mav = new ModelAndView();		
-		int m_index = (Integer)session.getAttribute("m_index");
-		product_info.setM_index(m_index);;
-		productService.addProduct(product_info);
-		List<product_info> productInfo = productService.getProductList(m_index);
-		mav.addObject("addProduct", productInfo);
-		mav.setViewName("managementProduct");		
-		return mav;
-	}*/
-		
 	/*@RequestMapping("productList")
 	public ModelAndView productList(int p_index){		
 		ModelAndView mav = new ModelAndView();
@@ -81,8 +66,7 @@ public class ProductController {
 		mav.addObject("productList", productList);
 		mav.setViewName("productList");		
 		return mav;
-	} */
-	
+	} */	
 	/*@RequestMapping("downloadProductImg")
 	public DownloadView productImgDownload(int p_index){
 		String p_imgSrcFileName = productService.getProduct(p_index).getP_imgSrc();
@@ -93,18 +77,21 @@ public class ProductController {
 	@RequestMapping("modifyProductForm")
 	public String modifyProductForm(int p_index, Model model){		
 		product_info product_info = productService.getProduct(p_index);
-		model.addAttribute("product_info", product_info);
+		model.addAttribute("product_info", product_info);		
 		return "modifyProductForm";
 	}
 	
 	@RequestMapping("modifyProduct")
-	public String modifyProduct(product_info product_info){
-		productService.modifyProduct(product_info);
-		return "redirect:managementProduct";
+	public String modifyProduct(product_info product_info){	
+		System.out.println("modifyProduct in !!! ");
+		productService.modifyProduct(product_info);		
+		
+		return "redirect:managementProduct?p_index=" + product_info.getP_index();
 	}
 	
 	@RequestMapping("orderProductForm")
 	public String orderProductForm(int p_index, Model model){
+		System.out.println("orderProductForm in !!! ");
 		product_info product_info = productService.getProduct(p_index);
 		return "orderProduct";		
 	}	
@@ -114,8 +101,7 @@ public class ProductController {
 		productService.deleteProduct(p_index);
 		return "redirect:managementProduct";
 	}
-	
-	
+		
 	/*@InitBinder
 	public void translateDate(WebDataBinder binder){
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
