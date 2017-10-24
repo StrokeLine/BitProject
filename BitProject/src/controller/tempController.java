@@ -196,20 +196,6 @@ public class tempController {
 		return mav;
 	}*/
 	
-	@RequestMapping("productDibs")
-	public ModelAndView productDibs(){
-		ModelAndView mav = new ModelAndView();
-		mav.setViewName("productDibs");		
-		return mav;		
-	}
-	
-	@RequestMapping("productBasket")
-	public ModelAndView productBsket(){
-		ModelAndView mav = new ModelAndView();
-		mav.setViewName("productBasket");		
-		return mav;		
-	}
-	
 	@RequestMapping("deleteMember")
 	public ModelAndView deleteMember(HttpSession session, String m_password){
 		ModelAndView mav = new ModelAndView();
@@ -268,15 +254,6 @@ public class tempController {
 		return "qnaPageCtrl";
 	}
 	
-	@RequestMapping("followingNotiProduct")
-	public String followingNotiProduct() {
-		return "followingNotiProduct";
-	}
-	
-	@RequestMapping("followingNotiStore")
-	public String followingNotiStore() {
-		return "followingNotiStore";
-	}
 	
 	@RequestMapping("orderProduct")
 	public ModelAndView orderProduct() {
@@ -301,13 +278,7 @@ public class tempController {
 		mav.setViewName("memberInfo");		
 		return mav;
 	}
-	
-	@RequestMapping("followingNoti")
-	public ModelAndView followingNoti() {
-		ModelAndView mav = new ModelAndView();		
-		mav.setViewName("followingNoti");		
-		return mav;
-	}
+
 	@RequestMapping("consumerContractList")
 	public ModelAndView consumerContractList() {
 		ModelAndView mav = new ModelAndView();		
@@ -345,24 +316,14 @@ public class tempController {
 		mav.setViewName("qAndAMenu");		
 		return mav;
 	}
-	@RequestMapping("followingNotiMenu")
-	public ModelAndView followingNotiMenu() {
-		ModelAndView mav = new ModelAndView();		
-		mav.setViewName("followingNotiMenu");		
-		return mav;
-	}
+
 	@RequestMapping("qAndAMain")
 	public ModelAndView qAndAMain() {
 		ModelAndView mav = new ModelAndView();		
 		mav.setViewName("qAndAMain");		
 		return mav;
 	}
-	@RequestMapping("followingNotiMain")
-	public ModelAndView followingNotiMain() {
-		ModelAndView mav = new ModelAndView();		
-		mav.setViewName("followingNotiMain");		
-		return mav;
-	}
+
 	@RequestMapping("qAndAProduct")
 	public ModelAndView qAndAProduct() {
 		ModelAndView mav = new ModelAndView();		
