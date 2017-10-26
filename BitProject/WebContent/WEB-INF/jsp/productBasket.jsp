@@ -125,7 +125,7 @@
 			           }, 
 			           url : "getPrice",
 			           success : function(data) {
-			        		total += (data.p_price + data.p_fee);
+			        		total += ((data.p_price * data.sb_num) + data.p_fee);
 			        		c += 1;
 			        		if(j == c) {
 			        			total_tag.innerHTML = total + "<span>원</span>";
@@ -244,7 +244,7 @@
 			<input type="button" value="삭제" onclick="deleteBasket()">
 		</div>
 		<div class="basket_btn">
-			<input type="button" value="주문하기">	
+			<input type="button" value="선택한 상품 주문하기" onclick="">	
 		</div>			
 	</div>		
 </body>
