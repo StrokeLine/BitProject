@@ -9,6 +9,10 @@
 		select * from shopping_basket_view where m_index=#{m_index}
 	</select>
 	
+	<select id="selectAllShoppingBasketViewSB" parameterType="int" resultType="shopping_basket_view">
+		select * from shopping_basket_view where sb_index=#{sb_index}
+	</select>
+	
 	<select id="selectAllShoppingBasketView" parameterType="int" resultType="shopping_basket_view">
 		select * from shopping_basket_view where m_index=#{m_index}
 	</select>

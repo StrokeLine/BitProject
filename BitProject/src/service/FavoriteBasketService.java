@@ -9,7 +9,9 @@ import dao.ProductFavoriteViewDao;
 import dao.ProductFavoriteDao;
 import dao.ShoppingBasketDao;
 import dao.ShoppingBasketViewDao;
+import model.product_favorite;
 import model.product_favorite_view;
+import model.shopping_basket;
 import model.shopping_basket_view;
 
 @Service
@@ -33,6 +35,34 @@ public class FavoriteBasketService {
 	
 	public List<shopping_basket_view> getShoppingBasketList(int m_index) {
 		return shoppingBasketViewDao.selectAllShoppingBasketView(m_index);
+	}
+	
+	public int setShoppingBasket(shopping_basket shopping_basket) {
+		return shoppingBasketDao.insertShoppingBasket(shopping_basket);
+	}
+	
+	public shopping_basket_view getShoppingBasketView(int sb_index){
+		return shoppingBasketViewDao.selectShoppingBasketViewSB(sb_index);
+	}
+	
+	public shopping_basket getShoppingBasket(int sb_index){
+		return shoppingBasketDao.selectShoppingBasket(sb_index);
+	}
+	
+	public product_favorite getFavorite(int pf_index){
+		return productFavoriteDao.selectProductFavorite(pf_index);
+	}
+	
+	public int updateBasketNum(shopping_basket shopping_basket) {
+		return shoppingBasketDao.updateShoppingBasket(shopping_basket);
+	}
+	
+	public int deleteFavorite(int pf_index) {
+		return productFavoriteDao.deleteProductFavorite(pf_index);
+	}
+	
+	public int deleteShoppingBasket(int sb_index) {
+		return shoppingBasketDao.deleteShoppingBasket(sb_index);
 	}
 	
 }

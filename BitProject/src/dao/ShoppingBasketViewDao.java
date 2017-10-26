@@ -18,10 +18,14 @@ public class ShoppingBasketViewDao implements IShoppingBasketViewDao {
 	public shopping_basket_view selectShoppingBasketView(int m_index) {
 		return session.selectOne("dao.IShoppingBasketViewDao.selectShoppingBasketView", m_index);
 	}
+	
+	@Override
+	public shopping_basket_view selectShoppingBasketViewSB(int sb_index) {
+		return session.selectOne("dao.IShoppingBasketViewDao.selectAllShoppingBasketViewSB", sb_index);
+	}
 
 	@Override
 	public List<shopping_basket_view> selectAllShoppingBasketView(int m_index) {
 		return session.selectList("dao.IShoppingBasketViewDao.selectAllShoppingBasketView", m_index);
 	}
-	
 }

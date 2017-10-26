@@ -77,7 +77,6 @@
 						$("#inputjoin").prop("disabled", false);
 						$("#inputjoin").css("background-color", "#4CAF50");
 						signupCheck();
-						
 					}
 				} else if (data == '1') {
 					$("#inputjoin").prop("disabled", true);
@@ -103,7 +102,6 @@
 				$("#inputjoin").prop("disabled", false);
 				$("#inputjoin").css("background-color", "#4CAF50");
 				signupCheck();
-				
 			}
 		} else if (inputed != reinputed) {
 			pwdCheck = 0;
@@ -338,75 +336,82 @@
 </script>
 
 <script type="text/javascript">
-	function div_show(id){
-		if(id == "pet_info"){
-			document.getElementById("pet_info").style.display = '';        // 보이게
-		    document.getElementById("pet_info_no").style.display = 'none';	// 안보이게
-		} else{
-		    document.getElementById("pet_info").style.display = 'none';	// 안보이게
-			document.getElementById("pet_info_no").style.display = '';		// 보이게
-		} 
-		
+	//펫 정보 등록/취소
+	function petinputdelete(){
+		if($("#chk_pet").is(":checked")){
+			addPetForm();
+		} else {
+			removePet();
+		}
 	}
 	
 	// 추가할 펫 입력창 생성
-	function addPetForm(){
+		function addPetForm(){
 		var div = document.createElement('div');
 		div.setAttribute("id", "addPetInfo");
-		div.innerHTML = '<div class="addPet_info">'
-					  + '	<div class="modifyPet_item" style="width: 10%; display: inline-block; margin-bottom: 30px; margin-left: 20px;">'
-					  + '		<div class="modifyPet_name_item">반려견 이름</div>'
-					  + '		<div class="modifyPet_type_item">반려견 종류</div>'	
-					  + '		<div class="modifyPet_age_item">반려견 생일</div>'
-					  + '		<div class="modifyPet_gender_item">반려견 성별</div>'				
-					  + '	</div>'
-					  + '	<div class="modifyPet_input" style="width: 40%; display: inline-block;">'
-					  + '		<div class="addPet_name">'
-					  + '			<input type="text" id="addPet_name">'
+		div.innerHTML = '<div class="form-group">'
+					  + '	<label>Pet Name</label>'
+					  + '	<div class="col-md-5 col-sm-8">'
+					  + '		<div class="input-group">'
+					  + '			<span class="input-group-addon"><i class="fa fa-heart" aria-hidden="true"></i></span>' 
+					  + '			<input type="text" class="form-control" name="petName" id="addPet_name" placeholder="Enter your Pet Name.">'
 					  + '		</div>'
-					  + '		<div class="addPet_breeds">'
+					  + '	</div>'
+					  + '</div>'
+					  + '<div class="form-group">'
+					  + '	<label>Pet Breeds</label>'
+					  + '	<div class="col-md-5 col-sm-8">'
+					  + '		<div class="input-group">'
+					  + '			<span class="input-group-addon"><i class="fa fa-heart" aria-hidden="true"></i></span> '
 					  + '			<select id="addPet_breeds">'
 					  + '				<option selected disabled value="0">견종을 선택해주세요.</option>'
 					  + '			</select>'
 					  + '		</div>'
-					  + '		<div class="addPet_birthday">'
-					  + '			<input type="date" id="addPet_birthday">'		
-					  + '		</div>'
-					  + '		<div class="addPet_gender">'
-					  + '			<input type="radio" value="2" name="addPet_gender" value="2">암컷'
-					  + '			<input type="radio" value="1" name="addPet_gender" value="1">수컷'
+					  + '	</div>'
+					  + '</div>'
+					  + '<div class="form-group">'
+					  + '	<label>Pet Birthday</label>'
+					  + '	<div class="col-md-5 col-sm-8">'
+					  + '		<div class="input-group">'
+					  + '			<span class="input-group-addon"><i class="fa fa-heart" aria-hidden="true"></i></span> '
+					  + '			<input type="date" id="addPet_birthday">'
 					  + '		</div>'
 					  + '	</div>'
-					  + '	<div class="addPet_delBtn">'
-					  + '		<input type="button" value="삭제" onclick="removePet()">'
-					  + '      	<input type="submit" value="추가" onclick="addPet()">'
+					  + '</div>'
+					  + '<div class="form-group">'
+					  + '	<label>Pet Gender</label>'
+					  + '	<div class="col-md-5 col-sm-8">'
+					  + '		<div class="input-group">'
+					  + '		<span class="input-group-addon"><i class="fa fa-heart" aria-hidden="true"></i></span> '
+					  + '			<input type="radio" name="addPet_gender" value="1" checked="checked"><i class="fa fa-mars" aria-hidden="true"></i> '
+					  + '			<input type="radio" name="addPet_gender" value="2"><i class="fa fa-venus" aria-hidden="true"></i>'
+					  + '		</div>'
 					  + '	</div>'
 					  + '</div>';
-        document.getElementById('addPet').appendChild(div);
-        document.getElementById("addPet_birthday").valueAsDate = new Date();
-        document.getElementById("addPetBtn").disabled = true;
-        
-        $("#addPet_breeds").select2({
-        	width : "300px",
-        	language: {
+		document.getElementById('addPet').appendChild(div);
+	    document.getElementById("addPet_birthday").valueAsDate = new Date();
+	    
+	    $("#addPet_breeds").select2({
+	    	width : "300px",
+	    	language: {
 	   		    noResults: function (params) {
 	   		      return "찾을 수 없는 견종입니다.";
 	   		    }
 	   		}
-        });
-        
-        $.ajax({
+	    });
+	    
+	    $.ajax({
 	           url : "breedsList",
 	           success : function(data) {
 	            	$.each(data, function(k, v) {
-            			$('<option>').val(k.db_index).text(v.db_breeds).appendTo("#addPet_breeds");
+	        			$('<option>').val(k.db_index).text(v.db_breeds).appendTo("#addPet_breeds");
 	            	});
 	           },
 	           error : function(err){
 	           		console.log(err.status);
 	           }
 	    });
-
+	
 	}	
 	
 	
@@ -443,7 +448,7 @@
 			alert("반려견의 견종을 선택해 주세요.");
 			return false;
 		}
-				
+		
  		$.ajax({
             data : {
             	pet_name : pet_name,
@@ -527,6 +532,41 @@
 	    });
 	}
 	
+	function addMember(){
+		var id = $('#emailid').val();
+		var password = $("#password").val();
+		var name = $("#mName").val();
+		var phone = $("#mPhone").val();
+		
+		if (id == null || id == ""){
+			alert("Email(ID)를 입력해주세요.")
+			return false;
+		} else if(password == null || password == ""){
+			alert("비밀번호를 입력해주세요.")
+			return false;
+		} else if(name == null || name ==""){
+			alert("닉네임을 입력해주세요.")
+			return false;
+		} else if(phone == null || phone == ""){
+			alert("휴대폰 번호를 입력해주세요.")
+			return false;
+		}
+		
+		$.ajax({
+			
+			data : {
+				m_email : id,
+				m_password : password,
+				m_name : name,
+				m_phone : phone,
+			},
+			url : "addMember",
+			success : function addPet(){
+				
+			}
+		});
+	} 
+	
 </script>
 </head>
 
@@ -570,6 +610,7 @@
 					<form class="form-horizontal" method="post" action="joinPro"
 						name="signup" id="signup" enctype="multipart/form-data">
 						<div class="form-group">
+							<h4>Member Info</h4>
 							<label class="control-label col-sm-3">Email ID <span
 								class="text-danger">*</span></label>
 							<div class="col-md-8 col-sm-9">
@@ -656,75 +697,21 @@
 						<div class="form-group">
 							<label class="control-label col-sm-3">Pet Info<br> <small>(optional)</small></label>
 							<div id="petinfoselect">
-								<input type="radio" name="pet_info" value="pet_ok" onclick="div_show('pet_info')">등록
-								<input type="radio" name="pet_info" value="pet_no" checked="checked" onclick="div_show('pet_info_no')">등록 안함
+								<input type="checkbox" id="chk_pet" value="petinfo_input" onclick="petinputdelete()">펫 정보 등록
 							</div>
 							
-							<div id="pet_info" style="display: none;">
-								<div class="form-group">
-									<label>Pet Name</label>
-									<div class="col-md-5 col-sm-8">
-										<div class="input-group">
-											<span class="input-group-addon"><i class="fa fa-heart" aria-hidden="true"></i></span> 
-											<input type="text" class="form-control" name="petName" id="addPet_name" placeholder="Enter your Pet Name.">
-										</div>
-									</div>
-								</div>
-								
-								<div class="form-group">
-									<label>Pet Breeds</label>
-									<div class="col-md-5 col-sm-8">
-										<div class="input-group">
-											<span class="input-group-addon"><i class="fa fa-heart" aria-hidden="true"></i></span> 
-											<select	id="addPet_breeds">
-												<option selected disabled value="0">견종을 선택해주세요.</option>
-											</select>
-										</div>
-									</div>
-								</div>
-								
-								<div class="form-group">
-									<label>Pet Birthday</label>
-									<div class="col-md-5 col-sm-8">
-										<div class="input-group">
-											<span class="input-group-addon"><i class="fa fa-heart" aria-hidden="true"></i></span> 
-												<input type="date" id="addPet_birthday">
-										</div>
-									</div>
-								</div>
-								
-								<div class="form-group">
-									<label>Pet Gender</label>
-									<div class="col-md-5 col-sm-8">
-										<div class="input-group">
-											<span class="input-group-addon"><i class="fa fa-heart" aria-hidden="true"></i></span>
-											<input type="radio" name="addPet_gender" value="1" checked="checked"><i class="fa fa-mars" aria-hidden="true"></i>
-											<input type="radio" name="addPet_gender" value="2"><i class="fa fa-venus" aria-hidden="true"></i>
-										</div>
-									</div>
-								</div>
-								
-								<div class="addPet" id="addPet">
-									<div class="form-group">
-										<label>Pet Add</label>
-										<button type="button" class="btn btn-default" id="addPetBtn" onclick="addPetForm()"> + </button>
-									</div>
-								</div>
+							<div class="addPet" id="addPet">
 								
 							</div>
-							
-							<div id="pet_info_no" style="display: none;">등록 안 할게요!</div>
 							
 						</div>
 						
 						<div class="form-group">
 							<div class="col-xs-offset-3 col-xs-10">
-								<button type="submit" class="btn btn-info" id="inputjoin"
-									disabled="disabled">
+								<button type="button" class="btn btn-info" id="inputjoin" disabled="disabled" onclick="">
 									회원가입 <i class="fa fa-check" aria-hidden="true"></i>
 								</button>
-								<button type="reset" class="btn btn-danger"
-									onclick="location='main'">
+								<button type="reset" class="btn btn-danger"	onclick="location='main'">
 									가입취소 <i class="fa fa-times" aria-hidden="true"></i>
 								</button>
 							</div>

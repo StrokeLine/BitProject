@@ -6,7 +6,7 @@
 <mapper namespace="dao.IShoppingBasketDao">
 
 	<insert id="insertShoppingBasket" parameterType="shopping_basket">
-		insert into shopping_basket values(0, #{p_index}, #{m_index}, #{sb_num}, #{sb_date});
+		insert into shopping_basket values(0, #{p_index}, #{m_index}, #{sb_num}, now());
 	</insert>
 	
 	<update id="updateShoppingBasket" parameterType="shopping_basket">
