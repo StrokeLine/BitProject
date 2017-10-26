@@ -22,14 +22,115 @@
 .pfPrice{display:inline-block; width:17%; height:30px; margin-right:1px; margin-top: 1px; text-align: center;}
 .pfFee{display:inline-block; width:17%; height:30px; margin-right:1px; margin-top: 1px; text-align: center;}
 .pfRegDate{display:inline-block; width:17%; height:30px; margin-right:1px; margin-top: 1px; text-align: center;}
-.pfNoneRow{margin: 5% 39%;}
+.pfNoneRow{margin: 5% 38%;}
 .remove_btn{float:right; margin-top: 1%;}
 .basket_btn{float:left;  margin-top: 1%;}
 </style>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script type="text/javascript">
-	function setAllCheck(){
+
+	function allCheck() {
+		var allchd = document.getElementById("checkAll");
+		var others = document.getElementsByName("checkRow");
 		
+		if(allchd.checked){
+			for(var i = 0; i < others.length; i++) {
+				others[i].checked = true;
+			}
+		} else {
+			for(var i = 0; i < others.length; i++) {
+				others[i].checked = false;
+			}
+		}	
+	}
+	
+	function deleteFavorite() {
+		var allchdBox = document.getElementsByName("checkRow");
+		
+		var c = 0;
+		for(var i = 0; i < allchdBox.length; i++) {
+			if(allchdBox[i].checked){
+				c += 1;
+			}
+		}
+		
+		if(c == 0) {
+			alert("1개 이상의 상품을 선택하셔야 합니다.");
+			return false;
+		}
+		
+		var check = confirm("선택한 상품을 삭제하시겠습니까?");
+		
+		if(check) {
+			for(var i = 0; i < allchdBox.length; i++) {
+				if(allchdBox[i].checked){
+					var boxId = document.getElementById("product"+i);
+					var pf_index = boxId.value;
+					$.ajax({
+				           data : {
+				        	   pf_index : pf_index
+				           }, 
+				           url : "deleteFavorite",
+				           success : function(data) {
+								if(data == 1){
+									alert("선택한 상품이 삭제 되었습니다.");
+									location.href="productFavorite";
+								}
+				           },
+				           error : function(err){
+				           		console.log(err.status);
+				           		alert("잠시 후에 다시 시도해주세요.");
+				           }
+				    });	
+				}
+			}
+		}		
+	}
+	
+	function moveOnBasket(){
+		var allchdBox = document.getElementsByName("checkRow");
+		
+		var c = 0;
+		for(var i = 0; i < allchdBox.length; i++) {
+			if(allchdBox[i].checked){
+				c += 1;
+			}
+		}
+		
+		if(c == 0) {
+			alert("1개 이상의 상품을 선택하셔야 합니다.");
+			return false;
+		}
+		
+		var check = confirm("선택한 상품을 장바구니에 담으시겠습니까?");
+		var j = 0;
+		if(check) {
+			for(var i = 0; i < allchdBox.length; i++) {
+				if(allchdBox[i].checked){
+					var boxId = document.getElementById("product"+i);
+					var pf_index = boxId.value;
+					$.ajax({
+				           data : {
+				        	   pf_index : pf_index
+				           }, 
+				           url : "moveOnBasket",
+				           success : function(data) {
+							   j += 1;
+				        	   if(c == j){
+									if(data == 1){
+										if(confirm("선택한 상품이 장바구니에 담겼습니다. \n장바구니로 이동하시겠습니까?")){
+											location.href="productBasket";
+										}
+									}				        		   
+				        	   }
+				           },
+				           error : function(err){
+				           		console.log(err.status);
+				           }
+				    });	
+				}
+			}
+		}
 	}
 </script>
 </head>
@@ -39,7 +140,7 @@
 
 		<div class="pfHeader">
 			<div class="pfCheckHeader">
-				<input type="checkbox" name="checkAll" onclick="setAllCheck()">
+				<input id="checkAll" type="checkbox" name="checkAll" onclick="allCheck()">
 			</div>
 			<div class="pfImgHeader">
 				<h4>상품 이미지</h4>
@@ -56,18 +157,18 @@
 		</div>
 		<div class="favorite_list">
 			<c:if test='${product_favorite_list == ""}'>
-				<div>등록 된 정보가 없습니다.</div>
+				<div class="pfNoneRow">등록 된 정보가 없습니다.</div>
 			</c:if>
 			<c:set var="i" value="${0 }"></c:set>
 			<c:forEach items="${product_favorite_list }" var="favorite_list">
 				<div class="pfInfo">
 					<div class="pfCheck" >
-						<input id="product${i}" type="checkbox" name="checkRow" value="${favorite_list.p_index }">
+						<input id="product${i}" type="checkbox" name="checkRow" value="${favorite_list.pf_index }">
 					</div>
 					<div class="pfImg" >
 						상품 이미지
 						<c:if test='${favorite_list.p_img != null }'>
-							<img src="favorite_list.p_img">
+							<img src="${favorite_list.p_img}">
 						</c:if>
 					</div>
 					<div class="pfName">
@@ -79,15 +180,15 @@
 					<div class="pfFee">
 						${favorite_list.p_fee }
 					</div>
-					<c:set var="i" value="${i = i + 1 }"></c:set>
 				</div>				
+				<c:set var="i" value="${i = i + 1 }"></c:set>
 			</c:forEach>
 		</div>
 		<div class="remove_btn">
-			<input type="button" value="선택 상품 삭제" onclick=>
+			<input type="button" value="선택 상품 삭제" onclick="deleteFavorite()">
 		</div>		
 		<div class="basket_btn">
-			<input type="button" value="선택 상품 장바구니로 이동">	
+			<input type="button" value="선택 상품 장바구니로 이동" onclick="moveOnBasket()">	
 		</div>			
 	</div>	
 </body>

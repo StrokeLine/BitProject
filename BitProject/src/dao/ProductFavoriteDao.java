@@ -20,8 +20,8 @@ public class ProductFavoriteDao implements IProductFavoriteDao {
 	}
 
 	@Override
-	public int deleteProductFavorite(product_favorite product_favorite) {
-		return session.delete("dao.IProductFavoriteDao.deleteProductFavorite", product_favorite);
+	public int deleteProductFavorite(int pf_index) {
+		return session.delete("dao.IProductFavoriteDao.deleteProductFavorite", pf_index);
 	}
 
 	@Override

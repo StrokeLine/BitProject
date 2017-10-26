@@ -31,7 +31,6 @@
 			<div class="fnPRegDateHeader"><h4>등록일</h4></div>
 		</div>
 		<div class="fnPRows">
-		
 		<c:if test='${notice_view_list == ""}'>
 			<div class="fnPNoneRow"> 등록된 정보가 없습니다.</div>
 		</c:if>
