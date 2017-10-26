@@ -39,117 +39,180 @@
 		-webkit-border-radius: 10px;
 	}
 	.product_top{
-		width:800px;
-		padding: 7px;
+		width: 100%;
+		padding: 7px;	
+		display: inline-block;		
 	}
 	.product_img{		
-		width:40%;
-		height: 300px;
-		border:solid;
+		width: 40%;
+		height: 350px;
+		float: left;
+		border: solid;
 		display: inline-block;	
 	}
-	.product_info{		
-		width:40%;
-		height: 300px;
+	.product_info_wrap{
+		width: 50%;
+		height: 550px;
+		float: right;
+		margin-left: 60px;
+		display: inline-block;
+	}	
+	.product_info{
+		float:right;	
+		height: 350px;		
 		display: inline-block;	
 	}	
-	.product_item{
+	.left{	
+		float: left;
+		width: 40%;
+	}
+	.right{
+		float: right;
 		width: 50%;
-		height: 50x;
+	}
+	.product_item{	
+		width: 100%;	
+		height: 50px;
 		padding: 7px;	
 		display: inline-block;	
 	}
 	.product_value{
-		width: 40%;
-		height: 40px;
+		width: 100%;		
+		height: 50px;
 		padding: 7px;
 		display: inline-block;
 	}
+	.product_btn{
+		width: 100%;
+		height: 200x;
+		margin-top: 25px;
+		display: inline-block;	
+	}
+	.btn{
+		width: 30%;		
+	}
+	.hr_line{
+		width: 90%;
+		border-bottom: 1px solid #5d5d5d;
+		margin-bottom: 15px; 
+	}
+	.product_middle{
+		width: 800px;
+		padding: 7px;		
+	}
+	.product_bottom{
+		width: 800px;
+		padding: 7px;
+	}
+	
 </style>
 <body>
 	<div class="productPage_Main" >
-		<form action="orderProductForm" method="post">
-			<div class="product_top">
-				<%-- <div class="product_img" style="width: 49%; display: inline-block;">
-					${product_info.p_imgSrc}
-				</div> --%>				
+		<div class="product_top">
+			<form action="orderProductForm" method="post">						
 				<div class="product_img">
 					이미지 영역
-				</div>				
-				<div class="product_info">
-					<div class="product_item">
-						<h4>${product_info.p_name}</h4>
-					</div>				
-					<div class="product_item">
-						<h5>상품 금액</h5> 
-					</div>
-					<div class="product_value">
-						 ${product_info.p_price}
-					</div>
-					<div class="product_item">
-						<h5>옵션</h5>
-					</div>
-					<div class="product_value">	
-						<select name="">
-							<option></option>
-							<option></option>
-						</select>
-					</div>
-					<div class="product_item">
-						<h5>수량</h5>
-					</div>				
-					<div class="product_value">					
-						<input type="button" value="-">
-						<input type="text" name="" style="width: 25px;" value="1">
-						<input type="button" value="+">
-					</div>
-					<div class="product_item">
-						<h5>배송비</h5>
-					</div>	
-					<div class="product_value">
-						${product_info.p_fee}
-						<%-- <ul style="padding: 0px 0px 0px 0px; list-style-type: none;">
-							<li><em style="font-style: normal;">배송비 : ${product_info.p_fee} (주문시 결제)</em></li>						
-						</ul> --%>
-					</div>					
-					<div class="product_item">
-						<h5>총 합계금액</h5>
-					</div>
-					<div class="product_value">
-						<span>원</span>
-					</div>
-				</div>					
-				<div class="product_btn">
-					<input type="button" class="btn btn-primary" value="찜" onclick="dibsCheck()">
-					<input type="button" class="btn btn-primary" value="장바구니" onclick="shoppingBasketCheck()">
-					<input type="submit" class="btn btn-primary" value="주문하기">
 				</div>
-			</div>
-		</form>	
-	<div class="product_middle">		
-		<h3>상품 정보 영역</h3>		
+				<div class="product_info_wrap">							
+					<div class="product_info">
+						<div class="product_item" style="width: 80%; margin-top: 10px;">
+							<h4>${product_info.p_name}</h4>
+						</div>	
+						<div class="hr_line"></div>				
+						<div class="left">
+							<div class="product_item">
+								<h5>상품 금액</h5> 
+							</div>
+							<div class="product_item">
+								<h5>옵션</h5>
+							</div>
+							<div class="product_item">
+								<h5>수량</h5>
+							</div>	
+							<div class="product_item">
+								<h5>배송비</h5>
+							</div>
+							<div class="product_item">
+								<h5>총 합계금액</h5>
+							</div>
+						</div>
+						<div class="right">
+							<div class="product_value">
+								 ${product_info.p_price} 원
+							</div>						
+							<div class="product_value">	
+								<select name="">
+									<option></option>
+									<option></option>
+								</select>
+							</div>									
+							<div class="product_value">					
+								<input type="button" value="-">
+								<input type="text" name="" style="width: 25px;" value="1">
+								<input type="button" value="+">
+							</div>							
+							<div class="product_value">
+								${product_info.p_fee} 원
+								<%-- <ul style="padding: 0px 0px 0px 0px; list-style-type: none;">
+									<li><em style="font-style: normal;">배송비 : ${product_info.p_fee} (주문시 결제)</em></li>						
+								</ul> --%>
+							</div>						
+							<div class="product_value">
+								<span>원</span>
+							</div>	
+						</div>									
+					</div>		
+					<div class="product_btn">
+						<input type="button" class="btn btn-primary" value="찜" onclick="dibsCheck()">
+						<input type="button" class="btn btn-primary" value="장바구니" onclick="shoppingBasketCheck()">
+						<input type="submit" class="btn btn-primary" value="주문하기">
+					</div>
+				</div>
+			</form>			
+		</div>		
+		<div class="product_middle">		
+			<h4>상품 정보</h4>		
 		</div>
 		<div class="product_bottom">
 			<div class="product_grade">
-				<h3> 상품평 or 후기</h3>
-				<div class="product_grade_list_header">
-					<h5>|    상품평    |    이미지    |    내용    |    아이디    |    작성일    |</h5>
+				<h4> 상품평</h4>								
+				<div class="product_grade_item" id="grade_list">
+					<span class="item_img">이미지</span>
+					<span class="item_title">제  목</span>
+					<span class="item_writer">작성자</span>
+					<span class="item_regdate">등록일</span>
+					<span class="item_grade">평  점</span>										
+				</div>				
+				<div class="product_grade_list">
+					
+				
 				</div>
-				<div class="product_grade_list" id="grade_list"></div>
-				<div class="product_grade_add">
+				
+				<div class="product_grade_item" id="grade_list">
+					<table>
+						<thead>
+						
+						</thead>					
+					</table>
+				</div>
+				
+				
+				<!-- <div class="product_grade_add">
 					<div class="grade_add_form">
-						<input type="text" id="g_grade_num">
-						<input type="file" id="g_img_src">
-						<input type="text" id="g_content">
-						<input type="text" id="g_user_id">
+						<input type="text" name="" id="g_grade_num">
+						<input type="text" name="" id="g_title">
+						<input type="text" name="" id="g_content">						
+						<input type="file" name="" id="g_img_src">					
 						<div class="product_grade_btn" style="float: right;">
 							<input type="button" value="등록" onclick="insertGrade()">
 						</div>
 					</div>
-				</div>
+				</div> -->
+				
+				
 			</div>
 			<div class="product_inquiry">
-				<h3> 상품 문의</h3>
+				<h4>상품 문의</h4>
 				<div class="product_inquiry_list_header">
 					<h5>|    문의유형    |    문의/답변    |    작성자    |    작성일    |</h5>
 				</div>

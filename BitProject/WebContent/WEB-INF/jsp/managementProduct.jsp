@@ -22,67 +22,106 @@
 		border-radius: 10px;
 		-moz-border-radius: 10px;
 		-webkit-border-radius: 10px;
-	}.btn btn-primary{
-		margin: 0 0 30px o;
 	}
+	.managementProduct_top{
+		width: 100%;
+		padding: 7px;	
+		display: inline-block;		
+	}
+	.table td, .table th {
+	    padding: .75rem;
+	    vertical-align: inherit;
+	    text-align: center;
+	    border-top: 1px solid grey; 
+	}	
+	.product_title{
+		margin-bottom: 50px;
+	}
+	.button{
+		width: 100%;
+		margin-bottom: 10px;
+		display: inline-block;		
+	}
+	.deleteProduct_btn{
+		margin-left: 10px;				
+		float: left; 
+	}
+	.regProduct_button{
+		margin-right: 15px;			
+		float: right;		
+	}
+	.title{
+		text-align: center;
+	}
+	.content{
+		text-align: justify;
+		height: 130px;
+	}
+	
 </style>
 
 </head>
 <body>
-	<div class="wrap" style="margin: 0px 200px 0px 200px;">
+	<div class="wrap">
 		<div class="managementProduct_top">
 			<div class="product_title">
 				<center>
 					<h3>상품관리</h3>
 				</center>
 			</div>
-			<div class="managementProduct_middle">				
-				<div class="regProduct_button">
-					<input type="button" value="상품등록" class="btn btn-primary" onclick="location.href='addProductForm'">
+			<div class="managementProduct_middle">
+			
+				<div class="button">
+					<div class="deleteProduct_btn">					
+						<input type="submit" class="btn btn-primary" id="del" value="삭제">
+					</div>				
+					<div class="regProduct_button">
+						<input type="button" value="상품 등록" class="btn btn-primary" onclick="location.href='addProductForm'">
+					</div>				
 				</div>
-				<div class="product_list" style="border: 1px solid black;">					
-					<table class="table" border="1">
+				
+				
+				
+				<div class="product_list">					
+					<table class="table table-hover">
 						<thead>
 							<tr>
-								<th><input type="checkbox" id="checkAll"></th>								
-								<!-- <th width="500">상품 이미지</th> -->
-								<th width="170">상품명</th>
-								<th width="50">수량</th>
-								<th width="80">가격</th>
-								<th width="80">배송비</th>
-								<th width="90">등록일</th>
-								<th width="50">상품수정</th>
+								<th class="title" width="30"><input type="checkbox" id="checkAll"></th>								
+								<th class="title" width="85">상품 이미지</th>
+								<th class="title" width="170">상품명</th>
+								<th class="title" width="50">수량</th>
+								<th class="title" width="80">가격</th>
+								<th class="title" width="80">배송비</th>
+								<th class="title" width="90">등록일</th>
+								<th class="title" width="50">상품수정</th>
 							</tr>					
 						</thead>
 						<tbody>
 							<c:forEach items="${product_info}" var="product_info">
 								<tr>
-									<td><input type="checkbox" id="checkRow"></td>									
-									<%-- <td>
+									<td class="content"><input type="checkbox" id="checkRow"></td>									
+									<td style="margin-left: 15px;">
 										<a href="viewProduct?p_index=${product_info.p_index}">
 										<img src="downloadProductImg?p_index=${product_info.p_index}" width="" height="" border="0"></a>
-									</td> --%>
-									<td>
-										<h5><a href="productPage?p_index=${product_info.p_index}">${product_info.p_name}</a><br></h5>									
+									</td>
+									<td class="content" style="text-align: left;">
+										<h6><a href="productPage?p_index=${product_info.p_index}">${product_info.p_name}</a><br></h6>									
 											${product_info.p_major_value}
 									</td>
-									<td>${product_info.p_num}</td>
-									<td>${product_info.p_price} 원</td>
-									<td>${product_info.p_fee}</td>
-									<td>
+									<td class="content">${product_info.p_num}</td>
+									<td class="content">${product_info.p_price} 원</td>
+									<td class="content">${product_info.p_fee}</td>
+									<td class="content">
 										<fmt:formatDate value="${product_info.p_date}" pattern="yyyy-MM-dd"/>
 									</td>									
-									<td>
-										<input type="button" value="수정" onclick="location.href='modifyProductForm?p_index=${product_info.p_index}'">
+									<td class="content">
+										<input type="button" class="btn btn-primary" value="수정" onclick="location.href='modifyProductForm?p_index=${product_info.p_index}'">
 									</td>
 								</tr>						
 							</c:forEach>					
 						</tbody>				
 					</table>				
-				</div>
-				<div class="deleteProduct_btn">					
-					<input type="submit" id="del" value="삭제" style="float: right" >
-				</div>				
+				</div>								
 			</div>
 		</div>
 	</div>
