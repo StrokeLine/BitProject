@@ -6,15 +6,15 @@
 <mapper namespace="dao.IOrderStatementViewMDao">	
 	
 	<select id="selectOrderStatementView" parameterType="int" resultType="order_statement_view_m">
-		select * from order_statement_view_m where om_index = #{om_index};
+		select * from os_member where om_index = #{om_index};
 	</select>
 	
 	<select id="selectAllOrderStatementViewM" parameterType="int" resultType="order_statement_view_m">
-		select * from order_statement_view_m where m_index = #{m_index};
+		select * from os_member where m_index = #{m_index};
 	</select>
 	
 	<select id="selectAllOrderStatementViewP" parameterType="int" resultType="order_statement_view_m">
-		select * from order_statement_view_m where p_index = #{p_index};
+		select * from os_member where p_index = #{p_index};
 	</select>
 	
 </mapper>	

@@ -52,7 +52,7 @@ function deleteMember(){
         success : function(data) {
         	if(data){
         		alert("탈퇴가 정상 처리되었습니다.");
-        		parent.document.location.href = 'main'
+        		parent.document.location.replace('main');
         	} else {
         		alert("탈퇴처리가 정상처리되지 않았습니다. \n잠시 후 다시 시도 해 주세요.");
         	}

@@ -21,7 +21,7 @@
 
 <script type="text/javascript">
 	function goMain() {
-		opener.location.href="main";
+		opener.parent.location.replace("mainLogin");
 		window.close();
 	}
 </script>

@@ -37,6 +37,42 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script type="text/javascript">
 
+	function selectOrder(){
+		var selectList = [];
+		
+		var allchdBox = document.getElementsByName("checkRow");
+		var c = 0;
+		for(var i = 0; i < allchdBox.length; i++) {
+			if(allchdBox[i].checked){
+				c += 1;
+				selectList[i] = allchdBox[i].value;
+			}
+		}
+		
+		if(c == 0) {
+			alert("1개 이상의 상품을 선택하셔야 합니다.");
+			return false;
+		}
+		
+		var form = document.createElement("form");
+		form.setAttribute("methed", "post");
+		form.setAttribute("action", "orderPageMain");
+		form.setAttribute("target", "_parent");
+		document.body.appendChild(form);
+		
+		for(var i = 0; i < allchdBox.length; i++) {
+			if(allchdBox[i].checked){
+				var input_tag = document.createElement("input");
+				input_tag.setAttribute("type", "hidden");
+				input_tag.setAttribute("name", "selectList");
+				input_tag.setAttribute("value", allchdBox[i].value);
+				form.appendChild(input_tag);
+			}
+		}
+		
+		form.submit();
+	}
+	
 	function updateNum(tag_num){
 		var sb_num = document.getElementById(tag_num).value;
 		var sb_index = tag_num.split("_")[1];
@@ -164,11 +200,13 @@
 		var allchd = document.getElementById("checkAll");
 		var others = document.getElementsByName("checkRow");
 		
-		allchd.checked = true;
-		for(var i = 0; i < others.length; i++) {
-			others[i].checked = true;
+		if(others.length != 0) {
+			allchd.checked = true;
+			for(var i = 0; i < others.length; i++) {
+				others[i].checked = true;
+			}
+			totalAmount();			
 		}
-		totalAmount();
 	}
 </script>
 </head>
@@ -244,7 +282,7 @@
 			<input type="button" value="삭제" onclick="deleteBasket()">
 		</div>
 		<div class="basket_btn">
-			<input type="button" value="선택한 상품 주문하기" onclick="">	
+			<input type="button" value="선택한 상품 주문하기" onclick="selectOrder()">	
 		</div>			
 	</div>		
 </body>
