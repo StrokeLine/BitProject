@@ -1,62 +1,92 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="">
-<meta name="author" content="">
-
-<!-- Stylesheets -->	
-<link href="/bootstrap2/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-<link href="/bootstrap2/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-<link href="/bootstrap2/css/style.css" rel="stylesheet" type="text/css">
-	
-<!-- Google fonts -->
-<link href='https://fonts.googleapis.com/css?family=PT+Serif:400,700' rel='stylesheet' type='text/css'>
-<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
-<link href='https://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
-
-<!-- modernizr -->
-<script src="/bootstrap2/js/modernizr.js"></script>
-
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+	<title>Developer | Free Personal Bootstrap HTML Template</title>
+	<!-- Stylesheets -->
+	<link rel="stylesheet" href="css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/style.css">
+	<!-- Google fonts -->
+	<link href='https://fonts.googleapis.com/css?family=PT+Serif:400,700' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
+	<!-- modernizr -->
+	<script src="js/modernizr.js"></script>
+	<!--[if lt IE 9]>
+      <script src="js/html5shiv.js"></script>
+      <script src="js/respond.min.js"></script>
+    <![endif]-->
 </head>
 <body>
 	<!-- ====================================================
 	header section -->
+	<div class="top-bar">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="col-md-4">
+						<h3>Recent posts</h3>
+						<nav>
+							<ul class="recent-posts">
+								<li><a href="#">10 TIPS FOR MORE COLOUR IN YOUR PHOTOGRAPHY</a></li>
+								<li><a href="#">How to design users oriented</a></li>
+								<li><a href="#">Smart coding makes all easy</a></li>
+								<li><a href="#">KEEP CALM AND PLAY NICE WHENEVER POSSIBLE</a></li>
+							</ul>
+						</nav>
+					</div>
+					<div class="col-md-4">
+						<h3>Text Widget here</h3>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis minus provident illum quia ut debitis deserunt nemo, officiis earum similique dolorem, nesciunt ipsa vel at blanditiis iure! Tempore facilis, sapiente.</p>
+					</div>
+					<div class="col-md-4">
+						<h3>Tag clouds</h3>
+						<nav>
+							<ul class="tags list-inline">
+								<li><a href="#">WordPress</a></li>
+								<li><a href="#">HTML</a></li>
+								<li><a href="#">Bootstrap</a></li>
+								<li><a href="#">WordPress</a></li>
+								<li><a href="#">HTML</a></li>
+								<li><a href="#">Bootstrap</a></li>
+								<li><a href="#">WordPress</a></li>
+								<li><a href="#">HTML</a></li>
+								<li><a href="#">Bootstrap</a></li>
+							</ul>
+						</nav>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 	<div class="banner" id="home"></div>
 	<header class="header">
 		<div class="container-fluid">
-			<div class="row"></div>
+			<div class="row">
+				<div class="top-nav"></div>
+				<div class="top-click">
+					<a href="#"><i class="fa fa-plus"></i></a>
+					<a href="#"><i class="fa fa-minus"></i></a>
+				</div>
+			</div>
 		</div>
 		<div class="container">
 			<div class="row">
 				<div class="col-md-8 col-md-offset-2 no-padding">
 					<div class="col-md-12 text-center user">
-						<div class="seller_wrap">
-							<div class="seller_img">
-								<img src="/images/home.png" alt="" class="img-circle">
-							</div>
-							<div class="seller_info">
-								<h1>${seller_info.s_nick}</h1>
-								<h4>평점 ${seller_info.s_grade}</h4>
-							</div>
-						</div>						
+						<img src="img/user.jpg" alt="Me" class="img-circle">
+						<h1>John Doe</h1>
+						<h4>Web UI Designer &amp; Developer living in Dhaka</h4>
 						<div class="social-icons">
-							<div class="info_frame">				
-								<span class="frame_item"><i class="fa fa-facebook-square" aria-hidden="true"></i>오픈일</span>
-								<span class="frame_item"><i class="fa fa-twitter"></i>방문자 수</span>
-								<span class="frame_item"><i class="fa fa-instagram"></i>판매거래 수</span>
-								<span class="frame_item"><i class="fa fa-linkedin"></i>팔로워</span>
-							</div>
-							<div class="info_frame">
-								<span class="frame_value">${seller_info.s_date}</span>
-								<span class="frame_value">${seller_info.s_sale}</span>
-								<span class="frame_value"></span>
-								<span class="frame_value"></span>
-							</div>		
-													
+							<a href="#"><i class="fa fa-facebook"></i></a>
+							<a href="#"><i class="fa fa-twitter"></i></a>
+							<a href="#"><i class="fa fa-instagram"></i></a>
+							<a href="#"><i class="fa fa-linkedin"></i></a>
+							<a href="#"><i class="fa fa-google-plus"></i></a>
 						</div>
 					</div>
 					<!-- nav starts here -->
@@ -68,18 +98,19 @@
 							    <div class="navbar-header">
 							      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
 							        <span class="sr-only">Toggle navigation</span>
-							        <span class="icon-bar">aaaaa</span>
-							        <span class="icon-bar">aaaaa</span>
-							        <span class="icon-bar">aaaaa</span>
+							        <span class="icon-bar"></span>
+							        <span class="icon-bar"></span>
+							        <span class="icon-bar"></span>
 							      </button>
 							    </div>
 
 							    <!-- Collect the nav links, forms, and other content for toggling -->
 							    <div class="collapse navbar-collapse text-center" id="bs-example-navbar-collapse-1">
 							      <ul class="nav navbar-nav">
-							        <li><a class="active" href="index.html">상품 더 보기</a></li>
-							        <li><a href="about.html">공지/이벤트</a></li>
-							        <li><a href="works.html">문의하기</a></li>							        
+							        <li><a class="active" href="index.html">home</a></li>
+							        <li><a href="about.html">about me</a></li>
+							        <li><a href="works.html">my works</a></li>
+							        <li><a href="contact.html">contact</a></li>
 							      </ul>
 							    </div><!-- /.navbar-collapse -->
 							  </div><!-- /.container-fluid -->
@@ -254,12 +285,9 @@
 	</footer>
 	<!-- script tags
 	============================================================= -->
-	<script src="/bootstrap2/js/jquery-2.1.1.js"></script>
-	<script src="/bootstrap2/js/smoothscroll.js"></script>
-	<script src="/bootstrap2/js/bootstrap.min.js"></script>
-	<script src="/bootstrap2/js/custom.js"></script>	
-	<script src="/bootstrap2/js/html5shiv.js"></script>		
-	<script src="/bootstrap2/js/respond.js"></script>	
-	
+	<script src="js/jquery-2.1.1.js"></script>
+	<script src="js/smoothscroll.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/custom.js"></script>
 </body>
 </html>

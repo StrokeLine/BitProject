@@ -34,6 +34,10 @@
 	<mvc:resources location="resources/jquery-easing/" mapping="/jquery-easing/**" />
 	<mvc:resources location="resources/images/portfolio/" mapping="/images/portfolio/**" />
 	
+	<mvc:resources location="resources/bootstrap2/css/" mapping="bootstrap2/css/**"/>
+	<mvc:resources location="resources/bootstrap2/fonts" mapping="bootstrap2/fonts/**"/>
+	<mvc:resources location="resources/bootstrap2/img/" mapping="bootstrap2/img/**"/>
+	<mvc:resources location="resources/bootstrap2/js/" mapping="bootstrap2/js/**"/>
 	
 	<mvc:resources mapping="/favicon.ico" location="/favicon.ico" />
 	

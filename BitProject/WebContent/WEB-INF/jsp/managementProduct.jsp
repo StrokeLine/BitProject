@@ -78,9 +78,7 @@
 					<div class="regProduct_button">
 						<input type="button" value="상품 등록" class="btn btn-primary" onclick="location.href='addProductForm'">
 					</div>				
-				</div>
-				
-				
+				</div>			
 				
 				<div class="product_list">					
 					<table class="table table-hover">
