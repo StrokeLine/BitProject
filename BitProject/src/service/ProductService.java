@@ -73,5 +73,10 @@ public class ProductService {
 		}else{
 			return false;
 		}
-	}	
+	}
+	
+	// p_index로 판매자 s_index 가져오기
+	public int getSellerIndex(int p_index) {
+		return productInfoDao.selectProduct(p_index).getS_index();
+	}
 }

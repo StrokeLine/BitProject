@@ -26,7 +26,7 @@
 
 <style type="text/css">
 	body{
-		margin: 0 20px 0 0;
+		margin: 0px;
 		background-color: inherit;
 	}
 	.productPage_Main{		
