@@ -68,7 +68,7 @@
 							</c:when>
 							<c:when test="${not empty sessionScope.m_index }"><!-- login O -->
 								<li> <i class="fa fa-sign-in" aria-hidden="true" onclick="location='logoutPro'"> <span>Sign out</span> </i> </li>
-								<li> <i class="fa fa-pencil-square-o" aria-hidden="true" onclick="location='joinForm'"> <span>My page</span> </i> </li>
+								<li> <i class="fa fa-pencil-square-o" aria-hidden="true" onclick="location='myPageMain'"> <span>My page</span> </i> </li>
 							</c:when>
 						</c:choose>
 						<li> <i class="fa fa-building-o" aria-hidden="true"> <span>Store Open</span> </i> </li>
