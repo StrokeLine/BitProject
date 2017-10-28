@@ -36,7 +36,9 @@
 	<mvc:resources location="resources/sass/components/" mapping="/sass/components/**" />
 	<mvc:resources location="resources/sass/layout/" mapping="/sass/layout/**" />
 	<mvc:resources location="resources/sass/libs" mapping="/sass/libs/**" />
-	
+	<mvc:resources location="resources/bootstrap2/css/" mapping="/bootstrap2/css/**"/>
+	<mvc:resources location="resources/bootstrap2/fonts/" mapping="/bootstrap2/fonts/**"/>
+	<mvc:resources location="resources/bootstrap2/js/" mapping="/bootstrap2/js/**"/>
 	
 	<mvc:resources mapping="/favicon.ico" location="/favicon.ico" />
 	

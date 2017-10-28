@@ -337,6 +337,27 @@ public class tempController {
 		return mav;		
 	}	
 	
+	@RequestMapping("customerStore")
+	public ModelAndView customerStore(HttpSession session){
+		ModelAndView mav = new ModelAndView();
+		int m_index = (Integer)session.getAttribute("m_index");
+		seller_info sellerInfo = sellerInfoService.getSellerInfo(m_index);
+		mav.addObject("seller_info_select", sellerInfo);
+		mav.setViewName("customerStore");
+		return mav;
+	}
+	
+	@RequestMapping("customerStoreInquiry")
+	public ModelAndView customerStoreInquiry(HttpSession session){
+		ModelAndView mav = new ModelAndView();
+		int m_index = (Integer)session.getAttribute("m_index");
+		seller_info sellerInfo = sellerInfoService.getSellerInfo(m_index);
+		mav.addObject("seller_info_select", sellerInfo);
+		mav.setViewName("customerStoreInquiry");
+		return mav;
+	}
+	
+	
 	@RequestMapping("mapTest")
 	public ModelAndView mapTest() {
 		ModelAndView mav = new ModelAndView();
