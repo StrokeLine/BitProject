@@ -255,21 +255,6 @@ public class tempController {
 		return "qnaPageCtrl";
 	}
 	
-	
-	@RequestMapping("orderProduct")
-	public ModelAndView orderProduct() {
-		ModelAndView mav = new ModelAndView();		
-		mav.setViewName("orderProduct");		
-		return mav;
-	}	
-	
-	@RequestMapping("orderCheck")
-	public ModelAndView orderCheck() {
-		ModelAndView mav = new ModelAndView();		
-		mav.setViewName("orderCheck");		
-		return mav;
-	}
-	
 	@RequestMapping("memberInfo")
 	public ModelAndView memberInfo(HttpSession session) {
 		ModelAndView mav = new ModelAndView();
@@ -280,12 +265,6 @@ public class tempController {
 		return mav;
 	}
 
-	@RequestMapping("consumerContractList")
-	public ModelAndView consumerContractList() {
-		ModelAndView mav = new ModelAndView();		
-		mav.setViewName("consumerContractList");		
-		return mav;
-	}
 	@RequestMapping("qAndA")
 	public ModelAndView qAndA() {
 		ModelAndView mav = new ModelAndView();		

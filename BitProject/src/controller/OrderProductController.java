@@ -123,5 +123,25 @@ public class OrderProductController {
 		return result;  
 	}
 	
+	@RequestMapping("customerOrderDelivery")
+	public ModelAndView customerOrderDelivery(HttpSession session) {
+		ModelAndView mav = new ModelAndView();	
+		mav.setViewName("customerOrderDelivery");		
+		return mav;
+	}
+	
+	@RequestMapping("customerTakeBack")
+	public ModelAndView customerTakeBack(HttpSession session) {
+		ModelAndView mav = new ModelAndView();	
+		mav.setViewName("customerTakeBack");		
+		return mav;
+	}
+	
+	@RequestMapping("customerSwap")
+	public ModelAndView customerSwap(HttpSession session) {
+		ModelAndView mav = new ModelAndView();	
+		mav.setViewName("customerSwap");		
+		return mav;
+	}
 	
 }

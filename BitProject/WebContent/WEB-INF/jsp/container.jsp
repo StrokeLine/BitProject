@@ -12,7 +12,6 @@
 	<div class="main_menu">
 		<%@ include file="main_meun.jsp"%>
 	</div>
-	
 	<div class="row">
 		
 		<div class="sidebar col-sm-2">
