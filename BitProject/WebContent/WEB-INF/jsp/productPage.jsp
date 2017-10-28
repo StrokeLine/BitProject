@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -22,6 +21,9 @@
 
 <!-- Custom styles for this template -->
 <link href="/css/freelancer.min.css" rel="stylesheet">
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
 <jsp:include page="setting.jsp" />
 </head>
 
@@ -45,8 +47,8 @@
 		display: inline-block;		
 	}
 	.product_img{		
-		width: 700px;
-		height: 455px;
+		width: 40%;
+		height: 350px;
 		float: left;
 		border: solid;
 		display: inline-block;	
@@ -112,16 +114,7 @@
 		<div class="product_top">
 			<form action="orderProductForm" method="post">						
 				<div class="product_img">
-					<c:choose>
-						<c:when test="${product_info.p_imgSrc != null}">
-							<div style="width: 450px; height: 450px; margin: auto;">
-								<img src="downloadProductImg?p_index=${ product_info.p_index}" width="450" height="450">
-							</div>
-						</c:when>
-						<c:when test="${product_info.p_imgSrc == null}">
-							이미지 영역
-						</c:when>
-					</c:choose>
+					이미지 영역
 				</div>
 				<div class="product_info_wrap">							
 					<div class="product_info">
@@ -181,7 +174,10 @@
 			</form>			
 		</div>		
 		<div class="product_middle">		
-			<h4>상품 정보</h4>		
+			<h4>상품 정보</h4>	
+			<div>
+				<a href="customerStore"><i class="fa fa-home"></i>해당상품의 상점 보러가기</a>
+			</div>	
 		</div>
 		<div class="product_bottom">
 			<div class="product_grade">
@@ -204,8 +200,7 @@
 						
 						</thead>					
 					</table>
-				</div>
-				
+				</div>		
 				
 				<!-- <div class="product_grade_add">
 					<div class="grade_add_form">

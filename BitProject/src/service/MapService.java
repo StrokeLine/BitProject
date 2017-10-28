@@ -17,4 +17,5 @@ public class MapService {
 	public List<seller_info> getAllStore() {
 		return sellerInfoDao.selectAllSellerInfo();
 	}
+	
 }

@@ -344,19 +344,25 @@ public class tempController {
 		mav.setViewName("mapTest");		
 		return mav;
 	}
-	
-	@RequestMapping("SmartEditor2Skin")
-	public ModelAndView SmartEditor2Skin() {
+		
+	@RequestMapping("customerStore")
+	public ModelAndView sellerMyStore(HttpSession session) {
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("SmartEditor2Skin");		
+		int m_index = (Integer)session.getAttribute("m_index");
+		seller_info sellerInfo = sellerInfoService.getSellerInfo(m_index);
+		mav.addObject("seller_info_select", sellerInfo);		
+		mav.setViewName("customerStore");		
 		return mav;
 	}
 	
-	
-	@RequestMapping("smart_editor2_inputarea")
-	public ModelAndView smart_editor2_inputarea() {
+	@RequestMapping("customerStoreInquiry")
+	public ModelAndView customerStoreInquiry(HttpSession session){
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("smart_editor2_inputarea");		
-		return mav;
+		int m_index = (Integer)session.getAttribute("m_index");
+		seller_info sellerInfo = sellerInfoService.getSellerInfo(m_index);
+		mav.addObject("seller_info_select", sellerInfo);		
+		mav.setViewName("customerStoreInquiry");
+		return mav;	
 	}
+	
 }
