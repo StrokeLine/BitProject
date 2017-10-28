@@ -10,4 +10,5 @@ public interface IMemberInfoDao {
 	public member_info selectMemberTel(String m_tel);
 	public member_info selectMemberName(String m_name);
 	public member_info selectMemberInfo(int m_index);
+	public boolean signinCheck(member_info member_info);
 }

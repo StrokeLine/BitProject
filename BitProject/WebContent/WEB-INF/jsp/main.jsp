@@ -1,5 +1,6 @@
 ﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -12,583 +13,255 @@
 
 <title>Hand Made - Pet Product</title>
 
+<!-- Bootstrap core JavaScript -->
+<script src="/jquery/jquery.min.js"></script>
+<script src="/bootstrap/js/bootstrap.min.js"></script>
+
 <!-- Bootstrap core CSS -->
 <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
 <!-- Custom fonts for this template -->
-<link href="/font-awesome/css/font-awesome.min.css"	rel="stylesheet" type="text/css">
-<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-<link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+<link href="/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
 <!-- Custom styles for this template -->
-<link href="/css/freelancer.min.css" rel="stylesheet">
+<link rel="stylesheet" href="/css/main.css" />
+<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+
+<!-- Scripts -->
+<script src="/js/skel.min.js"></script>
+<script src="/js/util.js"></script>
+<script src="/js/main.js"></script>
+<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
 
 <script type="text/javascript">
-$('.portfolio-link').click(function() {
-	document.location.reload();
-});
+	$(document).ready(function(){
+		$("#menu ul.sub").hide();
+		$("#menu ul.menu li").click(function(){
+			$("ul",this).slideToggle("fast");
+		});
+	});
 </script>
 
 </head>
 
-<body id="page-top">
+<body>
+	<!-- Wrapper -->
+	<div id="wrapper">
 
-	<!-- Navigation -->
-	<nav class="navbar navbar-expand-lg navbar-light fixed-top"
-		id="mainNav">
-		<div class="container">
-			<a class="navbar-brand js-scroll-trigger" href="#page-top">FreeHaGae</a>
-			<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive"
-				aria-controls="navbarResponsive" aria-expanded="false"
-				aria-label="Toggle navigation">
-				Menu <i class="fa fa-bars"></i>
-			</button>
-			<div class="collapse navbar-collapse" id="navbarResponsive">
-				<ul class="navbar-nav ml-auto">
-					<li class="nav-item"><a class="nav-link js-scroll-trigger" onclick="location='main'" style="cursor: pointer">Home</a></li>
-					<li class="nav-item"><a class="nav-link js-scroll-trigger" href="#portfolio">Shopping</a></li>
-					<li class="nav-item"><a class="nav-link js-scroll-trigger" onclick="location='loginForm'" style="cursor: pointer">Sign in</a></li>
-					<li class="nav-item"><a class="nav-link js-scroll-trigger" onclick="location='joinForm'" style="cursor: pointer">Sign up</a></li>
+		<!-- Header -->
+		<header id="header">
+			<div class="inner">
+
+				<!-- Logo -->
+					<a href="main" class="logo">
+						<span class="symbol"><i class="fa fa-paw fa-2x" aria-hidden="true"></i></span><span class="title">FreeHaGae</span>
+					</a>
+					
+					<ul class="main_icons">
+						<li> <i class="fa fa-home" aria-hidden="true" onclick="location='main'"> <span>Home</span> </i> </li>
+						<c:choose>
+							<c:when test="${empty sessionScope.m_index }"><!-- login X -->
+								<li> <i class="fa fa-sign-in" aria-hidden="true" onclick="location='loginForm'"> <span>Sign In</span> </i> </li>
+								<li> <i class="fa fa-pencil-square-o" aria-hidden="true" onclick="location='joinForm'"> <span>Sign Up</span> </i> </li>
+							</c:when>
+							<c:when test="${not empty sessionScope.m_index }"><!-- login O -->
+								<li> <i class="fa fa-sign-in" aria-hidden="true" onclick="location='logoutPro'"> <span>Sign out</span> </i> </li>
+								<li> <i class="fa fa-pencil-square-o" aria-hidden="true" onclick="location='joinForm'"> <span>My page</span> </i> </li>
+							</c:when>
+						</c:choose>
+						<li> <i class="fa fa-building-o" aria-hidden="true"> <span>Store Open</span> </i> </li>
+					</ul>
+				<!-- Nav -->
+					<nav>
+						<ul>
+							<li><a href="#menu">Menu</a></li>
+						</ul>
+					</nav>
+
+			</div>
+		</header>
+
+		<!-- Menu -->
+		<nav id="menu">
+			<h2>Menu</h2>
+			<ul class="menu">
+				<li><a href="main">Home</a></li>
+				<li><a href="#">Category</a>
+					<ul class="sub">
+						<li><a href="#">성</a></li>
+						<li><a href="#">공</a></li>
+					</ul>
+				</li>
+				<li><a href="loginForm">Sign in</a></li>
+				<li><a href="joinForm">Sign up</a></li>
+				<li><a href="#">My Store</a></li>
+			</ul>
+		</nav>
+
+		<!-- Main -->
+		<div id="main">
+			<div class="inner">
+				<header>
+					<h1>Hand Made - Pet Product<br />
+					<a href="main">FreeHaGae</a>.</h1>
+					<p>Etiam quis viverra lorem, in semper lorem. Sed nisl arcu euismod sit amet nisi euismod sed cursus arcu elementum ipsum arcu vivamus quis venenatis orci lorem ipsum et magna feugiat veroeros aliquam. Lorem ipsum dolor sit amet nullam dolore.</p>
+				</header>
+				<section class="tiles">
+									
+					<article class="style1">
+						<span class="image">
+							<img src="/images/all.png" alt="" />
+						</span>
+						<a href="#">
+							<h2>전체</h2>
+							<div class="content">
+								<p>Hand Made - Pet Product</p>
+							</div>
+						</a>
+					</article>
+					
+					<article class="style2">
+						<span class="image">
+							<img src="/images/food.png" alt="" />
+						</span>
+						<a href="#">
+							<h2>사료/간식</h2>
+							<div class="content">
+								<p>건식사료, 소프트사료, 캔사료, 개껌, 사사미, 수제간식, 비스켓/시리얼/쿠키, 동결/건조간식, 캔/파우치, 저키/스틱</p>
+							</div>
+						</a>
+					</article>
+					
+					<article class="style3">
+						<span class="image">
+							<img src="/images/defecate.png" alt="" />
+						</span>
+						<a href="#">
+							<h2>배변용품</h2>
+							<div class="content">
+								<p>배변패드, 배변판, 기저귀/팬티, 탈취제/소독제, 배변봉투/집게</p>
+							</div>
+						</a>
+					</article>
+					
+					<article class="style4">
+						<span class="image">
+							<img src="/images/health.png" alt="" />
+						</span>
+						<a href="#">
+							<h2>건강관리</h2>
+							<div class="content">
+								<p>영양제, 눈/귀 관리용품</p>
+							</div>
+						</a>
+					</article>
+					
+					<article class="style5">
+						<span class="image">
+							<img src="/images/beautybath.png" alt="" />
+						</span>
+						<a href="#">
+							<h2>미용/목욕</h2>
+							<div class="content">
+								<p>샴푸/린스/비누, 에센스/향수, 브러쉬/빗, 이발기, 미용가위, 발톱/발 관리, 타월/가운, 기타미용/목욕용품</p>
+							</div>
+						</a>
+					</article>
+					
+					<article class="style6">
+						<span class="image">
+							<img src="/images/toy.png" alt="" />
+						</span>
+						<a href="#">
+							<h2>장난감</h2>
+							<div class="content">
+								<p>노즈워크, 장남감/토이, 공/원반</p>
+							</div>
+						</a>
+					</article>
+					
+					<article class="style2">
+						<span class="image">
+							<img src="/images/living.png" alt="" />
+						</span>
+						<a href="#">
+							<h2>리빙</h2>
+							<div class="content">
+								<p>울타리, 식기/식탁, 급수병/물병, 쿠션/방석, 하우스, 매트, 강아지 계단/스텝</p>
+							</div>
+						</a>
+					</article>
+					
+					<article class="style3">
+						<span class="image">
+							<img src="/images/fashion.png" alt="" />
+						</span>
+						<a href="#">
+							<h2>패션</h2>
+							<div class="content">
+								<p>패딩/아우터, 올인원/원피스, 티셔츠, 기타의류, 악세서리</p>
+							</div>
+						</a>
+					</article>
+					
+					<article class="style1">
+						<span class="image">
+							<img src="/images/outdoor.png" alt="" />
+						</span>
+						<a href="#">
+							<h2>야외용품</h2>
+							<div class="content">
+								<p>목줄, 가슴줄, 목걸이/인식표, 리드줄, 캐리어, 유모자, 카시트</p>
+							</div>
+						</a>
+					</article>
+					
+				</section>
+			</div>
+		</div>
+
+		<!-- Footer -->
+		<footer id="footer">
+			<div class="inner">
+				<section>
+					<h2>Get in touch</h2>
+					<form method="post" action="#">
+						<div class="field half first">
+							<input type="text" name="name" id="name" placeholder="Name" />
+						</div>
+						<div class="field half">
+							<input type="email" name="email" id="email" placeholder="Email" />
+						</div>
+						<div class="field">
+							<textarea name="message" id="message" placeholder="Message"></textarea>
+						</div>
+						<ul class="actions">
+							<li><input type="submit" value="Send" class="special" /></li>
+						</ul>
+					</form>
+				</section>
+				<section>
+					<h2>Follow</h2>
+					<ul class="icons">
+						<li><a href="#" class="icon style2 fa-twitter"><span class="label">Twitter</span></a></li>
+						<li><a href="#" class="icon style2 fa-facebook"><span class="label">Facebook</span></a></li>
+						<li><a href="#" class="icon style2 fa-instagram"><span class="label">Instagram</span></a></li>
+						<li><a href="#" class="icon style2 fa-dribbble"><span class="label">Dribbble</span></a></li>
+						<li><a href="#" class="icon style2 fa-github"><span class="label">GitHub</span></a></li>
+						<li><a href="#" class="icon style2 fa-500px"><span class="label">500px</span></a></li>
+						<li><a href="#" class="icon style2 fa-phone"><span class="label">Phone</span></a></li>
+						<li><a href="#" class="icon style2 fa-envelope-o"><span class="label">Email</span></a></li>
+					</ul>
+				</section>
+				<ul class="copyright">
+					<li>&copy; Untitled. All rights reserved</li>
 				</ul>
 			</div>
-		</div>
-	</nav>
+		</footer>
 
-	<!-- Header -->
-	<header class="masthead">
-		<div class="container">
-			<img class="img-fluid" src="/images/home.png" alt="">
-			<div class="intro-text">
-				<span class="name">FreeHaGae</span>
-				<hr class="star-light">
-				<span class="skills">Hand Made - Pet Product</span>
-			</div>
-		</div>
-	</header>
-
-	<!-- Portfolio Grid Section -->
-	<section id="portfolio" style="background-color: #FAEBD7">
-		<div class="container">
-			<h2 class="text-center">Shopping</h2>
-			<hr class="star-primary">
-			<div class="row">
-				<div class="col-sm-4 portfolio-item">
-					<!-- <a class="portfolio-link" href="#portfolioModal1" data-toggle="modal"> -->
-					<a class="portfolio-link" href="#portfolioModal1" data-toggle="modal">
-						<div class="caption">
-							<div class="caption-content">
-								<i class="fa fa-search-plus fa-3x"></i>
-							</div>
-						</div> <img class="img-fluid" src="/images/product.png" alt="">
-					</a>
-				</div>
-				<div class="col-sm-4 portfolio-item">
-					<a class="portfolio-link" href="#portfolioModal2"
-						data-toggle="modal">
-						<div class="caption">
-							<div class="caption-content">
-								<i class="fa fa-search-plus fa-3x"></i>
-							</div>
-						</div> <img class="img-fluid" src="/images/product.png" alt="">
-					</a>
-				</div>
-				<div class="col-sm-4 portfolio-item">
-					<a class="portfolio-link" href="#portfolioModal3"
-						data-toggle="modal">
-						<div class="caption">
-							<div class="caption-content">
-								<i class="fa fa-search-plus fa-3x"></i>
-							</div>
-						</div> <img class="img-fluid" src="/images/product.png" alt="">
-					</a>
-				</div>
-				<div class="col-sm-4 portfolio-item">
-					<a class="portfolio-link" href="#portfolioModal4"
-						data-toggle="modal">
-						<div class="caption">
-							<div class="caption-content">
-								<i class="fa fa-search-plus fa-3x"></i>
-							</div>
-						</div> <img class="img-fluid" src="/images/product.png" alt="">
-					</a>
-				</div>
-				<div class="col-sm-4 portfolio-item">
-					<a class="portfolio-link" href="#portfolioModal5"
-						data-toggle="modal">
-						<div class="caption">
-							<div class="caption-content">
-								<i class="fa fa-search-plus fa-3x"></i>
-							</div>
-						</div> <img class="img-fluid" src="/images/product.png" alt="">
-					</a>
-				</div>
-				<div class="col-sm-4 portfolio-item">
-					<a class="portfolio-link" href="#portfolioModal6"
-						data-toggle="modal">
-						<div class="caption">
-							<div class="caption-content">
-								<i class="fa fa-search-plus fa-3x"></i>
-							</div>
-						</div> <img class="img-fluid" src="/images/product.png" alt="">
-					</a>
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<!-- About Section -->
-	<!-- <section class="success" id="about">
-		<div class="container">
-			<h2 class="text-center">About</h2>
-			<hr class="star-light">
-			<div class="row">
-				<div class="col-lg-4 ml-auto">
-					<p>Freelancer is a free bootstrap theme created by Start
-						Bootstrap. The download includes the complete source files
-						including HTML, CSS, and JavaScript as well as optional LESS
-						stylesheets for easy customization.</p>
-				</div>
-				<div class="col-lg-4 mr-auto">
-					<p>Whether you're a student looking to showcase your work, a
-						professional looking to attract clients, or a graphic artist
-						looking to share your projects, this template is the perfect
-						starting point!</p>
-				</div>
-				<div class="col-lg-8 mx-auto text-center">
-					<a href="#" class="btn btn-lg btn-outline"> <i
-						class="fa fa-download"></i> Download Theme
-					</a>
-				</div>
-			</div>
-		</div>
-	</section> -->
-
-	<!-- Contact Section -->
-	<section id="contact" >
-		<div class="container">
-			<h2 class="text-center">Contact Me</h2>
-			<hr class="star-primary">
-			<div class="row">
-				<div class="col-lg-8 mx-auto">
-					<!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
-					<!-- The form should work on most web servers, but if the form is not working you may need to configure your web server differently. -->
-					<form name="sentMessage" id="contactForm" novalidate>
-						<div class="control-group">
-							<div class="form-group floating-label-form-group controls">
-								<label>Name</label> <input class="form-control" id="name"
-									type="text" placeholder="Name" required
-									data-validation-required-message="Please enter your name.">
-								<p class="help-block text-danger"></p>
-							</div>
-						</div>
-						<div class="control-group">
-							<div class="form-group floating-label-form-group controls">
-								<label>Email Address</label> <input class="form-control"
-									id="email" type="email" placeholder="Email Address" required
-									data-validation-required-message="Please enter your email address.">
-								<p class="help-block text-danger"></p>
-							</div>
-						</div>
-						<div class="control-group">
-							<div class="form-group floating-label-form-group controls">
-								<label>Phone Number</label> <input class="form-control"
-									id="phone" type="tel" placeholder="Phone Number" required
-									data-validation-required-message="Please enter your phone number.">
-								<p class="help-block text-danger"></p>
-							</div>
-						</div>
-						<div class="control-group">
-							<div class="form-group floating-label-form-group controls">
-								<label>Message</label>
-								<textarea class="form-control" id="message" rows="5"
-									placeholder="Message" required
-									data-validation-required-message="Please enter a message."></textarea>
-								<p class="help-block text-danger"></p>
-							</div>
-						</div>
-						<br>
-						<div id="success"></div>
-						<div class="form-group">
-							<button type="submit" class="btn btn-success btn-lg"
-								id="sendMessageButton">Send</button>
-						</div>
-					</form>
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<!-- Footer -->
-	<footer class="text-center">
-		<div class="footer-above">
-			<div class="container">
-				<div class="row">
-					<div class="footer-col col-md-4">
-						<h3>Location</h3>
-						<p>
-							3481 Melrose Place <br>Beverly Hills, CA 90210
-						</p>
-					</div>
-					<div class="footer-col col-md-4">
-						<h3>Around the Web</h3>
-						<ul class="list-inline">
-							<li class="list-inline-item"><a
-								class="btn-social btn-outline" href="#"> <i
-									class="fa fa-fw fa-facebook"></i>
-							</a></li>
-							<li class="list-inline-item"><a
-								class="btn-social btn-outline" href="#"> <i
-									class="fa fa-fw fa-google-plus"></i>
-							</a></li>
-							<li class="list-inline-item"><a
-								class="btn-social btn-outline" href="#"> <i
-									class="fa fa-fw fa-twitter"></i>
-							</a></li>
-							<li class="list-inline-item"><a
-								class="btn-social btn-outline" href="#"> <i
-									class="fa fa-fw fa-linkedin"></i>
-							</a></li>
-							<li class="list-inline-item"><a
-								class="btn-social btn-outline" href="#"> <i
-									class="fa fa-fw fa-dribbble"></i>
-							</a></li>
-						</ul>
-					</div>
-					<div class="footer-col col-md-4">
-						<h3>About Freelancer</h3>
-						<p>
-							Freelance is a free to use, open source Bootstrap theme created
-							by <a href="http://startbootstrap.com">Start Bootstrap</a>.
-						</p>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="footer-below">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-12">Copyright &copy; Your Website 2017</div>
-				</div>
-			</div>
-		</div>
-	</footer>
-
-	<!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
-	<div class="scroll-top d-lg-none">
-		<a class="btn btn-primary js-scroll-trigger" href="#page-top"> <i
-			class="fa fa-chevron-up"></i>
-		</a>
 	</div>
-
-	<!-- Portfolio Modals -->
-	<div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content">
-				<div class="close-modal" data-dismiss="modal">
-					<div class="lr">
-						<div class="rl"></div>
-					</div>
-				</div>
-				
-				<jsp:include page="productPage.jsp" />
-				
-				<div class="container" >
-					<div class="row">
-						<div class="col-lg-8 mx-auto">
-							<div class="modal-body">
-								<div id="orderview"></div>
-								<!-- <h2>Product Info</h2>
-								<hr class="star-primary">
-								<img class="img-fluid img-centered" src="/images/portfolio/cabin.png" alt="">
-								<ul class="list-inline item-details">
-									<li>상품명: <strong> <a
-											href="http://startbootstrap.com">Product Name</a>
-									</strong>
-									</li>
-									<li>가격: <strong> <a
-											href="http://startbootstrap.com">April 2014</a>
-									</strong>
-									</li>
-									<li>Service: <strong> <a
-											href="http://startbootstrap.com">Web Development</a>
-									</strong>
-									</li>
-								</ul>
-								<p>
-									Use this area of the page to describe your project. The icon
-									above is part of a free icon set by <a
-										href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On
-									their website, you can download their free set with 16 icons,
-									or you can purchase the entire set with 146 icons for only $12!
-								</p> -->
-								<button class="btn btn-success" type="button" data-dismiss="modal">
-									<i class="fa fa-times"></i> Close
-								</button>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content">
-				<div class="close-modal" data-dismiss="modal">
-					<div class="lr">
-						<div class="rl"></div>
-					</div>
-				</div>
-				<div class="container">
-					<div class="row">
-						<div class="col-lg-8 mx-auto">
-							<div class="modal-body">
-								<h2>Project Title</h2>
-								<hr class="star-primary">
-								<img class="img-fluid img-centered" src="/images/portfolio/cake.png"
-									alt="">
-								<p>
-									Use this area of the page to describe your project. The icon
-									above is part of a free icon set by <a
-										href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On
-									their website, you can download their free set with 16 icons,
-									or you can purchase the entire set with 146 icons for only $12!
-								</p>
-								<ul class="list-inline item-details">
-									<li>Client: <strong> <a
-											href="http://startbootstrap.com">Start Bootstrap</a>
-									</strong>
-									</li>
-									<li>Date: <strong> <a
-											href="http://startbootstrap.com">April 2014</a>
-									</strong>
-									</li>
-									<li>Service: <strong> <a
-											href="http://startbootstrap.com">Web Development</a>
-									</strong>
-									</li>
-								</ul>
-								<button class="btn btn-success" type="button"
-									data-dismiss="modal">
-									<i class="fa fa-times"></i> Close
-								</button>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="portfolio-modal modal fade" id="portfolioModal3"
-		tabindex="-1" role="dialog" aria-hidden="true">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content">
-				<div class="close-modal" data-dismiss="modal">
-					<div class="lr">
-						<div class="rl"></div>
-					</div>
-				</div>
-				<div class="container">
-					<div class="row">
-						<div class="col-lg-8 mx-auto">
-							<div class="modal-body">
-								<h2>Project Title</h2>
-								<hr class="star-primary">
-								<img class="img-fluid img-centered"
-									src="/images/portfolio/circus.png" alt="">
-								<p>
-									Use this area of the page to describe your project. The icon
-									above is part of a free icon set by <a
-										href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On
-									their website, you can download their free set with 16 icons,
-									or you can purchase the entire set with 146 icons for only $12!
-								</p>
-								<ul class="list-inline item-details">
-									<li>Client: <strong> <a
-											href="http://startbootstrap.com">Start Bootstrap</a>
-									</strong>
-									</li>
-									<li>Date: <strong> <a
-											href="http://startbootstrap.com">April 2014</a>
-									</strong>
-									</li>
-									<li>Service: <strong> <a
-											href="http://startbootstrap.com">Web Development</a>
-									</strong>
-									</li>
-								</ul>
-								<button class="btn btn-success" type="button"
-									data-dismiss="modal">
-									<i class="fa fa-times"></i> Close
-								</button>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="portfolio-modal modal fade" id="portfolioModal4"
-		tabindex="-1" role="dialog" aria-hidden="true">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content">
-				<div class="close-modal" data-dismiss="modal">
-					<div class="lr">
-						<div class="rl"></div>
-					</div>
-				</div>
-				<div class="container">
-					<div class="row">
-						<div class="col-lg-8 mx-auto">
-							<div class="modal-body">
-								<h2>Project Title</h2>
-								<hr class="star-primary">
-								<img class="img-fluid img-centered" src="/images/portfolio/game.png"
-									alt="">
-								<p>
-									Use this area of the page to describe your project. The icon
-									above is part of a free icon set by <a
-										href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On
-									their website, you can download their free set with 16 icons,
-									or you can purchase the entire set with 146 icons for only $12!
-								</p>
-								<ul class="list-inline item-details">
-									<li>Client: <strong> <a
-											href="http://startbootstrap.com">Start Bootstrap</a>
-									</strong>
-									</li>
-									<li>Date: <strong> <a
-											href="http://startbootstrap.com">April 2014</a>
-									</strong>
-									</li>
-									<li>Service: <strong> <a
-											href="http://startbootstrap.com">Web Development</a>
-									</strong>
-									</li>
-								</ul>
-								<button class="btn btn-success" type="button"
-									data-dismiss="modal">
-									<i class="fa fa-times"></i> Close
-								</button>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="portfolio-modal modal fade" id="portfolioModal5"
-		tabindex="-1" role="dialog" aria-hidden="true">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content">
-				<div class="close-modal" data-dismiss="modal">
-					<div class="lr">
-						<div class="rl"></div>
-					</div>
-				</div>
-				<div class="container">
-					<div class="row">
-						<div class="col-lg-8 mx-auto">
-							<div class="modal-body">
-								<h2>Project Title</h2>
-								<hr class="star-primary">
-								<img class="img-fluid img-centered" src="/images/portfolio/safe.png"
-									alt="">
-								<p>
-									Use this area of the page to describe your project. The icon
-									above is part of a free icon set by <a
-										href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On
-									their website, you can download their free set with 16 icons,
-									or you can purchase the entire set with 146 icons for only $12!
-								</p>
-								<ul class="list-inline item-details">
-									<li>Client: <strong> <a
-											href="http://startbootstrap.com">Start Bootstrap</a>
-									</strong>
-									</li>
-									<li>Date: <strong> <a
-											href="http://startbootstrap.com">April 2014</a>
-									</strong>
-									</li>
-									<li>Service: <strong> <a
-											href="http://startbootstrap.com">Web Development</a>
-									</strong>
-									</li>
-								</ul>
-								<button class="btn btn-success" type="button"
-									data-dismiss="modal">
-									<i class="fa fa-times"></i> Close
-								</button>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" role="dialog" aria-hidden="true">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content">
-				<div class="close-modal" data-dismiss="modal">
-					<div class="lr">
-						<div class="rl"></div>
-					</div>
-				</div>
-				<div class="container">
-					<div class="row">
-						<div class="col-lg-8 mx-auto">
-							<div class="modal-body">
-								<h2>Project Title</h2>
-								<hr class="star-primary">
-								<img class="img-fluid img-centered"
-									src="/images/portfolio/submarine.png" alt="">
-								<p>
-									Use this area of the page to describe your project. The icon
-									above is part of a free icon set by <a
-										href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On
-									their website, you can download their free set with 16 icons,
-									or you can purchase the entire set with 146 icons for only $12!
-								</p>
-								<ul class="list-inline item-details">
-									<li>Client: <strong> <a
-											href="http://startbootstrap.com">Start Bootstrap</a>
-									</strong>
-									</li>
-									<li>Date: <strong> <a
-											href="http://startbootstrap.com">April 2014</a>
-									</strong>
-									</li>
-									<li>Service: <strong> <a
-											href="http://startbootstrap.com">Web Development</a>
-									</strong>
-									</li>
-								</ul>
-								<button class="btn btn-success" type="button"
-									data-dismiss="modal">
-									<i class="fa fa-times"></i> Close
-								</button>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<!-- Bootstrap core JavaScript -->
-	<script src="/jquery/jquery.min.js"></script>
-	<script src="/popper/popper.min.js"></script>
-	<script src="/bootstrap/js/bootstrap.min.js"></script>
-
-	<!-- Plugin JavaScript -->
-	<script src="/jquery-easing/jquery.easing.min.js"></script>
-
-	<!-- Contact Form JavaScript -->
-	<script src="/js/jqBootstrapValidation.js"></script>
-	<script src="/js/contact_me.js"></script>
-
-	<!-- Custom scripts for this template -->
-	<script src="/js/freelancer.min.js"></script>
 
 </body>
 

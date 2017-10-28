@@ -6,163 +6,151 @@
 <head>
 
 <meta charset="utf-8">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description" content="">
 <meta name="author" content="">
 
 <title>Hand Made - Pet Product</title>
 
+<!-- Bootstrap core JavaScript -->
+<script src="/jquery/jquery.min.js"></script>
+<script src="/bootstrap/js/bootstrap.min.js"></script>
+
 <!-- Bootstrap core CSS -->
 <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
 <!-- Custom fonts for this template -->
-<link href="/font-awesome/css/font-awesome.min.css" rel="stylesheet"
-	type="text/css">
-<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700"
-	rel="stylesheet" type="text/css">
-<link
-	href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic"
-	rel="stylesheet" type="text/css">
+<link href="/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
 <!-- Custom styles for this template -->
-<link href="/css/freelancer.min.css" rel="stylesheet">
+<link rel="stylesheet" href="/css/main.css" />
+<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
 
-<script src="/js/login.js"></script>
+<!-- Scripts -->
+<script src="/js/skel.min.js"></script>
+<script src="/js/util.js"></script>
+<script src="/js/main.js"></script>
+<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
 
 </head>
-<body id="page-top">
-	<!-- Navigation -->
-	<nav class="navbar navbar-expand-lg navbar-light fixed-top"
-		id="mainNav">
-		<div class="container">
-			<a class="navbar-brand js-scroll-trigger" href="#page-top">FreeHaGae</a>
-			<button class="navbar-toggler navbar-toggler-right" type="button"
-				data-toggle="collapse" data-target="#navbarResponsive"
-				aria-controls="navbarResponsive" aria-expanded="false"
-				aria-label="Toggle navigation">
-				Menu <i class="fa fa-bars"></i>
-			</button>
-			<div class="collapse navbar-collapse" id="navbarResponsive">
-				<ul class="navbar-nav ml-auto">
-					<li class="nav-item"><a class="nav-link js-scroll-trigger"
-						onclick="location='main'" style="cursor: pointer">Home</a></li>
-					<li class="nav-item"><a class="nav-link js-scroll-trigger"
-						onclick="location='main#portfolio'">Shopping</a></li>
-					<li class="nav-item"><a class="nav-link js-scroll-trigger"
-						onclick="location='loginForm'" style="cursor: pointer">Sign in</a></li>
-					<li class="nav-item"><a class="nav-link js-scroll-trigger"
-						onclick="location='joinForm'" style="cursor: pointer">Sign up</a></li>
-				</ul>
+
+<body>
+	<!-- Wrapper -->
+	<div id="wrapper">
+
+		<!-- Header -->
+		<header id="header">
+			<div class="inner">
+
+				<!-- Logo -->
+					<a href="main" class="logo">
+						<span class="symbol"><i class="fa fa-paw fa-2x" aria-hidden="true"></i></span><span class="title">FreeHaGae</span>
+					</a>
+					
+					<ul class="main_icons">
+						<li> <i class="fa fa-home" aria-hidden="true" onclick="location='main'"> <span>Home</span> </i> </li>
+						<li> <i class="fa fa-sign-in" aria-hidden="true" onclick="location='loginForm'"> <span>Sign In</span> </i> </li>
+						<li> <i class="fa fa-pencil-square-o" aria-hidden="true" onclick="location='joinForm'"> <span>Sign Up</span> </i> </li>
+						<li> <i class="fa fa-building-o" aria-hidden="true"> <span>Store Open</span> </i> </li>
+					</ul>
+				<!-- Nav -->
+					<nav>
+						<ul>
+							<li><a href="#menu">Menu</a></li>
+						</ul>
+					</nav>
+
 			</div>
-		</div>
-	</nav>
-	<section>
-		<div class="container">
+		</header>
 
-			<div class="row" id="pwd-container">
+		<!-- Menu -->
+		<nav id="menu">
+			<h2>Menu</h2>
+			<ul class="menu">
+				<li><a href="main">Home</a></li>
+				<li><a href="#">Category</a>
+					<ul class="sub">
+						<li><a href="#">성</a></li>
+						<li><a href="#">공</a></li>
+					</ul>
+				</li>
+				<li><a href="loginForm">Sign in</a></li>
+				<li><a href="joinForm">Sign up</a></li>
+				<li><a href="#">My Store</a></li>
+			</ul>
+		</nav>
+		
+		<!-- Container -->
+		<div class="main">
+			
+			<div class="inner">
 				
-
-				<div class="col-md-4">
-					<section class="login-form">
-						<form method="post" action="loginPro" role="login">
-							<img src="/images/signin.png" class="img-responsive" alt="" /> 
+				<section class="signin">
+					<img src="/images/signin.png" class="img-responsive" alt="" />
+					<br>
+					<form action="loginPro" method="post">
+						<div class="4u 12u$(xsmall)">
 							<input type="email" class="form-control input-lg" name="m_email" placeholder="Email" required  /> 
 							<input type="password" class="form-control input-lg" id="password" name="m_password" placeholder="Password" required="" />
-
-
-							<div class="pwstrength_viewport_progress"></div>
-
-
-							<button type="submit" name="go"	class="btn btn-lg btn-primary btn-block">Sign in</button>
-							<div>
-								<a href="joinForm">Create account</a> or <a href="#">reset password</a>
-							</div>
-
-						</form>
-
-						<div class="form-links">
-							<a href="main">www.freehagae.com</a>
 						</div>
-					</section>
-				</div>
-				<div class="col-md-4"></div>
-				<div class="col-md-4"></div>
-
+						<div>
+							<ul class="actions">
+								<li><input type="submit" value="Sign in" class="special" /></li>
+								<li><input type="reset" value="Cancel" /></li>
+							</ul>
+						</div>
+					</form> 
+				</section>
+				
 			</div>
-
+		
 		</div>
-	</section>
-	<!-- Footer -->
-	<footer class="text-center">
-		<div class="footer-above">
-			<div class="container">
-				<div class="row">
-					<div class="footer-col col-md-4">
-						<h3>Location</h3>
-						<p>
-							3481 Melrose Place <br>Beverly Hills, CA 90210
-						</p>
-					</div>
-					<div class="footer-col col-md-4">
-						<h3>Around the Web</h3>
-						<ul class="list-inline">
-							<li class="list-inline-item"><a
-								class="btn-social btn-outline" href="#"> <i
-									class="fa fa-fw fa-facebook"></i>
-							</a></li>
-							<li class="list-inline-item"><a
-								class="btn-social btn-outline" href="#"> <i
-									class="fa fa-fw fa-google-plus"></i>
-							</a></li>
-							<li class="list-inline-item"><a
-								class="btn-social btn-outline" href="#"> <i
-									class="fa fa-fw fa-twitter"></i>
-							</a></li>
-							<li class="list-inline-item"><a
-								class="btn-social btn-outline" href="#"> <i
-									class="fa fa-fw fa-linkedin"></i>
-							</a></li>
-							<li class="list-inline-item"><a
-								class="btn-social btn-outline" href="#"> <i
-									class="fa fa-fw fa-dribbble"></i>
-							</a></li>
+		
+		
+		<!-- Footer -->
+		<footer id="footer">
+			<div class="inner">
+				<section>
+					<h2>Get in touch</h2>
+					<form method="post" action="#">
+						<div class="field half first">
+							<input type="text" name="name" id="name" placeholder="Name" />
+						</div>
+						<div class="field half">
+							<input type="email" name="email" id="email" placeholder="Email" />
+						</div>
+						<div class="field">
+							<textarea name="message" id="message" placeholder="Message"></textarea>
+						</div>
+						<ul class="actions">
+							<li><input type="submit" value="Send" class="special" /></li>
 						</ul>
-					</div>
-					<div class="footer-col col-md-4">
-						<h3>About Freelancer</h3>
-						<p>
-							Freelance is a free to use, open source Bootstrap theme created
-							by <a href="http://startbootstrap.com">Start Bootstrap</a>.
-						</p>
-					</div>
-				</div>
+					</form>
+				</section>
+				<section>
+					<h2>Follow</h2>
+					<ul class="icons">
+						<li><a href="#" class="icon style2 fa-twitter"><span class="label">Twitter</span></a></li>
+						<li><a href="#" class="icon style2 fa-facebook"><span class="label">Facebook</span></a></li>
+						<li><a href="#" class="icon style2 fa-instagram"><span class="label">Instagram</span></a></li>
+						<li><a href="#" class="icon style2 fa-dribbble"><span class="label">Dribbble</span></a></li>
+						<li><a href="#" class="icon style2 fa-github"><span class="label">GitHub</span></a></li>
+						<li><a href="#" class="icon style2 fa-500px"><span class="label">500px</span></a></li>
+						<li><a href="#" class="icon style2 fa-phone"><span class="label">Phone</span></a></li>
+						<li><a href="#" class="icon style2 fa-envelope-o"><span class="label">Email</span></a></li>
+					</ul>
+				</section>
+				<ul class="copyright">
+					<li>&copy; Untitled. All rights reserved</li>
+				</ul>
 			</div>
-		</div>
-		<div class="footer-below">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-12">Copyright &copy; Your Website 2017</div>
-				</div>
-			</div>
-		</div>
-	</footer>
+		</footer>
 
-	<!-- Bootstrap core JavaScript -->
-	<script src="/jquery/jquery.min.js"></script>
-	<script src="/popper/popper.min.js"></script>
-	<script src="/bootstrap/js/bootstrap.min.js"></script>
-
-	<!-- Plugin JavaScript -->
-	<script src="/jquery-easing/jquery.easing.min.js"></script>
-
-	<!-- Contact Form JavaScript -->
-	<script src="/js/jqBootstrapValidation.js"></script>
-	<script src="/js/contact_me.js"></script>
-
-	<!-- Custom scripts for this template -->
-	<script src="/js/freelancer.min.js"></script>
+	</div>
 
 </body>
 
 </html>
+

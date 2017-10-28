@@ -46,6 +46,11 @@ public class MemberInfoDao implements IMemberInfoDao {
 	public member_info selectMemberInfo(int m_index) {
 		return session.selectOne("dao.IMemberInfoDao.selectMemberInfo", m_index);
 	}
-
+	
+	@Override
+	public boolean signinCheck(member_info member_info){
+		String name = session.selectOne("dao.IMemberInfoDao.signinCheck", member_info);
+		return (name == null) ? false : true;
+	}
 		
 }

@@ -33,4 +33,8 @@
 	<select id="selectMemberInfo" parameterType="int" resultType="member_info">
 		select * from member_info where m_index=#{m_index};
 	</select>
+	
+	<select id="signinCheck" resultType="String">
+		select m_name from member_info where m_email = #{m_email} and m_password = #{m_password}
+	</select>
 </mapper>

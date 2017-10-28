@@ -70,7 +70,7 @@ public class tempController {
 		if(member_info.getM_email() != null){
 			memberService.addMember(member_info);
 		}
-		mav.setViewName("joinResult");
+		mav.setViewName("loginForm");
 		return mav;
 	}
 	
@@ -83,8 +83,9 @@ public class tempController {
 			if(member_info.getM_password().equals(m_password)){
 				mav.addObject("result", 1);
 				mav.addObject("m_index", member_info.getM_index());
-				mav.setViewName("mainLogin");
+				mav.setViewName("main");
 				session.setAttribute("m_index", member_info.getM_index());
+				System.out.println(member_info.getM_index());
 				System.out.println("login success !!!");
 			} else {
 				mav.addObject("result", 0);
@@ -254,6 +255,21 @@ public class tempController {
 		return "qnaPageCtrl";
 	}
 	
+	
+	@RequestMapping("orderProduct")
+	public ModelAndView orderProduct() {
+		ModelAndView mav = new ModelAndView();		
+		mav.setViewName("orderProduct");		
+		return mav;
+	}	
+	
+	@RequestMapping("orderCheck")
+	public ModelAndView orderCheck() {
+		ModelAndView mav = new ModelAndView();		
+		mav.setViewName("orderCheck");		
+		return mav;
+	}
+	
 	@RequestMapping("memberInfo")
 	public ModelAndView memberInfo(HttpSession session) {
 		ModelAndView mav = new ModelAndView();
@@ -263,7 +279,13 @@ public class tempController {
 		mav.setViewName("memberInfo");		
 		return mav;
 	}
-	
+
+	@RequestMapping("consumerContractList")
+	public ModelAndView consumerContractList() {
+		ModelAndView mav = new ModelAndView();		
+		mav.setViewName("consumerContractList");		
+		return mav;
+	}
 	@RequestMapping("qAndA")
 	public ModelAndView qAndA() {
 		ModelAndView mav = new ModelAndView();		
@@ -344,25 +366,6 @@ public class tempController {
 		mav.setViewName("mapTest");		
 		return mav;
 	}
-		
-	@RequestMapping("customerStore")
-	public ModelAndView sellerMyStore(HttpSession session) {
-		ModelAndView mav = new ModelAndView();
-		int m_index = (Integer)session.getAttribute("m_index");
-		seller_info sellerInfo = sellerInfoService.getSellerInfo(m_index);
-		mav.addObject("seller_info_select", sellerInfo);		
-		mav.setViewName("customerStore");		
-		return mav;
-	}
 	
-	@RequestMapping("customerStoreInquiry")
-	public ModelAndView customerStoreInquiry(HttpSession session){
-		ModelAndView mav = new ModelAndView();
-		int m_index = (Integer)session.getAttribute("m_index");
-		seller_info sellerInfo = sellerInfoService.getSellerInfo(m_index);
-		mav.addObject("seller_info_select", sellerInfo);		
-		mav.setViewName("customerStoreInquiry");
-		return mav;	
-	}
 	
 }
