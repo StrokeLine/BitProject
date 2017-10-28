@@ -6,7 +6,7 @@
 <mapper namespace="dao.IProductNoticeDao">
 
 	<insert id="insertProductNotice" parameterType="product_notice">
-		insert into product_notice values(0, #{m_index}, #{s_index}, #{p_index}, #{pn_view}, #{pn_date});
+		insert into product_notice values(0, #{m_index}, #{s_index}, #{p_index}, #{pn_view}, now());
 	</insert>
 
 	<delete id="deleteProductNotice" parameterType="int">

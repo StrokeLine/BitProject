@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.File;
+import java.io.IOException;
 import java.sql.Date;
 import java.text.SimpleDateFormat;
 import java.util.List;
@@ -19,7 +20,11 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import model.product_info;
+import model.product_notice;
+import model.store_following;
+import service.FollowingService;
 import service.ProductService;
+import service.SellerInfoService;
 
 
 @Controller
@@ -27,6 +32,12 @@ public class ProductController {
 	
 	@Autowired
 	private ProductService productService;	
+	
+	@Autowired
+	private SellerInfoService sellerInfoService;
+	
+	@Autowired
+	private FollowingService followingService;
 	
 	@RequestMapping("managementProduct")
 	public ModelAndView managementProduct(HttpSession session){
@@ -42,6 +53,7 @@ public class ProductController {
 	public ModelAndView viewProduct(int p_index){
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("product_info", productService.getProduct(p_index));
+		System.out.println(productService.getProduct(p_index).getP_imgSrc());
 		mav.setViewName("productPage");	
 		return mav;	
 	}
@@ -52,11 +64,45 @@ public class ProductController {
 	}	
 	
 	@RequestMapping("addProduct")
-	public String addProduct(HttpSession session, product_info product_info){		
+	public String addProduct(HttpSession session, product_info product_info, MultipartFile imgSrc){
+		String path = "c:\\Upload\\image\\";
+		String filename = imgSrc.getOriginalFilename();
+		File imgFile = new File(path + filename);
+		
+		try {
+			imgSrc.transferTo(imgFile);
+			product_info.setP_imgSrc(filename);
+		} catch (IllegalStateException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
 		int m_index = (Integer)session.getAttribute("m_index");
-		product_info.setM_index(m_index);;
-		productService.addProduct(product_info);		
+		product_info.setM_index(m_index);
+		int result = productService.addProduct(product_info);
+		
+		if(result != 0){
+			int s_index = sellerInfoService.getSellerInfo(m_index).getS_index();
+			sendProductMsg(s_index, result);
+		}
+		
 		return "redirect:managementProduct";
+	}
+	
+	public void sendProductMsg(int s_index, int p_index){
+		List<store_following> following = followingService.getStoreFollowingUserList(s_index);
+		
+		if(!following.isEmpty()){
+			for(store_following follower : following){
+				product_notice product_notice = new product_notice();
+				product_notice.setM_index(follower.getM_index());
+				product_notice.setS_index(s_index);
+				product_notice.setP_index(p_index);
+				
+				followingService.addProductNotice(product_notice);
+			}
+		}
 	}
 	
 	/*@RequestMapping("productList")
@@ -67,12 +113,14 @@ public class ProductController {
 		mav.setViewName("productList");		
 		return mav;
 	} */	
-	/*@RequestMapping("downloadProductImg")
+	
+	
+	@RequestMapping("downloadProductImg")
 	public DownloadView productImgDownload(int p_index){
 		String p_imgSrcFileName = productService.getProduct(p_index).getP_imgSrc();
 		File p_imgSrcFile = new File("c:\\Upload\\image\\" + p_imgSrcFileName);
 		return new DownloadView(p_imgSrcFile, p_imgSrcFileName);
-	}*/	
+	}	
 	
 	@RequestMapping("modifyProductForm")
 	public String modifyProductForm(int p_index, Model model){		

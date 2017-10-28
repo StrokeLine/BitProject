@@ -345,5 +345,18 @@ public class tempController {
 		return mav;
 	}
 	
+	@RequestMapping("SmartEditor2Skin")
+	public ModelAndView SmartEditor2Skin() {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("SmartEditor2Skin");		
+		return mav;
+	}
 	
+	
+	@RequestMapping("smart_editor2_inputarea")
+	public ModelAndView smart_editor2_inputarea() {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("smart_editor2_inputarea");		
+		return mav;
+	}
 }

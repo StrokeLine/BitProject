@@ -5,7 +5,7 @@
 	
 <mapper namespace="dao.IProductInfoDao">
 
-	<insert id="insertProductInfo" parameterType="product_info">
+	<insert id="insertProductInfo" parameterType="product_info" useGeneratedKeys="true" keyProperty="p_index">
 		insert into product_info values (0, #{s_index}, #{m_index}, #{p_hashTag}, #{p_major_value}, #{p_miner_value}, #{p_name}, #{p_num}, #{p_price}, #{p_fee}, #{p_content}, #{p_imgSrc}, #{p_posting_deadline}, now());
 	</insert>
 	

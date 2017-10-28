@@ -21,4 +21,8 @@
 		select * from store_following where sf_index=#{sf_index};
 	</select>
 	
+	<select id="selectStoreFollowingUserList" parameterType="int" resultType="store_following">
+		select * from store_following where s_index=#{s_index};
+	</select>
+	
 </mapper>

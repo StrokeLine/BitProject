@@ -4,6 +4,26 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<!-- Naver Smart Edit -->
+<script type="text/javascript" src="/nSmartEdit/js/HuskyEZCreator.js" charset="utf-8"></script>
+<script type="text/javascript">
+	window.onload = function(){
+		var oEditors = [];
+
+		 nhn.husky.EZCreator.createInIFrame({
+
+		 oAppRef: oEditors,
+
+		 elPlaceHolder: "p_content",
+
+		 sSkinURI: "SmartEditor2Skin",
+
+		 fCreator: "createSEditor2"
+
+		 });
+	}
+</script>
 </head>
 <body>
 <div class="inputProduct_Main" style="margin: 0px 200px 0px 200px;">
@@ -12,7 +32,7 @@
 			<h3>상품등록</h3>
 		</center>
 	</div>
-	<form action="addProduct" method="post">
+	<form action="addProduct" enctype="multipart/form-data" method="post">
 		<div class="inputProduct_middle">
 			<div class="inputProduct_item">
 				<!-- <div class="picture">
@@ -41,7 +61,11 @@
 				</div>
 				<div class="content">
 					<h4>내용</h4>
-					<textarea name="p_content" rows="20" cols="80" lang="1000"></textarea>
+					<textarea id="p_content" name="p_content" rows="20" cols="80" lang="1000"></textarea>
+				</div>
+				<div class="image">
+					<h4>이미지</h4>
+					<input type="file" name="imgSrc" accept=".jpg, .png">
 				</div>
 				<div class="hashTag">
 					<h4>태그</h4>

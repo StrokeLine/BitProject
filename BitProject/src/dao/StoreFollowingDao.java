@@ -16,21 +16,27 @@ public class StoreFollowingDao implements IStoreFollowingDao{
 
 	@Override
 	public int insertStoreFollowing(store_following seller_following) {
-		return session.insert("dao.ISellerFollowingDao.insertStoreFollowing", seller_following);
+		return session.insert("dao.IStoreFollowingDao.insertStoreFollowing", seller_following);
 	}
 
 	@Override
 	public int updateStoreFollowing(store_following seller_following) {
-		return session.update("dao.ISellerFollowingDao.updateStoreFollowing", seller_following);
+		return session.update("dao.IStoreFollowingDao.updateStoreFollowing", seller_following);
 	}
 
 	@Override
 	public int deleteStoreFollowing(int sf_index) {
-		return session.delete("dao.ISellerFollowingDao.deleteStoreFollowing", sf_index);
+		return session.delete("dao.IStoreFollowingDao.deleteStoreFollowing", sf_index);
 	}
 
 	@Override
 	public store_following selectStoreFollowing(int sf_index) {
-		return session.selectOne("dao.ISellerFollowingDao. selectStoreFollowing", sf_index);
+		return session.selectOne("dao.IStoreFollowingDao. selectStoreFollowing", sf_index);
 	}
+
+	@Override
+	public List<store_following> selectStoreFollowingUserList(int s_index) {
+		return session.selectList("dao.IStoreFollowingDao.selectStoreFollowingUserList", s_index);
+	}
+	
 }

@@ -99,8 +99,9 @@
 								<tr>
 									<td class="content"><input type="checkbox" id="checkRow"></td>									
 									<td style="margin-left: 15px;">
-										<a href="viewProduct?p_index=${product_info.p_index}">
-										<img src="downloadProductImg?p_index=${product_info.p_index}" width="" height="" border="0"></a>
+										<c:if test="${product_info.p_imgSrc != null }">
+											<a href="productPage?p_index=${product_info.p_index}"><img src="downloadProductImg?p_index=${product_info.p_index}" width="130" height="130" border="0"></a>												
+										</c:if>
 									</td>
 									<td class="content" style="text-align: left;">
 										<h6><a href="productPage?p_index=${product_info.p_index}">${product_info.p_name}</a><br></h6>									

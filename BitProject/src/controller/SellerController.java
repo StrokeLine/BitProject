@@ -59,5 +59,11 @@ public class SellerController {
 		//seller_info sellerInfo = sellerInfoService.getSellerInfo(m_index);		
 		return "redirect:sellerMyStore?m_index=" + seller_info.getM_index();
 	}
+	
+	@RequestMapping("customerNotice")
+	public String customerNotice(HttpSession session){
+				
+		return "customerNotice";
+	}
 
 }
