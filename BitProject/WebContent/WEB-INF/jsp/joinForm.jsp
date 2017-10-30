@@ -60,7 +60,6 @@
 			success : function(data) {
 				if (inputed == "" && data == '0') {
 					$("#inputjoin").prop("disabled", true);
-					$("#inputjoin").css("background-color", "#aaaaaa");
 					$("#emailid").css("background-color", "#FFCECE");
 					idCheck = 0;
 				} else if (data == '0') {
@@ -68,12 +67,10 @@
 					idCheck = 1;
 					if (idCheck == 1 && pwdCheck == 1 && emailCheck == 1 && passwdCheck == 1 && phoneCheck == 1 && telCheck == 1 && nameCheck == 1 && nickCheck == 1) {
 						$("#inputjoin").prop("disabled", false);
-						$("#inputjoin").css("background-color", "#4CAF50");
 						signupCheck();
 					}
 				} else if (data == '1') {
 					$("#inputjoin").prop("disabled", true);
-					$("#inputjoin").css("background-color", "#aaaaaa");
 					$("#emailid").css("background-color", "#FFCECE");
 					idCheck = 0;
 				}
@@ -86,20 +83,17 @@
 		var reinputed = $('#cpassword').val();
 		if (reinputed == "" && (inputed != reinputed || inputed == reinputed)) {
 			$("#inputjoin").prop("disabled", true);
-			$("#inputjoin").css("background-color", "#aaaaaa");
 			$("#cpassword").css("background-color", "#FFCECE");
 		} else if (inputed == reinputed) {
 			$("#cpassword").css("background-color", "#B0F6AC");
 			pwdCheck = 1;
 			if (idCheck == 1 && pwdCheck == 1 && emailCheck == 1 && passwdCheck == 1 && phoneCheck == 1 && telCheck == 1 && nameCheck == 1 && nickCheck == 1) {
 				$("#inputjoin").prop("disabled", false);
-				$("#inputjoin").css("background-color", "#4CAF50");
 				signupCheck();
 			}
 		} else if (inputed != reinputed) {
 			pwdCheck = 0;
 			$("#inputjoin").prop("disabled", true);
-			$("#inputjoin").css("background-color", "#aaaaaa");
 			$("#cpassword").css("background-color", "#FFCECE");
 
 		}
@@ -115,7 +109,6 @@
 			success : function(data) {
 				if (inputed == "" && data == '0') {
 					$("#inputjoin").prop("disabled", true);
-					$("#inputjoin").css("background-color", "#aaaaaa");
 					$("#mPhone").css("background-color", "#FFCECE");
 					telCheck = 0;
 				} else if (data == '0') {
@@ -123,13 +116,11 @@
 					telCheck = 1;
 					if (idCheck == 1 && pwdCheck == 1 && emailCheck == 1 && passwdCheck == 1 && phoneCheck == 1 && telCheck == 1 && nameCheck == 1 && nickCheck == 1) {
 						$("#inputjoin").prop("disabled", false);
-						$("#inputjoin").css("background-color", "#4CAF50");
 						signupCheck();
 					}
 						
 				} else if (data == '1'){
 					$("#inputjoin").prop("disabled", true);
-					$("#inputjoin").css("background-color", "#aaaaaa");
 					$("#mPhone").css("background-color", "#FFCECE");
 					telCheck = 0;
 				}
@@ -147,7 +138,6 @@
 			success : function(data) {
 				if (inputed == "" && data == '0') {
 					$("#inputjoin").prop("disabled", true);
-					$("#inputjoin").css("background-color", "#aaaaaa");
 					$("#mName").css("background-color", "#FFCECE");
 					nickCheck = 0;
 				} else if (data == '0') {
@@ -155,13 +145,11 @@
 					nickCheck = 1;
 					if (idCheck == 1 && pwdCheck == 1 && emailCheck == 1 && passwdCheck == 1 && phoneCheck == 1 && telCheck == 1 && nameCheck == 1 && nickCheck == 1) {
 						$("#inputjoin").prop("disabled", false);
-						$("#inputjoin").css("background-color", "#4CAF50");
 						signupCheck();
 					}
 						
 				} else if (data == '1'){
 					$("#inputjoin").prop("disabled", true);
-					$("#inputjoin").css("background-color", "#aaaaaa");
 					$("#mName").css("background-color", "#FFCECE");
 					nickCheck = 0;
 				}
@@ -175,7 +163,6 @@
 		var MobilePhone = $("#mPhone").val();
 		if (nickname == "" || MobilePhone == "") {
 			$("#inputjoin").prop("disabled", true);
-			$("#inputjoin").css("background-color", "#aaaaaa");
 		} else {
 		}
 	}
@@ -193,7 +180,6 @@
 		// if value is empty then exit
 		if (email == '' || email == 'undefined') {
 			$("#inputjoin").prop("disabled", true);
-			$("#inputjoin").css("background-color", "#aaaaaa");
 			return;
 		}
 		// valid check
@@ -201,7 +187,6 @@
 			$("#result_check").text('Not valid email.');
 			$("#result_check").css("color","red");
 			$("#inputjoin").prop("disabled", true);
-			$("#inputjoin").css("background-color", "#aaaaaa");
 			/* $(this).focus(); */
 			return false;
 		} else if (email_check(email)){
@@ -210,7 +195,6 @@
 			emailCheck = 1;
 			if (idCheck == 1 && pwdCheck == 1 && emailCheck == 1 && passwdCheck == 1 && phoneCheck == 1 && telCheck == 1 && nameCheck == 1 && nickCheck == 1) {
 				$("#inputjoin").prop("disabled", false);
-				$("#inputjoin").css("background-color", "#4CAF50");
 			}
 		}
 	}
@@ -228,7 +212,6 @@
 		// if value is empty then exit
 		if (passwd == '' || passwd == 'undefined') {
 			$("#inputjoin").prop("disabled", true);
-			$("#inputjoin").css("background-color", "#aaaaaa");
 			return;
 		}
 		// valid check
@@ -236,7 +219,6 @@
 			$("#result_checkpwd").text('Not valid passwd.');
 			$("#result_checkpwd").css("color","red");
 			$("#inputjoin").prop("disabled", true);
-			$("#inputjoin").css("background-color", "#aaaaaa");
 			/* $(this).focus(); */
 			return false;
 		} else if (passwd_check(passwd)){
@@ -245,7 +227,6 @@
 			passwdCheck = 1;
 			if (idCheck == 1 && pwdCheck == 1 && emailCheck == 1 && passwdCheck == 1 && phoneCheck == 1 && telCheck == 1 && nameCheck == 1 && nickCheck == 1) {
 				$("#inputjoin").prop("disabled", false);
-				$("#inputjoin").css("background-color", "#4CAF50");
 			}
 		}
 	}
@@ -262,7 +243,6 @@
 		
 		if (mPhone == '' || mPhone == 'undefined') {
 			$("#inputjoin").prop("disabled", true);
-			$("#inputjoin").css("background-color", "#aaaaaa");
 			return;
 		}
 		if (!phone_check(mPhone)) {
@@ -270,7 +250,6 @@
 			$("#result_checkphone").text('Not valid phone number.');
 			$("#result_checkphone").css("color","red");
 			$("#inputjoin").prop("disabled", true);
-			$("#inputjoin").css("background-color", "#aaaaaa");
 			/* $(this).focus(); */
 			return false;
 		} else if (phone_check(mPhone)){
@@ -280,7 +259,6 @@
 			phoneCheck = 1;
 			if (idCheck == 1 && pwdCheck == 1 && emailCheck == 1 && passwdCheck == 1 && phoneCheck == 1 && telCheck == 1 && nameCheck == 1 && nickCheck == 1) {
 				$("#inputjoin").prop("disabled", false);
-				$("#inputjoin").css("background-color", "#4CAF50");
 			}
 		}
 	
@@ -298,7 +276,6 @@
 		
 		if (mName == '' || mName == 'undefined') {
 			$("#inputjoin").prop("disabled", true);
-			$("#inputjoin").css("background-color", "#aaaaaa");
 			return;
 		}
 		if (!name_check(mName)) {
@@ -306,7 +283,6 @@
 			$("#result_checkname").text('Not valid name.');
 			$("#result_checkname").css("color","red");
 			$("#inputjoin").prop("disabled", true);
-			$("#inputjoin").css("background-color", "#aaaaaa");
 			/* $(this).focus(); */
 			return false;
 		} else if (name_check(mName)){
@@ -316,7 +292,6 @@
 			nameCheck = 1;
 			if (idCheck == 1 && pwdCheck == 1 && emailCheck == 1 && passwdCheck == 1 && phoneCheck == 1 && telCheck == 1 && nameCheck == 1 && nickCheck == 1) {
 				$("#inputjoin").prop("disabled", false);
-				$("#inputjoin").css("background-color", "#4CAF50");
 			}
 		}
 	
@@ -622,132 +597,154 @@
 				<li><a href="#">My Store</a></li>
 			</ul>
 		</nav>
-		
-	<section>
-		<div class="container">
-
-			<div class="row">
-				<div class="col-md-8">
-					<h1 class="entry-title">
-						<span><img alt="" src="/images/signup.png" class="img-responsive"></span>
-					</h1>
-					<hr>
-					<form class="form-horizontal" method="post" action="joinPro"
-						name="signup" id="signup" enctype="multipart/form-data">
-						<div class="form-group">
-							<h4>Member Info</h4>
-							<label class="control-label col-sm-3">Email ID <span
-								class="text-danger">*</span></label>
-							<div class="col-md-8 col-sm-9">
-								<div class="input-group">
-									<span class="input-group-addon"><i
-										class="fa fa-envelope-o" aria-hidden="true"></i></span> <input
-										type="text" class="form-control" name="m_email" id="emailid"
-										placeholder="Enter your Email ID" value=""
-										oninput="javascript:checkId();" onkeyup="on_key()">
-								</div>
-								<div id="result_check"></div>
-							</div>
-						</div>
-
-						<div class="form-group">
-							<label class="control-label col-sm-3">Set Password <span
-								class="text-danger">*</span></label>
-							<div class="col-md-5 col-sm-8">
-								<div class="input-group">
-									<span class="input-group-addon"><i
-										class="fa fa-expeditedssl" aria-hidden="true"></i></span> <input
-										type="password" class="form-control" name="m_password"
-										id="password" placeholder="Choose password (5-15 chars)"
-										value="" oninput="checkPwd()" onkeyup="on_keypasswd()">
-								</div>
-								<div id="result_checkpwd"></div>
-							</div>
-						</div>
-						<div class="form-group">
-							<label class="control-label col-sm-3">Confirm Password <span
-								class="text-danger">*</span>
-							</label>
-							<div class="col-md-5 col-sm-8">
-								<div class="input-group">
-									<span class="input-group-addon"><i
-										class="fa fa-expeditedssl" aria-hidden="true"></i></span> <input
-										type="password" class="form-control" id="cpassword"
-										placeholder="Confirm your password" value=""
-										oninput="checkPwd()">
-								</div>
-							</div>
-						</div>
-						<div class="form-group">
-							<label class="control-label col-sm-3">Nick Name <span
-								class="text-danger">*</span></label>
-							<div class="col-md-8 col-sm-9">
-								<input type="text" class="form-control" name="m_name"
-									id="mName" placeholder="Enter your Name here" value=""
-									oninput="checkName()" onkeyup="on_keyname()">
-							</div>
-							<div id="result_checkname"></div>
-						</div>
-
-						<div class="form-group">
-							<label class="control-label col-sm-3">Mobile Phone <span
-								class="text-danger">*</span></label>
-							<div class="col-md-5 col-sm-8">
-								<div class="input-group">
-									<span class="input-group-addon"><i class="fa fa-mobile"
-										aria-hidden="true"></i></span> <input type="text"
-										class="form-control" name="m_tel" id="mPhone"
-										placeholder="Enter your Mobile Phone number." value=""
-										oninput="checkPhone()" onkeyup="on_keyphone()">
-								</div>
-								<div id="result_checkphone"></div>
-							</div>
-						</div>
-
-						<div class="form-group">
-							<label class="control-label col-sm-3">Profile Photo <br>
-								<small>(optional)</small></label>
-							<div class="col-md-5 col-sm-8">
-								<div class="input-group">
-									<span class="input-group-addon" id="file_upload"><i
-										class="fa fa-file-image-o" aria-hidden="true"></i></span> <input
-										type="file" name="file_nm" id="file_nm"
-										class="form-control upload" placeholder=""
-										aria-describedby="file_upload">
-								</div>
-							</div>
-						</div>
 						
-						<!-- Pet -->						
-						<div class="form-group">
-							<label class="control-label col-sm-3">Pet Info<br> <small>(optional)</small></label>
-							<div id="petinfoselect">
-								<input type="checkbox" id="chk_pet" value="petinfo_input" onclick="petinputdelete()">펫 정보 등록
-							</div>
-							
-							<div class="addPet" id="addPet">
+	<!-- main -->
+	<div id="main">
+		<div class="inner">
+			<section>
+				<div class="container">
+
+					<div class="row">
+						<div class="col-md-8">
+							<h1 class="entry-title">
+								<span><img alt="" src="/images/signup.png" class="img-responsive"></span>
+							</h1>
+							<hr>
+							<form class="form-horizontal" method="post" action="joinPro"
+								name="signup" id="signup" enctype="multipart/form-data">
+								<div class="form-group">
+									<dl class="join_info">
+										<dt>
+											<label class="control-label col-sm-3">Email (ID) <span class="text-danger">*</span></label>
+										</dt>
+										<dd>
+											<div class="input-group">
+												<span class="input-group-addon"><i class="fa fa-envelope-o" aria-hidden="true"></i></span> 
+												<input type="text" class="form-control" name="m_email" 
+													id="emailid" placeholder="Enter your Email ID" value=""
+													oninput="javascript:checkId();" onkeyup="on_key()">
+											</div>
+											<div id="result_check"></div>
+										</dd>
+									</dl>
+								</div>
+			
+								<div class="form-group">
+									<dl>
+										<dt>
+											<label class="control-label col-sm-3">비밀번호 <span class="text-danger">*</span></label>
+										</dt>
+										<dd>
+											<div class="input-group">
+												<span class="input-group-addon"><i class="fa fa-expeditedssl" aria-hidden="true"></i></span> 
+												<input type="password" class="form-control" name="m_password"
+													id="password" placeholder="Choose password (5-15 chars)"
+													value="" oninput="checkPwd()" onkeyup="on_keypasswd()">
+											</div>
+											<div id="result_checkpwd"></div>
+										</dd>
+									</dl>
+								</div>
 								
-							</div>
-							
-						</div>
+								<div class="form-group">
+									<dl>
+										<dt>
+											<label class="control-label col-sm-3">비밀번호 재확인 <span class="text-danger">*</span></label>
+										</dt>
+										<dd>
+											<div class="input-group">
+												<span class="input-group-addon"><i class="fa fa-expeditedssl" aria-hidden="true"></i></span> 
+												<input type="password" class="form-control" id="cpassword"
+													placeholder="Confirm your password" value=""
+													oninput="checkPwd()">
+											</div>
+										</dd>
+									</dl>
+								</div>
+								
+								<div class="form-group">
+									<dl>
+										<dt>
+											<label class="control-label col-sm-3">별명 <span class="text-danger">*</span></label>
+										</dt>
+										<dd>
+											<div class="input-group">				
+												<span class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></span>
+												<input type="text" class="form-control" name="m_name"
+													id="mName" placeholder="Enter your Name here" value=""
+													oninput="checkName()" onkeyup="on_keyname()">
+											</div>
+											<div id="result_checkname"></div>
+										</dd>
+									</dl>
+								</div>
+
+								<div class="form-group">
+									<dl>
+										<dt>
+											<label class="control-label col-sm-3">휴대폰 번호 <span class="text-danger">*</span></label>
+										</dt>
+										<dd>
+											<div class="input-group">
+												<span class="input-group-addon"><i
+													class="fa fa-mobile" aria-hidden="true"></i></span> <input
+													type="text" class="form-control" name="m_tel" id="mPhone"
+													placeholder="Enter your Mobile Phone number." value=""
+													oninput="checkPhone()" onkeyup="on_keyphone()">
+											</div>
+											<div id="result_checkphone"></div>
+										</dd>
+									</dl>
+								</div>
+
+								<!-- <div class="form-group">
+									<dl>
+										<dt>
+											<label class="control-label col-sm-3">Profile Photo</label>
+										</dt>
+										<dd>
+											<div class="input-group">
+												<span class="input-group-addon" id="file_upload"><i
+													class="fa fa-file-image-o" aria-hidden="true"></i></span> <input
+													type="file" name="file_nm" id="file_nm"
+													class="form-control upload" placeholder=""
+													aria-describedby="file_upload">
+											</div>
+										</dd>										
+									</dl>
+								</div>
 						
-						<div class="form-group">
-							<div class="col-xs-offset-3 col-xs-10">
-								<button type="submit" class="btn btn-info" id="inputjoin" disabled="disabled">
-									회원가입 <i class="fa fa-check" aria-hidden="true"></i>
-								</button>
-								<button type="reset" class="btn btn-danger"	onclick="location='main'">
-									가입취소 <i class="fa fa-times" aria-hidden="true"></i>
-								</button>
-							</div>
+								Pet						
+								<div class="form-group">
+									<label class="control-label col-sm-3">Pet Info<br> <small>(optional)</small></label>
+									<div id="petinfoselect">
+										<input type="checkbox" id="chk_pet" value="petinfo_input" onclick="petinputdelete()">펫 정보 등록
+									</div>
+									
+									<div class="addPet" id="addPet">
+										
+									</div>
+									
+								</div> -->
+
+								<div class="form-group">
+									<div class="col-xs-offset-3 col-xs-10">
+										<button type="submit" class="button special small" id="inputjoin" disabled="disabled">
+											회원가입  <i class="fa fa-check" aria-hidden="true"></i>
+										</button>
+										<button type="reset" class="button small"	onclick="location='main'">
+											가입취소  <i class="fa fa-times" aria-hidden="true"></i>
+										</button>
+									</div>
+								</div>
+							</form>
 						</div>
-					</form>
+					</div>
+
 				</div>
-			</div>
-
+			</section>
 		</div>
-	</section>
-
+	</div><!-- 수정중 -->
 	<!-- Footer -->
 		<footer id="footer">
 			<div class="inner">

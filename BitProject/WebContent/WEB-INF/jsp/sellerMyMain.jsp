@@ -58,40 +58,37 @@ html, body{margin:0; width:100%;	height:100%;}
 			<div class="inner">
 
 				<!-- Logo -->
-					<a href="main" class="logo">
-						<span class="symbol"><i class="fa fa-paw fa-2x" aria-hidden="true"></i></span><span class="title">FreeHaGae</span>
-					</a>
-					
-					<ul class="main_icons">
-						<li> <i class="fa fa-home" aria-hidden="true" onclick="location='main'"> <span>Home</span> </i> </li>
-						<c:choose>
-							<c:when test="${empty sessionScope.m_index }"><!-- login X -->
-								
-							<ul class="main_icons_x">
-								<li> <i class="fa fa-home" aria-hidden="true" onclick="location='main'"> <span>Home</span> </i> </li>
-								<li> <i class="fa fa-sign-in" aria-hidden="true" onclick="location='loginForm'"> <span>Sign In</span> </i> </li>
-								<li> <i class="fa fa-pencil-square-o" aria-hidden="true" onclick="location='joinForm'"> <span>Sign Up</span> </i> </li>
-								<li> <i class="fa fa-building-o" aria-hidden="true"> <span>Store Open</span> </i> </li>
-							</ul>
+				<a href="main" class="logo">
+					<span class="symbol"><i class="fa fa-paw fa-2x" aria-hidden="true"></i></span><span class="title">FreeHaGae</span>
+				</a>
+									
+					<c:choose>
+						<c:when test="${empty sessionScope.m_index }"><!-- login X -->
 							
-							</c:when>
-							<c:when test="${not empty sessionScope.m_index }"><!-- login O -->
-							<ul class="main_icons_o">
-								<li> <i class="fa fa-home" aria-hidden="true" onclick="location='main'"> <span>Home</span> </i> </li>
-								<li> <i class="fa fa-sign-out" aria-hidden="true" onclick="location='logoutPro'"> <span>Sign out</span> </i> </li>
-								<li> <i class="fa fa-user" aria-hidden="true" onclick="location='myPageMain'"> <span>My page</span> </i> </li>
-								<li> <i class="fa fa-building-o" aria-hidden="true"> <span>Store Open</span> </i> </li>
-							</ul>
-							</c:when>
-						</c:choose>
-						<li> <i class="fa fa-building-o" aria-hidden="true"> <span>Store Open</span> </i> </li>
-					</ul>
-				<!-- Nav -->
-					<nav>
-						<ul>
-							<li><a href="#menu">Menu</a></li>
+						<ul class="main_icons_x">
+							<li> <i class="fa fa-home" aria-hidden="true" onclick="location='main'"> <span>Home</span> </i> </li>
+							<li> <i class="fa fa-sign-in" aria-hidden="true" onclick="location='loginForm'"> <span>Sign In</span> </i> </li>
+							<li> <i class="fa fa-pencil-square-o" aria-hidden="true" onclick="location='joinForm'"> <span>Sign Up</span> </i> </li>
+							<li> <i class="fa fa-building-o" aria-hidden="true"> <span>Store Open</span> </i> </li>
 						</ul>
-					</nav>
+						
+						</c:when>
+						<c:when test="${not empty sessionScope.m_index }"><!-- login O -->
+						<ul class="main_icons_o">
+							<li> <i class="fa fa-home" aria-hidden="true" onclick="location='main'"> <span>Home</span> </i> </li>
+							<li> <i class="fa fa-sign-out" aria-hidden="true" onclick="location='logoutPro'"> <span>Sign out</span> </i> </li>
+							<li> <i class="fa fa-user" aria-hidden="true" onclick="location='myPageMain'"> <span>My page</span> </i> </li>
+							<li> <i class="fa fa-building-o" aria-hidden="true"> <span>Store Open</span> </i> </li>
+						</ul>
+						</c:when>
+					</c:choose>
+						
+				<!-- Nav -->
+				<nav>
+					<ul>
+						<li><a href="#menu">Menu</a></li>
+					</ul>
+				</nav>
 
 			</div>
 		</header>
