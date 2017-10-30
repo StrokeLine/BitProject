@@ -727,16 +727,12 @@
 										<c:when test="${pet.pet_gender == 1}" >
 											<div class="4u 12u$(small)">
 												<input type="radio" value="2" name="gender${tag_num }"><label><i class="fa fa-venus" aria-hidden="true"></i></label>
-											</div>
-											<div class="4u 12u$(small)">
 												<input type="radio" value="1" name="gender${tag_num }" checked="checked"><label><i class="fa fa-mars" aria-hidden="true"></i></label>
 											</div>								
 										</c:when>
 										<c:when test="${pet.pet_gender == 2}" >
 											<div class="4u 12u$(small)">
 												<input type="radio" value="2" name="gender${tag_num }" checked="checked"><label><i class="fa fa-venus" aria-hidden="true"></i></label>
-											</div>
-											<div class="4u 12u$(small)">
 												<input type="radio" value="1" name="gender${tag_num }"><label><i class="fa fa-mars" aria-hidden="true"></i></label>
 											</div>							
 										</c:when>

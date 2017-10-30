@@ -148,12 +148,23 @@ public class ProductController {
 		productService.deleteProduct(p_index);
 		return "redirect:managementProduct";
 	}
+	
+	@RequestMapping("productList")
+	public ModelAndView productList(){
+		ModelAndView mav = new ModelAndView();
 		
+		mav.setViewName("productList");
+		
+		return mav;
+	}
+	
 	/*@InitBinder
 	public void translateDate(WebDataBinder binder){
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 		binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, false));
 	}*/
+	
+	
 	
 }
 

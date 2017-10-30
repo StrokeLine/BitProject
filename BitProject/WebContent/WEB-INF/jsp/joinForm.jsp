@@ -613,7 +613,7 @@
 							<form class="form-horizontal" method="post" action="joinPro"
 								name="signup" id="signup" enctype="multipart/form-data">
 								<div class="form-group">
-									<dl class="join_info">
+									<dl>
 										<dt>
 											<label class="control-label col-sm-3">Email (ID) <span class="text-danger">*</span></label>
 										</dt>

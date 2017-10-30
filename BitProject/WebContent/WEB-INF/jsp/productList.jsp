@@ -1,4 +1,4 @@
-﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
@@ -34,16 +34,6 @@
 <script src="/js/main.js"></script>
 <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
-
-<script type="text/javascript">
-	$(document).ready(function(){
-		$("#menu ul.sub").hide();
-		$("#menu ul.menu li").click(function(){
-			$("ul",this).slideToggle("fast");
-		});
-	});
-	
-</script>
 
 </head>
 
@@ -114,7 +104,6 @@
 				<li><a href="#">My Store</a></li>
 			</ul>
 		</nav>
-
 		<!-- Main -->
 		<div id="main">
 			<div class="inner">
@@ -123,120 +112,65 @@
 					<a href="main">FreeHaGae</a>.</h1>
 					<p>Etiam quis viverra lorem, in semper lorem. Sed nisl arcu euismod sit amet nisi euismod sed cursus arcu elementum ipsum arcu vivamus quis venenatis orci lorem ipsum et magna feugiat veroeros aliquam. Lorem ipsum dolor sit amet nullam dolore.</p>
 				</header>
-				<section class="tiles">
-									
-					<article class="style1">
-						<span class="image">
-							<img src="/images/all.png" alt="" />
-						</span>
-						<a href="productList">
-							<h2>전체</h2>
-							<div class="content">
-								<p>Hand Made - Pet Product</p>
-							</div>
-						</a>
-					</article>
-					
-					<article class="style2">
-						<span class="image">
-							<img src="/images/food.png" alt="" />
-						</span>
-						<a href="#">
-							<h2>사료/간식</h2>
-							<div class="content">
-								<p>건식사료, 소프트사료, 캔사료, 개껌, 사사미, 수제간식, 비스켓/시리얼/쿠키, 동결/건조간식, 캔/파우치, 저키/스틱</p>
-							</div>
-						</a>
-					</article>
-					
-					<article class="style3">
-						<span class="image">
-							<img src="/images/defecate.png" alt="" />
-						</span>
-						<a href="#">
-							<h2>배변용품</h2>
-							<div class="content">
-								<p>배변패드, 배변판, 기저귀/팬티, 탈취제/소독제, 배변봉투/집게</p>
-							</div>
-						</a>
-					</article>
-					
-					<article class="style4">
-						<span class="image">
-							<img src="/images/health.png" alt="" />
-						</span>
-						<a href="#">
-							<h2>건강관리</h2>
-							<div class="content">
-								<p>영양제, 눈/귀 관리용품</p>
-							</div>
-						</a>
-					</article>
-					
-					<article class="style5">
-						<span class="image">
-							<img src="/images/beautybath.png" alt="" />
-						</span>
-						<a href="#">
-							<h2>미용/목욕</h2>
-							<div class="content">
-								<p>샴푸/린스/비누, 에센스/향수, 브러쉬/빗, 이발기, 미용가위, 발톱/발 관리, 타월/가운, 기타미용/목욕용품</p>
-							</div>
-						</a>
-					</article>
-					
-					<article class="style6">
-						<span class="image">
-							<img src="/images/toy.png" alt="" />
-						</span>
-						<a href="#">
-							<h2>장난감</h2>
-							<div class="content">
-								<p>노즈워크, 장남감/토이, 공/원반</p>
-							</div>
-						</a>
-					</article>
-					
-					<article class="style2">
-						<span class="image">
-							<img src="/images/living.png" alt="" />
-						</span>
-						<a href="#">
-							<h2>리빙</h2>
-							<div class="content">
-								<p>울타리, 식기/식탁, 급수병/물병, 쿠션/방석, 하우스, 매트, 강아지 계단/스텝</p>
-							</div>
-						</a>
-					</article>
-					
-					<article class="style3">
-						<span class="image">
-							<img src="/images/fashion.png" alt="" />
-						</span>
-						<a href="#">
-							<h2>패션</h2>
-							<div class="content">
-								<p>패딩/아우터, 올인원/원피스, 티셔츠, 기타의류, 악세서리</p>
-							</div>
-						</a>
-					</article>
-					
-					<article class="style1">
-						<span class="image">
-							<img src="/images/outdoor.png" alt="" />
-						</span>
-						<a href="#">
-							<h2>야외용품</h2>
-							<div class="content">
-								<p>목줄, 가슴줄, 목걸이/인식표, 리드줄, 캐리어, 유모자, 카시트</p>
-							</div>
-						</a>
-					</article>
-					
+		
+				<section>
+					<header class="major">
+						<h2>전	체</h2>
+					</header>
+					<div class="posts">
+						<article>
+							<a href="#" class="image"><img src="images/pic01.jpg" alt="" /></a>
+							<h3>Interdum aenean</h3>
+							<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>
+							<ul class="actions">
+								<li><a href="#" class="button">More</a></li>
+							</ul>
+						</article>
+						<article>
+							<a href="#" class="image"><img src="images/pic02.jpg" alt="" /></a>
+							<h3>Nulla amet dolore</h3>
+							<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>
+							<ul class="actions">
+								<li><a href="#" class="button">More</a></li>
+							</ul>
+						</article>
+						<article>
+							<a href="#" class="image"><img src="images/pic03.jpg" alt="" /></a>
+							<h3>Tempus ullamcorper</h3>
+							<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>
+							<ul class="actions">
+								<li><a href="#" class="button">More</a></li>
+							</ul>
+						</article>
+						<article>
+							<a href="#" class="image"><img src="images/pic04.jpg" alt="" /></a>
+							<h3>Sed etiam facilis</h3>
+							<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>
+							<ul class="actions">
+								<li><a href="#" class="button">More</a></li>
+							</ul>
+						</article>
+						<article>
+							<a href="#" class="image"><img src="images/pic05.jpg" alt="" /></a>
+							<h3>Feugiat lorem aenean</h3>
+							<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>
+							<ul class="actions">
+								<li><a href="#" class="button">More</a></li>
+							</ul>
+						</article>
+						<article>
+							<a href="#" class="image"><img src="images/pic06.jpg" alt="" /></a>
+							<h3>Amet varius aliquam</h3>
+							<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>
+							<ul class="actions">
+								<li><a href="#" class="button">More</a></li>
+							</ul>
+						</article>
+					</div>
 				</section>
 			</div>
 		</div>
-
+		
 		<!-- Footer -->
 		<footer id="footer">
 			<div class="inner">
