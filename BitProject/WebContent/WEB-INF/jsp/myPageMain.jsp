@@ -62,9 +62,7 @@ html, body{margin:0; width:100%;	height:100%;}
 					<a href="main" class="logo">
 						<span class="symbol"><i class="fa fa-paw fa-2x" aria-hidden="true"></i></span><span class="title">FreeHaGae</span>
 					</a>
-					
-					<ul class="main_icons">
-						<li> <i class="fa fa-home" aria-hidden="true" onclick="location='main'"> <span>Home</span> </i> </li>
+										
 						<c:choose>
 							<c:when test="${empty sessionScope.m_index }"><!-- login X -->
 								
@@ -85,8 +83,6 @@ html, body{margin:0; width:100%;	height:100%;}
 							</ul>
 							</c:when>
 						</c:choose>
-						<li> <i class="fa fa-building-o" aria-hidden="true"> <span>Store Open</span> </i> </li>
-					</ul>
 				<!-- Nav -->
 					<nav>
 						<ul>
