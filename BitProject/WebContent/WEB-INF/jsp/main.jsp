@@ -95,7 +95,7 @@
 			<h2>Menu</h2>
 			<ul class="menu">
 				<li><a href="main">Home</a></li>
-				<li><p>Category<i class="fa fa-chevron-down" aria-hidden="true"></i></p>
+				<li><p class="p_cate">Category<i class="fa fa-chevron-down" aria-hidden="true"></i></p>
 					<ul class="sub">
 						<li><a href="#" class="product_list">전체</a></li>
 						<li><a href="#" class="product_list">사료/간식</a></li>

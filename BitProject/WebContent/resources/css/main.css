@@ -1678,7 +1678,7 @@
 			color: #f2849e !important;
 		}
 		
-		p:hover {
+		p.p_cate:hover {
 			border-bottom-color: transparent;
 			color: #f2849e !important;
 			text-decoration: underline;
@@ -1966,12 +1966,25 @@
 			margin-left: 650px;
 			color: #0A1F38;
 		}
+		
+		ul.main_icons_x>li:hover{
+		    border-bottom-color: transparent;
+		    color: #f2849e !important;
+		    text-decoration: underline;
+		}
+		
 		ul.main_icons_o {
 			cursor: pointer;
 			list-style: none;
 			display: -webkit-inline-box;
 			margin-left: 630px;
 			color: #0A1F38;
+		}
+		
+		ul.main_icons_o>li:hover{
+		    border-bottom-color: transparent;
+		    color: #f2849e !important;
+		    text-decoration: underline;
 		}
 		
 		ul.actions {

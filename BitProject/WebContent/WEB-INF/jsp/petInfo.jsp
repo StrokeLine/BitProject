@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -14,34 +15,27 @@
 
 <!-- Bootstrap core JavaScript -->
 <script src="/jquery/jquery.min.js"></script>
-<script src="/popper/popper.min.js"></script>
 <script src="/bootstrap/js/bootstrap.min.js"></script>
-
-<!-- Plugin JavaScript -->
-<script src="/jquery-easing/jquery.easing.min.js"></script>
-
-<!-- Contact Form JavaScript -->
-<script src="/js/jqBootstrapValidation.js"></script>
-<script src="/js/contact_me.js"></script>
-
-<!-- Custom scripts for this template -->
-<script src="/js/freelancer.min.js"></script>
 
 <!-- Bootstrap core CSS -->
 <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
 <!-- Custom fonts for this template -->
-<link href="/font-awesome/css/font-awesome.min.css" rel="stylesheet"
-	type="text/css">
-<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700"
-	rel="stylesheet" type="text/css">
-<link
-	href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic"
-	rel="stylesheet" type="text/css">
+<link href="/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
 <!-- Custom styles for this template -->
-<link href="/css/freelancer.min.css" rel="stylesheet">
+<link rel="stylesheet" href="/css/main.css" />
+<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
 
+<!-- Scripts -->
+<script src="/js/skel.min.js"></script>
+<script src="/js/util.js"></script>
+<script src="/js/main.js"></script>
+<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+
+<!-- select2 -->
 <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/css/select2.min.css" rel="stylesheet" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/js/select2.min.js"></script>
 
