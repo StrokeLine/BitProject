@@ -157,16 +157,5 @@
 		</div>
 
 	
-	<!-- Bootstrap core JavaScript -->
-    <script src="/jquery/jquery.min.js"></script>
-    <script src="/popper/popper.min.js"></script>
-    <script src="/bootstrap/js/bootstrap.min.js"></script>
-
-    <!-- Plugin JavaScript -->
-    <script src="/jquery-easing/jquery.easing.min.js"></script>
-
-    <!-- Custom scripts for this template -->
-    <script src="/js/stylish-portfolio.js"></script>
-	
 </body>
 </html>

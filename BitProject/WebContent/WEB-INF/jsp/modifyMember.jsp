@@ -607,6 +607,11 @@
 		height: 2em;
 	}
 	
+	.\34u{
+		width: 10%;
+		float: left;
+	}
+	
 </style>
 <title>회원정보 수정</title>
 </head>
@@ -718,72 +723,35 @@
 							<tr>
 								<th>성별</th>
 								<td>
-									<div class="4u 12u$(small)">
-										<c:choose>
-											<c:when test="${pet.pet_gender == 1}" >
-												<input type="radio" value="2" name="gender${tag_num }"><i class="fa fa-venus" aria-hidden="true"></i>
-												<input type="radio" value="1" name="gender${tag_num }" checked="checked"><i class="fa fa-mars" aria-hidden="true"></i>								
-											</c:when>
-											<c:when test="${pet.pet_gender == 2}" >
-												<input type="radio" value="2" name="gender${tag_num }" checked="checked"><i class="fa fa-venus" aria-hidden="true"></i>
-												<input type="radio" value="1" name="gender${tag_num }"><i class="fa fa-mars" aria-hidden="true"></i>							
-											</c:when>
-										</c:choose>									
-									</div>
+									<c:choose>
+										<c:when test="${pet.pet_gender == 1}" >
+											<div class="4u 12u$(small)">
+												<input type="radio" value="2" name="gender${tag_num }"><label><i class="fa fa-venus" aria-hidden="true"></i></label>
+											</div>
+											<div class="4u 12u$(small)">
+												<input type="radio" value="1" name="gender${tag_num }" checked="checked"><label><i class="fa fa-mars" aria-hidden="true"></i></label>
+											</div>								
+										</c:when>
+										<c:when test="${pet.pet_gender == 2}" >
+											<div class="4u 12u$(small)">
+												<input type="radio" value="2" name="gender${tag_num }" checked="checked"><label><i class="fa fa-venus" aria-hidden="true"></i></label>
+											</div>
+											<div class="4u 12u$(small)">
+												<input type="radio" value="1" name="gender${tag_num }"><label><i class="fa fa-mars" aria-hidden="true"></i></label>
+											</div>							
+										</c:when>
+									</c:choose>									
+								</td>
+							</tr>
+							<tr>
+								<td colspan="2">
+									<div class="addPet_delBtn">
+										<input type="button" value="삭제" onclick="deletePet(this, ${pet.pet_index})">
+										<input type="button" value="수정" onclick="modifyPet(this, ${pet.pet_index}, ${tag_num })">					
+									</div>	
 								</td>
 							</tr>
 						</table>
-						
-						
-						
-						
-						
-						<div class="modifyPet_info" id="modifyPet_info${tag_num}">
-							<div class="modifyPet_item" style="width: 10%; display: inline-block; margin-bottom: 30px; margin-left: 20px;">
-								<div class="modifyPet_name_item">
-									반려견 이름
-								</div>
-								<div class="modifyPet_type_item">
-									반려견 종류
-								</div>	
-								<div class="modifyPet_age_item">
-									반려견 생일
-								</div>	
-								<div class="modifyPet_gender_item">
-									반려견 성별
-								</div>				
-							</div>
-							<div class="modifyPet_input" style="width: 40%; display: inline-block;">
-								<div class="modifyPet_name">
-									<input type="text" id="modifyPet_name${tag_num }" value="${pet.pet_name}">
-								</div>
-								<div class="modifyPet_breeds">
-									<input type="hidden" id="selectPetBreeds${tag_num }" value="${pet.pet_breeds }">
-									<select id="modifyPet_breeds${tag_num }" name="modifyPet_breeds">
-										<option selected disabled value="0">견종을 선택해주세요.</option>		
-									</select>
-								</div>
-								<div class="modifyPet_birthday">
-									<input type="date" id="modifyPet_birthday${tag_num }" value='<fmt:formatDate value="${pet.pet_birthday }" pattern="yyyy-MM-dd"/>'>
-								</div>
-								<div class="modifyPet_gender">
-									<c:choose>
-										<c:when test="${pet.pet_gender == 1}" >
-											<input type="radio" value="2" name="gender${tag_num }">암컷
-											<input type="radio" value="1" name="gender${tag_num }" checked="checked">수컷								
-										</c:when>
-										<c:when test="${pet.pet_gender == 2}" >
-											<input type="radio" value="2" name="gender${tag_num }" checked="checked">암컷
-											<input type="radio" value="1" name="gender${tag_num }">수컷								
-										</c:when>
-									</c:choose>
-								</div>				
-							</div>
-							<div class="addPet_delBtn">
-								<input type="button" value="삭제" onclick="deletePet(this, ${pet.pet_index})">
-								<input type="button" value="수정" onclick="modifyPet(this, ${pet.pet_index}, ${tag_num })">					
-							</div>					
-						</div>
 						<c:set var="tag_num" value="${tag_num+1}"/>
 					</c:forEach>
 				</div>
