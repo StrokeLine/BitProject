@@ -95,10 +95,17 @@
 			<h2>Menu</h2>
 			<ul class="menu">
 				<li><a href="main">Home</a></li>
-				<li><a href="#">Category</a>
+				<li><p>Category<i class="fa fa-chevron-down" aria-hidden="true"></i></p>
 					<ul class="sub">
-						<li><a href="#">성</a></li>
-						<li><a href="#">공</a></li>
+						<li><a href="#" class="product_list">전체</a></li>
+						<li><a href="#" class="product_list">사료/간식</a></li>
+						<li><a href="#" class="product_list">배변용품</a></li>
+						<li><a href="#" class="product_list">건강관리</a></li>
+						<li><a href="#" class="product_list">미용/목욕</a></li>
+						<li><a href="#" class="product_list">장난감</a></li>
+						<li><a href="#" class="product_list">리빙</a></li>
+						<li><a href="#" class="product_list">패션</a></li>
+						<li><a href="#" class="product_list">야외용품</a></li>
 					</ul>
 				</li>
 				<li><a href="loginForm">Sign in</a></li>
