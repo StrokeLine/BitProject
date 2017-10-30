@@ -1,8 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<!DOCTYPE html>
+<html lang="ko">
 
-<html>
 <head>
+
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<meta name="description" content="">
@@ -10,56 +13,81 @@
 	
 	<title>Hand Made - Pet Product</title>
 	
+	<!-- Bootstrap core JavaScript -->
+	<script src="/jquery/jquery.min.js"></script>
+	<script src="/bootstrap/js/bootstrap.min.js"></script>
+	
 	<!-- Bootstrap core CSS -->
 	<link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 	
 	<!-- Custom fonts for this template -->
-	<link href="/font-awesome/css/font-awesome.min.css"	rel="stylesheet" type="text/css">
-	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-	<link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+	<link href="/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 	
 	<!-- Custom styles for this template -->
-	<link href="/css/freelancer.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="/css/main.css" />
+	<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+	<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
 	
+	<!-- Scripts -->
+	<script src="/js/skel.min.js"></script>
+	<script src="/js/util.js"></script>
+	<script src="/js/main.js"></script>
+	<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+	<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+	
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("#menu ul.sub").hide();
+			$("#menu ul.menu li").click(function(){
+				$("ul",this).slideToggle("fast");
+			});
+		});
+	</script>
+
 	<style>
 	body{
 		margin: 0 20px 0 0;
 		background-color: inherit;
 	}
-	.memberInfo{height: 100%;
-				color: #5d5d5d;
-				background: #f2f2f2;
-				padding: 26px;
-				border-radius: 10px;
-				-moz-border-radius: 10px;
-				-webkit-border-radius: 10px;}
-	.memberInfo > div {
-		font-size: 18px;
-		margin: 16px 0;
-	}		
-	.memberInfoTitle{width:500px;}
-	.memberInfoTable{width:500px;
-					 border: 2px solid #ccc;
-					 border-radius: 5px;
-					 padding: 10px;}
-	.rowId{width:500px; height:50px;}
-	.rowName{width:500px; height:50px;}
-	.rowGender{width:500px; height:50px;}
-	.rowAge{width:500px; height:50px;}
-	.rowPhone{width:500px; height:50px;}
-	.rowBtn{width:500px; height:50px;}
-	.rowTitle{width:150px; float:left; margin-right:10px; padding: 7px; height: 40px; text-align:center;
-			  background-color: #1abc9c;
-			  color: #fff;
-			  border: 1px solid #1abc9c;
-			  border-radius: 4px;}
-	.memberId{width:300px; display:inline-block; padding: 7px; height: 40px;}
-	.memberPassword{width:150px; display:inline-block; padding: 7px; height: 40px;}
-	.memberGender{width:300px; display:inline-block; padding: 7px; height: 40px;}
-	.memberAge{width:300px; display:inline-block; padding: 7px; height: 40px;}
-	.memberPhone{width:300px; display:inline-block; padding: 7px; height: 40px;}
-	.memberModBtn{width:460px; float:left; height:30px; text-align:right;}
-	.memberpwdCheck{ padding: 10% 30%;}
+	
+	hr{
+		margin: 0em;
+	}
+	
+	h2{
+		margin: 0em;
+	}
+	
+	ul.actions li{
+		padding: 0 1em 0 15em;
+	}
+	
+	.title{
+	    font-weight: 900;
+	}
+	
+	.actions{
+		margin: 0em; 
+		padding-top: 1em;
+	}
+	
+	.repassword{
+		margin: 3% 30%;
+	}
+
+ 	.memberInfoTable{
+ 		width: 20em;
+		border: 2px solid #ccc;
+		border-radius: 5px;
+		padding: 10px;
+	}
+	.\34u {
+		width: 80%;
+	}
+
+	.check-email{
+		font-weight: 900;	
+	}
 	</style>
 	
 	<script type="text/javascript">
@@ -92,29 +120,43 @@
 			});
 			
 		}
+		
+		function checkSubmit(e){
+			if(e.keyCode == 13){
+				pwdCheck();	
+			}
+		}
 	</script>
 	
 </head>
-	<body>
-	<div class="memberInfo">
-		<div class="memberpwdCheck">
-			<div class="memberInfoTitle"><h2>비밀번호 재확인</h2></div>
-			<div class="memberInfoTable">
-				<div class="rowId">
-					<div class="rowTitle">아이디</div>
-					<div class="memberId">${member.m_email}</div>
-				</div>
-				<div class="rowName">
-					<div class="rowTitle">비밀번호</div>
-					<input class="memberPassword" type="password" id="inputPwd">
-				</div>
-				<div class="rowBtn">
-					<div class="memberModBtn"><input type="button" class="btn btn-info" value="확인" onclick="pwdCheck()"></div>
-					<!-- <div class="memberModBtn"><input type="button" class="btn btn-info" value="확인" onclick="location.href='modifyMember'"></div> -->
-				</div>
+<body>
+	<!-- Container -->
+		<div class="main">
+			
+			<div class="inner">
+				
+				<section class="repassword">
+					<span class="title">비밀번호 재확인</span>
+					<br>
+					<div class="memberInfoTable">
+						<div class="4u 12u$(xsmall)">
+							<div class="check-email">${member.m_email}</div>
+							<hr>
+							<input type="password" class="form-control input-lg" id="inputPwd" name="m_password" placeholder="Password" required="" onkeydown="return checkSubmit(event)"/>
+						</div>
+						<div>
+							<ul class="actions">
+								<li><input class="button special small" id="check" type="submit" value="확인" onclick="pwdCheck()"/></li>
+							</ul>
+						</div>
+					</div> 
+				</section>
+				
 			</div>
+		
 		</div>
-	</div>
+
+	
 	<!-- Bootstrap core JavaScript -->
     <script src="/jquery/jquery.min.js"></script>
     <script src="/popper/popper.min.js"></script>
@@ -125,6 +167,6 @@
 
     <!-- Custom scripts for this template -->
     <script src="/js/stylish-portfolio.js"></script>
-		
-	</body>
+	
+</body>
 </html>

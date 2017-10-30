@@ -4,13 +4,39 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/css/select2.min.css" rel="stylesheet" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/js/select2.min.js"></script>
-<link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-<script type="text/javascript" src="/popper/popper.js"></script>
-<script type="text/javascript" src="/bootstrap/js/bootstrap.js"></script>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	
+	<title>Hand Made - Pet Product</title>
+	
+	<!-- Bootstrap core JavaScript -->
+	<script src="/jquery/jquery.min.js"></script>
+	<script src="/bootstrap/js/bootstrap.min.js"></script>
+	
+	<!-- Bootstrap core CSS -->
+	<link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	
+	<!-- Custom fonts for this template -->
+	<link href="/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	
+	<!-- Custom styles for this template -->
+	<link rel="stylesheet" href="/css/main.css" />
+	<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+	<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+	
+	<!-- Scripts -->
+	<script src="/js/skel.min.js"></script>
+	<script src="/js/util.js"></script>
+	<script src="/js/main.js"></script>
+	<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+	<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/css/select2.min.css" rel="stylesheet" />
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/js/select2.min.js"></script>
+	
 <!-- 펫처리 부분 -->
 <script type="text/javascript">
 	
@@ -539,69 +565,46 @@
 <style type="text/css">
 	body{
 		margin: 0 20px 0 0;
-		background-color: inherit;
 	}
 	.wrap{
 		height: 100%;
 		color: #5d5d5d;
-		background: #f2f2f2;
 		padding: 26px;
 		border-radius: 10px;
 		-moz-border-radius: 10px;
 		-webkit-border-radius: 10px;
 	}
-	.modifyMember_form{
-		width:800px;
-		padding: 7px;
+	
+	table{
+		width: 50em;
 	}
-	.modifyMember_item{
-	    width: 20%;
-		padding: 7px;	
-		display: inline-block;	
+	
+	table.sub {
+		width: 30em;
 	}
-	.modifyMember_info{
-		width: 60%;
-		padding: 7px;
-		display: inline-block;
+	
+	th.sub{
+		font-size: 0.7em;
 	}
-	.modifyMember_pw_info{
-		width: 100%;
-		display: inline-block;
+	
+	.special{
+		margin: 0.1em 25em;
 	}
-	.label{
-		width: 20%;
-		padding: 7px;
-		margin-left: 50px;
-		display: inline-block;
+	
+	.\34u {
+		width: 80%;
 	}
-	.input-passwd{
-	    display: inline-block;
-	    margin-right: 200px;
+	
+	.input-size{
+		width: 30%;
 	}
-	.hr_line{
-		width: 60%;
-		border-bottom: 1px solid #5d5d5d; 
+	
+	.input-size-sub{
+		width: 50%
 	}
-	.result_checkname{
-		width: 100%;
-		height: 30px;
-		margin-left: 160px;
-	}
-	.result_checkpassowrd{
-		width: 100%;
-		height: 30px;
-		margin-left: 213px;
-	}
-	.result_checkphone{
-		width: 100%;
-		height: 30px;
-		margin-left: 162px;
-	}
-	.none{
-		width: 20%;
-		padding: 7px;
-		margin-left: 50px;
-		display: inline-block;
+	
+	input[type="text"], input[type="password"], input[type="email"], select{
+		height: 2em;
 	}
 	
 </style>
@@ -613,38 +616,71 @@
 			<div class="modifyMember">			
 				<div class="modifyMember_title">
 					<h3>회원정보 수정</h3>
-				</div>			
-				<div class="modifyMember_form">			
-					<div class="modifyMember_list">
-						<div class="modifyMember_item">아이디</div>
-						<div class="modifyMember_info" id="modifyEmail">${member.m_email}</div>
-						<div class="hr_line"></div>
-						<div class="modifyMember_item">닉네임</div>
-						<input type="text" id="modifyMember_name" value="${member.m_name}" onkeyup='on_keyname("${member.m_name}")'>
-						<div class="result_checkname" id="result_checkname"></div>
-						<div class="hr_line"></div>
-						<div class="modifyMember_pw_info">
-							<div class="modifyMember_item" style="width:100%">비밀번호</div>
-							<div class="hr_line"></div>
-							<div class="label">현재 비밀번호</div>
-							<input class="input-passwd" type="password" id="originPasswd" maxlength="15">
-							<div class="label">새 비밀번호</div>
-							<input class="input-passwd" type="password" id="modifyPasswd1" maxlength="15" onkeyup="on_keypasswd()">
-							<div class="label">새 비밀번호 확인</div>
-							<input class="input-passwd" type="password" id="modifyPasswd2" maxlength="15" onkeyup="checkPwd()">
-							<div class="result_checkpassowrd" id="result_checkpwd"></div>
-						</div>
-						<div class="hr_line"></div>
-						<div class="modifyMember_item">연락처</div>
-						<input id="modifyPhone" type="text" name="modifyTel" value="${member.m_tel }" onkeyup='on_keyphone("${member.m_tel }")'>
-						<div class="result_checkphone" id="result_checkphone"></div>											
-						<div class="hr_line"></div>
-					</div>
-					<div class="modifyMember_input">
-						<input class="btn btn-primary" type="button" id="modifyMember_set" value="확인" onclick="modifyMember()" style="margin: 10px 210px;" disabled="disabled">
-					</div>
-				</div>	
-			</div>		
+				</div>
+				<table class="table-wrapper">
+					<tr>
+						<th>아이디</th>
+						<td id="modifyEmail">${member.m_email}</td>
+					</tr>
+					<tr>
+						<th>닉네임</th>
+						<td>
+							<div class="input-size">
+								<input type="text" id="modifyMember_name" value="${member.m_name}" onkeyup='on_keyname("${member.m_name}")'>							
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<th>비밀번호</th>
+						<td>
+							<table class="sub">
+								<tr>
+									<th class="sub">현재 비밀번호</th>
+									<td>
+										<div class="input-size-sub">
+											<input class="input-passwd" type="password" id="originPasswd" maxlength="15">
+										</div>
+									</td>					
+								</tr>
+								<tr>
+									<th class="sub">새 비밀번호</th>
+									<td>
+										<div class="input-size-sub">
+											<input class="input-passwd" type="password" id="modifyPasswd1" maxlength="15" onkeyup="on_keypasswd()">
+										</div>
+									</td>					
+								</tr>
+								<tr>
+									<th class="sub">새 비밀번호 확인</th>
+									<td>
+										<div class="input-size-sub">
+											<input class="input-passwd" type="password" id="modifyPasswd2" maxlength="15" onkeyup="checkPwd()">
+										</div>
+									</td>					
+								</tr>
+							</table>
+						</td>
+					</tr>
+					<tr>
+						<th>연락처</th>
+						<td>
+							<div class="input-size">
+								<input id="modifyPhone" type="text" name="modifyTel" value="${member.m_tel }" onkeyup='on_keyphone("${member.m_tel }")'>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td class="submit-btn" colspan="2">
+							<input class="special" type="button" id="modifyMember_set" value="확인" onclick="modifyMember()" disabled="disabled">
+						</td>
+					</tr>
+				</table>			
+			</div>			
+			
+			
+			
+
+			
 			<div class="modifyPet">
 				<div class="modifyPet_title">
 					<h3>마이펫 정보 수정</h3>		
@@ -653,6 +689,55 @@
 					<c:set var="tag_num" value="0"/>
 					<c:forEach var="pet" items="${pets}">
 						<input id="pet_index" type="hidden" value="${pet.pet_index}"/>
+						<table class="table-wrapper">
+							<tr>
+								<th>이름</th>
+								<td>
+									<div class="input-size">
+										<input type="text" id="modifyPet_name${tag_num }" value="${pet.pet_name}">
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<th>견종</th>
+								<td>
+									<input type="hidden" id="selectPetBreeds${tag_num }" value="${pet.pet_breeds }">
+									<select id="modifyPet_breeds${tag_num }" name="modifyPet_breeds">
+										<option selected disabled value="0">견종을 선택해주세요.</option>		
+									</select>
+								</td>
+							</tr>
+							<tr>
+								<th>생일</th>
+								<td>
+									<div class="input-size">
+										<input type="date" id="modifyPet_birthday${tag_num }" value='<fmt:formatDate value="${pet.pet_birthday }" pattern="yyyy-MM-dd"/>'>
+									</div>	
+								</td>
+							</tr>
+							<tr>
+								<th>성별</th>
+								<td>
+									<div class="4u 12u$(small)">
+										<c:choose>
+											<c:when test="${pet.pet_gender == 1}" >
+												<input type="radio" value="2" name="gender${tag_num }"><i class="fa fa-venus" aria-hidden="true"></i>
+												<input type="radio" value="1" name="gender${tag_num }" checked="checked"><i class="fa fa-mars" aria-hidden="true"></i>								
+											</c:when>
+											<c:when test="${pet.pet_gender == 2}" >
+												<input type="radio" value="2" name="gender${tag_num }" checked="checked"><i class="fa fa-venus" aria-hidden="true"></i>
+												<input type="radio" value="1" name="gender${tag_num }"><i class="fa fa-mars" aria-hidden="true"></i>							
+											</c:when>
+										</c:choose>									
+									</div>
+								</td>
+							</tr>
+						</table>
+						
+						
+						
+						
+						
 						<div class="modifyPet_info" id="modifyPet_info${tag_num}">
 							<div class="modifyPet_item" style="width: 10%; display: inline-block; margin-bottom: 30px; margin-left: 20px;">
 								<div class="modifyPet_name_item">
