@@ -1952,11 +1952,17 @@
 				display: inline-block;
 				padding: 1em 0 0 1em;
 			}
-		ul.main_icons {
+		ul.main_icons_x {
 			cursor: pointer;
 			list-style: none;
 			display: -webkit-inline-box;
 			margin-left: 650px;
+		}
+		ul.main_icons_o {
+			cursor: pointer;
+			list-style: none;
+			display: -webkit-inline-box;
+			margin-left: 630px;
 		}
 		
 		ul.actions {
