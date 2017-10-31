@@ -63,9 +63,10 @@ public class FollowingController {
 		List<store_notice_view> notice_view_list = followingService.getStoreNotice((Integer)session.getAttribute("m_index"));
 		
 		if(notice_view_list != null){
-			mav.addObject("notice_view_list", notice_view_list);
+			mav.addObject("noticeViewList", notice_view_list);
+			mav.setViewName("followingNotiStore");
 		}
-		
+				
 		return mav;
 	}
 }

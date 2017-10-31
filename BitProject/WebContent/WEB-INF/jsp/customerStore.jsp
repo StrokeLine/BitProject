@@ -87,7 +87,7 @@
 						    <div class="collapse navbar-collapse text-center" id="bs-example-navbar-collapse-1">
 						      <ul class="nav navbar-nav">
 						        <li class="nav-item"><a class="active" href="index.html">상품 보기</a></li>
-						        <li class="nav-item"><a href="about.html">공지/알림</a></li>
+						        <li class="nav-item"><a href="followingNotiStore">공지/알림</a></li>
 						        <li class="nav-item"><a href="customerStoreInquiry">문의하기</a></li>							        
 						      </ul>
 						    </div><!-- /.navbar-collapse -->
