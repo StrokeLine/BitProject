@@ -34,7 +34,7 @@ modernizr
 
 <!-- Custom styles for this template -->
 <link rel="stylesheet" href="/css/main.css" />
-<link rel="stylesheet" href="/css/customerStoreInquiry.css" />
+<link rel="stylesheet" href="/css/customerStore.css" />
 <!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
 <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
 
@@ -102,7 +102,7 @@ modernizr
 						    <!-- Collect the nav links, forms, and other content for toggling -->
 						    <div class="collapse navbar-collapse text-center" id="bs-example-navbar-collapse-1">
 						      <ul class="nav navbar-nav">
-						        <li class="nav-item"><a class="active" href="index.html">상품 보기</a></li>
+						        <li class="nav-item"><a class="active" href="customerStore">상품 보기</a></li>
 						        <li class="nav-item"><a href="followingNotiStore">공지/알림</a></li>
 						        <li class="nav-item"><a href="customerStoreInquiry">문의하기</a></li>							        
 						      </ul>

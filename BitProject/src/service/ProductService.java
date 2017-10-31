@@ -49,6 +49,7 @@ public class ProductService {
 	public product_info getProduct(int p_index){
 		return productInfoDao.selectProduct(p_index);
 	}	
+	
 	// 전체 상품 리스트
 	public List<product_info> getProductList(int m_index){
 		return productInfoDao.selectAllProductInfoM(m_index);

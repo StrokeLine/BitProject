@@ -5,7 +5,7 @@
 .row{
 	width: 1000px;
 	height: 600px;
-	margin-left: 100px;		
+	margin-left: 120px;		
 	display: inline-block;
 }
 #storeName{	
@@ -233,7 +233,7 @@ ul.navbar li a:hover, ul.navbar li a.active, .navbar-default .navbar-nav>li>a:ho
 .inner-content{
 	width: 1450px;
 	height: auto;
-	margin: 0 110px 0 110px; 
+	margin: 0 110px 0 120px; 
 	padding: 20px;
 }
 
@@ -284,4 +284,13 @@ ul.navbar li a:hover, ul.navbar li a.active, .navbar-default .navbar-nav>li>a:ho
 }
 .table-date{
 	width: 60px;
+}
+.inner-product{
+	width: 1400px;
+	margin: 50px 200px 20px 80px;
+	padding: 10px 60px 10px 10px;
+}
+#productName{
+	font-family: 'Montserrat', sans-serif;	
+	margin-bottom: 5px;
 }

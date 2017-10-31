@@ -12,8 +12,10 @@ import org.springframework.web.servlet.ModelAndView;
 import com.fasterxml.jackson.databind.annotation.JsonAppend.Attr;
 
 import model.product_notice_view;
+import model.seller_info;
 import model.store_notice_view;
 import service.FollowingService;
+import service.SellerInfoService;
 
 @Controller
 public class FollowingController {
@@ -21,6 +23,9 @@ public class FollowingController {
 	
 	@Autowired
 	private FollowingService followingService;
+	
+	@Autowired
+	private SellerInfoService sellerInfoService;
 	
 	
 	@RequestMapping("followingNoti")
@@ -59,6 +64,10 @@ public class FollowingController {
 	@RequestMapping("followingNotiStore")
 	public ModelAndView followingNotiStore(HttpSession session) {
 		ModelAndView mav = new ModelAndView();
+		
+		int m_index = (Integer)session.getAttribute("m_index");
+		seller_info sellerInfo = sellerInfoService.getSellerInfo(m_index);
+		mav.addObject("seller_info_select", sellerInfo);
 		
 		List<store_notice_view> notice_view_list = followingService.getStoreNotice((Integer)session.getAttribute("m_index"));
 		

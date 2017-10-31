@@ -15,10 +15,12 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import model.member_info;
+import model.product_info;
 import model.seller_info;
 import service.CustomerCenterInquiryService;
 import service.MapService;
 import service.MemberInfoService;
+import service.ProductService;
 import service.SellerInfoService;
 import model.customer_center_inquiry;
 import service.MemberInfoService;
@@ -37,6 +39,9 @@ public class tempController {
 	
 	@Autowired
 	private SellerInfoService sellerInfoService;
+	
+	@Autowired
+	private ProductService productService;
 	
 	
 	@RequestMapping("container")
@@ -343,6 +348,10 @@ public class tempController {
 		int m_index = (Integer)session.getAttribute("m_index");
 		seller_info sellerInfo = sellerInfoService.getSellerInfo(m_index);
 		mav.addObject("seller_info_select", sellerInfo);
+		
+		List<product_info> product_info_list = productService.getProductList(m_index);
+		mav.addObject("productInfoList", product_info_list);	
+		
 		mav.setViewName("customerStore");
 		return mav;
 	}
