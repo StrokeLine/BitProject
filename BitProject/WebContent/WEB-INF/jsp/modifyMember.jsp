@@ -44,35 +44,50 @@
 	function addPetForm(){
 		var div = document.createElement('div');
 		div.setAttribute("id", "addPetInfo");
-		div.innerHTML = '<div class="addPet_info">'
-					  + '	<div class="modifyPet_item" style="width: 10%; display: inline-block; margin-bottom: 30px; margin-left: 20px;">'
-					  + '		<div class="modifyPet_name_item">반려견 이름</div>'
-					  + '		<div class="modifyPet_type_item">반려견 종류</div>'	
-					  + '		<div class="modifyPet_age_item">반려견 생일</div>'
-					  + '		<div class="modifyPet_gender_item">반려견 성별</div>'				
-					  + '	</div>'
-					  + '	<div class="modifyPet_input" style="width: 40%; display: inline-block;">'
-					  + '		<div class="addPet_name">'
-					  + '			<input type="text" id="addPet_name">'
-					  + '		</div>'
-					  + '		<div class="addPet_breeds">'
-					  + '			<select id="addPet_breeds">'
+		div.innerHTML = '<h3>마이펫 추가</h3>'
+					  + '<table class="table-wrapper">'
+					  + '	<tr>'
+					  + '		<th>이름</th>'
+					  + '		<td>'	
+					  + '			<div class="input-size">'
+					  + '				<input type="text" id="addPet_name">'				
+					  + '			</div>'
+					  +	'		</td>'
+					  +	'	</tr>'
+					  + '	<tr>'
+					  +	'		<th>견종</th>'
+					  +	'		<td>'
+					  +	'			<select id="addPet_breeds">'
 					  + '				<option selected disabled value="0">견종을 선택해주세요.</option>'
 					  + '			</select>'
-					  + '		</div>'
-					  + '		<div class="addPet_birthday">'
-					  + '			<input type="date" id="addPet_birthday">'		
-					  + '		</div>'
-					  + '		<div class="addPet_gender">'
-					  + '			<input type="radio" value="2" name="addPet_gender">암컷'
-					  + '			<input type="radio" value="1" name="addPet_gender">수컷'
-					  + '		</div>'
-					  + '	</div>'
-					  + '	<div class="addPet_delBtn">'
-					  + '		<input type="button" value="삭제" onclick="removePet()">'
-					  + '      	<input type="submit" value="추가" onclick="addPet()">'
-					  + '	</div>'
-					  + '</div>';
+					  + '		</td>'
+					  + '	</tr>'
+					  +	'	<tr>'
+					  +	'		<th>생일</th>'
+					  +	'		<td>'
+					  + '			<input type="date" id="addPet_birthday">'
+					  +	'		</td>'
+					  +	'	</tr>'
+					  + '	<tr>'
+					  + '		<th>성별</th>'
+					  +	'		<td>'
+					  +	'			<div class="4u 12u$(small)">'
+					  +	'				<input type="radio" id="select-female" value="2" name="addPet_gender"><label for="select-female"><i class="fa fa-venus" aria-hidden="true"></i></label>'
+					  + '			</div>'
+					  +	'			<div class="4u 12u$(small)">'
+					  +	'				<input type="radio" id="select-male" value="1" name="addPet_gender"><label for="select-male"><i class="fa fa-mars" aria-hidden="true"></i></label>'
+					  + '			</div>'
+					  + '		</td>'
+					  + '	</tr>'
+					  + '	<tr>'
+					  +	'		<td colspan="2">'
+					  + '			<div class="addPet_delBtn">'
+					  + '				<input class="button special small" type="button" value="삭제" onclick="removePet()">'
+					  + '      			<input class="button special small" type="button" value="추가" onclick="addPet()">'
+					  + '			</div>'
+					  +	'		</td>'
+					  + '	</tr>'
+					  + '</table>';
         document.getElementById('addPet').appendChild(div);
         document.getElementById("addPet_birthday").valueAsDate = new Date();
         document.getElementById("addPetBtn").disabled = true;
@@ -163,11 +178,11 @@
 	}
 	
 	// 기존에 추가된 펫정보 삭제
-	function deletePet(pet, pet_index){
+	function deletePet(tag_num, pet_index){
 		var check = confirm("정말로 당신의 반려견을 삭제하시겠습니까?");
 		if(check){
 			
-			var deleteNode = document.getElementById(pet.parentNode.parentNode.getAttribute("id"));
+			var deleteNode = document.getElementById("pet_info"+tag_num);
 			var pet_list = document.getElementById('myPet');
 			
 			$.ajax({
@@ -612,6 +627,14 @@
 		float: left;
 	}
 	
+	label{
+		margin: 0em;
+	}
+	
+	.button{
+		margin: 0em;
+	}
+	
 </style>
 <title>회원정보 수정</title>
 </head>
@@ -681,11 +704,8 @@
 					</tr>
 				</table>			
 			</div>			
-			
-			
-			
 
-			
+			<!-- 사용자 펫 정보 추가, 수정 및 삭제 -->
 			<div class="modifyPet">
 				<div class="modifyPet_title">
 					<h3>마이펫 정보 수정</h3>		
@@ -694,7 +714,7 @@
 					<c:set var="tag_num" value="0"/>
 					<c:forEach var="pet" items="${pets}">
 						<input id="pet_index" type="hidden" value="${pet.pet_index}"/>
-						<table class="table-wrapper">
+						<table class="table-wrapper" id="pet_info${tag_num }">
 							<tr>
 								<th>이름</th>
 								<td>
@@ -726,24 +746,28 @@
 									<c:choose>
 										<c:when test="${pet.pet_gender == 1}" >
 											<div class="4u 12u$(small)">
-												<input type="radio" value="2" name="gender${tag_num }"><label><i class="fa fa-venus" aria-hidden="true"></i></label>
-												<input type="radio" value="1" name="gender${tag_num }" checked="checked"><label><i class="fa fa-mars" aria-hidden="true"></i></label>
+												<input type="radio" id="gender${tag_num+20 }" value="2" name="gender${tag_num }"><label for="gender${tag_num+20 }"><i class="fa fa-venus" aria-hidden="true"></i></label>
+											</div>
+											<div class="4u 12u$(small)">
+												<input type="radio" id="gender${tag_num+10 }" value="1" name="gender${tag_num }" checked="checked"><label for="gender${tag_num+10 }"><i class="fa fa-mars" aria-hidden="true"></i></label>
 											</div>								
 										</c:when>
 										<c:when test="${pet.pet_gender == 2}" >
 											<div class="4u 12u$(small)">
-												<input type="radio" value="2" name="gender${tag_num }" checked="checked"><label><i class="fa fa-venus" aria-hidden="true"></i></label>
-												<input type="radio" value="1" name="gender${tag_num }"><label><i class="fa fa-mars" aria-hidden="true"></i></label>
+												<input type="radio" id="gender${tag_num+20 }" value="2" name="gender${tag_num }" checked="checked"><label for="gender${tag_num+20 }"><i class="fa fa-venus" aria-hidden="true"></i></label>
+											</div>
+											<div class="4u 12u$(small)">
+												<input type="radio" id="gender${tag_num+10 }" value="1" name="gender${tag_num }"><label for="gender${tag_num+10 }"><i class="fa fa-mars" aria-hidden="true"></i></label>
 											</div>							
 										</c:when>
-									</c:choose>									
+									</c:choose> 									
 								</td>
 							</tr>
 							<tr>
 								<td colspan="2">
 									<div class="addPet_delBtn">
-										<input type="button" value="삭제" onclick="deletePet(this, ${pet.pet_index})">
-										<input type="button" value="수정" onclick="modifyPet(this, ${pet.pet_index}, ${tag_num })">					
+										<input class="button special small" type="button" value="삭제" onclick="deletePet(${tag_num}, ${pet.pet_index})">
+										<input class="button special small" type="button" value="수정" onclick="modifyPet(${tag_num}, ${pet.pet_index}, ${tag_num })">					
 									</div>	
 								</td>
 							</tr>
@@ -757,12 +781,12 @@
 				</div>						
 				<div class="addPet_btn">
 					<label style="font-size: 20px;">마이펫 추가    
-						<button id="addPetBtn" type="button" class="btn btn-default" onclick="addPetForm()"> + </button>					
+						<button id="addPetBtn" type="button" class="button special small" onclick="addPetForm()"> + </button>					
 					</label>
 				</div>	
 			</div>			
 			<div class="modifyMember_btn" style="margin-top: 50px;">
-				<button type="button" class="btn btn-primary" onclick="location='memberInfo'">나가기</button>			
+				<button type="button" class="special" onclick="location='memberInfo'">나가기</button>			
 			</div>
 		</div>	
 	</div>	

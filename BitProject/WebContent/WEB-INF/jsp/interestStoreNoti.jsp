@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -34,21 +35,50 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 </head>
 <style>
-.followingNotiMain{margin:50px 100px 0 100px;}
-.followingNotiMenu{width:1000px; height:100px; border:0;}
-.followingNotiContent{width:1000px; height:400px; border:0;}
+.fnSNoneRow{margin: 5% 39%;}
+
+table th{
+	text-align: center;
+}
+
+table td{
+	text-align: center;
+	vertical-align: middle;
+}
+
 </style>
-
-<body>
-<div class="followingNotiMain">
-	<h2>관심스토어 알림</h2>
-	<div class="followingNotiMenu">
-	<iframe class="followingNotiMenu" name="followingNotiMenu" src="followingNotiMenu"></iframe>
-	</div>
-	<div class="followingNotiContent">
-	<iframe class="followingNotiContent" name="followingNotiContent" src="followingNotiProduct"></iframe>
-	</div>
+<div class="followingNotiSMain">
+	<table class="table-wrapper">
+		<thead>
+			<tr>
+				<th>상점명</th>
+				<th>제목</th>
+				<th>등록일</th>
+			</tr>
+		</thead>
+		<tbody>
+			<c:if test='${notice_view_list == ""}'>
+				<tr>
+					<td colspan="3">
+						<div class="fnSNoneRow"> 등록된 정보가 없습니다.</div>
+					</td>
+				</tr>
+			</c:if>
+			<c:forEach var="notice_view" items="${notice_view_list}">
+				<tr>
+					<td>
+						${notice_view.s_nick }
+					</td>
+					<td>
+						${notice_view.sn_subject}
+					</td>
+					<td>
+						${notice_view.sn_date}
+					</td>
+				</tr>
+		</c:forEach>
+		</tbody>
+	</table>
 </div>
-</body>
-
 </html>
+

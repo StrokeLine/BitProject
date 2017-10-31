@@ -1,40 +1,75 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>장바구니</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	
+	<title>Hand Made - Pet Product</title>
+	
+	<!-- Bootstrap core JavaScript -->
+	<script src="/jquery/jquery.min.js"></script>
+	<script src="/bootstrap/js/bootstrap.min.js"></script>
+	
+	<!-- Bootstrap core CSS -->
+	<link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	
+	<!-- Custom fonts for this template -->
+	<link href="/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	
+	<!-- Custom styles for this template -->
+	<link rel="stylesheet" href="/css/main.css" />
+	<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+	<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+	
+	<!-- Scripts -->
+	<script src="/js/skel.min.js"></script>
+	<script src="/js/util.js"></script>
+	<script src="/js/main.js"></script>
+	<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+	<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <style>
-.pbTable{width:800px; border-style:solid none solid none;}
-.pbHeader{width:800px; text-align:center; border-bottom:solid 1px;}
-.pbCheckHeader{float:left; height:25px; margin-right:1px; padding-top: 3%;}
-.pbImgHeader{float:left; width:12%; height:50px; margin-right:1px;}
-.pbNameHeader{display:inline-block; width:35%; height:50px; margin-right:1px;}
-.pbNumHeader{display:inline-block; width:8%; height:50px; margin-right:1px;}
-.pbPriceHeader{display:inline-block; width:12%; height:50px; margin-right:1px;}
-.pbFeeHeader{display:inline-block; width:12%; height:50px; margin-right:1px;}
-.pbLastAmountHeader{display:inline-block; width:12%; height:50px; margin-right:1px;}
-.pbRows{width:800px;}
-.pbCheck{float:left; height:30px; margin-right:1px; margin-top: 1px;}
-.pbImg{display:inline-block; width:12%; height:60px; margin-right:1px; margin-top: 1px; text-align: center;}
-.pbName{display:inline-block; width:35%; height:60px; margin-right:1px; margin-top: 1px; text-align: center;}
-.pbNum{display:inline-block; width:8%; height:60px; margin-right:1px; margin-top: 1px; text-align: center;}
-.pbPrice{display:inline-block; width:12%; height:60px; margin-right:1px; margin-top: 1px; text-align: center;}
-.pbFee{display:inline-block; width:12%; height:60px; margin-right:1px; margin-top: 1px; text-align: center;}
-.pbLastAmount{display:inline-block; width:12%; height:60px; margin-right:1px; margin-top: 1px; text-align: center;}
-.pbTotalAmount{ width: 100%; border-top:solid 3px;}
-.pbPayTitle{display:inline-block; width: 10%;}
-.pbPayPrice{display:inline-block; width: 20%; text-align: right;}
 .pbNoneBlock{display:inline-block; width: 68%;}
 .pbNoneRow{margin: 5% 38%;}
 .remove_btn{float:right; margin-top: 1%;}
 .basket_btn{float:left;  margin-top: 1%;}
 .prod_num{width: 35px; text-align: center;}
-.changeBtn{margin-top: 5px;}
+
+.productBasket{
+	margin:50px 100px 0 100px;
+	width: 37.5em;
+}
+
+table th{
+	text-align: center;
+}
+
+table td{
+	text-align: center;
+	vertical-align: middle;
+}
+
+table{
+	font-size: 0.7em;
+}
+
+input[type="text"], input[type="password"], input[type="email"], select{
+	height: 1.5em;
+}
+
+input[type="text"], input[type="password"], input[type="email"], input[type="tel"], select, textarea {
+	width: 1.5em;
+    margin-left: auto;
+   	margin-right: auto;
+}
+
 </style>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script type="text/javascript">
 
 	function selectOrder(){
@@ -164,7 +199,7 @@
 			        		total += ((data.p_price * data.sb_num) + data.p_fee);
 			        		c += 1;
 			        		if(j == c) {
-			        			total_tag.innerHTML = total + "<span>원</span>";
+			        			total_tag.innerHTML = total.toLocaleString() + "원";
 			        		}
 			           },
 			           error : function(err){
@@ -211,79 +246,82 @@
 </script>
 </head>
 <body>	
-	<h2>장바구니</h2>
-	<div class="pbTable">
-		
-		<div class="pbHeader">
-			<div class="pbCheckHeader">
-				<input id="checkAll" type="checkbox" name="checkAll" onclick="allCheck()">
-			</div>
-			<div class="pbImgHeader">
-				<h4>상품 이미지</h4>
-			</div>
-			<div class="pbNameHeader">
-				<h4>상품명</h4>
-			</div>
-			<div class="pbNumHeader">
-				<h4>수량</h4>
-			</div>			
-			<div class="pbPriceHeader">
-				<h4>금액</h4>
-			</div>			
-			<div class="pbFeeHeader">
-				<h4>배송료</h4>
-			</div>	
-			<div class="pbLastAmountHeader">
-				<h4>최종금액</h4>
-			</div>
-		</div>
-		<c:set var="TotalAmount" value="${0}"></c:set>
-		<div class="basket_list">
-			<c:if test='${shopping_basket_list == ""}'>
-				<div class="pbNoneRow">등록 된 정보가 없습니다.</div>
-			</c:if>
-			<c:set var="i" value="${0 }"></c:set>
-			<c:forEach items="${ shopping_basket_list}" var="basket_list">
-				<div class="pbCheck">
-					<input id="product${i}" type="checkbox" name="checkRow" value="${basket_list.sb_index }" onclick="totalAmount()">
-				</div>
-				<div class="pbImg">
-					상품 이미지
-					<c:if test='${basket_list.p_img != null }'>
-						<img src="${basket_list.p_img}">
-					</c:if>
-				</div>
-				<div class="pbName">
-					${basket_list.p_name }
-				</div>
-				<div class="pbNum">
-					<input class="prod_num" id="prodNum_${basket_list.sb_index }" type="text" value="${basket_list.sb_num }">
-					<input class="changeBtn" type="button" value="변경" onclick='updateNum("prodNum_${basket_list.sb_index }")'>
-				</div>			
-				<div class="pbPrice">
-					${basket_list.p_price } 
-				</div>			
-				<div class="pbFee">
-					${basket_list.p_fee }
-				</div>	
-				<div class="pbLastAmount">
-					${(basket_list.p_price * basket_list.sb_num) + basket_list.p_fee}
+	<div class="productBasket">
+		<h2>장바구니</h2>
+		<table class="table-wrapper">
+			<thead>
+				<tr>
+					<th style="width: 4em;">
+						<input id="checkAll" type="checkbox" name="checkAll" onclick="allCheck()">
+						<label for="checkAll"></label>
+					</th>
+					<th colspan="2">상품명</th>
+					<th>수량</th>
+					<th>금액</th>
+					<th style="width: 80px;">배송료</th>
+					<th>최종금액</th>
+				</tr>
+			</thead>
+			<tbody>
+				<c:if test='${shopping_basket_list == ""}'>
+					<tr>
+						<td colspan="7">
+							<div class="pbNoneRow">등록 된 정보가 없습니다.</div>						
+						</td>
+					</tr>
+				</c:if>
+				<c:set var="i" value="${0 }"></c:set>
+				<c:forEach items="${ shopping_basket_list}" var="basket_list">
+					<tr>
+						<td>
+							<input id="product${i}" type="checkbox" name="checkRow" value="${basket_list.sb_index }" onclick="totalAmount()">
+							<label for="product${i}"></label>					
+						</td>
+						<td>
+							<c:if test='${basket_list.p_img != null }'>
+								<img src="downloadProductImg?p_index=${basket_list.p_index}">
+							</c:if>							
+						</td>
+						<td>
+							${basket_list.p_name }
+						</td>
+						<td style="width: 1px;">
+							<input class="prod_num" id="prodNum_${basket_list.sb_index }" type="text" value="${basket_list.sb_num }" maxlength="2">
+							<input class="button special small" type="button" value="변경" onclick='updateNum("prodNum_${basket_list.sb_index }")' style="margin-top: 5px;">
+						</td>
+						<td>
+							<fmt:formatNumber value="${basket_list.p_price }" pattern="###,###,###,###원"></fmt:formatNumber> 	
+						</td>
+						<td>
+							<fmt:formatNumber value="${basket_list.p_fee }" pattern="###,###,###,###원"></fmt:formatNumber>
+						</td>
+						<td>
+							<fmt:formatNumber value="${(basket_list.p_price * basket_list.sb_num) + basket_list.p_fee}" pattern="###,###,###,###원"></fmt:formatNumber>
+						</td>
+					</tr>	
 					<c:set var="TotalAmount" value="${TotalAmount = TotalAmount + ((basket_list.p_price * basket_list.sb_num) + basket_list.p_fee)}"></c:set>
-				</div>	
-				<c:set var="i" value="${i = i + 1 }"></c:set>	
-			</c:forEach>
-		</div>
-		<div class="pbTotalAmount">
-			<div class="pbNoneBlock"></div>
-			<div class="pbPayTitle">결제금액</div>
-			<div class="pbPayPrice" id="pbPayPrice"><span>원</span></div>
-		</div>
-		<div class="remove_btn">
-			<input type="button" value="삭제" onclick="deleteBasket()">
-		</div>
-		<div class="basket_btn">
-			<input type="button" value="선택한 상품 주문하기" onclick="selectOrder()">	
-		</div>			
-	</div>		
+					<c:set var="i" value="${i = i + 1 }"></c:set>	
+				</c:forEach>
+			</tbody>
+			<thead>
+				<tr>
+					<th colspan="6" style="text-align: right;">
+						결제금액
+					</th>
+					<th style="text-align: right;">
+						<div class="pbPayPrice" id="pbPayPrice"></div>
+					</th>
+				</tr>
+			</thead>
+		</table>
+
+
+			<div class="remove_btn">
+				<input class="special" type="button" value="삭제" onclick="deleteBasket()">
+			</div>
+			<div class="basket_btn">
+				<input class="special" type="button" value="선택한 상품 주문하기" onclick="selectOrder()">	
+			</div>			
+		</div>	
 </body>
 </html>

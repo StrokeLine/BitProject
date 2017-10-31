@@ -1,32 +1,63 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>찜한 상품</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	
+	<title>Hand Made - Pet Product</title>
+	
+	<!-- Bootstrap core JavaScript -->
+	<script src="/jquery/jquery.min.js"></script>
+	<script src="/bootstrap/js/bootstrap.min.js"></script>
+	
+	<!-- Bootstrap core CSS -->
+	<link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	
+	<!-- Custom fonts for this template -->
+	<link href="/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	
+	<!-- Custom styles for this template -->
+	<link rel="stylesheet" href="/css/main.css" />
+	<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+	<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+	
+	<!-- Scripts -->
+	<script src="/js/skel.min.js"></script>
+	<script src="/js/util.js"></script>
+	<script src="/js/main.js"></script>
+	<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+	<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <style>
-.pfTable{width:800px; border-style:solid none solid none;}
-.pfHeader{width:800px; text-align:center; border-bottom:solid 1px;}
-.pfCheckHeader{float:left; height:25px; margin-right:1px; padding-top: 3%;}
-.pfImgHeader{float:left; width:17%; height:50px; margin-right:1px;}
-.pfNameHeader{display:inline-block; width:35%; height:50px; margin-right:1px;}
-.pfPriceHeader{display:inline-block; width:17%; height:50px; margin-right:1px;}
-.pfFeeHeader{display:inline-block; width:17%; height:50px; margin-right:1px;}
-.pfRegDateHeader{display:inline-block; width:17%; height:50px; margin-right:1px;}
-.pfRows{width:800px;}
-.pfCheck{float:left; height:30px; margin-right:1px; margin-top: 1px;}
-.pfImg{display:inline-block; width:17%; height:30px; margin-right:1px; margin-top: 1px; text-align: center;}
-.pfName{display:inline-block; width:35%; height:30px; margin-right:1px; margin-top: 1px; text-align: center;}
-.pfPrice{display:inline-block; width:17%; height:30px; margin-right:1px; margin-top: 1px; text-align: center;}
-.pfFee{display:inline-block; width:17%; height:30px; margin-right:1px; margin-top: 1px; text-align: center;}
-.pfRegDate{display:inline-block; width:17%; height:30px; margin-right:1px; margin-top: 1px; text-align: center;}
-.pfNoneRow{margin: 5% 38%;}
+.pfNoneRow{margin: 5% 33%;}
 .remove_btn{float:right; margin-top: 1%;}
 .basket_btn{float:left;  margin-top: 1%;}
+
+.productFavoriteMain{
+	margin:50px 100px 0 100px;
+	width: 37.5em;
+}
+
+table th{
+	text-align: center;
+}
+
+table td{
+	text-align: center;
+	vertical-align: middle;
+}
+
+table{
+	font-size: 0.8em;
+}
+
 </style>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script type="text/javascript">
 
 	function allCheck() {
@@ -134,62 +165,60 @@
 	}
 </script>
 </head>
-<body>	
-	<h2>찜한 상품</h2>
-	<div class="pfTable">
+<body>
+	<div class="productFavoriteMain">
+		<h2>찜한 상품</h2>
+		<table class="table-wrapper">
+			<thead>
+				<tr>
+					<th style="width: 4em;">
+						<input id="checkAll" type="checkbox" name="checkAll" onclick="allCheck()">
+						<label for="checkAll"></label>
+					</th>
+					<th colspan="2">상품명</th>
+					<th>금액</th>
+					<th>배송료</th>
+				</tr>
+			</thead>
+			<tbody>
+				<c:if test='${product_favorite_list == ""}'>
+					<tr>
+						<td colspan="5">
+							<div class="pfNoneRow">등록 된 정보가 없습니다.</div>			
+						</td>
+					</tr>
+				</c:if>
+				<c:set var="i" value="${0 }"></c:set>
+				<c:forEach items="${product_favorite_list }" var="favorite_list">
+					<tr>
+						<td>
+							<input id="product${i}" type="checkbox" name="checkRow" value="${favorite_list.pf_index }">
+							<label for="product${i}"></label>
+						</td>
+						<td>
+							<c:if test='${favorite_list.p_img != null }'>
+								<img src="downloadProductImg?p_index=${favorite_list.p_index}">
+							</c:if>
+						</td>
+						<td>
+							${favorite_list.p_name }
+						</td>
+						<td><fmt:formatNumber value="${favorite_list.p_price }" pattern="###,###,###,###원"></fmt:formatNumber></td>
+						<td><fmt:formatNumber value="${favorite_list.p_fee }" pattern="###,###,###,###원"></fmt:formatNumber></td>
+					</tr>				
+					<c:set var="i" value="${i = i + 1 }"></c:set>
+				</c:forEach>
+			</tbody>
+		</table>
 
-		<div class="pfHeader">
-			<div class="pfCheckHeader">
-				<input id="checkAll" type="checkbox" name="checkAll" onclick="allCheck()">
-			</div>
-			<div class="pfImgHeader">
-				<h4>상품 이미지</h4>
-			</div>
-			<div class="pfNameHeader">
-				<h4>상품명</h4>
-			</div>
-			<div class="pfPriceHeader">
-				<h4>금액</h4>
-			</div>			
-			<div class="pfFeeHeader">
-				<h4>배송료</h4>
+		<div class="pfTable">
+			<div class="remove_btn">
+				<input class="button special small" type="button" value="선택 상품 삭제" onclick="deleteFavorite()">
 			</div>		
-		</div>
-		<div class="favorite_list">
-			<c:if test='${product_favorite_list == ""}'>
-				<div class="pfNoneRow">등록 된 정보가 없습니다.</div>
-			</c:if>
-			<c:set var="i" value="${0 }"></c:set>
-			<c:forEach items="${product_favorite_list }" var="favorite_list">
-				<div class="pfInfo">
-					<div class="pfCheck" >
-						<input id="product${i}" type="checkbox" name="checkRow" value="${favorite_list.pf_index }">
-					</div>
-					<div class="pfImg" >
-						상품 이미지
-						<c:if test='${favorite_list.p_img != null }'>
-							<img src="${favorite_list.p_img}">
-						</c:if>
-					</div>
-					<div class="pfName">
-						${favorite_list.p_name }
-					</div>
-					<div class="pfPrice">
-						${favorite_list.p_price }
-					</div>			
-					<div class="pfFee">
-						${favorite_list.p_fee }
-					</div>
-				</div>				
-				<c:set var="i" value="${i = i + 1 }"></c:set>
-			</c:forEach>
-		</div>
-		<div class="remove_btn">
-			<input type="button" value="선택 상품 삭제" onclick="deleteFavorite()">
-		</div>		
-		<div class="basket_btn">
-			<input type="button" value="선택 상품 장바구니로 이동" onclick="moveOnBasket()">	
-		</div>			
-	</div>	
+			<div class="basket_btn">
+				<input class="button special small" type="button" value="선택 상품 장바구니로 이동" onclick="moveOnBasket()">	
+			</div>			
+		</div>	
+	</div>
 </body>
 </html>
