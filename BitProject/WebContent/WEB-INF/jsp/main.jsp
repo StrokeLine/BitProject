@@ -39,8 +39,24 @@
 $(document).ready(function(){
 	$("#menu ul.sub").hide();
 	$("#menu ul.subMy").hide();
-	$("#menu ul.menu li").click(function(){
-		$("ul",this).slideToggle("fast");
+	$("#header ul.mypagesub").hide();
+	/* $("#menu ul.menu li").mouseover(function(){
+		$("ul",this).slideDown();
+	},
+	function(){
+		$("ul",this).slideUp();
+	}); */
+	$("#menu ul.menu li").hover(function(){
+		$("ul",this).slideDown("slow");
+	},
+	function(){
+		$("ul",this).slideUp("fast");
+	});
+	$("#header ul.main_icons_o li").hover(function(){
+		$("ul",this).slideDown("slow");
+	},
+	function(){
+		$("ul",this).slideUp("fast");
 	});
 });
 </script>
@@ -76,7 +92,16 @@ $(document).ready(function(){
 							<ul class="main_icons_o">
 								<li> <i class="fa fa-home" aria-hidden="true" onclick="location='main'"> <span>&nbsp;Home&nbsp;|</span> </i> </li>
 								<li> <i class="fa fa-sign-out" aria-hidden="true" onclick="location='logoutPro'"> <span>&nbsp;Sign out&nbsp;|</span> </i> </li>
-								<li> <i class="fa fa-user" aria-hidden="true" onclick="location='myPageMain'"> <span>&nbsp;My page&nbsp;|</span> </i> </li>
+								<li> <i class="fa fa-user" aria-hidden="true" onclick="location='myPageMain'"> <span>&nbsp;My page&nbsp;|</span> </i> 
+									<ul class="mypagesub">
+										<li>1</li>
+										<li>2</li>
+										<li>3</li>
+										<li>4</li>
+										<li>5</li>
+										
+									</ul>
+								</li>
 								<c:choose>
 									<c:when test="${s_index == ''}"><!-- store open X -->
 										<li> <i class="fa fa-building-o" aria-hidden="true" onclick="location='sellerRegForm'"> <span>&nbsp;Store Open&nbsp;|</span> </i> </li>									
@@ -149,10 +174,10 @@ $(document).ready(function(){
 							<ul class="subMy">
 								<li><a href="memberInfo" class="product_list"><i class="fa fa-user" aria-hidden="true">&nbsp;내정보</i></a></li>
 								<c:choose>
-									<c:when test="${empty sessionScope.s_index }"><!-- store open X -->
+									<c:when test="${s_index == ''}"><!-- store open X -->
 										<li><a href="sellerRegForm" class="product_list"><i class="fa fa-user" aria-hidden="true">&nbsp;판매자 등록</i></a></li>
 									</c:when>
-									<c:when test="${not empty sessionScope.s_index }"><!-- store open O -->
+									<c:when test="${s_index != ''}"><!-- store open O -->
 										<li><a href="sellerMyMain" class="product_list"><i class="fa fa-user" aria-hidden="true">&nbsp;내상점</i></a></li>						
 									</c:when>
 								</c:choose>

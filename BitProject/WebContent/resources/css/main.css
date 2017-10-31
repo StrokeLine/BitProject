@@ -1976,7 +1976,7 @@
 		ul.main_icons_o {
 			cursor: pointer;
 			list-style: none;
-			display: -webkit-inline-box;
+			display: inline-flex;
 			margin-left: 356px;
 			color: #0A1F38;
 		}

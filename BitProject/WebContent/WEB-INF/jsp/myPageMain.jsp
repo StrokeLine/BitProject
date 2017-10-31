@@ -136,10 +136,10 @@ html, body{margin:0; width:100%;	height:100%;}
 					<ul class="subMy">
 						<li><a href="memberInfo" class="product_list"><i class="fa fa-user" aria-hidden="true">&nbsp;내정보</i></a></li>
 						<c:choose>
-							<c:when test="${empty sessionScope.s_index }"><!-- store open X -->
+							<c:when test="${s_index == ''}"><!-- store open X -->
 								<li><a href="sellerRegForm" class="product_list"><i class="fa fa-user" aria-hidden="true">&nbsp;판매자 등록</i></a></li>
 							</c:when>
-							<c:when test="${not empty sessionScope.s_index }"><!-- store open O -->
+							<c:when test="${s_index !='' }"><!-- store open O -->
 								<li><a href="sellerMyMain" class="product_list"><i class="fa fa-user" aria-hidden="true">&nbsp;내상점</i></a></li>						
 							</c:when>
 						</c:choose>

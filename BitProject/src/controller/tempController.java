@@ -111,6 +111,7 @@ public class tempController {
 	public ModelAndView logoutPro(HttpSession session) {
 		ModelAndView mav = new ModelAndView();
 		session.removeAttribute("m_index");
+		session.removeAttribute("s_index");
 		mav.setViewName("main");
 		return mav;
 	}
