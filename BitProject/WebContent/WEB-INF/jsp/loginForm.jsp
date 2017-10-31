@@ -36,6 +36,15 @@
 <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
 
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#menu ul.sub").hide();
+		$("#menu ul.menu li").click(function(){
+			$("ul",this).slideToggle("fast");
+		});
+	});
+</script>
+
 </head>
 
 <body>
@@ -51,26 +60,14 @@
 						<span class="symbol"><i class="fa fa-paw fa-2x" aria-hidden="true"></i></span><span class="title">FreeHaGae</span>
 					</a>
 					
-					<c:choose>
-							<c:when test="${empty sessionScope.m_index }"><!-- login X -->
-								
-							<ul class="main_icons_x">
-								<li> <i class="fa fa-home" aria-hidden="true" onclick="location='main'"> <span>Home</span> </i> </li>
-								<li> <i class="fa fa-sign-in" aria-hidden="true" onclick="location='loginForm'"> <span>Sign In</span> </i> </li>
-								<li> <i class="fa fa-pencil-square-o" aria-hidden="true" onclick="location='joinForm'"> <span>Sign Up</span> </i> </li>
-								<li> <i class="fa fa-building-o" aria-hidden="true"> <span>Store Open</span> </i> </li>
-							</ul>
+					<ul class="main_icons_signin">
+						<li> <i class="fa fa-home" aria-hidden="true" onclick="location='main'"> <span>&nbsp;Home&nbsp;|</span> </i> </li>
+						<li> <i class="fa fa-pencil-square-o" aria-hidden="true" onclick="location='joinForm'"> <span>&nbsp;Sign Up&nbsp;|</span> </i> </li>
+						<li> <i class="fa fa-building-o" aria-hidden="true"> <span>&nbsp;Store Open&nbsp;|</span> </i> </li>
+						<li> <i class="fa fa-question-circle-o" aria-hidden="true"> <span>&nbsp;Customer Service&nbsp;|</span> </i> </li>
+					</ul>
 							
-							</c:when>
-							<c:when test="${not empty sessionScope.m_index }"><!-- login O -->
-							<ul class="main_icons_o">
-								<li> <i class="fa fa-home" aria-hidden="true" onclick="location='main'"> <span>Home</span> </i> </li>
-								<li> <i class="fa fa-sign-out" aria-hidden="true" onclick="location='logoutPro'"> <span>Sign out</span> </i> </li>
-								<li> <i class="fa fa-user" aria-hidden="true" onclick="location='myPageMain'"> <span>My page</span> </i> </li>
-								<li> <i class="fa fa-building-o" aria-hidden="true"> <span>Store Open</span> </i> </li>
-							</ul>
-							</c:when>
-						</c:choose>
+						
 				<!-- Nav -->
 					<nav>
 						<ul>
@@ -85,16 +82,23 @@
 		<nav id="menu">
 			<h2>Menu</h2>
 			<ul class="menu">
-				<li><a href="main">Home</a></li>
-				<li><a href="#">Category</a>
+				<li><a href="main" class="product_list"><i class="fa fa-home" aria-hidden="true">&nbsp;Home</i></a></li>
+				<li><i class="fa fa-paw" aria-hidden="true"><p class="p_cate">&nbsp;Category</p></i>
 					<ul class="sub">
-						<li><a href="#">성</a></li>
-						<li><a href="#">공</a></li>
+						<li><a href="#" class="product_list"><i class="fa fa-paw" aria-hidden="true">&nbsp;전체</i></a></li>
+						<li><a href="#" class="product_list"><i class="fa fa-paw" aria-hidden="true">&nbsp;사료/간식</i></a></li>
+						<li><a href="#" class="product_list"><i class="fa fa-paw" aria-hidden="true">&nbsp;배변용품</i></a></li>
+						<li><a href="#" class="product_list"><i class="fa fa-paw" aria-hidden="true">&nbsp;건강관리</i></a></li>
+						<li><a href="#" class="product_list"><i class="fa fa-paw" aria-hidden="true">&nbsp;미용/목욕</i></a></li>
+						<li><a href="#" class="product_list"><i class="fa fa-paw" aria-hidden="true">&nbsp;장난감</i></a></li>
+						<li><a href="#" class="product_list"><i class="fa fa-paw" aria-hidden="true">&nbsp;리빙</i></a></li>
+						<li><a href="#" class="product_list"><i class="fa fa-paw" aria-hidden="true">&nbsp;패션</i></a></li>
+						<li><a href="#" class="product_list"><i class="fa fa-paw" aria-hidden="true">&nbsp;야외용품</i></a></li>
 					</ul>
 				</li>
-				<li><a href="loginForm">Sign in</a></li>
-				<li><a href="joinForm">Sign up</a></li>
-				<li><a href="#">My Store</a></li>
+				<li><a href="joinForm"><i class="fa fa-pencil-square-o" aria-hidden="true">&nbsp;Sign up</i></a></li>
+				<li><a href="#"><i class="fa fa-building-o" aria-hidden="true">&nbsp;Store Open</i></a></li>
+				<li><a href="#"><i class="fa fa-question-circle-o" aria-hidden="true">&nbsp;Customer Service</i></a></li>
 			</ul>
 		</nav>
 		

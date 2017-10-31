@@ -35,6 +35,15 @@
 <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
 
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#menu ul.sub").hide();
+		$("#menu ul.menu li").click(function(){
+			$("ul",this).slideToggle("fast");
+		});
+	});
+</script>
+
 </head>
 
 <body>

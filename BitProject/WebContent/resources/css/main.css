@@ -1679,9 +1679,9 @@
 		}
 		
 		p.p_cate:hover {
+			cursor : pointer;
 			border-bottom-color: transparent;
 			color: #f2849e !important;
-			text-decoration: underline;
 		}
 
 	strong, b {
@@ -1963,7 +1963,7 @@
 			cursor: pointer;
 			list-style: none;
 			display: -webkit-inline-box;
-			margin-left: 650px;
+			margin-left: 376px;
 			color: #0A1F38;
 		}
 		
@@ -1977,11 +1977,37 @@
 			cursor: pointer;
 			list-style: none;
 			display: -webkit-inline-box;
-			margin-left: 630px;
+			margin-left: 356px;
 			color: #0A1F38;
 		}
 		
 		ul.main_icons_o>li:hover{
+		    border-bottom-color: transparent;
+		    color: #f2849e !important;
+		    text-decoration: underline;
+		}
+		
+		ul.main_icons_signin {
+			cursor: pointer;
+			list-style: none;
+			display: -webkit-inline-box;
+			margin-left: 486px;
+			color: #0A1F38;
+		}
+		ul.main_icons_signin>li:hover{
+		    border-bottom-color: transparent;
+		    color: #f2849e !important;
+		    text-decoration: underline;
+		}
+		
+		ul.main_icons_signup {
+			cursor: pointer;
+			list-style: none;
+			display: -webkit-inline-box;
+			margin-left: 499px;
+			color: #0A1F38;
+		}
+		ul.main_icons_signup>li:hover{
 		    border-bottom-color: transparent;
 		    color: #f2849e !important;
 		    text-decoration: underline;
