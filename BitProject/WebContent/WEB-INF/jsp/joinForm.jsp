@@ -617,7 +617,7 @@ $(document).ready(function(){
 				<div class="container">
 
 					<div class="row">
-						<div class="col-md-8">
+						<div class="col-md-8" id="joinf">
 							<h1 class="entry-title">
 								<span><img alt="" src="/images/signup.png" class="img-responsive"></span>
 							</h1>

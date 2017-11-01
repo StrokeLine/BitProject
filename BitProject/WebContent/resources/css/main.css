@@ -3265,8 +3265,18 @@
 	}
 	section.signin {
     padding: 1em;
-    margin-left: 34%;
-}
+    margin:10% 34%;
+	}
+	
+	div#joinf {
+    padding: 1em;
+    margin: 5% 18%;
+	}
+	
+	div#signip {
+    width: 318px;
+	}
+
 .input-group-addon {
 	padding: 6px 12px;
 	font-size: 14px;
