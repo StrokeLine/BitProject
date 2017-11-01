@@ -73,10 +73,10 @@ $(document).ready(function(){
 							<c:when test="${empty sessionScope.m_index }"><!-- login X -->
 								
 							<ul class="main_icons_x">
-								<li> <i class="fa fa-home" aria-hidden="true" onclick="location='main'"> <span>&nbsp;Home&nbsp;|</span> </i> </li>
-								<li> <i class="fa fa-sign-in" aria-hidden="true" onclick="location='loginForm'"> <span>&nbsp;Sign In&nbsp;|</span> </i> </li>
-								<li> <i class="fa fa-pencil-square-o" aria-hidden="true" onclick="location='joinForm'"> <span>&nbsp;Sign Up&nbsp;|</span> </i> </li>
-								<li> <i class="fa fa-building-o" aria-hidden="true" onclick="location='loginForm'"> <span>&nbsp;Store Open&nbsp;|</span> </i> </li>
+								<li> <i class="fa fa-home" aria-hidden="true" onclick="location='main'"> <span>&nbsp;Home&nbsp;|&nbsp;</span> </i> </li>
+								<li> <i class="fa fa-sign-in" aria-hidden="true" onclick="location='loginForm'"> <span>&nbsp;Sign In&nbsp;|&nbsp;</span> </i> </li>
+								<li> <i class="fa fa-pencil-square-o" aria-hidden="true" onclick="location='joinForm'"> <span>&nbsp;Sign Up&nbsp;|&nbsp;</span> </i> </li>
+								<li> <i class="fa fa-building-o" aria-hidden="true" onclick="location='loginForm'"> <span>&nbsp;Store Open&nbsp;|&nbsp;</span> </i> </li>
 								<li> <i class="fa fa-question-circle-o" aria-hidden="true"> <span>&nbsp;Customer Service&nbsp;|</span> </i> </li>
 							</ul>
 							
@@ -87,14 +87,14 @@ $(document).ready(function(){
 								<li> <i class="fa fa-sign-out" aria-hidden="true" onclick="location='logoutPro'"> <span>&nbsp;Sign out&nbsp;|&nbsp;</span> </i> </li>
 								<li> <i class="fa fa-user" aria-hidden="true" onclick="location='myPageMain'"> <span>&nbsp;My page&nbsp;|&nbsp;</span> </i> 
 									<ul class="mypagesub">
-										<li><a>내정보</a></li>
-										<li><a>내상점</a></li>
-										<li><a>관심스토어 알림</a></li>
-										<li><a>찜한 상품</a></li>
-										<li><a>장바구니</a></li>
-										<li><a>주문/배송</a></li>
-										<li><a>문의사항</a></li>
-										<li><a>탈퇴하기</a></li>
+										<li><a><i class="fa fa-user" aria-hidden="true">&nbsp;내정보</i></a></li>
+										<li><a><i class="fa fa-user" aria-hidden="true">&nbsp;내상점</i></a></li>
+										<li><a><i class="fa fa-user" aria-hidden="true">&nbsp;관심스토어 알림</i></a></li>
+										<li><a><i class="fa fa-user" aria-hidden="true">&nbsp;찜한 상품</i></a></li>
+										<li><a><i class="fa fa-user" aria-hidden="true">&nbsp;장바구니</i></a></li>
+										<li><a><i class="fa fa-user" aria-hidden="true">&nbsp;주문/배송</i></a></li>
+										<li><a><i class="fa fa-user" aria-hidden="true">&nbsp;문의사항</i></a></li>
+										<li><a><i class="fa fa-user" aria-hidden="true">&nbsp;탈퇴하기</i></a></li>
 										
 									</ul>
 								</li>

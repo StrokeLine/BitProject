@@ -1959,11 +1959,9 @@
 				display: inline-block;
 				padding: 1em 0 0 1em;
 			}
-		ul.main_icons_x {
+		.menubar ul.main_icons_x {
 			cursor: pointer;
-			list-style: none;
-			display: -webkit-inline-box;
-			margin-left: 376px;
+			display: inline-flex;
 			color: #0A1F38;
 		}
 		
@@ -3450,8 +3448,7 @@
 .menubar ul{
 height:50px;
 list-style:none;
-margin-left:432px;
-padding:0;
+margin-left:408px;
 }
 
 .menubar li{
@@ -3497,18 +3494,18 @@ display:block;
 float:none;
 margin:0px;
 padding:0px;
-width:200px;
+width:150px;
 }
 
 .menubar li:hover li a{
-background:none;
+background: #ffffff;
 color: #0A1F38;
 }
 
 .menubar li ul a{
 display:block;
 height:50px;
-font-size:12px;
+font-size:70%;
 font-style:normal;
 margin:0px;
 padding:0px 10px 0px 15px;
