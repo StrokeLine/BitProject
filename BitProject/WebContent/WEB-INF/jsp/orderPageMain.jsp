@@ -23,6 +23,21 @@
 <!-- Custom styles for this template -->
 <link href="/css/freelancer.min.css" rel="stylesheet">
 
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#menu ul.sub").hide();//카테고리 하위메뉴 hide
+		$("#menu ul.subMy").hide();//마이페이지 하위메뉴 hide
+		$("#menu ul.subms").hide();//내상점 하위메뉴 hide
+		
+		$("#menu ul.menu li").click(function(){
+			$("ul",this).slideToggle("fast");
+		});
+		$("#header ul.main_icons_o li").click(function(){
+			$("ul",this).slideToggle("fast");
+		});
+	});
+</script>
+
 </head>
 <style>
 html, body{margin:0; width:100%;	height:100%;}
@@ -33,6 +48,8 @@ html, body{margin:0; width:100%;	height:100%;}
 	display: inline-block;	position: absolute;	left:200px;	right: 0;	height:100%; overflow:hidden;
 }
 </style>
+
+
 
 <body  background="/images/bg2.jpg">
 	

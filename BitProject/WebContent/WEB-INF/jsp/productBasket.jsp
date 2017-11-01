@@ -67,6 +67,9 @@ input[type="text"], input[type="password"], input[type="email"], input[type="tel
     margin-left: auto;
    	margin-right: auto;
 }
+input[type="submit"], input[type="reset"], input[type="button"], button, .button {
+	font-size: 0.6em;
+}
 
 </style>
 <script type="text/javascript">
@@ -90,7 +93,7 @@ input[type="text"], input[type="password"], input[type="email"], input[type="tel
 		
 		var form = document.createElement("form");
 		form.setAttribute("methed", "post");
-		form.setAttribute("action", "orderPageMain");
+		form.setAttribute("action", "orderProduct");
 		form.setAttribute("target", "_parent");
 		document.body.appendChild(form);
 		

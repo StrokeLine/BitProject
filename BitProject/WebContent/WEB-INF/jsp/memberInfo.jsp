@@ -78,7 +78,8 @@
 	}
 	
 	.repassword{
-		margin: 3% 30%;
+		margin: 10% 33%;
+		padding: 1em;
 	}
 
  	.memberInfoTable{

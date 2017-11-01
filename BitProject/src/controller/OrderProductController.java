@@ -32,33 +32,30 @@ public class OrderProductController {
 	@Autowired
 	private ProductService productService;
 	
-	private String[] selectList;
-	
 	@RequestMapping("orderCheck")
 	public ModelAndView orderCheck() {
-		ModelAndView mav = new ModelAndView();
-		
-		selectList = null;
-		
+		ModelAndView mav = new ModelAndView();		
 		mav.setViewName("orderCheck");		
 		return mav;
 	}
 	
 	@RequestMapping("orderPageMain")
-	public ModelAndView orderPageMain(HttpSession session, String[] selectList) {
+	public ModelAndView orderPageMain(HttpSession session) {
 		ModelAndView mav = new ModelAndView();
-		if(selectList == null){
-			mav.setViewName("myPageMain");
-			return mav;
-		}
-		this.selectList = selectList;
+
 		mav.setViewName("orderPageMain");
 		return mav;
 	}
 	
 	@RequestMapping("orderProduct")
-	public ModelAndView orderProduct(HttpSession session) {
+	public ModelAndView orderProduct(HttpSession session, String[] selectList) {
 		ModelAndView mav = new ModelAndView();	
+		
+		if(selectList == null){
+			mav.setViewName("productBasket");
+			return mav;
+		}
+
 		List<shopping_basket_view> basket_view_list = new ArrayList<>();
 		for(int i = 0; i < selectList.length; i++) {
 			basket_view_list.add(favoriteBasketService.getShoppingBasketView(Integer.parseInt(selectList[i])));
