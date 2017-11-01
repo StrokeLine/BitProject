@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
@@ -538,12 +538,18 @@
 </script>
 
 <script type="text/javascript">
-	$(document).ready(function(){
-		$("#menu ul.sub").hide();
-		$("#menu ul.menu li").click(function(){
-			$("ul",this).slideToggle("fast");
-		});
+$(document).ready(function(){
+	$("#menu ul.sub").hide();//카테고리 하위메뉴 hide
+	$("#menu ul.subMy").hide();//마이페이지 하위메뉴 hide
+	$("#menu ul.subms").hide();//내상점 하위메뉴 hide
+	
+	$("#menu ul.menu li").click(function(){
+		$("ul",this).slideToggle("fast");
 	});
+	$("#header ul.main_icons_o li").click(function(){
+		$("ul",this).slideToggle("fast");
+	});
+});
 </script>
 
 </head>
@@ -563,10 +569,10 @@
 					
 					
 					<ul class="main_icons_signup">
-						<li> <i class="fa fa-home" aria-hidden="true" onclick="location='main'"> <span>&nbsp;Home&nbsp;|</span> </i> </li>
-						<li> <i class="fa fa-sign-in" aria-hidden="true" onclick="location='loginForm'"> <span>&nbsp;Sign In&nbsp;|</span> </i> </li>
-						<li> <i class="fa fa-building-o" aria-hidden="true"> <span>&nbsp;Store Open&nbsp;|</span> </i> </li>
-						<li> <i class="fa fa-question-circle-o" aria-hidden="true"> <span>&nbsp;Customer Service&nbsp;|</span> </i> </li>
+						<li> <i class="fa fa-home" aria-hidden="true" onclick="location='main'"> <span>&nbsp;Home&nbsp;|&nbsp;</span> </i> </li>
+						<li> <i class="fa fa-sign-in" aria-hidden="true" onclick="location='loginForm'"> <span>&nbsp;Sign In&nbsp;|&nbsp;</span> </i> </li>
+						<li> <i class="fa fa-building-o" aria-hidden="true" onclick="location='loginForm'"> <span>&nbsp;Store Open&nbsp;|&nbsp;</span> </i> </li>
+								<li> <i class="fa fa-question-circle-o" aria-hidden="true"> <span>&nbsp;Customer Service&nbsp;|</span> </i> </li>
 					</ul>
 						
 						
@@ -585,7 +591,7 @@
 			<h2>Menu</h2>
 			<ul class="menu">
 				<li><a href="main" class="product_list"><i class="fa fa-home" aria-hidden="true">&nbsp;Home</i></a></li>
-				<li><i class="fa fa-paw" aria-hidden="true"><p class="p_cate">&nbsp;Category</p></i>
+				<li><p class="p_cate"><i class="fa fa-paw" aria-hidden="true">&nbsp;Category</i></p>
 					<ul class="sub">
 						<li><a href="#" class="product_list"><i class="fa fa-paw" aria-hidden="true">&nbsp;전체</i></a></li>
 						<li><a href="#" class="product_list"><i class="fa fa-paw" aria-hidden="true">&nbsp;사료/간식</i></a></li>
@@ -599,7 +605,7 @@
 					</ul>
 				</li>
 				<li><a href="loginForm"><i class="fa fa-sign-in" aria-hidden="true">&nbsp;Sign in</i></a></li>
-				<li><a href="#"><i class="fa fa-building-o" aria-hidden="true">&nbsp;Store Open</i></a></li>
+				<li><a href="loginForm"><i class="fa fa-building-o" aria-hidden="true">&nbsp;Store Open</i></a></li>
 				<li><a href="#"><i class="fa fa-question-circle-o" aria-hidden="true">&nbsp;Customer Service</i></a></li>
 			</ul>
 		</nav>

@@ -37,12 +37,18 @@
 <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
 
 <script type="text/javascript">
-	$(document).ready(function(){
-		$("#menu ul.sub").hide();
-		$("#menu ul.menu li").click(function(){
-			$("ul",this).slideToggle("fast");
-		});
+$(document).ready(function(){
+	$("#menu ul.sub").hide();//카테고리 하위메뉴 hide
+	$("#menu ul.subMy").hide();//마이페이지 하위메뉴 hide
+	$("#menu ul.subms").hide();//내상점 하위메뉴 hide
+	
+	$("#menu ul.menu li").click(function(){
+		$("ul",this).slideToggle("fast");
 	});
+	$("#header ul.main_icons_o li").click(function(){
+		$("ul",this).slideToggle("fast");
+	});
+});
 </script>
 
 </head>
@@ -61,9 +67,9 @@
 					</a>
 					
 					<ul class="main_icons_signin">
-						<li> <i class="fa fa-home" aria-hidden="true" onclick="location='main'"> <span>&nbsp;Home&nbsp;|</span> </i> </li>
-						<li> <i class="fa fa-pencil-square-o" aria-hidden="true" onclick="location='joinForm'"> <span>&nbsp;Sign Up&nbsp;|</span> </i> </li>
-						<li> <i class="fa fa-building-o" aria-hidden="true"> <span>&nbsp;Store Open&nbsp;|</span> </i> </li>
+						<li> <i class="fa fa-home" aria-hidden="true" onclick="location='main'"> <span>&nbsp;Home&nbsp;|&nbsp;</span> </i> </li>
+						<li> <i class="fa fa-pencil-square-o" aria-hidden="true" onclick="location='joinForm'"> <span>&nbsp;Sign Up&nbsp;|&nbsp;</span> </i> </li>
+						<li> <i class="fa fa-building-o" aria-hidden="true" onclick="location='loginForm'"> <span>&nbsp;Store Open&nbsp;|&nbsp;</span> </i> </li>
 						<li> <i class="fa fa-question-circle-o" aria-hidden="true"> <span>&nbsp;Customer Service&nbsp;|</span> </i> </li>
 					</ul>
 							
@@ -97,7 +103,7 @@
 					</ul>
 				</li>
 				<li><a href="joinForm"><i class="fa fa-pencil-square-o" aria-hidden="true">&nbsp;Sign up</i></a></li>
-				<li><a href="#"><i class="fa fa-building-o" aria-hidden="true">&nbsp;Store Open</i></a></li>
+				<li><a href="loginForm"><i class="fa fa-building-o" aria-hidden="true">&nbsp;Store Open</i></a></li>
 				<li><a href="#"><i class="fa fa-question-circle-o" aria-hidden="true">&nbsp;Customer Service</i></a></li>
 			</ul>
 		</nav>
@@ -121,7 +127,9 @@
 								<li><input type="reset" value="Cancel" /></li>
 							</ul>
 						</div>
-					</form> 
+					</form>
+					<span class="signin_jh" onclick="location='joinForm'"><i class="fa fa-pencil-square-o" aria-hidden="true">&nbsp;Sign up&nbsp;|&nbsp;</i></span>
+					<span class="signin_jh"><i class="fa fa-search" aria-hidden="true">&nbsp;아이디/비밀번호찾기</i></span> 
 				</section>
 				
 			</div>

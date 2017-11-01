@@ -1992,7 +1992,7 @@
 			cursor: pointer;
 			list-style: none;
 			display: -webkit-inline-box;
-			margin-left: 486px;
+			margin-left: 470px;
 			color: #0A1F38;
 		}
 		ul.main_icons_signin>li:hover{
@@ -2005,7 +2005,7 @@
 			cursor: pointer;
 			list-style: none;
 			display: -webkit-inline-box;
-			margin-left: 499px;
+			margin-left: 483px;
 			color: #0A1F38;
 		}
 		ul.main_icons_signup>li:hover{
@@ -3530,4 +3530,15 @@ text-decoration:none;
 
 .menubar p{
 clear:left;
+}
+
+/* sign in */
+span.signin_jh:hover {
+    border-bottom-color: transparent;
+    color: #f2849e !important;
+    text-decoration: underline;
+}
+span.signin_jh {
+    font-size: 70%;
+    cursor: pointer;
 }
