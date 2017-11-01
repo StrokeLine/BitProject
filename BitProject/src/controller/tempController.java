@@ -202,16 +202,7 @@ public class tempController {
 		mav.setViewName("modifyProduct");
 		
 		return mav;
-	}*/
-	
-	@RequestMapping("deleteMember")
-	public ModelAndView deleteMember(HttpSession session, String m_password){
-		ModelAndView mav = new ModelAndView();
-		int m_index = (Integer)session.getAttribute("m_index");
-		mav.addObject("member", memberService.getMember(m_index));
-		mav.setViewName("deleteMember");		
-		return mav;		
-	}	
+	}*/	
 	
 	@RequestMapping("dibsCheck")
 	public ModelAndView dibsCheck() {

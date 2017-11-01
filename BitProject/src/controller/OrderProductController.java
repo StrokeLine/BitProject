@@ -82,8 +82,8 @@ public class OrderProductController {
 			order_statement.setM_index(m_index);
 			order_statement.setP_index(basket_view.getP_index());
 			order_statement.setOs_num(basket_view.getSb_num());
-			order_statement.setOs_deposit_state("");
-			order_statement.setOs_handling_state("");
+			order_statement.setOs_deposit_state("입금확인");
+			order_statement.setOs_handling_state("입금확인");
 			
 			favoriteBasketService.deleteShoppingBasket(Integer.parseInt(sb_index[i]));
 			orderProductService.addOrderStatement(order_statement);

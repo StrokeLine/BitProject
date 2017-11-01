@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import model.member_info;
 import model.seller_info;
@@ -20,6 +21,15 @@ public class memberController {
 	
 	@Autowired
 	private SellerInfoService sellerInfoService;
+	
+	@RequestMapping("deleteMember")
+	public ModelAndView deleteMember(HttpSession session, String m_password){
+		ModelAndView mav = new ModelAndView();
+		int m_index = (Integer)session.getAttribute("m_index");
+		mav.addObject("member", memberinfoservice.getMember(m_index));
+		mav.setViewName("deleteMember");		
+		return mav;		
+	}
 	
 	@RequestMapping(value="checkID", method={RequestMethod.GET, RequestMethod.POST})
 	public @ResponseBody int idCheck(String id) {
