@@ -1,10 +1,41 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<!DOCTYPE html>
 <html>
-
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	
+	<title>Hand Made - Pet Product</title>
+	
+	<!-- Bootstrap core JavaScript -->
+	<script src="/jquery/jquery.min.js"></script>
+	<script src="/bootstrap/js/bootstrap.min.js"></script>
+	
+	<!-- Bootstrap core CSS -->
+	<link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	
+	<!-- Custom fonts for this template -->
+	<link href="/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	
+	<!-- Custom styles for this template -->
+	<link rel="stylesheet" href="/css/main.css" />
+	<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+	<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+	
+	<!-- Scripts -->
+	<script src="/js/skel.min.js"></script>
+	<script src="/js/util.js"></script>
+	<script src="/js/main.js"></script>
+	<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+	<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <style>
-.consumerContractList{margin-top:50px; margin-right:100px; margin-left:100px;}
+.consumerContractList{margin-top:50px; margin-right:100px; margin-left:100px; width: 37.5em;}
 .contractTable{width:700px; border-style:solid none solid none; border-width:3px 0 3px 0;}
 .tableHeader{width:700px; height:50px; border-bottom:solid 1px; text-align:center;}
 .col1{float:left; width:15%; margin-right:1%; height:20px;}
@@ -20,43 +51,20 @@
 .shippingFee{display:inline-block; width:10%; margin-right:1%; height:20px;}
 .contractState{display:inline-block; width:10%; height:20px;}
 .NoneRow{margin: 5% 37%;}
-</style>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
-<div class="consumerContractList">
-<h2>주문/배송정보</h2>
-	<div class="contractTable">
-		<div class="tableHeader">
-			<div class="col1"><h5>주문일자</h5></div>
-			<div class="col2"><h5>상품정보</h5></div>
-			<div class="col3"><h5>금액</h5></div>
-			<div class="col4"><h5>배송비</h5></div>
-			<div class="col5"><h5>주문상태</h5></div>
-		</div>
-		
-		<c:if test='${order_statement_list == ""}'>
-			<div class="NoneRow">등록 된 정보가 없습니다.</div>
-		</c:if>
-		
-		<c:forEach var="order_statement" items="${order_statement_list }">
-			<div class="tableRow">
-				<div class="contractDate">${order_statement.om_date }</div>
-				<div class="productImg">
-					이미지
-					<c:if test="${order_statement.p_img != null }">
-						<img src="${order_statement.p_img }">
-					</c:if>
-				</div>
-				<div class="productName">${order_statement.p_name }</div>
-				<div class="ProductPrice">${(order_statement.om_num * order_statement.p_price)+order_statement.p_fee}</div>
-				<div class="shippingFee">${order_statement.p_fee }</div>
-				<div class="contractState"><input type="button" value="주문취소" onclick='cancelContract("${order_statement.om_index}")'></div>
-			</div>
-		 
-		</c:forEach>
-		
-	</div>
-</div>
+table th{
+	text-align: center;
+}
+
+table td{
+	text-align: center;
+	vertical-align: middle;
+}
+
+table{
+	font-size: 0.8em;
+}
+</style>
 
 <script type="text/javascript">
 	function cancelContract(om_index) {
@@ -81,4 +89,49 @@
 		}
 	}
 </script>
+
+</head>
+<body>
+	<div class="consumerContractList">
+		<h2>주문/배송정보</h2>
+		<table class="table-wrapper">
+			<thead>
+				<tr>
+					<th style="width: 120px;">주문일자</th>
+					<th colspan="2">상품정보</th>
+					<th>금액</th>
+					<th>배송비</th>
+					<th style="width: 50px;">주문상태</th>
+				</tr>
+			</thead>
+			<tbody>
+				<c:if test='${order_statement_list == ""}'>
+					<tr>
+						<td colspan="6">
+								<div class="NoneRow">등록 된 정보가 없습니다.</div>					
+						</td>
+					</tr>
+				</c:if>
+				<c:forEach var="order_statement" items="${order_statement_list }">
+					<tr>
+						<td>${order_statement.om_date }</td>
+						<td>
+							<c:if test="${order_statement.p_img != null }">
+								<img src="downloadProductImg?p_index=${order_statement.p_index }">
+							</c:if>
+						</td>
+						<td>${order_statement.p_name }</td>
+						<td><fmt:formatNumber value="${(order_statement.om_num * order_statement.p_price)+order_statement.p_fee}" pattern="###,###,###,###원"></fmt:formatNumber></td>
+						<td><fmt:formatNumber value="${order_statement.p_fee }" pattern="###,###,###,###원"></fmt:formatNumber></td>
+						<td>입금완료
+							<input class="button special small" type="button" value="주문취소" onclick='cancelContract("${order_statement.om_index}")'>
+						</td>
+					</tr>
+				</c:forEach>
+			</tbody>
+		</table>
+	</div>
+</body>
+
+
 </html>

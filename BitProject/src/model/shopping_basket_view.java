@@ -11,6 +11,7 @@ public class shopping_basket_view {
 	private int sb_num;		// 수량
 	private int p_price;	// 가격
 	private int p_fee;		// 배송비
+	private int sb_total;	// (가격 * 수량) + 배송비 
 	private Date sb_date;	// 등록일
 	
 	
@@ -68,11 +69,18 @@ public class shopping_basket_view {
 	public void setSb_date(Date sb_date) {
 		this.sb_date = sb_date;
 	}
+	public int getSb_total() {
+		return sb_total;
+	}
+	public void setSb_total(int sb_total) {
+		this.sb_total = sb_total;
+	}
+	
 	@Override
 	public String toString() {
 		return "shopping_basket_view [sb_index=" + sb_index + ", m_index=" + m_index + ", p_index=" + p_index
 				+ ", p_img=" + p_img + ", p_name=" + p_name + ", sb_num=" + sb_num + ", p_price=" + p_price + ", p_fee="
-				+ p_fee + ", sb_date=" + sb_date + "]";
+				+ p_fee + ", sb_total=" + sb_total + ", sb_date=" + sb_date + "]";
 	}
 	
 }

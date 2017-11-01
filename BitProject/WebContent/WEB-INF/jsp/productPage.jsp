@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -47,12 +48,14 @@
 		display: inline-block;		
 	}
 	.product_img{		
-		width: 40%;
-		height: 350px;
-		float: left;
-		border: solid;
-		display: inline-block;	
-	}
+ 		width: 40%;
+ 		height: 350px;
+ 		width: 700px;
+ 		height: 455px;
+  		float: left;
+  		border: solid;
+  		display: inline-block;	
+  	}
 	.product_info_wrap{
 		width: 50%;
 		height: 550px;
@@ -114,7 +117,16 @@
 		<div class="product_top">
 			<form action="orderProductForm" method="post">						
 				<div class="product_img">
-					이미지 영역
+					<c:choose>
+ +						<c:when test="${product_info.p_imgSrc != null}">
+ +							<div style="width: 450px; height: 450px; margin: auto;">
+ +								<img src="downloadProductImg?p_index=${ product_info.p_index}" width="450" height="450">
+ +							</div>
+ +						</c:when>
+ +						<c:when test="${product_info.p_imgSrc == null}">
+ +							이미지 영역
+ +						</c:when>
+ +					</c:choose>
 				</div>
 				<div class="product_info_wrap">							
 					<div class="product_info">

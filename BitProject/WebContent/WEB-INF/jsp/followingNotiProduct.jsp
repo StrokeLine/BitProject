@@ -1,53 +1,98 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<!DOCTYPE html>
 <html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	
+	<title>Hand Made - Pet Product</title>
+	
+	<!-- Bootstrap core JavaScript -->
+	<script src="/jquery/jquery.min.js"></script>
+	<script src="/bootstrap/js/bootstrap.min.js"></script>
+	
+	<!-- Bootstrap core CSS -->
+	<link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	
+	<!-- Custom fonts for this template -->
+	<link href="/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	
+	<!-- Custom styles for this template -->
+	<link rel="stylesheet" href="/css/main.css" />
+	<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+	<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+	
+	<!-- Scripts -->
+	<script src="/js/skel.min.js"></script>
+	<script src="/js/util.js"></script>
+	<script src="/js/main.js"></script>
+	<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+	<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+</head>
 
 <style>
-.fnPTable{width:800px; border-style:solid none solid none;}
-.fnPHeader{width:800px; text-align:center; border-bottom:solid 1px;}
-.fnPImgHeader{float:left; width:17%; height:50px; margin-right:1px;}
-.fnPNameHeader{display:inline-block; width:17%; height:50px; margin-right:1px;}
-.fnPPriceHeader{display:inline-block; width:17%; height:50px; margin-right:1px;}
-.fnPStoreNameHeader{display:inline-block; width:17%; height:50px; margin-right:1px;}
-.fnPRegDateHeader{display:inline-block; width:17%; height:50px; margin-right:1px;}
-.fnPRows{width:800px;}
-.fnPImg{float:left; width:17%; height:30px; margin-right:1px;}
-.fnPName{display:inline-block;; width:17%; height:30px; margin-right:1px; text-align: center;}
-.fnPPrice{display:inline-block;; width:17%; height:30px; margin-right:1px; text-align: center;}
-.fnPStoreName{display:inline-block; width:17%; height:30px; margin-right:1px; text-align: center;}
-.fnPRegDate{display:inline-block; width:17%; height:30px; margin-right:1px; text-align: center;}
 .fnPNoneRow{margin: 5% 39%;}
+
+table th{
+	text-align: center;
+}
+
+table td{
+	text-align: center;
+	vertical-align: middle;
+}
+
+
 </style>
 
-<div class="followingNotiPMain">
-	<div class="fnPTable">
-		<div class="fnPHeader">
-			<div class="fnPImgHeader"><h4>이미지</h4></div>
-			<div class="fnPNameHeader"><h4>상품명</h4></div>
-			<div class="fnPPriceHeader"><h4>가격</h4></div>
-			<div class="fnPStoreNameHeader"><h4>상점명</h4></div>
-			<div class="fnPRegDateHeader"><h4>등록일</h4></div>
-		</div>
-		<div class="fnPRows">
-		<c:if test='${notice_view_list == ""}'>
-			<div class="fnPNoneRow"> 등록된 정보가 없습니다.</div>
-		</c:if>
-		<c:forEach var="notice_view" items="${notice_view_list }">
-			<div class="fnPImg">(이미지)
-				<c:if test="${notice_view.p_img != null }">
-					<img src="${notice_view.p_img }">
+<body>
+	<div class="followingNotiPMain">
+		<table class="table-wrapper">
+			<thead>
+				<tr>
+					<th colspan="2">상품명</th>
+					<th>가격</th>
+					<th>상점명</th>
+					<th>등록일</th>				
+				</tr>
+			</thead>
+			<tbody>
+				<c:if test='${notice_view_list == ""}'>
+					<tr>
+						<td colspan="5">
+							<div class="fnPNoneRow"> 등록된 정보가 없습니다.</div>							
+						</td>
+					</tr>
 				</c:if>
-			</div>
-			<div class="fnPName">${notice_view.p_name }</div>
-			<div class="fnPPrice">${notice_view.p_price }</div>
-			<div class="fnPStoreName">${notice_view.s_nick}</div>
-			<div class="fnPRegDate">${notice_view.pn_date }</div>
-		 	
-		</c:forEach>
-		
-		</div> 
+				<c:forEach var="notice_view" items="${notice_view_list }">
+					<tr>
+						<td>
+							<c:if test="${notice_view.p_img != null }">
+								<img src="downloadProductImg?p_index=${notice_view.p_index }" width="50" height="50">
+							</c:if>						
+						</td>
+						<td>
+							${notice_view.p_name }							
+						</td>
+						<td>
+							<fmt:formatNumber value="${notice_view.p_price }" pattern="###,###,###,###원"></fmt:formatNumber>
+						</td>
+						<td>
+							${notice_view.s_nick}						
+						</td>
+						<td>
+							${notice_view.pn_date }							
+						</td>
+					</tr>
+				</c:forEach>
+			</tbody>
+		</table>
 	</div>
-</div>
+</body>
 </html>
