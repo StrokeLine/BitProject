@@ -220,7 +220,7 @@ $(document).ready(function(){
 				<header>
 					<h1>Hand Made - Pet Product<br />
 					<a href="main">FreeHaGae</a>.</h1>
-					<p>Etiam quis viverra lorem, in semper lorem. Sed nisl arcu euismod sit amet nisi euismod sed cursus arcu elementum ipsum arcu vivamus quis venenatis orci lorem ipsum et magna feugiat veroeros aliquam. Lorem ipsum dolor sit amet nullam dolore.</p>
+					<p>FreeHaGae</p>
 					
 					<img alt="" src="">
 					
