@@ -37,14 +37,10 @@
 
 <script type="text/javascript">
 $(document).ready(function(){
-	$("#menu ul.sub").hide();
-	$("#menu ul.subMy").hide();
-	/* $("#menu ul.menu li").mouseover(function(){
-		$("ul",this).slideDown();
-	},
-	function(){
-		$("ul",this).slideUp();
-	}); */
+	$("#menu ul.sub").hide();//카테고리 하위메뉴 hide
+	$("#menu ul.subMy").hide();//마이페이지 하위메뉴 hide
+	$("#menu ul.subms").hide();//내상점 하위메뉴 hide
+	
 	$("#menu ul.menu li").click(function(){
 		$("ul",this).slideToggle("fast");
 	});
@@ -82,19 +78,18 @@ $(document).ready(function(){
 							
 							</c:when>
 							<c:when test="${not empty sessionScope.m_index }"><!-- login O -->
-							<ul class="main_icons_o">
+							<ul class="main_icons_o" id="main_icons_o">
 								<li> <i class="fa fa-home" aria-hidden="true" onclick="location='main'"> <span>&nbsp;Home&nbsp;|&nbsp;</span> </i> </li>
 								<li> <i class="fa fa-sign-out" aria-hidden="true" onclick="location='logoutPro'"> <span>&nbsp;Sign out&nbsp;|&nbsp;</span> </i> </li>
-								<li> <i class="fa fa-user" aria-hidden="true" onclick="location='myPageMain'"> <span>&nbsp;My page&nbsp;|&nbsp;</span> </i> 
+								<li> <i class="fa fa-user" aria-hidden="true" onclick="location='memberInfo'"> <span>&nbsp;My page&nbsp;|&nbsp;</span> </i> 
 									<ul class="mypagesub">
-										<li><a><i class="fa fa-user" aria-hidden="true">&nbsp;내정보</i></a></li>
-										<li><a><i class="fa fa-user" aria-hidden="true">&nbsp;내상점</i></a></li>
-										<li><a><i class="fa fa-user" aria-hidden="true">&nbsp;관심스토어 알림</i></a></li>
-										<li><a><i class="fa fa-user" aria-hidden="true">&nbsp;찜한 상품</i></a></li>
-										<li><a><i class="fa fa-user" aria-hidden="true">&nbsp;장바구니</i></a></li>
-										<li><a><i class="fa fa-user" aria-hidden="true">&nbsp;주문/배송</i></a></li>
-										<li><a><i class="fa fa-user" aria-hidden="true">&nbsp;문의사항</i></a></li>
-										<li><a><i class="fa fa-user" aria-hidden="true">&nbsp;탈퇴하기</i></a></li>
+										<li><a href="memberInfo"><i class="fa fa-user" aria-hidden="true">&nbsp;내정보</i></a></li>
+										<li><a href="followingNotiMain"><i class="fa fa-user" aria-hidden="true">&nbsp;관심스토어 알림</i></a></li>
+										<li><a href="productFavorite"><i class="fa fa-user" aria-hidden="true">&nbsp;찜한 상품</i></a></li>
+										<li><a href="productBasket"><i class="fa fa-user" aria-hidden="true">&nbsp;장바구니</i></a></li>
+										<li><a href="consumerContractList"><i class="fa fa-user" aria-hidden="true">&nbsp;주문/배송</i></a></li>
+										<li><a href="qAndAMain"><i class="fa fa-user" aria-hidden="true">&nbsp;문의사항</i></a></li>
+										<li><a href="deleteMember"><i class="fa fa-user" aria-hidden="true">&nbsp;탈퇴하기</i></a></li>
 										
 									</ul>
 								</li>
@@ -103,7 +98,15 @@ $(document).ready(function(){
 										<li> <i class="fa fa-building-o" aria-hidden="true" onclick="location='sellerRegForm'"> <span>&nbsp;Store Open&nbsp;|&nbsp;</span> </i> </li>									
 									</c:when>
 									<c:when test="${s_index != ''}"><!-- store open O -->
-										<li> <i class="fa fa-building-o" aria-hidden="true" onclick="location='sellerMyMain'"> <span>&nbsp;My Store&nbsp;|&nbsp;</span> </i> </li>
+										<li> <i class="fa fa-building-o" aria-hidden="true" onclick="location='sellerMyMain'"> <span>&nbsp;My Store&nbsp;|&nbsp;</span> </i> 
+											<ul>
+												<li><a href="sellerMyStore"><i class="fa fa-building-o" aria-hidden="true">&nbsp;상점 정보</i></a></li>
+												<li><a href="customerNotice"><i class="fa fa-building-o" aria-hidden="true">&nbsp;공지 사항</i></a></li>
+												<li><a href="managementProduct"><i class="fa fa-building-o" aria-hidden="true">&nbsp;상품관리</i></a></li>
+												<li><a href="customerOrderDelivery"><i class="fa fa-building-o" aria-hidden="true">&nbsp;주문/배송 관리</i></a></li>
+												<li><a href="customerProductInquiry"><i class="fa fa-building-o" aria-hidden="true">&nbsp;문의관리</i></a></li>
+											</ul>
+										</li>
 									</c:when>
 								</c:choose>
 								<li> <i class="fa fa-question-circle-o" aria-hidden="true" onclick="location='customerCenterInquiry'"> <span>&nbsp;Customer Service&nbsp;|</span> </i> </li>
@@ -129,7 +132,7 @@ $(document).ready(function(){
 					
 					<ul class="menu">
 						<li><a href="main" class="product_list"><i class="fa fa-home" aria-hidden="true">&nbsp;Home</i></a></li>
-						<li><i class="fa fa-paw" aria-hidden="true"><p class="p_cate">&nbsp;Category</p></i>
+						<li><p class="p_cate"><i class="fa fa-paw" aria-hidden="true">&nbsp;Category</i></p>
 							<ul class="sub">
 								<li><a href="#" class="product_list"><i class="fa fa-paw" aria-hidden="true">&nbsp;전체</i></a></li>
 								<li><a href="#" class="product_list"><i class="fa fa-paw" aria-hidden="true">&nbsp;사료/간식</i></a></li>
@@ -144,15 +147,15 @@ $(document).ready(function(){
 						</li>
 						<li><a href="loginForm"><i class="fa fa-sign-in" aria-hidden="true">&nbsp;Sign in</i></a></li>
 						<li><a href="joinForm"><i class="fa fa-pencil-square-o" aria-hidden="true">&nbsp;Sign up</i></a></li>
-						<li><a href="#"><i class="fa fa-building-o" aria-hidden="true">&nbsp;Store Open</i></a></li>
-						<li><a href="#"><i class="fa fa-question-circle-o" aria-hidden="true">&nbsp;Customer Service</i></a></li>
+						<li><a href="loginForm"><i class="fa fa-building-o" aria-hidden="true">&nbsp;Store Open</i></a></li>
+						<li><a href="customerCenterInquiry"><i class="fa fa-question-circle-o" aria-hidden="true">&nbsp;Customer Service</i></a></li>
 					</ul>
 				
 				</c:when>
 				<c:when test="${not empty sessionScope.m_index }"><!-- login O -->
 					<ul class="menu">
 						<li><a href="main" class="product_list"><i class="fa fa-home" aria-hidden="true">&nbsp;Home</i></a></li>
-						<li><i class="fa fa-paw" aria-hidden="true"><p class="p_cate">&nbsp;Category</p></i>
+						<li><p class="p_cate"><i class="fa fa-paw" aria-hidden="true">&nbsp;Category</i></p>
 							<ul class="sub">
 								<li><a href="#" class="product_list"><i class="fa fa-paw" aria-hidden="true">&nbsp;전체</i></a></li>
 								<li><a href="#" class="product_list"><i class="fa fa-paw" aria-hidden="true">&nbsp;사료/간식</i></a></li>
@@ -165,8 +168,8 @@ $(document).ready(function(){
 								<li><a href="#" class="product_list"><i class="fa fa-paw" aria-hidden="true">&nbsp;야외용품</i></a></li>
 							</ul>
 						</li>
-						<li><a href="loginForm"><i class="fa fa-sign-out" aria-hidden="true">&nbsp;Sign out</i></a></li>
-						<li><i class="fa fa-user" aria-hidden="true"><p class="p_mypage">&nbsp;My page</p></i>
+						<li><a href="main"><i class="fa fa-sign-out" aria-hidden="true">&nbsp;Sign out</i></a></li>
+						<li><p class="p_mypage"><i class="fa fa-user" aria-hidden="true">&nbsp;My page</i></p>
 							<ul class="subMy">
 								<li><a href="memberInfo" class="product_list"><i class="fa fa-user" aria-hidden="true">&nbsp;내정보</i></a></li>
 								<c:choose>
@@ -187,10 +190,19 @@ $(document).ready(function(){
 						</li>
 						<c:choose>
 							<c:when test="${s_index == ''}"><!-- store open X -->
-								<li><a href="#"><i class="fa fa-building-o" aria-hidden="true">&nbsp;Store Open</i></a></li>
+								<li><a href="sellerRegForm"><i class="fa fa-building-o" aria-hidden="true">&nbsp;Store Open</i></a></li>
 							</c:when>
 							<c:when test="${s_index !='' }"><!-- store open O -->
-								<li><a href="#"><i class="fa fa-building-o" aria-hidden="true">&nbsp;My Store</i></a></li>						
+								<li><p><i class="fa fa-building-o" aria-hidden="true">&nbsp;My Store</i></p>
+									<ul class="subms">
+										<li><a href="sellerMyStore"><i class="fa fa-building-o" aria-hidden="true">&nbsp;상점 정보</i></a></li>
+										<li><a href="customerNotice"><i class="fa fa-building-o" aria-hidden="true">&nbsp;공지 사항</i></a></li>
+										<li><a href="managementProduct"><i class="fa fa-building-o" aria-hidden="true">&nbsp;상품관리</i></a></li>
+										<li><a href="customerOrderDelivery"><i class="fa fa-building-o" aria-hidden="true">&nbsp;주문/배송 관리</i></a></li>
+										<li><a href="customerProductInquiry"><i class="fa fa-building-o" aria-hidden="true">&nbsp;문의관리</i></a></li>
+										
+									</ul>
+								</li>						
 							</c:when>
 						</c:choose>
 						
