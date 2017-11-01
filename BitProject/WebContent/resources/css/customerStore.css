@@ -4,9 +4,9 @@
 
 .row{
 	width: 1000px;
-	height: 600px;
-	margin-left: 120px;		
+	height: 600px;		
 	display: inline-block;
+	margin-left: 0;
 }
 #storeName{	
 	font-size: 28px;
@@ -19,6 +19,7 @@
 	margin-left: 42px;
 	font-size: 20px;
 	font-weight: bold;
+	font-family: 'Montserrat', sans-serif;	
 }
 .img-circle{
 	width: 200px;
@@ -38,7 +39,7 @@
 .follow{
 	width: 1000px;
 	height: 40px;
-	margin-right: 36px;
+	margin-right: 34px;
 	display: inline-block;
 	font-size: 18px;
 	color: black;
@@ -294,3 +295,13 @@ ul.navbar li a:hover, ul.navbar li a.active, .navbar-default .navbar-nav>li>a:ho
 	font-family: 'Montserrat', sans-serif;	
 	margin-bottom: 5px;
 }
+.inner-store{
+	margin-left: 310px;
+	height: 604px;
+}
+#row-sellerMyStore{
+	margin-top: 50px;
+}
+#sellerMyStore-social-icons{
+	margin-top: 55px;
+}	

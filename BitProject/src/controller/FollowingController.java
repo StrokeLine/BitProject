@@ -54,27 +54,11 @@ public class FollowingController {
 		ModelAndView mav = new ModelAndView();
 		List<product_notice_view> notice_view_list = followingService.getProductNotice((Integer)session.getAttribute("m_index"));
 		
-		if(!notice_view_list.isEmpty()) {
+		if(notice_view_list != null) {
 			mav.addObject("notice_view_list", notice_view_list);
 		} else {
 			mav.addObject("notice_view_list", "");
 		}
-		
-		return mav;
-	}
-	
-	@RequestMapping("interestStoreNoti")
-	public ModelAndView interestStoreNoti(HttpSession session) {
-		ModelAndView mav = new ModelAndView();
-		List<store_notice_view> notice_view_list = followingService.getStoreNotice((Integer)session.getAttribute("m_index"));
-		
-		if(!notice_view_list.isEmpty()) {
-			mav.addObject("notice_view_list", notice_view_list);
-		} else {
-			mav.addObject("notice_view_list", "");
-		}
-		
-		mav.setViewName("interestStoreNoti");
 		
 		return mav;
 	}

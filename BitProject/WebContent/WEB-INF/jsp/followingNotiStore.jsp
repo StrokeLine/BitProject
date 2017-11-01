@@ -51,7 +51,7 @@ modernizr
 <body>
 	<div id="wrapper">		
 		<div id="main">
-			<div class="inner">			
+			<div class="inner-store">			
 				<div class="row">								
 					<div class="seller_wrap">
 						<div class="seller_img">

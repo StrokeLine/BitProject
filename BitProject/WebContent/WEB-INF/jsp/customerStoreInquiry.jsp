@@ -5,24 +5,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="">
-<meta name="author" content="">
-
-Stylesheets	
-<link href="/bootstrap2/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-<link href="/bootstrap2/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-<link href="/bootstrap2/css/style.css" rel="stylesheet" type="text/css">
-	
-Google fonts
-<link href='https://fonts.googleapis.com/css?family=PT+Serif:400,700' rel='stylesheet' type='text/css'>
-<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
-<link href='https://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
-
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-
-modernizr
-<script src="/bootstrap2/js/modernizr.js"></script> -->
 
 <script src="/jquery/jquery.min.js"></script>
 <script src="/bootstrap/js/bootstrap.min.js"></script>
@@ -52,7 +34,7 @@ modernizr
 <body>
 	<div id="wrapper">		
 		<div id="main">
-			<div class="inner">			
+			<div class="inner-store">			
 				<div class="row">								
 					<div class="seller_wrap">
 						<div class="seller_img">

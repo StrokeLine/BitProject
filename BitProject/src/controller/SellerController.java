@@ -19,10 +19,10 @@ public class SellerController {
 	
 	@RequestMapping("sellerMyStore")
 	public ModelAndView sellerMyStore(HttpSession session) {
-		ModelAndView mav = new ModelAndView();
+		ModelAndView mav = new ModelAndView();				
 		int m_index = (Integer)session.getAttribute("m_index");
 		seller_info sellerInfo = sellerInfoService.getSellerInfo(m_index);
-		mav.addObject("seller_info", sellerInfo);		
+		mav.addObject("seller_info_select", sellerInfo);		
 		mav.setViewName("sellerMyStore");		
 		return mav;
 	}
