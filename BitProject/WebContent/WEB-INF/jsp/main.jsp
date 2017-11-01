@@ -65,10 +65,10 @@ $(document).ready(function(){
 			<div class="inner">
 
 				<!-- Logo -->
+				<div class="menubar">				
 					<a href="main" class="logo">
 						<span class="symbol"><i class="fa fa-paw fa-2x" aria-hidden="true"></i></span><span class="title">FreeHaGae</span>
 					</a>
-						<div class="menubar">				
 						<c:choose>
 							<c:when test="${empty sessionScope.m_index }"><!-- login X -->
 								
@@ -83,31 +83,34 @@ $(document).ready(function(){
 							</c:when>
 							<c:when test="${not empty sessionScope.m_index }"><!-- login O -->
 							<ul class="main_icons_o">
-								<li> <i class="fa fa-home" aria-hidden="true" onclick="location='main'"> <span>&nbsp;Home&nbsp;|</span> </i> </li>
-								<li> <i class="fa fa-sign-out" aria-hidden="true" onclick="location='logoutPro'"> <span>&nbsp;Sign out&nbsp;|</span> </i> </li>
-								<li> <i class="fa fa-user" aria-hidden="true" onclick="location='myPageMain'"> <span>&nbsp;My page&nbsp;|</span> </i> 
+								<li> <i class="fa fa-home" aria-hidden="true" onclick="location='main'"> <span>&nbsp;Home&nbsp;|&nbsp;</span> </i> </li>
+								<li> <i class="fa fa-sign-out" aria-hidden="true" onclick="location='logoutPro'"> <span>&nbsp;Sign out&nbsp;|&nbsp;</span> </i> </li>
+								<li> <i class="fa fa-user" aria-hidden="true" onclick="location='myPageMain'"> <span>&nbsp;My page&nbsp;|&nbsp;</span> </i> 
 									<ul class="mypagesub">
-										<li><a>1</a></li>
-										<li><a>2</a></li>
-										<li><a>3</a></li>
-										<li><a>4</a></li>
-										<li><a>5</a></li>
+										<li><a>내정보</a></li>
+										<li><a>내상점</a></li>
+										<li><a>관심스토어 알림</a></li>
+										<li><a>찜한 상품</a></li>
+										<li><a>장바구니</a></li>
+										<li><a>주문/배송</a></li>
+										<li><a>문의사항</a></li>
+										<li><a>탈퇴하기</a></li>
 										
 									</ul>
 								</li>
 								<c:choose>
 									<c:when test="${s_index == ''}"><!-- store open X -->
-										<li> <i class="fa fa-building-o" aria-hidden="true" onclick="location='sellerRegForm'"> <span>&nbsp;Store Open&nbsp;|</span> </i> </li>									
+										<li> <i class="fa fa-building-o" aria-hidden="true" onclick="location='sellerRegForm'"> <span>&nbsp;Store Open&nbsp;|&nbsp;</span> </i> </li>									
 									</c:when>
 									<c:when test="${s_index != ''}"><!-- store open O -->
-										<li> <i class="fa fa-building-o" aria-hidden="true" onclick="location='sellerMyMain'"> <span>&nbsp;My Store&nbsp;|</span> </i> </li>
+										<li> <i class="fa fa-building-o" aria-hidden="true" onclick="location='sellerMyMain'"> <span>&nbsp;My Store&nbsp;|&nbsp;</span> </i> </li>
 									</c:when>
 								</c:choose>
 								<li> <i class="fa fa-question-circle-o" aria-hidden="true" onclick="location='customerCenterInquiry'"> <span>&nbsp;Customer Service&nbsp;|</span> </i> </li>
 							</ul>
 							</c:when>
 						</c:choose>
-						</div>
+				</div>
 				<!-- Nav -->
 					<nav>
 						<ul>

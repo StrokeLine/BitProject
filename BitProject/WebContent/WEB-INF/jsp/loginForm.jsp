@@ -83,7 +83,7 @@
 			<h2>Menu</h2>
 			<ul class="menu">
 				<li><a href="main" class="product_list"><i class="fa fa-home" aria-hidden="true">&nbsp;Home</i></a></li>
-				<li><i class="fa fa-paw" aria-hidden="true"><p class="p_cate">&nbsp;Category</p></i>
+				<li><p class="p_cate"><i class="fa fa-paw" aria-hidden="true">&nbsp;Category</i></p>
 					<ul class="sub">
 						<li><a href="#" class="product_list"><i class="fa fa-paw" aria-hidden="true">&nbsp;전체</i></a></li>
 						<li><a href="#" class="product_list"><i class="fa fa-paw" aria-hidden="true">&nbsp;사료/간식</i></a></li>
