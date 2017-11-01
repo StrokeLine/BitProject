@@ -12,8 +12,6 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>Hand Made - Pet Product</title>
-
 <!-- Bootstrap core JavaScript -->
 <script src="/jquery/jquery.min.js"></script>
 <script src="/bootstrap/js/bootstrap.min.js"></script>
@@ -211,10 +209,11 @@ $(document).ready(function(){
 						<li><a href="#"><i class="fa fa-question-circle-o" aria-hidden="true">&nbsp;Customer Service</i></a></li>
 						
 					</ul>
-				</c:when>
-				
+				</c:when>				
 			</c:choose>
-		</nav>	
+		</nav>
+		
+			
 		<div class="main">
 			<div class="inner">
 				<div class="inner-product">		
