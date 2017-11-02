@@ -20,6 +20,10 @@ public class MyPetService {
 	@Autowired
 	private DogBreedsDao dogBreedsDao;
 	
+	public pet_info getPetInfo(int pet_index){
+		return petInfoDao.selectPetInfo(pet_index);
+	}
+	
 	public List<pet_info> getAllPets(int m_index) {
 		return petInfoDao.selectAllPetInfo(m_index);
 	}
