@@ -1,5 +1,7 @@
 package controller;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -9,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import model.dog_breeds;
@@ -58,6 +61,7 @@ public class modifyMemberController {
 	public @ResponseBody int addPet(HttpSession session, pet_info pet_info) {
 		int result = 0;	
 		pet_info.setM_index((Integer)session.getAttribute("m_index"));
+		
 		result = petService.addPet(pet_info);
 		
 		return result;  
@@ -74,11 +78,38 @@ public class modifyMemberController {
 	
 	@RequestMapping(value="modifyPet", method={RequestMethod.GET, RequestMethod.POST})
 	public @ResponseBody int modifyPet(pet_info pet_info) {
+		
 		int result = 0;	
 		
 		result = petService.modifyPet(pet_info);
 		
 		return result;  
+	}
+	
+	@RequestMapping("uploadPetImg")
+	public ModelAndView uploadPetImg(HttpSession session, int pet_index, MultipartFile imgSrc){
+		ModelAndView mav = new ModelAndView();
+		String path = "c:\\Upload\\image\\";
+		String filename = imgSrc.getOriginalFilename();
+		File imgFile = new File(path + filename);
+		
+		pet_info pet_info = petService.getPetInfo(pet_index);
+		
+		if(filename != ""){
+			try {
+				imgSrc.transferTo(imgFile);
+				pet_info.setPet_img(filename);
+			} catch (IllegalStateException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}			
+		}
+		
+		petService.modifyPet(pet_info);
+		mav.setViewName("redirect:modifyMember");
+		
+		return mav;
 	}
 	
 	@RequestMapping(value="breedsList", method={RequestMethod.GET, RequestMethod.POST})

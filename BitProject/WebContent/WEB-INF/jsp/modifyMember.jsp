@@ -79,6 +79,14 @@
 					  + '		</td>'
 					  + '	</tr>'
 					  + '	<tr>'
+					  + '		<th>사진</th>'
+					  + '		<td>'
+					  + '			<form id="addPetImgForm" action="uploadPetImg" enctype="multipart/form-data" method="post" style="margin: 0;">'
+					  + '				<input type="file" name="imgSrc" accept=".jpg, .png">'
+					  + '			</form>'
+					  + '		</td>'
+					  + '	</tr>'
+					  + '	<tr>'
 					  +	'		<td colspan="2">'
 					  + '			<div class="addPet_delBtn">'
 					  + '				<input class="button special small" type="button" value="삭제" onclick="removePet()">'
@@ -159,7 +167,15 @@
             url : "addPet",
             success : function(data) {
             	if(data){
-					location.replace("modifyMember");
+            		console.log(data);
+            		var addPetForm = document.getElementById("addPetImgForm");
+            		var input_tag = document.createElement("input");
+            		input_tag.type="hidden";
+            		input_tag.name = "pet_index";
+            		input_tag.value = data;
+            		addPetForm.appendChild(input_tag);
+            		addPetForm.submit();
+					/* location.replace("modifyMember"); */
             	} else {
             		alert("펫 정보가 추가되지 않았습니다. 잠시 후 다시 시도해주세요");
             	}
@@ -248,8 +264,9 @@
             },
             url : "modifyPet",
             success : function(data) {
-            	if(data){
+            	if(data){ 		
 					alert("정상처리 되었습니다.");
+					document.getElementById("imgForm"+tag_num).submit();
             	} else {
             		alert("펫 정보가 수정되지 않았습니다. 잠시 후 다시 시도해주세요");
             	}
@@ -935,6 +952,15 @@ $(document).ready(function(){
 											</div>							
 										</c:when>
 									</c:choose> 									
+								</td>
+							</tr>
+							<tr>
+								<th>사진</th>
+								<td>
+									<form id="imgForm${tag_num }" action="uploadPetImg" enctype="multipart/form-data" method="post" style="margin: 0;">
+										<input type="hidden" name="pet_index" value="${pet.pet_index}">
+										<input type="file" name="imgSrc" accept=".jpg, .png">
+									</form>
 								</td>
 							</tr>
 							<tr>

@@ -69,13 +69,16 @@ public class ProductController {
 		String filename = imgSrc.getOriginalFilename();
 		File imgFile = new File(path + filename);
 		
-		try {
-			imgSrc.transferTo(imgFile);
-			product_info.setP_imgSrc(filename);
-		} catch (IllegalStateException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
+		if(filename != ""){
+			
+			try {
+				imgSrc.transferTo(imgFile);
+				product_info.setP_imgSrc(filename);
+			} catch (IllegalStateException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 		}
 		
 		int m_index = (Integer)session.getAttribute("m_index");

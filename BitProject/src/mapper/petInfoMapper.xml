@@ -5,7 +5,7 @@
 
 <mapper namespace="dao.IPetInfoDao">
 	<insert id="insertPetInfo" parameterType="pet_info" useGeneratedKeys="true" keyProperty="pet_index">
-		insert into pet_info values(0, #{m_index}, #{pet_name}, #{pet_gender}, #{pet_birthday}, #{pet_breeds}, #{pet_img}, #{pet_date});
+		insert into pet_info values(0, #{m_index}, #{pet_name}, #{pet_gender}, #{pet_birthday}, #{pet_breeds}, #{pet_img}, now());
 	</insert>
 	
 	<update id="updatePetInfo" parameterType="pet_info">
