@@ -124,7 +124,7 @@ $(document).ready(function(){
 						<div>
 							<ul class="actions">
 								<li><input type="submit" value="Sign in" class="special" /></li>
-								<li><input type="reset" value="Cancel" /></li>
+								<li><input type="reset" value="Cancel"  onclick="location='main'"/></li>
 							</ul>
 						</div>
 					</form>

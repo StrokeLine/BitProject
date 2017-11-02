@@ -1,6 +1,12 @@
 @import url(font-awesome.min.css);
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,700,900");
 
+@font-face{
+	font-family: "210 직장인의한마디R";
+	src: url("/font/210 직장인의한마디R.ttf") format("truetype");
+	font-style: normal;
+	font-weight: normal;
+}
 /*
 	Phantom by HTML5 UP
 	html5up.net | @ajlkn
@@ -24,6 +30,8 @@
 
 	body {
 		line-height: 1;
+		font-family: 210 직장인의한마디R;
+		font-size: 100%
 	}
 
 	ol, ul {
@@ -3551,4 +3559,54 @@ span.signin_jh:hover {
 span.signin_jh {
     font-size: 70%;
     cursor: pointer;
+}
+
+/* main-pet images */
+.petbg img {
+    width: 100%;
+    height: 700px;
+    opacity: 0.5;
+    position: relative;
+}
+
+.petimg {
+    position: relative;
+    margin-top: -200px;
+    margin-left: 400px;
+    z-index: 2;
+}
+
+.petimg img {
+    position: relative;
+    display: inline-block;
+    background: center center no-repeat;
+    border-radius: 50%;
+    width: 300px;
+    height: 300px;
+    margin-top: -274px;
+}
+
+.petinfo {
+    position: relative;
+    margin-top: -270px;
+    margin-bottom: 255px;
+}
+
+.petinfo ul {
+    position: inherit;
+    margin-top: -218px;
+    margin-left: 674px;
+    background-color: burlywood;
+    width: 200px;
+    text-align: right;
+}
+
+.petbtn {
+    width: fit-content;
+    /* margin-top: -365px; */
+    /* margin-bottom: 293px; */
+    /* margin-left: 550px; */
+    margin: -365px 540px 291px auto;
+    position: relative;
+    opacity: 0.9;
 }

@@ -1,5 +1,7 @@
 package controller;
 
+import java.io.File;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +15,7 @@ import model.member_info;
 import model.seller_info;
 import service.MemberInfoService;
 import service.SellerInfoService;
+import service.MyPetService;
 
 @Controller
 public class memberController {
@@ -21,6 +24,9 @@ public class memberController {
 	
 	@Autowired
 	private SellerInfoService sellerInfoService;
+	
+	@Autowired
+	private MyPetService petService;
 	
 	@RequestMapping("deleteMember")
 	public ModelAndView deleteMember(HttpSession session, String m_password){
@@ -85,5 +91,12 @@ public class memberController {
 		result = memberinfoservice.deleteMember(m_index);
 		session.removeAttribute("m_index");
 		return result;
+	}
+	
+	@RequestMapping("downloadPetImg")
+	public DownloadView downloadPetImg(HttpSession session){
+		String pet_imgSrcFileName = petService.mainPet((Integer)session.getAttribute("m_index")).getPet_img();
+		File pet_imgSrcFile = new File("c:\\Upload\\image\\" + pet_imgSrcFileName);
+		return new DownloadView(pet_imgSrcFile, pet_imgSrcFileName);
 	}
 }

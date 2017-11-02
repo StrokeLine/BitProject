@@ -39,5 +39,8 @@ public class PetInfoDao implements IPetInfoDao {
 		return session.selectList("dao.IPetInfoDao.selectAllPetInfo", m_index);
 	}
 	
-	
+	@Override
+	public pet_info  selectMainPetInfo(int m_index){
+		return session.selectOne("dao.IPetInfoDao.selectMainPetInfo", m_index);
+	}
 }

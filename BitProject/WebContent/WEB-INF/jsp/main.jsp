@@ -1,6 +1,8 @@
 ﻿﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+s
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -213,18 +215,65 @@ $(document).ready(function(){
 				
 			</c:choose>
 		</nav>
-
+	
 		<!-- Main -->
 		<div id="main">
 			<div class="inner">
 				<header>
-					<h1>Hand Made - Pet Product<br />
-					<a href="main">FreeHaGae</a>.</h1>
-					<p>FreeHaGae</p>
+					<c:choose>
+						<c:when test="${empty sessionScope.m_index  }"><!-- login X -->
+							<div class="petbg"> 
+									<img alt="" src="/images/petinfobtn.jpg">
+								</div>
+								<div class="petbtn">
+									<button class="special fit" onclick="location='loginForm'">대표 반려견 등록<i class="fa fa-heart" aria-hidden="true" style="color: red;"></i></button>
+								</div>
+						</c:when>
 					
-					<img alt="" src="">
+						<c:when test="${not empty sessionScope.m_index  }"><!-- login O -->
+							<c:choose>
+								<c:when test="${pet_info != null }">
+									<div class="petbg"> 
+										<img alt="" src="/images/pet2.jpg">
+									</div>
+									<div class="petimg">
+										<ul>
+											<li>
+												<img alt="" src="downloadPetImg">
+											</li>
+										</ul>
+									</div>
+									<div class="petinfo">
+										<ul>
+											<li><label><i class="fa fa-paw" aria-hidden="true">&nbsp;${pet_info.pet_name}</i></label></li>
+											<li><label><i class="fa fa-paw" aria-hidden="true">&nbsp;<fmt:formatDate value="${pet_info.pet_birthday}" pattern="yyyy-MM-dd"/> </i></label></li>
+											<li><label><i class="fa fa-paw" aria-hidden="true">&nbsp;${pet_info.pet_breeds}</i></label></li>
+											<li> <c:choose>
+													<c:when test="${pet_info.pet_gender == 1}">
+														<label><i class="fa fa-paw" aria-hidden="true">&nbsp;남아</i></label>
+													</c:when>
+													<c:when test="${pet_info.pet_gender != 1 }">
+														<label><i class="fa fa-paw" aria-hidden="true">&nbsp;여아</i></label>
+													</c:when>
+												 </c:choose>
+											</li>
+										</ul>
+									</div>
+								</c:when>
+								<c:when test="${pet_info == null }">
+									<div class="petbg"> 
+										<img alt="" src="/images/petinfobtn.jpg">
+									</div>
+									<div class="petbtn">
+										<button class="special fit" onclick="location='petInfo'">대표 반려견 등록<i class="fa fa-heart" aria-hidden="true" style="color: red;"></i></button>
+									</div>
+								</c:when>
+							</c:choose>
+						</c:when>
+					</c:choose>
 					
 				</header>
+				
 				<section class="tiles">
 									
 					<article class="style1">

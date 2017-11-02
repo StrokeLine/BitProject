@@ -10,4 +10,5 @@ public interface IPetInfoDao {
 	public int deletePetInfo(int pet_index);
 	public pet_info selectPetInfo(int pet_index);
 	public List<pet_info> selectAllPetInfo(int m_index);
+	public pet_info selectMainPetInfo(int m_index);
 }

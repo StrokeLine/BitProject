@@ -15,10 +15,12 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import model.member_info;
+import model.pet_info;
 import model.seller_info;
 import service.CustomerCenterInquiryService;
 import service.MapService;
 import service.MemberInfoService;
+import service.MyPetService;
 import service.SellerInfoService;
 import model.customer_center_inquiry;
 import service.MemberInfoService;
@@ -38,6 +40,9 @@ public class tempController {
 	@Autowired
 	private SellerInfoService sellerInfoService;
 	
+	@Autowired
+	private MyPetService petService;
+	
 	
 	@RequestMapping("container")
 	public ModelAndView NewFile() {
@@ -49,11 +54,23 @@ public class tempController {
 	}
 	
 	@RequestMapping("main")
-	public ModelAndView main() {
+	public ModelAndView main(HttpSession session) {
 		ModelAndView mav = new ModelAndView();
 		
-		mav.setViewName("main");
+		if(session.getAttribute("m_index") == null){
+			mav.setViewName("main");
+			return mav;
+		}
 		
+		int m_index = (Integer)session.getAttribute("m_index");
+
+		pet_info pet_info =	petService.mainPet(m_index);
+		if(pet_info != null){
+			System.out.println("pet Call !!!!");
+			mav.addObject("pet_info", pet_info);
+		}
+		
+		mav.setViewName("main");
 		return mav;
 	}
 	
@@ -83,7 +100,6 @@ public class tempController {
 			if(member_info.getM_password().equals(m_password)){
 				mav.addObject("result", 1);
 				mav.addObject("m_index", member_info.getM_index());
-				mav.setViewName("main");
 				session.setAttribute("m_index", member_info.getM_index());
 				System.out.println(member_info.getM_index());
 				System.out.println("login success !!!");
@@ -93,6 +109,14 @@ public class tempController {
 				} else {
 					mav.addObject("s_index", "");
 				}
+				
+				pet_info pet_info =	petService.mainPet(member_info.getM_index());
+				if(pet_info != null){
+					System.out.println("pet Call !!!!");
+					mav.addObject("pet_info", pet_info);
+				}
+				
+				mav.setViewName("main");
 			} else {
 				mav.addObject("result", 0);
 				mav.setViewName("loginForm");

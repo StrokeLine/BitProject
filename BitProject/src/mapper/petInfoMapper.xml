@@ -26,4 +26,8 @@
 		select * from pet_info where m_index=#{m_index};
 	</select>
 	
+	<select id="selectMainPetInfo" parameterType="int" resultType="pet_info">
+		select * from pet_info where m_index=#{m_index} order by pet_index limit 0,1;
+	</select>
+	
 </mapper>
