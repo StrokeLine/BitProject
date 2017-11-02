@@ -9,9 +9,13 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import dao.SellerInfoDao;
+import dao.StoreNoticeCheckDao;
+import dao.StoreNoticeDao;
 import dao.StoreNoticeViewDao;
 import model.product_info;
 import model.seller_info;
+import model.store_notice;
+import model.store_notice_check;
 import model.store_notice_view;
 
 @Service
@@ -22,6 +26,12 @@ public class SellerInfoService {
 	
 	@Autowired
 	private StoreNoticeViewDao storeNoticeViewDao;
+	
+	@Autowired
+	private StoreNoticeDao storeNoticeDao;
+	
+	@Autowired
+	private StoreNoticeCheckDao checkDao;
 	
 	// 판매자 등록
 	public int addSeller(seller_info seller_info){
@@ -80,7 +90,31 @@ public class SellerInfoService {
 		}
 	}
 	
-	public List<store_notice_view> getSotreNotiViewList(int s_index){
-		return storeNoticeViewDao.selectAllStoreNoticeViewS(s_index);
+	public List<store_notice> getSotreNotiViewList(int s_index){
+		return storeNoticeDao.selectAllStoreNotice(s_index);
+	}
+	
+	public store_notice getSotreNotiViewOne(int sn_index){
+		return storeNoticeDao.selectStoreNotice(sn_index);
+	}
+	
+	public int addStoreNotice(store_notice store_notice){
+		return storeNoticeDao.insertStoreNotice(store_notice);
+	}
+	
+	public int addStoreNotiCheck(store_notice_check store_notice_check){
+		return checkDao.insertStoreNoticeCheck(store_notice_check);
+	}
+	
+	public int modifyStoreNoti(store_notice store_notice){
+		return storeNoticeDao.updateStoreNotice(store_notice);
+	}
+	
+	public int deleteStoreNotiView(int sn_index){
+		return storeNoticeDao.deleteStoreNotice(sn_index);
+	}
+	
+	public int deleteStoreNotiCheck(int sn_index){
+		return checkDao.deleteAllStoreNoticeCheck(sn_index);
 	}
 }

@@ -26,6 +26,11 @@ public class StoreNoticeCheckDao implements IStoreNoticeCheckDao {
 	public int deleteStoreNoticeCheck(int sc_index) {
 		return session.delete("dao.IStoreNoticeCheckDao.deleteStoreNoticeCheck", sc_index);
 	}
+	
+	@Override
+	public int deleteAllStoreNoticeCheck(int sn_index) {
+		return session.delete("dao.IStoreNoticeCheckDao.deleteAllStoreNoticeCheck", sn_index);
+	}
 
 	@Override
 	public store_notice_check selectStoreNoticeCheck(int sc_index) {

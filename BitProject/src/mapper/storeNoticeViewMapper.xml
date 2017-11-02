@@ -6,6 +6,10 @@
 <mapper namespace="dao.IStoreNoticeViewDao">
 
 	<select id="selectStoreNoticeView" parameterType="int" resultType="store_notice_view">
+		select * from store_notice_view where sn_index=#{sn_index}
+	</select>
+
+	<select id="selectStoreNoticeViewC" parameterType="int" resultType="store_notice_view">
 		select * from store_notice_view where sc_index=#{sc_index}
 	</select>
 	

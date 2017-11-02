@@ -6,7 +6,7 @@
 <mapper namespace="dao.IStoreNoticeCheckDao">
 
 	<insert id="insertStoreNoticeCheck" parameterType="store_notice_check">
-		insert into store_notice_check values(0, #{sn_index}, #{m_index}, #{sc_view}, #{sc_date});
+		insert into store_notice_check values(0, #{sn_index}, #{m_index}, #{sc_view}, now());
 	</insert>
 	
 	<update id="updateStoreNoticeCheck" parameterType="store_notice_check">
@@ -17,6 +17,10 @@
 		delete from store_notice_check where sc_index=#{sc_index}
 	</delete>
 	
+	<delete id="deleteAllStoreNoticeCheck" parameterType="int">
+		delete from store_notice_check where sn_index=#{sn_index}
+	</delete>
+
 	<select id="selectStoreNoticeCheck" parameterType="int" resultType="store_notice_check">
 		select * from store_notice_check where sc_index=#{sc_index}
 	</select>

@@ -15,8 +15,13 @@ public class StoreNoticeViewDao implements IStoreNoticeViewDao {
 	private SqlSession session;
 
 	@Override
-	public store_notice_view selectStoreNoticeView(int sc_index) {
-		return session.selectOne("dao.IStoreNoticeViewDao.selectStoreNoticeView", sc_index);
+	public store_notice_view selectStoreNoticeView(int sn_index) {
+		return session.selectOne("dao.IStoreNoticeViewDao.selectStoreNoticeView", sn_index);
+	}
+	
+	@Override
+	public store_notice_view selectStoreNoticeViewC(int sc_index) {
+		return session.selectOne("dao.IStoreNoticeViewDao.selectStoreNoticeViewC", sc_index);
 	}
 
 	@Override

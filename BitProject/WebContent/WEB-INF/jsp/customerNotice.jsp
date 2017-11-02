@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -54,8 +55,179 @@
 		font-size: 0.7em;
 	}
 	
-</style>
+	a{
+		border-bottom: none;
+	}
 	
+	a:focus, a:hover {
+		text-decoration: none;
+	}
+	
+</style>
+
+<script type="text/javascript">
+	function addtNotice(){
+		var	title = document.getElementById("activityArea");
+		
+		title.innerHTML = '<div class="title"><h2 style="text-align: center; margin-top: 100px;">공지사항 작성</h2></div>'
+						+ '	<form action="addStoreNoticePro" method="post">'
+						+ '		<table class="table-wrapper">'
+						+ '			<thead>'
+						+ '				<tr>'
+						+ '					<th style="vertical-align: middle; padding: 0px 0 0 80px;">제목</th>'
+						+ '					<td>'
+						+ '						<input type="text" name="sn_subject" style="width: 400px; height: 30px;">'
+						+ '					</td>'						
+						+ '				</tr>'
+						+ '			</thead>'
+						+ '			<tbody>'
+						+ '				<tr>'
+						+ '					<th style="vertical-align: middle; padding: 0px 0 0 80px;">내용</th>'
+						+ '					<td>'
+						+ '						<textarea name="sn_content" rows="100" cols="40" wrap="hard" style="width: 600px; height: 500px; resize: none;"></textarea>'
+						+ '					</td>'
+						+ '				</tr>'
+						+ '			</tbody>'
+						+ '		</table>'
+						+ '		<div class="addStoreNotiBtn">'
+						+ '			<ul style="margin-left: auto; margin-right: auto; display: table;">'
+						+ '				<li style="float: left;">'
+						+ '					<input class="button special small" type="submit" value="확인">'							
+						+ '				</li>'
+						+ '				<li style="float: left;">'
+						+ '					<input class="button special small" type="button" value="취소" onclick="clearArea()">'							
+						+ '				</li>'
+						+ '			</ul>'
+						+ '		</div>'
+						+ '</form>';
+						
+		title.scrollIntoView(true);
+	}
+	
+	function modifyNotice(sn_index){
+		var	title = document.getElementById("activityArea");
+		$.ajax({
+			data : {
+				sn_index : sn_index
+			}, 
+			url : "getStoreNotice",
+			success : function(data) {
+				console.log(data);
+				title.innerHTML = '<div class="title"><h2 style="text-align: center; margin-top: 100px;">공지사항 수정</h2></div>'
+					+ '	<form action="modifyStoreNoticePro" method="post">'
+					+ '		<input type="hidden" name="sn_index" value="'+data.sn_index+'">'
+					+ '		<table class="table-wrapper">'
+					+ '			<thead>'
+					+ '				<tr>'
+					+ '					<th style="vertical-align: middle; padding: 0px 0 0 80px;">제목</th>'
+					+ '					<td>'
+					+ '						<input type="text" name="sn_subject" style="width: 400px; height: 30px;" value="'+data.sn_subject+'">'
+					+ '					</td>'						
+					+ '				</tr>'
+					+ '			</thead>'
+					+ '			<tbody>'
+					+ '				<tr>'
+					+ '					<th style="vertical-align: middle; padding: 0px 0 0 80px;">내용</th>'
+					+ '					<td>'
+					+ '						<textarea name="sn_content" rows="100" cols="40" wrap="hard" style="width: 600px; height: 500px; resize: none;">'+data.sn_content+'</textarea>'
+					+ '					</td>'
+					+ '				</tr>'
+					+ '			</tbody>'
+					+ '		</table>'
+					+ '		<div class="addStoreNotiBtn">'
+					+ '			<ul style="margin-left: auto; margin-right: auto; display: table;">'
+					+ '				<li style="float: left;">'
+					+ '					<input class="button special small" type="submit" value="확인">'							
+					+ '				</li>'
+					+ '				<li style="float: left;">'
+					+ '					<input class="button special small" type="button" value="취소" onclick="clearArea()">'							
+					+ '				</li>'
+					+ '			</ul>'
+					+ '		</div>'
+					+ '</form>';		
+				title.scrollIntoView(true);
+			},
+			error : function(err){
+				console.log(err.status);
+			}
+		});
+			
+		itle.scrollIntoView(true);
+	}
+
+	function infoContent(sn_index){
+		var	title = document.getElementById("activityArea");
+		
+		$.ajax({
+			data : {
+				sn_index : sn_index
+			}, 
+			url : "getStoreNotice",
+			success : function(data) {
+				console.log(data);
+				title.innerHTML = '<table class="table-wrapper">'
+								+ '	<thead>'
+								+ '		<tr>'
+								+ '			<th style="text-align: left;padding: 15px 100px; font-size: x-large;">'+ data.sn_subject +'</th>'
+								+ '			<th style="vertical-align: bottom;">'+ data.sn_date +'</th>'	
+								+ '		</tr>'
+								+ '	</thead>'
+								+ '	<tbody>'
+								+ '		<tr>'
+								+ '			<td colspan="2" style="text-align: left;padding: 15px 100px;"><pre style="background-color: white;">'+ data.sn_content +'</pre></td>'
+								+ '		</tr>'
+								+ '	</tbody>'
+								+ '</table>'
+								+ '<div class="storeNotice-btn">'
+								+ '	<ul>'
+								+ '		<li style="float: right;">'
+								+ '			<input class="button special small" type="button" value="삭제" onclick="deleteNoti('+ data.sn_index +')">'
+								+ '		</li>'
+								+ '		<li style="float: right;">'
+								+ '			<input class="button special small" type="button" value="수정" onclick="modifyNotice('+ data.sn_index +')">'
+								+ '		</li>'
+								+ '	</ul>'
+								+ '</div>';
+				title.scrollIntoView(true);
+			},
+			error : function(err){
+				console.log(err.status);
+			}
+		});
+	}
+	
+	function deleteNoti(sn_index){
+		
+		if(!confirm("해당 공지사항 게시글을 삭제하시겠습니까?")){
+			return false;
+		}	
+		
+		$.ajax({
+			data : {
+				sn_index : sn_index
+			}, 
+			url : "deleteStoreNoti",
+			success : function(data) {
+				if(data){
+					alert("정상적으로 삭제되었습니다.");
+					location.replace("customerNotice");
+				}
+			},
+			error : function(err){
+				console.log(err.status);
+			}
+		});
+		
+	}
+	
+	function clearArea(){
+		var	area = document.getElementById("activityArea");
+		area.innerHTML = "";
+		
+		window.scrollTo(0,0);
+	}
+</script>
+
 </head>
 <body>
 	
@@ -241,17 +413,23 @@
 							</td>
 						</tr>
 					</c:if>
-					<c:set var="i" value="1"/>
+					<c:set var="i" value="${fn:length(notice_view_list)}"/>
 					<c:forEach var="notice_view" items="${ notice_view_list }">
 						<tr>
 							<td>${i }</td>
-							<td style="text-align: left;">${notice_view.sn_subject }</td>
+							<td style="text-align: left;"><a href="javaScript:infoContent(${notice_view.sn_index })">${notice_view.sn_subject }</a></td>
 							<td>${notice_view.sn_date }</td>
 						</tr>
-					<c:set var="i" value="${ i + 1 }"/>
+					<c:set var="i" value="${ i - 1 }"/>
 					</c:forEach>
 				</tbody>
 			</table>
+			<div class="storeNotiBtn">
+				<input class="button special small" type="button" value="글쓰기" onclick="addtNotice()" style="float: right;">
+			</div>
+			
+			<div class="activityArea" id="activityArea">
+			</div>
 		</div>
 		
 	<!-- Footer -->

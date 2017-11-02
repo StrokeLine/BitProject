@@ -35,7 +35,7 @@
 		// Forms.
 			var $form = $('form');
 
-			// Auto-resizing textareas.
+/*			// Auto-resizing textareas.
 				$form.find('textarea').each(function() {
 
 					var $this = $(this),
@@ -89,7 +89,7 @@
 								.css('max-height', '10em')
 								.css('overflow-y', 'auto');
 
-				});
+				});*/
 
 			// Fix: Placeholder polyfill.
 				$form.placeholder();
@@ -101,7 +101,7 @@
 					skel.breakpoint('medium').active
 				);
 			});
-
+			
 		// Menu.
 			var $menu = $('#menu');
 			$menu.wrapInner('<div class="inner"></div>');

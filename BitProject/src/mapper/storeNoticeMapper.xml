@@ -5,12 +5,12 @@
 
 <mapper namespace="dao.IStoreNoticeDao">
 
-	<insert id="insertStoreNotice" parameterType="store_notice">
-		insert into store_notice values(0, #{s_index}, #{m_index}, #{sn_subject}, #{sn_content}, #{sn_view}, #{sn_date});
+	<insert id="insertStoreNotice" parameterType="store_notice" useGeneratedKeys="true" keyProperty="sn_index">
+		insert into store_notice values(0, #{s_index}, #{sn_subject}, #{sn_content}, now());
 	</insert>
 	
 	<update id="updateStoreNotice" parameterType="store_notice">
-		update store_notice set sn_subject=#{sn_subject}, sn_content=#{sn_content}, sn_view=#{sn_view}, sn_date=#{sn_date} where sn_index=#{sn_index}; 
+		update store_notice set sn_subject=#{sn_subject}, sn_content=#{sn_content}, sn_date=now() where sn_index=#{sn_index}; 
 	</update>
 	
 	<delete id="deleteStoreNotice" parameterType="int">
