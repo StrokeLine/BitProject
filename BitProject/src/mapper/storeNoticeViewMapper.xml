@@ -10,7 +10,7 @@
 	</select>
 	
 	<select id="selectAllStoreNoticeViewS" parameterType="int" resultType="store_notice_view">
-		select * from store_notice_view where s_index=#{s_index}
+		select * from store_notice_view where s_index=#{s_index} order by sn_date desc
 	</select>
 	
 	<select id="selectAllStoreNoticeViewM" parameterType="int" resultType="store_notice_view">

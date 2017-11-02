@@ -2,20 +2,26 @@ package service;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import dao.SellerInfoDao;
+import dao.StoreNoticeViewDao;
 import model.product_info;
 import model.seller_info;
+import model.store_notice_view;
 
 @Service
 public class SellerInfoService {
 
 	@Autowired
 	private SellerInfoDao sellerInfoDao;
+	
+	@Autowired
+	private StoreNoticeViewDao storeNoticeViewDao;
 	
 	// 판매자 등록
 	public int addSeller(seller_info seller_info){
@@ -72,5 +78,9 @@ public class SellerInfoService {
 		}else{
 			return false;
 		}
+	}
+	
+	public List<store_notice_view> getSotreNotiViewList(int s_index){
+		return storeNoticeViewDao.selectAllStoreNoticeViewS(s_index);
 	}
 }

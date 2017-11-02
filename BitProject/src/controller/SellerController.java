@@ -1,5 +1,7 @@
 package controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import model.seller_info;
+import model.store_notice_view;
 import service.SellerInfoService;
 
 @Controller
@@ -61,9 +64,18 @@ public class SellerController {
 	}
 	
 	@RequestMapping("customerNotice")
-	public String customerNotice(HttpSession session){
-				
-		return "customerNotice";
+	public ModelAndView customerNotice(HttpSession session){
+		ModelAndView mav = new ModelAndView();
+		int s_index = sellerInfoService.getSellerInfo((Integer)session.getAttribute("m_index")).getS_index();
+		List<store_notice_view> notice_views = sellerInfoService.getSotreNotiViewList(s_index);
+		
+		if(!notice_views.isEmpty()){
+			mav.addObject("notice_view_list", notice_views);
+		} else {
+			mav.addObject("notice_view_list", "");
+		}
+		
+		return mav;
 	}
 
 }
