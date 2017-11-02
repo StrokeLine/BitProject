@@ -8,32 +8,50 @@
 	display: inline-block;
 	margin-left: 0;
 }
+.inner-sellerMyStore{
+	background: url("../images/sellerMyStore_banner2.jpg");	
+	width: 100%;	
+	background-color: #0A1F38;
+	background-repeat: no-repeat;
+	background-position: center;
+	-webkit-background-size: cover;
+	background-size: cover;	
+	position: relative;
+	z-index: 111;
+}
+.inner-color{
+	/* background-color: rgba(52, 27, 43, 0.5); */
+	width: 100%;
+	display: inline-block;
+}
 #storeName{	
 	font-size: 28px;
-	color: #f2849e;	
+	color: #fff;	
 	line-height: 1.75;	
 	margin: 10px 0 0 35px;
 	font-weight: bold;
 }
 #store_grade{
-	margin-left: 42px;
-	font-size: 20px;
+	margin:  18px 0 0 42px;
+	color: #fff;
+	font-size: 23px;
 	font-weight: bold;
 	font-family: 'Montserrat', sans-serif;	
 }
 .img-circle{
-	width: 200px;
-	margin: 35px 0 0 240px;
+	width: 320px;	
+	display: inline-block;
 }
-.seller_wrap{	
-	width: 1000px;
-	height: 280px;	
+.seller_wrap{
+	width: 100%;
+	height: 450px;	
 	display: inline-block;	
 }
 .seller_img{
-	width: 45%;		
-	height: 280px;		
-	float: left;
+	width: 50%;	
+	height: 100%;
+	padding: 60px 0 0 140px;
+	float: left;		
 	display: inline-block;
 }
 .follow{
@@ -53,7 +71,7 @@
 	float: right;		
 }
 .follow a, a i.fa-plus-square-o{
-	color: black;
+	color: #fff;
 	font-weight: bold;	
 }
 .follow i.fa-plus-square-o{
@@ -61,120 +79,81 @@
 	margin: 10px 10px 0 0;	
 }
 .seller_info{
-	width: 55%;
-	height: 280px;
-	display: inline-block;	
-	padding-top: 50px;
-	float: right;	
+	width: 50%;	
+	height: 100%;	
+	float: right;
+	padding-top: 100px;
+	display: inline-block;		
 }
 .store_address{
-	font-size: 15px;
+	font-size: 20px;
 	height: 40px;
-	margin: 5px 0 15px 44px;	
+	margin: 0 0 15px 44px;	
 	display: inline-block;	
 }
 .store_address a{
-	color: black;
-	font-size: 13px;
+	color: #fff;
+	font-size: 16px;
 	font-weight: bold;
 }
 .store_address i.fa-map-marker{
-	color: black;
-	font-size: 19px;
+	color: #fff;
+	font-size: 23px;
 }
 .map_button{
-	color: black;	
+	color: #fff;	
 }
 .social-icons{
-	width: 1000px;
-	height: 110px;		
-	margin: 5px 40px 107px 0;	
+	width: 100%;
+	height: 150px;		
+	margin: 5px 0 70px 0;	
 	font-family: 'Montserrat', sans-serif;
 	text-transform: uppercase;		
 	text-decoration: none;
 	display: inline-block;		
 }
 .info_frame{
-	width:1000px;
-	height: 55px;	
+	width: 100%;
+	height: 75px;	
 	display: inline-block;
 }
 .frame_item{	
-	width: 230px;
-	height: 55px;
-	border: 1px solid #0A1F38;
-	display: inline-block;
+	width: 25%;
+	height: 75px;
+	border: 1px solid #fff;	
 	padding: 10px;
 	vertical-align: middle;
-	color: #0A1F38;
+	color: #fff;
 	font-size: 17px;
 	font-weight: bold;
 	text-align: center;		
 	float: left;	
+	display: inline-block;
 }
 .frame_value{
-	width: 230px;
-	height: 55px;
+	width: 25%;
+	height: 75px;
 	padding: 10px;	
-	border: 1px solid #0A1F38;
-	color: #0A1F38;
+	border: 1px solid #fff;
+	color: #fff;
 	display: inline-block;
 	float: left;		
 }
 .social-icons i.fa{
 	font-size: 22px;
-	color: black;
+	color: #fff;
 	padding: 10px;		
-	margin: 0 5px;		
 	transition: all .5s ease 0s;
 	-webkit-transition: all .5s ease 0s;
 	-moz-transition: all .5s ease 0s;
 	-o-transition: all .5s ease 0s;
-	-ms-transition: all .5s ease 0s;
-		
+	-ms-transition: all .5s ease 0s;		
 }
-.social-icons a i.fa-facebook:hover{
-	color: #3A5795;
-	transform: scale(1.2);
-	-webkit-transform: scale(1.2);
-	-moz-transform: scale(1.2);
-	-ms-transform: scale(1.2);
-	-o-transform: scale(1.2);
+.inner-btn{
+	
 }
-.social-icons a i.fa-twitter:hover{
-	color: #55ACEE;
-	transform: scale(1.2);
-	-webkit-transform: scale(1.2);
-	-moz-transform: scale(1.2);
-	-ms-transform: scale(1.2);
-	-o-transform: scale(1.2);
-}
-.social-icons a i.fa-instagram:hover{
-	color: #D5C7AA;
-	transform: scale(1.2);
-	-webkit-transform: scale(1.2);
-	-moz-transform: scale(1.2);
-	-ms-transform: scale(1.2);
-	-o-transform: scale(1.2);
-}
-.social-icons a i.fa-linkedin:hover{
-	color: #007BB6;
-	transform: scale(1.2);
-	-webkit-transform: scale(1.2);
-	-moz-transform: scale(1.2);
-	-ms-transform: scale(1.2);
-	-o-transform: scale(1.2);
-}
-.social-icons a i.fa-google-plus:hover{
-	color: #DA4835;
-	transform: scale(1.2);
-	-webkit-transform: scale(1.2);
-	-moz-transform: scale(1.2);
-	-ms-transform: scale(1.2);
-	-o-transform: scale(1.2);
-}
-.main-nav, .navbar-default{
-	width: 800px;
+.navbar-default{
+	width: 100%;
 	vertical-align: bottom;
 	text-align: center;	
 	display: inline-block;		
@@ -194,7 +173,7 @@ ul.navbar, ul.nav{
 }
 ul.navbar li a, ul.nav li a, .navbar-default .navbar-nav>li>a{
 	font-size: 19px;
-	color: black;
+	color: #fff;
 	text-transform: uppercase;
 	font-family: 'Montserrat', sans-serif;
 	text-decoration: none;
@@ -231,13 +210,6 @@ ul.navbar li a:hover, ul.navbar li a.active, .navbar-default .navbar-nav>li>a:ho
 #bs-example-navbar-collapse-1{
 	margin-right: 100px;
 }
-.inner-content{
-	width: 1450px;
-	height: auto;
-	margin: 0 110px 0 120px; 
-	padding: 20px;
-}
-
 .content_wrap{
 	width: 700px;
 	height: 600px;
@@ -295,13 +267,7 @@ ul.navbar li a:hover, ul.navbar li a.active, .navbar-default .navbar-nav>li>a:ho
 	font-family: 'Montserrat', sans-serif;	
 	margin-bottom: 5px;
 }
-.inner-store{
-	margin-left: 310px;
-	height: 604px;
+.inner-content{	
+	margin: 0 200px 0 200px;
+	display: inline-block;	
 }
-#row-sellerMyStore{
-	margin-top: 50px;
-}
-#sellerMyStore-social-icons{
-	margin-top: 55px;
-}	

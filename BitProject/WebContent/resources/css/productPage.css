@@ -48,6 +48,9 @@ body{
 	width: 50%;
 	margin-right: 60px;
 }
+#store-icon{
+	font-size: 30px;
+}
 .product_item{	
 	width: 100%;	
 	height: 80px;
@@ -182,4 +185,69 @@ submit#order_btn:hover,
 }
 .product_inquiry_list{
 	margin-bottom: 30px;
+}
+
+
+/* productReg page */
+.main-title{	
+	margin: 120px 0 10px 210px;
+	height: 60px;
+	float: left;
+	display: inline-block;	 
+}
+.main-title h4{
+	font-size: 30px;
+	margin: 0;	
+}
+hr.title-hr{
+	width: 900px;
+	border: 10px;
+	color: gray;	
+}
+.main_content{
+	height: 1000px;
+	margin: 0 150px 200px 210px;
+	display: inline-block;	
+}
+.item-wrap{
+	width: 25%;
+	height: 700px;	
+	display: inline-block;	
+}
+.input-wrap{
+	width: 60%;
+	height: 700px;	
+	display: inline-block;	
+}
+.item-wrap i{
+	font-size: 35px;
+	color: #0A1F38;
+}
+.Reg-item{
+	width: 100%;
+	height: 85px;
+	display: inline-block;	
+}
+.reg-input{
+	width: 100%;
+	height: 85px;
+	display: inline-block;	
+}
+.inputProduct_button{
+	width: 300px;
+	margin: 120px 400px 0 250px;	
+}
+#tag-wrap{
+	width: 710px;
+}
+#tag-input{
+	width: 70%;
+	display: inline-block;
+}
+#tag-btn{
+	width: 15%;
+	display: inline-block;
+}
+.category-input{
+	width: 510px;
 }

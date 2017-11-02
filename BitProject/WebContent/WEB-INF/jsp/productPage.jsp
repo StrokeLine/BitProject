@@ -288,7 +288,7 @@ $(document).ready(function(){
 				<div class="inner-product" id="product-info">		
 					<h4 class="h4-productPage">상품 정보</h4>						
 					<div>
-						<a href="customerStore"><i class="fa fa-home"></i>해당상품의 상점 보러가기</a>				
+						<a href="customerStore"><i class="fa fa-home" id="store-icon"></i>&nbsp;&nbsp; 해당상품의 상점 보러가기</a>				
 					</div>			
 				</div>	
 				<div class="inner-product">	
@@ -373,7 +373,7 @@ $(document).ready(function(){
 							</div>
 							<div class="product_inquiry_list" id="inquiry_list"></div>
 							<div class="product_inquiry_add">								
-								<h5>문의사항 등록</h5>
+								<h5>문의사항 등록하기</h5>
 								<select id="i_type">
 									<option value="" style="text-align: center;">-- 문의 항목 선택 --</option>
 									<option value="상품">상품</option>

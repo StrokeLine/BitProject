@@ -9,6 +9,37 @@
 <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <script type="text/javascript" src="/bootstrap/js/bootstrap.js"></script>
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.9.0/jquery.js"></script> 
+
+<script type="text/javascript"> 	
+	$(document).ready(function(){ 
+		
+		$("#checkAll").click(checkAll);	
+		$("#del").click(del);		
+	})	
+	// 체크박스 전체선택 및 전체해제
+	function checkAll(){		
+		$("#checkAll").click(function(){			
+			if($("#checkAll").prop("checked")) { 				
+				$("input[type=checkbox]").prop("checked",true); 				
+			}else { 				
+				$("input[type=checkbox]").prop("checked",false); 
+			} 
+		})
+	}	
+	// 선택된 체크박스 삭제
+	function del(){		
+		$("#del").click(function(){				
+			if($('input:checkbox[id="checkRow"]').is(":checked") == false){
+				alert("삭제하실 항목을 선택해주세요");
+			}			
+  			var checkRow = new Array();  			
+  			$("input[name='checkRow']:checked").each(function(){  				
+					array.push($(this).val());				
+			});						
+		})	
+	}		
+</script>
+
 <style type="text/css">
 	body{
 		margin: 0 20px 0 0;
@@ -56,8 +87,7 @@
 	.content{
 		text-align: justify;
 		height: 130px;
-	}
-	
+	}	
 </style>
 
 </head>
@@ -123,36 +153,44 @@
 				</div>								
 			</div>
 		</div>
-	</div>
+		<!-- Footer -->
+		<footer id="footer">
+			<div class="inner">
+				<section>
+					<h2>Get in touch</h2>
+					<form method="post" action="#">
+						<div class="field half first">
+							<input type="text" name="name" id="name" placeholder="Name" />
+						</div>
+						<div class="field half">
+							<input type="email" name="email" id="email" placeholder="Email" />
+						</div>
+						<div class="field">
+							<textarea name="message" id="message" placeholder="Message"></textarea>
+						</div>
+						<ul class="actions">
+							<li><input type="submit" value="Send" class="special" /></li>
+						</ul>
+					</form>
+				</section>
+				<section>
+					<h2>Follow</h2>
+					<ul class="icons">
+						<li><a href="#" class="icon style2 fa-twitter"><span class="label">Twitter</span></a></li>
+						<li><a href="#" class="icon style2 fa-facebook"><span class="label">Facebook</span></a></li>
+						<li><a href="#" class="icon style2 fa-instagram"><span class="label">Instagram</span></a></li>
+						<li><a href="#" class="icon style2 fa-dribbble"><span class="label">Dribbble</span></a></li>
+						<li><a href="#" class="icon style2 fa-github"><span class="label">GitHub</span></a></li>
+						<li><a href="#" class="icon style2 fa-500px"><span class="label">500px</span></a></li>
+						<li><a href="#" class="icon style2 fa-phone"><span class="label">Phone</span></a></li>
+						<li><a href="#" class="icon style2 fa-envelope-o"><span class="label">Email</span></a></li>
+					</ul>
+				</section>
+				<ul class="copyright">
+					<li>&copy; Untitled. All rights reserved</li>
+				</ul>
+			</div>
+		</footer>
+	</div>	
 </body>
-
-<script type="text/javascript"> 	
-	$(document).ready(function(){ 
-		
-		$("#checkAll").click(checkAll);	
-		$("#del").click(del);		
-	})	
-	// 체크박스 전체선택 및 전체해제
-	function checkAll(){		
-		$("#checkAll").click(function(){			
-			if($("#checkAll").prop("checked")) { 				
-				$("input[type=checkbox]").prop("checked",true); 				
-			}else { 				
-				$("input[type=checkbox]").prop("checked",false); 
-			} 
-		})
-	}	
-	// 선택된 체크박스 삭제
-	function del(){		
-		$("#del").click(function(){				
-			if($('input:checkbox[id="checkRow"]').is(":checked") == false){
-				alert("삭제하실 항목을 선택해주세요");
-			}			
-  			var checkRow = new Array();  			
-  			$("input[name='checkRow']:checked").each(function(){  				
-					array.push($(this).val());				
-			});						
-		})	
-	}		
-</script>
 </html>
