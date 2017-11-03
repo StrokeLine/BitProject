@@ -189,9 +189,9 @@ $(document).ready(function(){
 			url : "checkSeller",
 			success : function(data) {
 				if(data){
-					/* document.getElementById("p_dibs_btn").disabled = true;
+					document.getElementById("p_dibs_btn").disabled = true;
 					document.getElementById("p_basket_btn").disabled = true;
-					document.getElementById("p_order_btn").disabled = true; */
+					document.getElementById("p_order_btn").disabled = true;
 				}
 			}		
 		});
