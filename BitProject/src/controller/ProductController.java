@@ -30,8 +30,6 @@ import service.SellerInfoService;
 @Controller
 public class ProductController {
 	
-	private String filePath = "c:\\Users\\bit\\git\\BitProject\\BitProject\\WebContent\\resources\\images\\product\\";
-	
 	@Autowired
 	private ProductService productService;	
 	
@@ -55,6 +53,7 @@ public class ProductController {
 	public ModelAndView viewProduct(int p_index){
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("product_info", productService.getProduct(p_index));
+		System.out.println(productService.getProduct(p_index).getP_imgSrc());
 		mav.setViewName("productPage");	
 		return mav;	
 	}
@@ -66,8 +65,9 @@ public class ProductController {
 	
 	@RequestMapping("addProduct")
 	public String addProduct(HttpSession session, product_info product_info, MultipartFile imgSrc){
+		String path = "c:\\Upload\\image\\";
 		String filename = imgSrc.getOriginalFilename();
-		File imgFile = new File(filePath + filename);
+		File imgFile = new File(path + filename);
 		
 		if(filename != ""){
 			
@@ -83,7 +83,6 @@ public class ProductController {
 		
 		int m_index = (Integer)session.getAttribute("m_index");
 		product_info.setM_index(m_index);
-		product_info.setS_index(sellerInfoService.getSellerInfo(m_index).getS_index());
 		int result = productService.addProduct(product_info);
 		
 		if(result != 0){
@@ -122,12 +121,7 @@ public class ProductController {
 	@RequestMapping("downloadProductImg")
 	public DownloadView productImgDownload(int p_index){
 		String p_imgSrcFileName = productService.getProduct(p_index).getP_imgSrc();
-		
-		if(p_imgSrcFileName == null){
-			return null;
-		}
-		
-		File p_imgSrcFile = new File(filePath + p_imgSrcFileName);
+		File p_imgSrcFile = new File("c:\\Upload\\image\\" + p_imgSrcFileName);
 		return new DownloadView(p_imgSrcFile, p_imgSrcFileName);
 	}	
 	
@@ -146,6 +140,12 @@ public class ProductController {
 		return "redirect:managementProduct?p_index=" + product_info.getP_index();
 	}
 	
+	@RequestMapping("orderProductForm")
+	public String orderProductForm(int p_index, Model model){		
+		product_info product_info = productService.getProduct(p_index);
+		return "orderProduct";		
+	}	
+	
 	@RequestMapping("deleteProduct")
 	public String deleteProduct(int p_index){
 		productService.deleteProduct(p_index);
@@ -153,11 +153,12 @@ public class ProductController {
 	}
 	
 	@RequestMapping("productList")
-	public ModelAndView productList(){
+	public ModelAndView productList(HttpSession session){
 		ModelAndView mav = new ModelAndView();
-		
-		mav.setViewName("productList");
-		
+		int m_index = (Integer)session.getAttribute("m_index");
+		List<product_info> productInfo_list = productService.getProductList(m_index);		
+		mav.addObject("product_info", productInfo_list);		
+		mav.setViewName("productList");	
 		return mav;
 	}
 	
@@ -170,4 +171,3 @@ public class ProductController {
 	
 	
 }
-

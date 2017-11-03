@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -36,12 +38,18 @@
 <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
 
 <script type="text/javascript">
-	$(document).ready(function(){
-		$("#menu ul.sub").hide();
-		$("#menu ul.menu li").click(function(){
-			$("ul",this).slideToggle("fast");
-		});
+$(document).ready(function(){
+	$("#menu ul.sub").hide();//카테고리 하위메뉴 hide
+	$("#menu ul.subMy").hide();//마이페이지 하위메뉴 hide
+	$("#menu ul.subms").hide();//내상점 하위메뉴 hide
+	
+	$("#menu ul.menu li").click(function(){
+		$("ul",this).slideToggle("fast");
 	});
+	$("#header ul.main_icons_o li").click(function(){
+		$("ul",this).slideToggle("fast");
+	});
+});
 </script>
 
 </head>
@@ -55,31 +63,59 @@
 			<div class="inner">
 
 				<!-- Logo -->
+				<div class="menubar">				
 					<a href="main" class="logo">
 						<span class="symbol"><i class="fa fa-paw fa-2x" aria-hidden="true"></i></span><span class="title">FreeHaGae</span>
 					</a>
-										
 						<c:choose>
 							<c:when test="${empty sessionScope.m_index }"><!-- login X -->
 								
 							<ul class="main_icons_x">
-								<li> <i class="fa fa-home" aria-hidden="true" onclick="location='main'"> <span>Home</span> </i> </li>
-								<li> <i class="fa fa-sign-in" aria-hidden="true" onclick="location='loginForm'"> <span>Sign In</span> </i> </li>
-								<li> <i class="fa fa-pencil-square-o" aria-hidden="true" onclick="location='joinForm'"> <span>Sign Up</span> </i> </li>
-								<li> <i class="fa fa-building-o" aria-hidden="true"> <span>Store Open</span> </i> </li>
+								<li> <i class="fa fa-home" aria-hidden="true" onclick="location='main'"> <span>&nbsp;Home&nbsp;|&nbsp;</span> </i> </li>
+								<li> <i class="fa fa-sign-in" aria-hidden="true" onclick="location='loginForm'"> <span>&nbsp;Sign In&nbsp;|&nbsp;</span> </i> </li>
+								<li> <i class="fa fa-pencil-square-o" aria-hidden="true" onclick="location='joinForm'"> <span>&nbsp;Sign Up&nbsp;|&nbsp;</span> </i> </li>
+								<li> <i class="fa fa-building-o" aria-hidden="true" onclick="location='loginForm'"> <span>&nbsp;Store Open&nbsp;|&nbsp;</span> </i> </li>
+								<li> <i class="fa fa-question-circle-o" aria-hidden="true"> <span>&nbsp;Customer Service&nbsp;|</span> </i> </li>
 							</ul>
 							
 							</c:when>
 							<c:when test="${not empty sessionScope.m_index }"><!-- login O -->
-							<ul class="main_icons_o">
-								<li> <i class="fa fa-home" aria-hidden="true" onclick="location='main'"> <span>Home</span> </i> </li>
-								<li> <i class="fa fa-sign-out" aria-hidden="true" onclick="location='logoutPro'"> <span>Sign out</span> </i> </li>
-								<li> <i class="fa fa-user" aria-hidden="true" onclick="location='myPageMain'"> <span>My page</span> </i> </li>
-								<li> <i class="fa fa-building-o" aria-hidden="true"> <span>Store Open</span> </i> </li>
+							<ul class="main_icons_o" id="main_icons_o">
+								<li> <i class="fa fa-home" aria-hidden="true" onclick="location='main'"> <span>&nbsp;Home&nbsp;|&nbsp;</span> </i> </li>
+								<li> <i class="fa fa-sign-out" aria-hidden="true" onclick="location='logoutPro'"> <span>&nbsp;Sign out&nbsp;|&nbsp;</span> </i> </li>
+								<li> <i class="fa fa-user" aria-hidden="true" onclick="location='memberInfo'"> <span>&nbsp;My page&nbsp;|&nbsp;</span> </i> 
+									<ul class="mypagesub">
+										<li><a href="memberInfo"><i class="fa fa-user" aria-hidden="true">&nbsp;내정보</i></a></li>
+										<li><a href="followingNotiMain"><i class="fa fa-user" aria-hidden="true">&nbsp;관심스토어 알림</i></a></li>
+										<li><a href="productFavorite"><i class="fa fa-user" aria-hidden="true">&nbsp;찜한 상품</i></a></li>
+										<li><a href="productBasket"><i class="fa fa-user" aria-hidden="true">&nbsp;장바구니</i></a></li>
+										<li><a href="consumerContractList"><i class="fa fa-user" aria-hidden="true">&nbsp;주문/배송</i></a></li>
+										<li><a href="qAndAMain"><i class="fa fa-user" aria-hidden="true">&nbsp;문의사항</i></a></li>
+										<li><a href="deleteMember"><i class="fa fa-user" aria-hidden="true">&nbsp;탈퇴하기</i></a></li>
+										
+									</ul>
+								</li>
+								<c:choose>
+									<c:when test="${s_index == ''}"><!-- store open X -->
+										<li> <i class="fa fa-building-o" aria-hidden="true" onclick="location='sellerRegForm'"> <span>&nbsp;Store Open&nbsp;|&nbsp;</span> </i> </li>									
+									</c:when>
+									<c:when test="${s_index != ''}"><!-- store open O -->
+										<li> <i class="fa fa-building-o" aria-hidden="true" onclick="location='sellerMyStore'"> <span>&nbsp;My Store&nbsp;|&nbsp;</span> </i> 
+											<ul>
+												<li><a href="sellerMyStore"><i class="fa fa-building-o" aria-hidden="true">&nbsp;상점 정보</i></a></li>
+												<li><a href="customerNotice"><i class="fa fa-building-o" aria-hidden="true">&nbsp;공지 사항</i></a></li>
+												<li><a href="managementProduct"><i class="fa fa-building-o" aria-hidden="true">&nbsp;상품관리</i></a></li>
+												<li><a href="customerOrderDelivery"><i class="fa fa-building-o" aria-hidden="true">&nbsp;주문/배송 관리</i></a></li>
+												<li><a href="customerProductInquiry"><i class="fa fa-building-o" aria-hidden="true">&nbsp;문의관리</i></a></li>
+											</ul>
+										</li>
+									</c:when>
+								</c:choose>
+								<li> <i class="fa fa-question-circle-o" aria-hidden="true" onclick="location='#'"> <span>&nbsp;Customer Service&nbsp;|</span> </i> </li>
 							</ul>
 							</c:when>
 						</c:choose>
-						
+				</div>
 				<!-- Nav -->
 					<nav>
 						<ul>
@@ -93,25 +129,91 @@
 		<!-- Menu -->
 		<nav id="menu">
 			<h2>Menu</h2>
-			<ul class="menu">
-				<li><a href="main">Home</a></li>
-				<li><p class="p_cate">Category<i class="fa fa-chevron-down" aria-hidden="true"></i></p>
-					<ul class="sub">
-						<li><a href="#" class="product_list">전체</a></li>
-						<li><a href="#" class="product_list">사료/간식</a></li>
-						<li><a href="#" class="product_list">배변용품</a></li>
-						<li><a href="#" class="product_list">건강관리</a></li>
-						<li><a href="#" class="product_list">미용/목욕</a></li>
-						<li><a href="#" class="product_list">장난감</a></li>
-						<li><a href="#" class="product_list">리빙</a></li>
-						<li><a href="#" class="product_list">패션</a></li>
-						<li><a href="#" class="product_list">야외용품</a></li>
+			<c:choose>
+				<c:when test="${empty sessionScope.m_index }"><!-- login X -->
+					
+					<ul class="menu">
+						<li><a href="main" class="product_list"><i class="fa fa-home" aria-hidden="true">&nbsp;Home</i></a></li>
+						<li><p class="p_cate"><i class="fa fa-paw" aria-hidden="true">&nbsp;Category</i></p>
+							<ul class="sub">
+								<li><a href="#" class="product_list"><i class="fa fa-paw" aria-hidden="true">&nbsp;전체</i></a></li>
+								<li><a href="#" class="product_list"><i class="fa fa-paw" aria-hidden="true">&nbsp;사료/간식</i></a></li>
+								<li><a href="#" class="product_list"><i class="fa fa-paw" aria-hidden="true">&nbsp;배변용품</i></a></li>
+								<li><a href="#" class="product_list"><i class="fa fa-paw" aria-hidden="true">&nbsp;건강관리</i></a></li>
+								<li><a href="#" class="product_list"><i class="fa fa-paw" aria-hidden="true">&nbsp;미용/목욕</i></a></li>
+								<li><a href="#" class="product_list"><i class="fa fa-paw" aria-hidden="true">&nbsp;장난감</i></a></li>
+								<li><a href="#" class="product_list"><i class="fa fa-paw" aria-hidden="true">&nbsp;리빙</i></a></li>
+								<li><a href="#" class="product_list"><i class="fa fa-paw" aria-hidden="true">&nbsp;패션</i></a></li>
+								<li><a href="#" class="product_list"><i class="fa fa-paw" aria-hidden="true">&nbsp;야외용품</i></a></li>
+							</ul>
+						</li>
+						<li><a href="loginForm"><i class="fa fa-sign-in" aria-hidden="true">&nbsp;Sign in</i></a></li>
+						<li><a href="joinForm"><i class="fa fa-pencil-square-o" aria-hidden="true">&nbsp;Sign up</i></a></li>
+						<li><a href="loginForm"><i class="fa fa-building-o" aria-hidden="true">&nbsp;Store Open</i></a></li>
+						<li><a href="#"><i class="fa fa-question-circle-o" aria-hidden="true">&nbsp;Customer Service</i></a></li>
 					</ul>
-				</li>
-				<li><a href="loginForm">Sign in</a></li>
-				<li><a href="joinForm">Sign up</a></li>
-				<li><a href="#">My Store</a></li>
-			</ul>
+				
+				</c:when>
+				<c:when test="${not empty sessionScope.m_index }"><!-- login O -->
+					<ul class="menu">
+						<li><a href="main" class="product_list"><i class="fa fa-home" aria-hidden="true">&nbsp;Home</i></a></li>
+						<li><p class="p_cate"><i class="fa fa-paw" aria-hidden="true">&nbsp;Category</i></p>
+							<ul class="sub">
+								<li><a href="#" class="product_list"><i class="fa fa-paw" aria-hidden="true">&nbsp;전체</i></a></li>
+								<li><a href="#" class="product_list"><i class="fa fa-paw" aria-hidden="true">&nbsp;사료/간식</i></a></li>
+								<li><a href="#" class="product_list"><i class="fa fa-paw" aria-hidden="true">&nbsp;배변용품</i></a></li>
+								<li><a href="#" class="product_list"><i class="fa fa-paw" aria-hidden="true">&nbsp;건강관리</i></a></li>
+								<li><a href="#" class="product_list"><i class="fa fa-paw" aria-hidden="true">&nbsp;미용/목욕</i></a></li>
+								<li><a href="#" class="product_list"><i class="fa fa-paw" aria-hidden="true">&nbsp;장난감</i></a></li>
+								<li><a href="#" class="product_list"><i class="fa fa-paw" aria-hidden="true">&nbsp;리빙</i></a></li>
+								<li><a href="#" class="product_list"><i class="fa fa-paw" aria-hidden="true">&nbsp;패션</i></a></li>
+								<li><a href="#" class="product_list"><i class="fa fa-paw" aria-hidden="true">&nbsp;야외용품</i></a></li>
+							</ul>
+						</li>
+						<li><a href="logoutPro"><i class="fa fa-sign-out" aria-hidden="true">&nbsp;Sign out</i></a></li>
+						<li><p class="p_mypage"><i class="fa fa-user" aria-hidden="true">&nbsp;My page</i></p>
+							<ul class="subMy">
+								<li><a href="memberInfo" class="product_list"><i class="fa fa-user" aria-hidden="true">&nbsp;내정보</i></a></li>
+								<c:choose>
+									<c:when test="${s_index == ''}"><!-- store open X -->
+										<li><a href="sellerRegForm" class="product_list"><i class="fa fa-user" aria-hidden="true">&nbsp;판매자 등록</i></a></li>
+									</c:when>
+									<c:when test="${s_index != ''}"><!-- store open O -->
+										<li><a href="sellerMyMain" class="product_list"><i class="fa fa-user" aria-hidden="true">&nbsp;내상점</i></a></li>						
+									</c:when>
+								</c:choose>
+								<li><a href="followingNotiMain" class="product_list"><i class="fa fa-user" aria-hidden="true">&nbsp;관심스토어 알림</i></a></li>
+								<li><a href="productFavorite" class="product_list"><i class="fa fa-user" aria-hidden="true">&nbsp;찜한 상품</i></a></li>
+								<li><a href="productBasket" class="product_list"><i class="fa fa-user" aria-hidden="true">&nbsp;장바구니</i></a></li>
+								<li><a href="consumerContractList" class="product_list"><i class="fa fa-user" aria-hidden="true">&nbsp;주문/배송</i></a></li>
+								<li><a href="qAndAMain" class="product_list"><i class="fa fa-user" aria-hidden="true">&nbsp;문의사항</i></a></li>
+								<li><a href="deleteMember" class="product_list"><i class="fa fa-user" aria-hidden="true">&nbsp;탈퇴하기</i></a></li>
+							</ul>
+						</li>
+						<c:choose>
+							<c:when test="${s_index == ''}"><!-- store open X -->
+								<li><a href="sellerRegForm"><i class="fa fa-building-o" aria-hidden="true">&nbsp;Store Open</i></a></li>
+							</c:when>
+							<c:when test="${s_index !='' }"><!-- store open O -->
+								<li><p><i class="fa fa-building-o" aria-hidden="true">&nbsp;My Store</i></p>
+									<ul class="subms">
+										<li><a href="sellerMyStore"><i class="fa fa-building-o" aria-hidden="true">&nbsp;상점 정보</i></a></li>
+										<li><a href="customerNotice"><i class="fa fa-building-o" aria-hidden="true">&nbsp;공지 사항</i></a></li>
+										<li><a href="managementProduct"><i class="fa fa-building-o" aria-hidden="true">&nbsp;상품관리</i></a></li>
+										<li><a href="customerOrderDelivery"><i class="fa fa-building-o" aria-hidden="true">&nbsp;주문/배송 관리</i></a></li>
+										<li><a href="customerProductInquiry"><i class="fa fa-building-o" aria-hidden="true">&nbsp;문의관리</i></a></li>
+										
+									</ul>
+								</li>						
+							</c:when>
+						</c:choose>
+						
+						<li><a href="#"><i class="fa fa-question-circle-o" aria-hidden="true">&nbsp;Customer Service</i></a></li>
+						
+					</ul>
+				</c:when>
+				
+			</c:choose>
 		</nav>
 		<!-- Main -->
 		<div id="main">
@@ -123,58 +225,32 @@
 				</header>
 		
 				<section>
-					<header class="major">
+					<header class="majors">
 						<h2>전	체</h2>
 					</header>
+					<hr>
 					<div class="posts">
+						<c:forEach items="${product_info}" var="product_info">
 						<article>
-							<a href="#" class="image"><img src="images/pic01.jpg" alt="" /></a>
-							<h3>Interdum aenean</h3>
-							<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>
-							<ul class="actions">
-								<li><a href="#" class="button">More</a></li>
+							<a href="productPage?p_index=${product_info.p_index}">
+								<c:choose>
+									<c:when test="${product_info.p_imgSrc == null }">
+										<img src="/images/pic03.jpg">
+									</c:when>
+									<c:when test="${product_info.p_imgSrc != null }">
+										<img src="downloadProductImg?p_index=${product_info.p_index}">	
+									</c:when>
+								</c:choose>
+							</a>
+							<h2>${product_info.p_name}</h2>
+							<p>${product_info.p_price} 원</p>
+							<ul>
+								<li><a class="special">찜</a></li>
+								<li><a class="special">장바구니</a></li>
 							</ul>
 						</article>
-						<article>
-							<a href="#" class="image"><img src="images/pic02.jpg" alt="" /></a>
-							<h3>Nulla amet dolore</h3>
-							<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>
-							<ul class="actions">
-								<li><a href="#" class="button">More</a></li>
-							</ul>
-						</article>
-						<article>
-							<a href="#" class="image"><img src="images/pic03.jpg" alt="" /></a>
-							<h3>Tempus ullamcorper</h3>
-							<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>
-							<ul class="actions">
-								<li><a href="#" class="button">More</a></li>
-							</ul>
-						</article>
-						<article>
-							<a href="#" class="image"><img src="images/pic04.jpg" alt="" /></a>
-							<h3>Sed etiam facilis</h3>
-							<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>
-							<ul class="actions">
-								<li><a href="#" class="button">More</a></li>
-							</ul>
-						</article>
-						<article>
-							<a href="#" class="image"><img src="images/pic05.jpg" alt="" /></a>
-							<h3>Feugiat lorem aenean</h3>
-							<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>
-							<ul class="actions">
-								<li><a href="#" class="button">More</a></li>
-							</ul>
-						</article>
-						<article>
-							<a href="#" class="image"><img src="images/pic06.jpg" alt="" /></a>
-							<h3>Amet varius aliquam</h3>
-							<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>
-							<ul class="actions">
-								<li><a href="#" class="button">More</a></li>
-							</ul>
-						</article>
+						
+						</c:forEach>
 					</div>
 				</section>
 			</div>
