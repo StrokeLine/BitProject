@@ -142,22 +142,40 @@ $(document).ready(function(){
 	}
 	
 	function insertInquiry() {
-		var p_index = document.getElementById("p_index");
-		var pi_content = document.getElementById("pi_content");
-		var pi_type = document.getElementById("i_type");
+		var pi_type = null;
+		
+		var p_index = document.getElementById("product_index").value;
+		var pi_content = document.getElementById("pi_content").value;
+		var select = document.getElementById("i_type");
+		
+		pi_type = select.options[select.selectedIndex].text;
+		
+		if(select.selectedIndex == 0){
+			alert("문의 항목을 선택해 주세요.");
+			return false;
+		} else if(pi_content == null || pi_content == "") {
+			alert("문의 할 내용을 작성해주세요.");
+			return false;
+		}
 	
 		$.ajax({
 			data : {
 				p_index : p_index,
+				pi_content : pi_content,
+				pi_type : pi_type
 			}, 
-			url : "checkSeller",
+			url : "productInquiry",
 			success : function(data) {
 				if(data){
-					/* document.getElementById("p_dibs_btn").disabled = true;
-					document.getElementById("p_basket_btn").disabled = true;
-					document.getElementById("p_order_btn").disabled = true; */
+					alert("정상 처리 되었습니다.");
+					location.replace("productPage?p_index="+p_index);
+				} else {
+					alert("잠시 후 다시 시도해주세요");
 				}
-			}		
+			},
+			error : function(err){
+				console.log(err.status);
+			}
 		});
 	}
 	
@@ -166,7 +184,7 @@ $(document).ready(function(){
 		
 		$.ajax({
 			data : {
-				p_index : p_index,
+				p_index : p_index
 			}, 
 			url : "checkSeller",
 			success : function(data) {
@@ -241,12 +259,56 @@ $(document).ready(function(){
     }
     
     .inquiry_table{
-    	width: 800px;
+    	width: 600px;
 	    margin-left: auto;
 	    margin-right: auto;
 	    
     }
+    
+    .product_inquiry_list{
+    	width: 1200px;
+	    margin: 0px;
+	    display: inline-block;
+	    
+        color: #333;
+	    background-color: #f5f5f5;
+	    border-color: #ddd;
+	    
+        padding: 10px 15px;
+        border-top-left-radius: 3px;
+	    border-top-right-radius: 3px;
+    }
+    
+    .inquiry_type{
+   	    width: 100px;
+	    height: 100%;
+	    text-align: center;
+	    margin: 0 10px 0 10px;
+	    display: inline-block;
+    }
+    
+    .inquiry_content{
+    	width: 600px;
+	    margin: 0 10px 0 10px;
+	    display: inline-block;
+	    overflow:hidden;
+	    white-space: nowrap;
+	    text-overflow: ellipsis;
+    }
 
+	.inquiry_name{
+	    width: 200px;
+	    text-align: center;
+	    margin: 0 10px 0 10px;
+	    display: inline-block;
+	}
+	
+	.inquiry_date{
+		width: 180px;
+	    text-align: center;
+	    margin: 0 10px 0 10px;
+	    display: inline-block;
+	}
 </style>
 </head>
 
@@ -578,24 +640,41 @@ $(document).ready(function(){
 					</div>
 				</div>
 				<div class="inner-product">		
-					<div class="product_inquiry">
+					<div class="product_inquiry" id="inquiry" name="inquiry">
 						<h4 class="h4-productPage">상품 문의</h4>
 						
 						<div class="inquiry-content">	
 							<div class="list-item">
-								<div class="assessment_grade">문의유형</div>
+								<div class="assessment_grade" style="width: 100px;">문의유형</div>
 								<div class="assessment_title">문의/답변</div>
 								<div class="assessment_date">작성자</div>
-								<div class="assessment_icon">작성일</div>																
+								<div class="assessment_icon" style="width: 180px;">작성일</div>																
 							</div>
 							<c:if test='${product_inquiry_views == "" }'>
 								<div class="non-data">등록 된 정보가 없습니다.</div>
 							</c:if>
-							<div class="product_inquiry_list" id="inquiry_list"></div>
-							<div class="product_inquiry_add">
+ 								<c:forEach var="inquiry_view" items="${product_inquiry_views }">
+ 									<div class="panel-group" id="accordion">
+ 										<div class="panel panel-default">								
+											<div class="panel-heading" id="grade-head">
+												<div class="inquiry_type">${inquiry_view.pi_type }</div>
+												<a data-toggle = "collapse" data-parent = "#accordion" href="#collapse${i }">
+													<div class="assessment_title" style="text-align: left; width: 590px; overflow:hidden; white-space: nowrap; text-overflow: ellipsis;">${inquiry_view.pi_content }</div>
+												</a>
+												<div class="inquiry_name">${inquiry_view.m_name }</div>
+												<div class="inquiry_date">${inquiry_view.pi_date }</div>
+											</div>
+											<div id="collapse${i }" class="panel-collapse collapse">
+											<div class="panel-body" id="grade-content"><pre>${inquiry_view.pi_content }</pre></div>
+											</div>
+										</div>
+									</div>
+									<c:set var="i" value="${i + 1 }"></c:set>
+								</c:forEach>	
+							<div class="product_inquiry_add" style="margin-top: 100px;">
 								<h5>문의사항 등록하기</h5>
 								<div class="inquiry_table">
-									<div class="inquiry_type">
+									<div class="inquiry_type_area" style="width: 600px;">
 										<select id="i_type">
 											<option value="" style="text-align: center;">-- 문의 항목 선택 --</option>
 											<option value="상품">상품</option>

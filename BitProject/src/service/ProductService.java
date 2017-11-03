@@ -10,9 +10,11 @@ import org.springframework.web.multipart.MultipartFile;
 
 import dao.ProductAssessmentDao;
 import dao.ProductInfoDao;
+import dao.ProductInquiryDao;
 import dao.ProductInquiryViewDao;
 import model.product_assessment;
 import model.product_info;
+import model.product_inquiry;
 import model.product_inquiry_view;
 
 @Service
@@ -26,6 +28,9 @@ public class ProductService {
 	
 	@Autowired
 	private ProductInquiryViewDao inquiryViewDao;
+	
+	@Autowired
+	private ProductInquiryDao inquiryDao;
 	
 	// 상품 추가
 	public int addProduct(product_info product_info){		
@@ -102,5 +107,9 @@ public class ProductService {
 	// 카테고리 별 상품 리스트
 	public List<product_info> categoryAll(String p_major_value){
 		return productInfoDao.categoryAll(p_major_value);
+	}
+	
+	public int addProductInquiry(product_inquiry product_inquiry){
+		return inquiryDao.insertProductInquiry(product_inquiry);
 	}
 }

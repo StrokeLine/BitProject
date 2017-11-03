@@ -15,12 +15,15 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import model.product_assessment;
 import model.product_info;
+import model.product_inquiry;
 import model.product_inquiry_view;
 import model.product_notice;
 import model.store_following;
@@ -181,12 +184,17 @@ public class ProductController {
 		return mav;
 	}
 	
-	/*@InitBinder
-	public void translateDate(WebDataBinder binder){
-		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-		binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, false));
-	}*/
 	
-	
-	
+	@RequestMapping(value="productInquiry", method={RequestMethod.GET, RequestMethod.POST})
+	public @ResponseBody int productInquiry(HttpSession session, product_inquiry product_inquiry) {
+		int result = 0;
+		int m_index = (Integer)session.getAttribute("m_index");
+
+		product_inquiry.setS_index(productService.getSellerIndex(product_inquiry.getP_index()));
+		product_inquiry.setM_index(m_index);
+		
+		result = productService.addProductInquiry(product_inquiry);
+		
+		return result;
+	}
 }

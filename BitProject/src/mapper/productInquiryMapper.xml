@@ -6,7 +6,7 @@
 <mapper namespace="dao.IProductInquiryDao">
 
 	<insert id="insertProductInquiry" parameterType="product_inquiry">
-		insert into product_inquiry values(0, #{s_index}, #{p_index}, #{m_index}, #{pi_reply_index}, #{pi_type}, #{pi_subject}, #{pi_content}, #{pi_view}, #{pi_date});
+		insert into product_inquiry values(0, #{s_index}, #{p_index}, #{m_index}, #{pi_reply_index}, #{pi_type}, #{pi_subject}, #{pi_content}, #{pi_view}, now());
 	</insert>
 	
 	<update id="updateProductInquiry" parameterType="product_inquiry">
