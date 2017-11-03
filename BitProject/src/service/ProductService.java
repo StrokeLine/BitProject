@@ -80,4 +80,9 @@ public class ProductService {
 	public int getSellerIndex(int p_index) {
 		return productInfoDao.selectProduct(p_index).getS_index();
 	}
+	
+	// 카테고리 별 상품 리스트
+	public List<product_info> categoryAll(String p_major_value){
+		return productInfoDao.categoryAll(p_major_value);
+	}
 }

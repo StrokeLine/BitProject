@@ -7,8 +7,8 @@ public class product_info {      //��ǰ����
    private int    s_index;        //�Ǹ��� index
    private int 	  m_index;
    private String p_hashTag;      //�ؽ��±�
-   private String p_major_value;
-   private String p_miner_value;
+   private String p_major_value;	//대분류
+   private String p_miner_value;	//소분류
    private String p_name;         //��ǰ��
    private int    p_num;          //����
    private int    p_price;        //����

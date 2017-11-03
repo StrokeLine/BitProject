@@ -116,7 +116,7 @@ public class ProductController {
 		mav.addObject("productList", productList);
 		mav.setViewName("productList");		
 		return mav;
-	} */	
+	}	*/
 	
 	
 	@RequestMapping("downloadProductImg")
@@ -156,8 +156,11 @@ public class ProductController {
 	public ModelAndView productList(HttpSession session){
 		ModelAndView mav = new ModelAndView();
 		int m_index = (Integer)session.getAttribute("m_index");
-		List<product_info> productInfo_list = productService.getProductList(m_index);		
-		mav.addObject("product_info", productInfo_list);		
+		System.out.println("method call !!!");
+		List<product_info> productInfo_list = productService.getProductList(m_index);
+		System.out.println("method end !!!");
+		mav.addObject("product_info", productInfo_list);
+		System.out.println("method up !!!");
 		mav.setViewName("productList");	
 		return mav;
 	}

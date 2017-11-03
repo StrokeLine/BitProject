@@ -41,4 +41,8 @@
 		select * from product_info where p_miner_value = #{p_miner_value};
 	</select>
 	
+	<select id="categoryAll" parameterType="String" resultType="product_info">
+		select * from product_info where p_major_value = #{p_major_value};
+	</select>
+	
 </mapper>	

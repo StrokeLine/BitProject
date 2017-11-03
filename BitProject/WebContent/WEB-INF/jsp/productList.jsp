@@ -232,7 +232,7 @@ $(document).ready(function(){
 					<div class="posts">
 						<c:forEach items="${product_info}" var="product_info">
 						<article>
-							<a href="productPage?p_index=${product_info.p_index}">
+							<a class="image" href="productPage?p_index=${product_info.p_index}">
 								<c:choose>
 									<c:when test="${product_info.p_imgSrc == null }">
 										<img src="/images/pic03.jpg">
@@ -244,12 +244,12 @@ $(document).ready(function(){
 							</a>
 							<h2>${product_info.p_name}</h2>
 							<p>${product_info.p_price} 원</p>
-							<ul>
-								<li><a class="special">찜</a></li>
-								<li><a class="special">장바구니</a></li>
-							</ul>
+							<input type="button" class="button fit small" value="찜">
+							<input type="button" class="button special fit small" value="장바구니">
+							
 						</article>
 						
+					
 						</c:forEach>
 					</div>
 				</section>

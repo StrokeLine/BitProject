@@ -59,5 +59,9 @@ public class ProductInfoDao implements IProductInfoDao{
 		return session.selectList("dao.IProductInfoDao.selectAllProductInfoMN", p_miner_value);
 	}
 	
+	@Override
+	public List<product_info> categoryAll(String p_major_value){
+		return session.selectList("dao.IProductInfoDao.categoryAll", p_major_value);
+	}
 
 }
