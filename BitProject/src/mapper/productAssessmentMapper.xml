@@ -22,7 +22,7 @@
 	</select>
 	
 	<select id="selectAllProductAssessment" parameterType="int" resultType="product_assessment">
-		select * from product_assessment where m_index = #{m_index}
+		select * from product_assessment where p_index = #{p_index}
 	</select>
 	
 </mapper>

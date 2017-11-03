@@ -141,6 +141,26 @@ $(document).ready(function(){
 		});
 	}
 	
+	function insertInquiry() {
+		var p_index = document.getElementById("p_index");
+		var pi_content = document.getElementById("pi_content");
+		var pi_type = document.getElementById("i_type");
+	
+		$.ajax({
+			data : {
+				p_index : p_index,
+			}, 
+			url : "checkSeller",
+			success : function(data) {
+				if(data){
+					/* document.getElementById("p_dibs_btn").disabled = true;
+					document.getElementById("p_basket_btn").disabled = true;
+					document.getElementById("p_order_btn").disabled = true; */
+				}
+			}		
+		});
+	}
+	
 	window.onload = function(){
 		var p_index = document.getElementById("product_index").value;
 		
@@ -160,6 +180,74 @@ $(document).ready(function(){
 	}
 </script>
 
+<style type="text/css">
+	a{
+		border-bottom: none;
+	}
+	
+	a:focus, a:hover {
+	    text-decoration: none;
+	}
+	
+	pre{
+		background-color: white;
+	    margin-left: 200px;
+	    margin-right: 200px;
+	    white-space: pre-wrap;
+	}
+	
+	.panel-group{
+		margin-bottom: 0px;
+	}
+
+	.star_outer {
+		float: left;
+		margin-top: 5px;
+	    display: block;
+	    width: 120px;
+	    height: 21px;
+	    background: url(/images/great_img.png) 0 -825px;
+    }
+    .star_inner {
+	    display: block;
+	    height: 21px;
+	    font-size: 0;
+	    line-height: 0;
+	    background: url(/images/great_img.png) 0 -850px;
+	    text-indent: -9999px;
+	    max-width: 100%;
+    }
+    
+    .non-data{
+    	text-align: center; 
+    	width: 1200px;
+    	padding: 50px 100px;
+    }
+    
+    .assessment_grade{
+    	width: 215px;
+	    height: 100%;
+	    text-align: center;
+	    margin: 0 10px 0 10px;
+	    display: inline-block;
+       	vertical-align: top;	
+    }
+    
+    .grade-text{
+   	    font-weight: 600;
+	    font-size: large;
+	    float: left;
+	    margin-left: 5px;
+    }
+    
+    .inquiry_table{
+    	width: 800px;
+	    margin-left: auto;
+	    margin-right: auto;
+	    
+    }
+
+</style>
 </head>
 
 <body>
@@ -417,24 +505,35 @@ $(document).ready(function(){
 								<div class="assessment_grade">평점</div>
 								<div class="assessment_title">제목</div>
 								<div class="assessment_date">등록일</div>
-								<div class="assessment_icon">버튼</div>
-							</div>					
-							<div class="panel-group" id="accordion">
-								<div class="panel panel-default">
-									<div class="panel-heading" id="grade-head">																							
-										<a data-toggle = "collapse" data-parent = "#accordion" href="#collapse1">
-											<div class="assessment_grade">평점</div>
-											<div class="assessment_title">제목</div>
-											<div class="assessment_date">등록일</div>
-											<div class="assessment_icon">버튼</div>
-										</a>
-									</div>											
-									<div id="collapse1" class="panel-collapse collapse in">
-										<div class="panel-body" id="grade-content">내용</div>
-									</div>						
-								</div>	
-							</div>				
+							</div>
+							<c:if test='${product_assessment_list == "" }'>
+								<div class="non-data">등록 된 정보가 없습니다.</div>
+							</c:if>
+							<c:set var="i" value="${0 }"></c:set>
+							<c:forEach var="product_assessment" items="${product_assessment_list }">
+								<div class="panel-group" id="accordion">
+									<div class="panel panel-default">
+										<div class="panel-heading" id="grade-head">																							
+												<div class="assessment_grade">
+													<span class="star_outer">
+														<span class="star_inner" style='width: ${product_assessment.pa_grade * 10}%;'></span>
+													</span>
+													<em class="grade-text">( ${product_assessment.pa_grade} / 10 )</em>
+												</div>
+												<a data-toggle = "collapse" data-parent = "#accordion" href="#collapse${i }">
+													<div class="assessment_title" style="text-align: left;">${product_assessment.pa_subject }</div>
+												</a>
+												<div class="assessment_date">${product_assessment.pa_date }</div>
+										</div>											
+										<div id="collapse${i }" class="panel-collapse collapse">
+											<div class="panel-body" id="grade-content"><pre>${product_assessment.pa_content }</pre></div>
+										</div>						
+									</div>	
+								</div>
+								<c:set var="i" value="${ i + 1 }"></c:set>
+							</c:forEach>
 						</div>
+					
 							<%-- <c:forEach items="" var="">
 								<div class="panel-group" id="accordion">
 									<div class="panel panel-default">
@@ -489,20 +588,29 @@ $(document).ready(function(){
 								<div class="assessment_date">작성자</div>
 								<div class="assessment_icon">작성일</div>																
 							</div>
+							<c:if test='${product_inquiry_views == "" }'>
+								<div class="non-data">등록 된 정보가 없습니다.</div>
+							</c:if>
 							<div class="product_inquiry_list" id="inquiry_list"></div>
-							<div class="product_inquiry_add">								
+							<div class="product_inquiry_add">
 								<h5>문의사항 등록하기</h5>
-								<select id="i_type">
-									<option value="" style="text-align: center;">-- 문의 항목 선택 --</option>
-									<option value="상품">상품</option>
-									<option value="배송">배송</option>
-									<option value="반품">반품</option>
-									<option value="기타">기타</option>
-								</select>
-								<textarea class="" placeholder="문의 내용을 작성해주세요" style="height: 50px;"></textarea>											
-								<div class="product_inquiry_btn" style="float: right; margin-top: 15px;">
-									<input type="button" class="button special" value="등록" onclick="insertInquiry()"> 
-								</div>								
+								<div class="inquiry_table">
+									<div class="inquiry_type">
+										<select id="i_type">
+											<option value="" style="text-align: center;">-- 문의 항목 선택 --</option>
+											<option value="상품">상품</option>
+											<option value="배송">배송</option>
+											<option value="반품">반품</option>
+											<option value="기타">기타</option>
+										</select>								
+									</div>
+									<div class="inquiry_content">
+										<textarea id="pi_content" placeholder="문의 내용을 작성해주세요" rows="100" cols="40" wrap="hard" style="margin-top: 20px; height: 350px; resize: none;"></textarea>											
+									</div>
+									<div class="product_inquiry_btn" style="float: right; margin-top: 15px;">
+										<input type="button" class="button special small" value="등록" onclick="insertInquiry()"> 
+									</div>																
+								</div>							
 							</div>
 						</div>	
 					</div>

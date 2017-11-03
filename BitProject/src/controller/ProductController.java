@@ -19,7 +19,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import model.product_assessment;
 import model.product_info;
+import model.product_inquiry_view;
 import model.product_notice;
 import model.store_following;
 import service.FollowingService;
@@ -54,7 +56,24 @@ public class ProductController {
 	@RequestMapping("productPage")
 	public ModelAndView viewProduct(int p_index){
 		ModelAndView mav = new ModelAndView();
+		
 		mav.addObject("product_info", productService.getProduct(p_index));
+		
+		List<product_assessment> product_assessments = productService.getProductAssessmentList(p_index);
+		if(!product_assessments.isEmpty()){
+			mav.addObject("product_assessment_list", productService.getProductAssessmentList(p_index));			
+		} else {
+			mav.addObject("product_assessment_list", "");
+		}
+		
+		List<product_inquiry_view> inquiry_views = productService.getProductInquiryViewList(p_index);
+		
+		if(!inquiry_views.isEmpty()){
+			mav.addObject("product_inquiry_views", inquiry_views);
+		} else {
+			mav.addObject("product_inquiry_views", "");
+		}
+		
 		mav.setViewName("productPage");	
 		return mav;	
 	}
@@ -156,11 +175,8 @@ public class ProductController {
 	public ModelAndView productList(HttpSession session){
 		ModelAndView mav = new ModelAndView();
 		int m_index = (Integer)session.getAttribute("m_index");
-		System.out.println("method call !!!");
-		List<product_info> productInfo_list = productService.getProductList(m_index);
-		System.out.println("method end !!!");
-		mav.addObject("product_info", productInfo_list);
-		System.out.println("method up !!!");
+		List<product_info> productInfo_list = productService.getProductList(m_index);		
+		mav.addObject("product_info", productInfo_list);		
 		mav.setViewName("productList");	
 		return mav;
 	}

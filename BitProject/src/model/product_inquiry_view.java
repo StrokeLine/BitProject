@@ -5,8 +5,8 @@ import java.sql.Date;
 public class product_inquiry_view {
 	private int pi_index;		// index
 	private int s_index;		// 상점 index
-	private int p_index;		// 상품 index
 	private int m_index;		// 회원 index
+	private int p_index;		// 상품 index
 	private int pi_ri;			// 답글 구분
 	private String p_name;		// 상품명
 	private String m_email;		// 회원 이메일

@@ -16,17 +16,17 @@ public class ProductInquiryViewDao implements IProductInquiryViewDao {
 
 	@Override
 	public List<product_inquiry_view> selectAllProductInquiryS(int s_index) {
-		return session.selectList("dao.IProductInquiryView.selectAllProductInquiryS", s_index);
+		return session.selectList("dao.IProductInquiryViewDao.selectAllProductInquiryS", s_index);
 	}
 
 	@Override
 	public List<product_inquiry_view> selectAllProductInquiryM(int m_index) {
-		return session.selectList("dao.IProductInquiryView.selectAllProductInquiryM", m_index);
+		return session.selectList("dao.IProductInquiryViewDao.selectAllProductInquiryM", m_index);
 	}
 
 	@Override
 	public List<product_inquiry_view> selectAllProductInquiryP(int p_index) {
-		return session.selectList("dao.IProductInquiryView.selectAllProductInquiryP", p_index);
+		return session.selectList("dao.IProductInquiryViewDao.selectAllProductInquiryP", p_index);
 	}
 	
 }

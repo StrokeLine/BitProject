@@ -6,6 +6,7 @@ public class product_assessment {
 	private int pa_index;		// index
 	private int m_index;		// 회원 index
 	private int p_index;		// 상품 index
+	private String pa_subject;  // 제목
 	private String pa_content;	// 내용
 	private float pa_grade;		// 평점
 	private int pa_view;		// 확인 유무
@@ -55,11 +56,18 @@ public class product_assessment {
 	public void setPa_date(Date pa_date) {
 		this.pa_date = pa_date;
 	}
+	public String getPa_subject() {
+		return pa_subject;
+	}
+	public void setPa_subject(String pa_subject) {
+		this.pa_subject = pa_subject;
+	}
+	
 	@Override
 	public String toString() {
 		return "product_assessment [pa_index=" + pa_index + ", m_index=" + m_index + ", p_index=" + p_index
-				+ ", pa_content=" + pa_content + ", pa_grade=" + pa_grade + ", pa_view=" + pa_view + ", pa_date="
-				+ pa_date + "]";
+				+ ", pa_subject=" + pa_subject + ", pa_content=" + pa_content + ", pa_grade=" + pa_grade + ", pa_view="
+				+ pa_view + ", pa_date=" + pa_date + "]";
 	}
 	
 }

@@ -8,14 +8,24 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import dao.ProductAssessmentDao;
 import dao.ProductInfoDao;
+import dao.ProductInquiryViewDao;
+import model.product_assessment;
 import model.product_info;
+import model.product_inquiry_view;
 
 @Service
 public class ProductService {
 	
 	@Autowired
 	private ProductInfoDao productInfoDao;
+	
+	@Autowired
+	private ProductAssessmentDao assessmentDao;
+	
+	@Autowired
+	private ProductInquiryViewDao inquiryViewDao;
 	
 	// 상품 추가
 	public int addProduct(product_info product_info){		
@@ -74,6 +84,14 @@ public class ProductService {
 		}else{
 			return false;
 		}
+	}
+	
+	public List<product_assessment> getProductAssessmentList(int p_index) {
+		return assessmentDao.selectAllProductAssessment(p_index);
+	}
+	
+	public List<product_inquiry_view> getProductInquiryViewList(int p_index) {
+		return inquiryViewDao.selectAllProductInquiryP(p_index);
 	}
 	
 	// p_index로 판매자 s_index 가져오기
