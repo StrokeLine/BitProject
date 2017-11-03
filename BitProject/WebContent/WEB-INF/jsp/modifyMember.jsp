@@ -915,7 +915,7 @@ $(document).ready(function(){
 								</td>
 							</tr>
 							<tr>
-								<th>견종</th>
+								<th>품종</th>
 								<td>
 									<input type="hidden" id="selectPetBreeds${tag_num }" value="${pet.pet_breeds }">
 									<select id="modifyPet_breeds${tag_num }" name="modifyPet_breeds">

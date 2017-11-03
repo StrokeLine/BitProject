@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.File;
+import java.io.IOException;
 
 import javax.servlet.http.HttpSession;
 
@@ -9,9 +10,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import model.member_info;
+import model.pet_info;
 import model.seller_info;
 import service.MemberInfoService;
 import service.SellerInfoService;
@@ -98,5 +101,31 @@ public class memberController {
 		String pet_imgSrcFileName = petService.mainPet((Integer)session.getAttribute("m_index")).getPet_img();
 		File pet_imgSrcFile = new File("c:\\Upload\\image\\" + pet_imgSrcFileName);
 		return new DownloadView(pet_imgSrcFile, pet_imgSrcFileName);
+	}
+	
+	@RequestMapping("PetImgupload")
+	public ModelAndView uploadPetImg(HttpSession session, int pet_index, MultipartFile imgSrc){
+		ModelAndView mav = new ModelAndView();
+		String path = "c:\\Upload\\image\\";
+		String filename = imgSrc.getOriginalFilename();
+		File imgFile = new File(path + filename);
+		
+		pet_info pet_info = petService.getPetInfo(pet_index);
+		
+		if(filename != ""){
+			try {
+				imgSrc.transferTo(imgFile);
+				pet_info.setPet_img(filename);
+			} catch (IllegalStateException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}			
+		}
+		
+		petService.modifyPet(pet_info);
+		mav.setViewName("redirect:main");
+		
+		return mav;
 	}
 }

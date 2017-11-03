@@ -37,6 +37,9 @@ s
 <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
 
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/js/select2.min.js"></script>
+
 <script type="text/javascript">
 $(document).ready(function(){
 	$("#menu ul.sub").hide();//카테고리 하위메뉴 hide
@@ -49,7 +52,132 @@ $(document).ready(function(){
 	$("#header ul.main_icons_o li").click(function(){
 		$("ul",this).slideToggle("fast");
 	});
+	
+	$("#pet_breeds").select2({
+    	width : "300px",
+    	language: {
+   		    noResults: function (params) {
+   		      return "찾을 수 없는 견종입니다.";
+   		    }
+   		}
+    });
+    
+    $.ajax({
+           url : "breedsList",
+           success : function(data) {
+            	$.each(data, function(k, v) {
+        			$('<option>').val(k.db_index).text(v.db_breeds).appendTo("#pet_breeds");
+            	});
+           },
+           error : function(err){
+           		console.log(err.status);
+           }
+    });
+	
 });
+
+//데이터베이스에 펫추가 부분
+function addPet() {
+	var pet_name = document.getElementById("pet_name").value;
+	var pet_gender = null;
+	var pet_birthday = null;
+	var pet_breeds = null;
+	
+	var radio = document.getElementsByName("pet_gender");
+	for(var i = 0; i < radio.length; i++) {
+		if(radio[i].checked == true) {
+			pet_gender = radio[i].value;
+		}
+	}
+	
+	var date = document.getElementById("pet_birthday").value;
+	pet_birthday = new Date(date.split("-")[0], date.split("-")[1]-1, date.split("-")[2]);
+	
+	var select = document.getElementById("pet_breeds");
+	pet_breeds = select.options[select.selectedIndex].text;
+	
+	if(pet_name == null || pet_name == "") {
+		alert("반려견의 이름을 입력해주세요.");
+		return false;
+	} else if(pet_gender == null){
+		alert("반려견의 성별을 선택해 주세요.");
+		return false;
+	} else if(pet_birthday == null || pet_birthday == "") {
+		alert("반려견의 생일을 선택해 주세요.");
+		return false;
+	} else if(pet_breeds == null || pet_breeds == "" || select.selectedIndex == 0){
+		alert("반려견의 견종을 선택해 주세요.");
+		return false;
+	}
+	$.ajax({
+        data : {
+        	pet_name : pet_name,
+        	pet_gender : pet_gender,
+        	pet_birthday : pet_birthday,
+        	pet_breeds : pet_breeds
+        },
+        url : "addPet",
+        success : function(data) {
+        	if(data){
+        		console.log(data);
+        		var addPetForm = document.getElementById("imgForm");
+        		var input_tag = document.createElement("input");
+        		input_tag.type="hidden";
+        		input_tag.name = "pet_index";
+        		input_tag.value = data;
+        		addPetForm.appendChild(input_tag);
+        		addPetForm.submit();
+        	} else {
+        		alert("펫 정보가 추가되지 않았습니다. 잠시 후 다시 시도해주세요");
+        	}
+        }
+    });
+		
+		document.getElementById("addPetBtn").disabled = false;
+}
+		
+
+
+// select 태그에 견종 추가
+function addSelectOptions(){
+   	var selectPetBreeds = document.getElementById("selectPetBreeds").value;
+   	
+   	$("#pet_breeds").select2({
+   		width : "300px",
+   		language: {
+   		    noResults: function (params) {
+   		      return "찾을 수 없는 견종입니다.";
+   		    }
+   		}
+   	});
+   	
+	$.ajax({
+           url : "breedsList",
+           success : function(data) {
+            	$.each(data, function(k, v) {
+            		if(selectPetBreeds == v.db_breeds) {
+            			$('<option>').val(k.db_index).text(v.db_breeds).attr("selected", "selected").appendTo("#pet_breeds");
+            		} else {
+	            		$('<option>').val(k.db_index).text(v.db_breeds).appendTo("#pet_breeds");	            			
+            		}
+            	});
+           },
+           error : function(err){
+           		console.log(err.status);
+           }
+    });
+	
+}
+
+// 웹 페이지 로딩 왼료 후 select 태그에 option을 추가하는 함수 호출
+window.onload = function(){
+	var select = document.getElementsByName("pet_breeds");
+	
+	for(var i = 0; i < select.length; i++) {
+		addSelectOptions(i);
+	}
+}
+
 </script>
 
 </head>
@@ -227,38 +355,89 @@ $(document).ready(function(){
 								<span><img alt="" src="/images/petinfo.png"></span>
 							</h1>
 							<hr>
-							<form class="form-horizontal" method="post" action="petPro"
-							name="petinfo" id="petsignup" enctype="multipart/form-data">
-								<div  class="form-group">
+								<!-- pet name -->
+								<div class="form-group">
 									<dl>
 										<dt>
-											<label class="control-label col-sm-3">Pet Name <span class="text-danger">*</span></label>
+											<label class="control-label col-sm-3">이름 <span class="text-danger">*</span></label>
 										</dt>
 										<dd>
 											<div class="input-group">
 												<span class="input-group-addon"><i class="fa fa-heart" aria-hidden="true"></i></span> 
 												<input type="text" class="form-control" name="pet_name" 
-													id="emailid" placeholder="Enter your Pet Name" value="">
+													id="pet_name" placeholder="Enter your Pet Name" value="">
+											</div>
+										</dd>
+									</dl>
+								</div>
+								<!-- pet breeds -->
+								<div class="form-group">
+									<dl>
+										<dt>
+											<label class="control-label col-sm-3">생일 <span class="text-danger">*</span></label>
+										</dt>
+										<dd>
+											<div class="input-group">
+												<span class="input-group-addon"><i class="fa fa-heart" aria-hidden="true"></i></span>
+												<input type="date" id="pet_birthday">
 											</div>
 										</dd>
 									</dl>
 								</div>
 								
-								<div  class="form-group">
+								<div class="form-group">
 									<dl>
 										<dt>
-											<label class="control-label col-sm-3">Pet Name <span class="text-danger">*</span></label>
+											<label class="control-label col-sm-3">성별 <span class="text-danger">*</span></label>
 										</dt>
 										<dd>
 											<div class="input-group">
-												<span class="input-group-addon"><i class="fa fa-heart" aria-hidden="true"></i></span> 
-												<input type="text" class="form-control" name="pet_name" 
-													id="emailid" placeholder="Enter your Pet Name" value="">
+												<span class="input-group-addon"><i class="fa fa-heart" aria-hidden="true"></i></span>
+												<input type="radio" id="petgender" value="1" name="pet_gender" checked="checked"><label for="petgender"><i class="fa fa-mars" aria-hidden="true">남아</i></label>
+												<input type="radio" id="pet_gender" value="2" name="pet_gender"><label for="pet_gender"><i class="fa fa-venus" aria-hidden="true">여아</i></label>
 											</div>
 										</dd>
 									</dl>
 								</div>
-							</form>
+								
+								<div class="form-group">
+									<dl>
+										<dt>
+											<label class="control-label col-sm-3">품종 <span class="text-danger">*</span></label>
+										</dt>
+										<dd>
+											<div class="input-group">
+												<span class="input-group-addon"><i class="fa fa-heart" aria-hidden="true"></i></span> 
+												<input type="hidden" id="selectPetBreeds">
+												<select id="pet_breeds" name="pet_breeds">
+													<option selected disabled value="0">견종을 선택해주세요.</option>
+												</select>
+											</div>
+										</dd>
+									</dl>
+								</div>
+								
+								<div class="form-group">
+									<dl>
+										<dt>
+											<label class="control-label col-sm-3">프로필이미지 <span class="text-danger">*</span></label>
+										</dt>
+										<dd>
+											<div class="input-group">
+												<form id="imgForm" action="PetImgupload" enctype="multipart/form-data" method="post" >
+													<span class="input-group-addon"><i class="fa fa-heart" aria-hidden="true"></i></span>
+													<input type="file" name="imgSrc" accept=".jpg, .png"> 
+												</form>
+											</div>
+										</dd>
+									</dl>
+								</div>
+								
+								<div class="form-group">
+									<input type="button" class="button special small" value="등록" onclick="addPet()">
+									<input type="button" class="button special small" value="취소" onclick="location='main'">
+								</div>
+								
 						</div><!-- id=petf -->
 					</div><!-- row -->
 				</div><!-- container -->
@@ -305,7 +484,7 @@ $(document).ready(function(){
 			</div>
 		</footer>
 	
-
+</div>
 </body>
 
 </html>
