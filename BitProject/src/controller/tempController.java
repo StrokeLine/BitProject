@@ -16,11 +16,13 @@ import org.springframework.web.servlet.ModelAndView;
 
 import model.member_info;
 import model.pet_info;
+import model.product_info;
 import model.seller_info;
 import service.CustomerCenterInquiryService;
 import service.MapService;
 import service.MemberInfoService;
 import service.MyPetService;
+import service.ProductService;
 import service.SellerInfoService;
 import model.customer_center_inquiry;
 import service.MemberInfoService;
@@ -42,6 +44,9 @@ public class tempController {
 	
 	@Autowired
 	private MyPetService petService;
+	
+	@Autowired
+	private ProductService productService;
 	
 	
 	@RequestMapping("container")
@@ -364,17 +369,19 @@ public class tempController {
 		mav.setViewName("customerCenter");		
 		return mav;		
 	}	
-	
 	@RequestMapping("customerStore")
 	public ModelAndView customerStore(HttpSession session){
 		ModelAndView mav = new ModelAndView();
 		int m_index = (Integer)session.getAttribute("m_index");
 		seller_info sellerInfo = sellerInfoService.getSellerInfo(m_index);
 		mav.addObject("seller_info_select", sellerInfo);
-		mav.setViewName("customerStore");
+		
+		List<product_info> productInfo = productService.getProductList(m_index);
+		mav.addObject("product_info_list", productInfo);	
+		
+		mav.setViewName("customerStore");		
 		return mav;
-	}
-	
+	}	
 	@RequestMapping("customerStoreInquiry")
 	public ModelAndView customerStoreInquiry(HttpSession session){
 		ModelAndView mav = new ModelAndView();

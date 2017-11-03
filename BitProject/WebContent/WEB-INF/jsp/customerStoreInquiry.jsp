@@ -216,7 +216,7 @@ $(document).ready(function(){
 			<div class="inner">
 				<div class="inner-sellerMyStore">
 					<div class="inner-color">
-						<div class="inner-content">												
+						<div class="inner-content1">												
 							<div class="seller_wrap">
 								<div class="seller_img">
 									<img src="/images/home.png" alt="" class="img-circle">
@@ -247,7 +247,7 @@ $(document).ready(function(){
 								</div>														
 							</div>							
 						</div>
-						<div class="inner-content">
+						<div class="inner-content1">
 							<nav class="navbar navbar-default">
 							  <div class="container-fluid">
 							    <!-- Brand and toggle get grouped for better mobile display -->
@@ -274,40 +274,33 @@ $(document).ready(function(){
 				</div>			
 			</div>
 			<div class="inner">
-				<div class="inner-content">							
-					<div class="row">
-						<div class="content_wrap">
-							<div class="content_title"><h3>상점문의</h3></div>
-							<div class="content_subTitle">GET IN TOUCH</div>												
-							
-							<form method="post" action="#">
-							<div class="row uniform" id="row-uniform">
-								<div class="12u$">
-									<div class="select-wrapper" id="select-wrapper">
-										<select name="category" id="category">
-											<option value="">--- 문의유형 ---</option>
-											<option value="1">상 품</option>
-											<option value="1">주 문</option>
-											<option value="1">오프라인 상점</option>
-											<option value="1">Others</option>		
-										</select>
-									</div>
-								</div>
-								<div class="6u 12u$(xsmall)" id="12u$(xsmall)">
-									<input type="text" name="demo-name" id="demo-name" value="" placeholder="문의 제목" />
-								</div>
-								<div class="12u$" id="12u$">
-									<textarea name="demo-message" id="demo-message" placeholder="문의 내용" rows="6"></textarea>
-								</div>
-								<div class="12u$">
-									<ul class="actions">
-										<li><input type="submit" value="등 록" class="special" id="submitBtn"/></li>											
-									</ul>
-								</div>						
+				<div class="content_title"><h3>상점문의</h3></div>
+				<div class="content_subTitle">GET IN TOUCH</div>	
+				<div class="inner-content1">											
+					<form method="post" action="#" class="content-form">
+						<div class="content-input-wrap">							
+							<div class="content-input">
+								<select class="input-set" name="category" id="category">
+									<option value="">--- 문의유형 ---</option>
+									<option value="1">상 품</option>
+									<option value="1">주 문</option>
+									<option value="1">오프라인 상점</option>
+									<option value="1">Others</option>		
+								</select>
+							</div>							
+							<div class="content-input">
+								<input type="text" class="input-set" name="demo-name" id="demo-name" value="" placeholder="문의 제목" />
 							</div>
-							</form>											
+							<div class="content-input">
+								<textarea class="input-set" name="demo-message" id="demo-message" placeholder="문의 내용" rows="6"></textarea>
+							</div>											
 						</div>
-					</div>	
+						<div class="inquiry-btn">
+							<ul class="actions">
+								<li><input type="submit" value="등 록" class="special" style="width: 120px;"/></li>											
+							</ul>
+						</div>		
+					</form>								
 				</div>
 			</div>					
 		</div>

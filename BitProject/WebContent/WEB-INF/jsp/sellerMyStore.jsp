@@ -216,7 +216,7 @@ $(document).ready(function(){
 		<div class="inner">
 			<div class="inner-sellerMyStore">
 				<div class="inner-color">
-					<div class="inner-store">												
+					<div class="inner-content1">												
 						<div class="seller_wrap">
 							<div class="seller_img">
 								<img src="/images/home.png" alt="" class="img-circle">
@@ -229,6 +229,9 @@ $(document).ready(function(){
 								</div> 								
 								<h4 id="store_grade">평점 ${seller_info_select.s_grade}</h4>
 							</div>
+						</div>
+						<div class="content-middle">
+							<a href=""><i class="fa fa-arrow-circle-right"></i>&nbsp;<h5>상점정보 수정</h5></a>
 						</div>												
 						<div class="social-icons" id="sellerMyStore-social-icons">
 							<div class="info_frame">				

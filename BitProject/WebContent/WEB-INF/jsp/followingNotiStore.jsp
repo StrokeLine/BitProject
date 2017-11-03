@@ -211,46 +211,43 @@ $(document).ready(function(){
 				</c:when>				
 			</c:choose>
 		</nav>
-
-		<div id="wrapper">		
-			<div id="main">
-				<div class="inner-store">			
-					<div class="row">								
-						<div class="seller_wrap">
-							<div class="seller_img">
-								<img src="/images/home.png" alt="" class="img-circle">
-							</div>
-							<div class="seller_info">
-								<p id="storeName">| ${seller_info_select.s_nick}</p>
-								<div class="store_address">
-									<a href="">오프라인 상점&nbsp;&nbsp;<i class="fa fa-map-marker"></i></a><br>
-									${seller_info_select.s_address}
-								</div> 								
-								<h4 id="store_grade">평점 ${seller_info_select.s_grade}</h4>
-							</div>
-						</div>
-						<div class="follow">
-							<label class="follow-label">
-								<a href=""><i class="fa fa-plus-square-o"></i>상점 팔로우 하기</a>
-							</label>					
-						</div>											
-						<div class="social-icons">
-							<div class="info_frame">				
-								<div class="frame_item" ><i class="fa fa-home"></i>OPEN</div>
-								<div class="frame_item"><i class="fa fa-user"></i>VISIT</div>
-								<div class="frame_item"><i class="fa fa-shopping-cart"></i>SALES VOLUME</div>
-								<div class="frame_item"><i class="fa fa-heart"></i>FOLLOWER</div>
-							</div>
-							<div class="info_frame">
-								<div class="frame_value" style="text-align: center;">
-									<fmt:formatDate value="${seller_info_select.s_date}" pattern="yyyy-MM-dd"/>
+				
+		<div id="main">
+			<div class="inner">
+				<div class="inner-sellerMyStore">
+					<div class="inner-color">
+						<div class="inner-content1">												
+							<div class="seller_wrap">
+								<div class="seller_img">
+									<img src="/images/home.png" alt="" class="img-circle">
 								</div>
-								<div class="frame_value" style="text-align: center;">${seller_info_select.s_sale}</div>
-								<div class="frame_value"></div>
-								<div class="frame_value"></div>
-							</div>														
-						</div>								
-						<div class="main-nav">
+								<div class="seller_info">
+									<p id="storeName">| ${seller_info_select.s_nick}</p>
+									<div class="store_address">
+										<a href="">오프라인 상점&nbsp;&nbsp;<i class="fa fa-map-marker"></i></a><br>
+										${seller_info_select.s_address}
+									</div> 								
+									<h4 id="store_grade">평점 ${seller_info_select.s_grade}</h4>
+								</div>
+							</div>												
+							<div class="social-icons" id="sellerMyStore-social-icons">
+								<div class="info_frame">				
+									<div class="frame_item" ><i class="fa fa-home"></i>OPEN</div>
+									<div class="frame_item"><i class="fa fa-user"></i>VISIT</div>
+									<div class="frame_item"><i class="fa fa-shopping-cart"></i>SALES VOLUME</div>
+									<div class="frame_item"><i class="fa fa-heart"></i>FOLLOWER</div>
+								</div>
+								<div class="info_frame">
+									<div class="frame_value" style="text-align: center;">
+										<fmt:formatDate value="${seller_info_select.s_date}" pattern="yyyy-MM-dd"/>
+									</div>
+									<div class="frame_value" style="text-align: center;">${seller_info_select.s_sale}</div>
+									<div class="frame_value"></div>
+									<div class="frame_value"></div>
+								</div>														
+							</div>							
+						</div>
+						<div class="inner-content1">
 							<nav class="navbar navbar-default">
 							  <div class="container-fluid">
 							    <!-- Brand and toggle get grouped for better mobile display -->
@@ -269,40 +266,35 @@ $(document).ready(function(){
 							        <li class="nav-item"><a href="followingNotiStore">공지/알림</a></li>
 							        <li class="nav-item"><a href="customerStoreInquiry">문의하기</a></li>							        
 							      </ul>
-							    </div><!-- /.navbar-collapse -->
-							  </div><!-- /.container-fluid -->
+							    </div>
+							  </div>
 							</nav>
 						</div>					
-					</div>			
-				</div>		
-				
-				<div class="inner-content">							
-					<div class="row">
-						<div class="content_wrap">
-							<div class="content_title"><h3>공지/알림</h3></div>
-							<div class="content_subTitle">Notice & Announcement</div>						
-							<div class="table-wrapper">
-								<table class="">
-									<thead>
-										<tr>
-											<td class="table-title">제   목</td>
-											<td class="table-date">등록일</td>										
-										</tr>
-									</thead>	
-									<c:forEach items="${noticeViewList}" var="notice_view_list">	
-										<tbody>
-											<tr>
-												<td>${notice_view_list.sn_subject}</td>
-												<td><fmt:formatDate value="${notice_view_list.sn_date}" pattern="yyyy-MM-dd"/></td>										
-											</tr>
-										</tbody>							
-									</c:forEach>						
-								</table>					
-							</div>									
-						</div>
-					</div>	
-				</div>				
+					</div>				
+				</div>			
 			</div>
+			<div class="inner">	
+				<div class="content_title"><h3>공지/알림</h3></div>
+				<div class="content_subTitle">Notice & Announcement</div>					
+				<div class="inner-content1">										
+					<table>
+						<thead>
+							<tr>
+								<td class="table-title">제   목</td>
+								<td class="table-date">등록일</td>										
+							</tr>
+						</thead>	
+						<c:forEach items="${noticeViewList}" var="notice_view_list">	
+							<tbody>
+								<tr>
+									<td>${notice_view_list.sn_subject}</td>
+									<td><fmt:formatDate value="${notice_view_list.sn_date}" pattern="yyyy-MM-dd"/></td>										
+								</tr>
+							</tbody>							
+						</c:forEach>						
+					</table>																		
+				</div>				
+			</div>		
 		</div>
 		
 		<!-- Footer -->
@@ -342,7 +334,7 @@ $(document).ready(function(){
 					<li>&copy; Untitled. All rights reserved</li>
 				</ul>
 			</div>
-		</footer>
+		</footer>			
 	</div>
 </body>
 </html>

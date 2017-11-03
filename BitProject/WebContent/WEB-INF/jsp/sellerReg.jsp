@@ -74,7 +74,7 @@
 				<div class="hr_line"></div>				
 				<div class="sellerReg_item">
 					거래계좌
-				</div>
+				</div>				
 				<div class="hr_line"></div>				
 				<div class="label">
 					은행선택
