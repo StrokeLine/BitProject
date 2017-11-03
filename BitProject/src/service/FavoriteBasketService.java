@@ -29,6 +29,10 @@ public class FavoriteBasketService {
 	@Autowired
 	private ShoppingBasketViewDao shoppingBasketViewDao;
 	
+	public int addavorite(product_favorite product_favorite){
+		return productFavoriteDao.insertProductFavorite(product_favorite);
+	}
+	
 	public List<product_favorite_view> getFavoriteList(int m_index){
 		return productFavoritViewDao.selectAllProductFavoriteView(m_index);
 	}

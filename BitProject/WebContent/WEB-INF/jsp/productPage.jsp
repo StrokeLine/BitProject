@@ -103,6 +103,61 @@ $(document).ready(function(){
 			payPrice.innerHTML = ((price*Number(event.target.value))+fee).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "원";
 		}
 	}
+	
+	function shoppingBasketCheck(){
+		var p_index = document.getElementById("product_index").value;
+		var num = document.getElementById("text-num").value;
+		
+		$.ajax({
+			data : {
+				p_index : p_index,
+				new_num : num
+			}, 
+			url : "immedMoveOnBasket",
+			success : function(data) {
+				if(data){
+					if(confirm("선택한 상품이 장바구니에 담겼습니다. \n장바구니로 이동하시겠습니까?")){
+						location.href="productBasket";
+					}
+				}
+			}		
+		});
+	}
+	
+	function dibsCheck(){
+		var p_index = document.getElementById("product_index").value;
+		$.ajax({
+			data : {
+				p_index : p_index
+			}, 
+			url : "productFavoritePro",
+			success : function(data) {
+				if(data){
+					if(confirm("선택한 상품이 찜에 담겼습니다. \n찜 목록으로 이동하시겠습니까?")){
+						location.href="productFavorite";
+					}
+				}
+			}		
+		});
+	}
+	
+	window.onload = function(){
+		var p_index = document.getElementById("product_index").value;
+		
+		$.ajax({
+			data : {
+				p_index : p_index,
+			}, 
+			url : "checkSeller",
+			success : function(data) {
+				if(data){
+					/* document.getElementById("p_dibs_btn").disabled = true;
+					document.getElementById("p_basket_btn").disabled = true;
+					document.getElementById("p_order_btn").disabled = true; */
+				}
+			}		
+		});
+	}
 </script>
 
 </head>
@@ -273,7 +328,8 @@ $(document).ready(function(){
 		<div class="main">
 			<div class="inner">
 				<div class="inner-product">		
-					<form action="orderProductForm" method="post" class="form-productPage">						
+					<form action="immedOrderProduct" method="post" class="form-productPage">
+						<input id="product_index" type="hidden" name="p_index" value="${product_info.p_index}">				
 						<div class="product_img">
 							<img src="downloadProductImg?p_index=${product_info.p_index}" style="width: 424px; margin-left: auto; margin-right: auto; display: block;">
 						</div>
@@ -312,7 +368,7 @@ $(document).ready(function(){
 									</div>									
 									<div class="product_value">					
 										<input type="button" class="button small" value=" - " onclick="varyNum(0, ${product_info.p_num }, ${product_info.p_price }, ${product_info.p_fee})">
-										<input type="text" name="" class="btn-num" id="text-num" value="1" maxlength="3" onblur='removeChar(event, ${product_info.p_num })' onkeydown='return onlyNumber(event)' onkeyup='removeChar(event, ${product_info.p_num }, ${product_info.p_price}, ${product_info.p_fee})'>
+											<input type="text" name="new_num" class="btn-num" id="text-num" value="1" maxlength="3" onblur='removeChar(event, ${product_info.p_num })' onkeydown='return onlyNumber(event)' onkeyup='removeChar(event, ${product_info.p_num }, ${product_info.p_price}, ${product_info.p_fee})'>
 										<input type="button" class="button small" value=" + " onclick="varyNum(1, ${product_info.p_num }, ${product_info.p_price }, ${product_info.p_fee})">
 									</div>							
 									<div class="product_value">
@@ -328,13 +384,13 @@ $(document).ready(function(){
 							</div>		
 							<div class="product_btn_wrap">
 								<div class="product_btn">
-									<input type="button" class="button fit" value="찜" onclick="dibsCheck()">
+									<input id="p_dibs_btn" type="button" class="button fit" value="찜" onclick="dibsCheck()">
 								</div>
 								<div class="product_btn">
-									<input type="button" class="button special fit" id="bsk_btn" value="장바구니" onclick="shoppingBasketCheck()">
+									<input id="p_basket_btn" type="button" class="button special fit" id="bsk_btn" value="장바구니" onclick="shoppingBasketCheck()">
 								</div>
 								<div class="product_btn">
-									<input type="submit" class="button special fit" id="order_btn" value="주문하기">
+									<input id="p_order_btn" type="submit" class="button special fit" id="order_btn" value="주문하기">
 								</div>					
 							</div>
 						</div>
@@ -342,10 +398,16 @@ $(document).ready(function(){
 				</div>						
 				
 				<div class="inner-product" id="product-info">		
-					<h4 class="h4-productPage">상품 정보</h4>						
+					<h4 class="h4-productPage">상품 정보</h4>
 					<div>
 						<a href="customerStore"><i class="fa fa-home" id="store-icon"></i>&nbsp;&nbsp; 해당상품의 상점 보러가기</a>				
-					</div>			
+					</div>
+					<div class="detail-product">
+						<pre style="margin: 50px 100px;">${product_info.p_content }</pre>
+					</div>
+					<div class="detail-product-img">
+						
+					</div>
 				</div>	
 				<div class="inner-product">	
 					<div class="product_grade">

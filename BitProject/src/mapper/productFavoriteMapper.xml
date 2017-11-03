@@ -6,7 +6,7 @@
 <mapper namespace="dao.IProductFavoriteDao">
 
 	<insert id="insertProductFavorite" parameterType="product_favorite" useGeneratedKeys="true" keyProperty="m_index">
-		insert into product_favorite values(0, #{m_index}, #{p_index}, #{pf_date})
+		insert into product_favorite values(0, #{m_index}, #{p_index}, now())
 	</insert>
 	
 	<delete id="deleteProductFavorite" parameterType="int">

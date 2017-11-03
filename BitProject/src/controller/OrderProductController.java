@@ -15,10 +15,12 @@ import org.springframework.web.servlet.ModelAndView;
 import model.member_info;
 import model.order_statement;
 import model.order_statement_view_m;
+import model.product_info;
 import model.shopping_basket_view;
 import service.FavoriteBasketService;
 import service.OrderProductService;
 import service.ProductService;
+import service.SellerInfoService;
 
 @Controller
 public class OrderProductController {
@@ -31,6 +33,18 @@ public class OrderProductController {
 	
 	@Autowired
 	private ProductService productService;
+	
+	@RequestMapping(value="checkSeller", method={RequestMethod.GET, RequestMethod.POST})
+	public @ResponseBody int checkSeller(HttpSession session, int p_index) {
+		int result = 0;
+		int m_index = (Integer)session.getAttribute("m_index");
+		
+		if(m_index == productService.getProduct(p_index).getM_index()){
+			result = 1;
+		}
+		
+		return result;  
+	}
 	
 	@RequestMapping("orderCheck")
 	public ModelAndView orderCheck() {
@@ -63,7 +77,7 @@ public class OrderProductController {
 		mav.addObject("orderProduct_list", basket_view_list);
 		mav.setViewName("orderProduct");		
 		return mav;
-	}	
+	}
 	
 	@RequestMapping(value="orderProductPro", method={RequestMethod.GET, RequestMethod.POST})
 	public @ResponseBody int orderProductPro(HttpSession session, String[] sb_index) {
@@ -91,6 +105,46 @@ public class OrderProductController {
 		if(check == sb_index.length){
 			result = 1;
 		}
+		
+		return result;  
+	}
+	
+	@RequestMapping("immedOrderProduct")
+	public ModelAndView immedOrderProduct(HttpSession session,  int p_index, int new_num) {
+		ModelAndView mav = new ModelAndView();
+
+		product_info productInfo = productService.getProduct(p_index);
+		
+		List<shopping_basket_view> basket_view_list = new ArrayList<>();
+		shopping_basket_view basket_view = new shopping_basket_view();
+		basket_view.setM_index((Integer)session.getAttribute("m_index"));
+		basket_view.setP_fee(productInfo.getP_fee());
+		basket_view.setP_img(productInfo.getP_imgSrc());
+		basket_view.setP_index(p_index);
+		basket_view.setP_name(productInfo.getP_name());
+		basket_view.setP_price(productInfo.getP_price());
+		basket_view.setSb_num(new_num);
+		basket_view_list.add(basket_view);
+
+		mav.addObject("orderProduct_list", basket_view_list);
+		mav.setViewName("orderProduct");		
+		return mav;
+	}
+	
+	@RequestMapping(value="immedOrderProductPro", method={RequestMethod.GET, RequestMethod.POST})
+	public @ResponseBody int immedOrderProductPro(HttpSession session, int p_index, int new_num) {
+		int result = 0;
+		int m_index = (Integer)session.getAttribute("m_index");
+		int s_index = productService.getSellerIndex(p_index);
+		
+		order_statement order_statement = new order_statement();
+		order_statement.setS_index(s_index);
+		order_statement.setM_index(m_index);
+		order_statement.setP_index(p_index);
+		order_statement.setOs_num(new_num);
+		order_statement.setOs_deposit_state("입금확인");
+		order_statement.setOs_handling_state("입금확인");
+		orderProductService.addOrderStatement(order_statement);
 		
 		return result;  
 	}

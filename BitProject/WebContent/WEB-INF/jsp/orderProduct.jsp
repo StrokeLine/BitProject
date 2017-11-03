@@ -69,6 +69,8 @@
 					<c:set var="i" value="${0 }"></c:set>
 					<c:forEach items="${ orderProduct_list}" var="orderProduct">
 						<input id="product${i}" type="hidden" name="basket_id" value="${orderProduct.sb_index }">
+						<input id="product_index" type="hidden" value="${orderProduct.p_index }">
+						<input id="product_num" type="hidden" value="${orderProduct.sb_num }">
 						<div class="opImg">
 							상품 이미지
 							<c:if test='${orderProduct.p_img != null }'>
@@ -162,29 +164,43 @@ function orderCheck() {
 	for(var i = 0; i < hiddenBox.length; i++) {
 		sb_index[i] = hiddenBox[i].value;
 	}
-	
-	var popCheck = open(url,"결제 완료 페이지","top="+top+", left="+left+", height="+windowH+", width="+windowW);
-	
-	if( popCheck == null ){
-		alert("팝업이 차딘되어 있습니다. 팝업 차단 기능을 해제 한 후 다시 시도해 주세요.");
-		return false;
-	}
-	
-	jQuery.ajaxSettings.traditional = true;
 
-	$.ajax({
-           data : {
-        	   sb_index : sb_index
-           }, 
-           url : "orderProductPro",
-           success : function(data) {
-			    open(url,"결제 완료 페이지","top="+top+", left="+left+", height="+windowH+", width="+windowW);
-           },
-           error : function(err){
-           		console.log(err.status);
-           		alert("잠시 후에 다시 시도해주세요.");
-           }
-    });	
+	if(sb_index != 0){
+		jQuery.ajaxSettings.traditional = true;
+	
+		$.ajax({
+	           data : {
+	        	   sb_index : sb_index
+	           }, 
+	           url : "orderProductPro",
+	           success : function(data) {
+				    open(url,"결제 완료 페이지","top="+top+", left="+left+", height="+windowH+", width="+windowW);
+	           },
+	           error : function(err){
+	           		console.log(err.status);
+	           		alert("잠시 후에 다시 시도해주세요.");
+	           }
+	    });			
+	} else {
+		
+		var p_index = document.getElementById("product_index").value;
+		var sb_num = document.getElementById("product_num").value;
+		
+		$.ajax({
+	           data : {
+	        	   p_index : p_index,
+	        	   new_num : sb_num
+	           }, 
+	           url : "immedOrderProductPro",
+	           success : function(data) {
+				    open(url,"결제 완료 페이지","top="+top+", left="+left+", height="+windowH+", width="+windowW);
+	           },
+	           error : function(err){
+	           		console.log(err.status);
+	           		alert("잠시 후에 다시 시도해주세요.");
+	           }
+	    });
+	}
 }
 </script>
 </html>

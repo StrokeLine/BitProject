@@ -13,9 +13,11 @@ import org.springframework.web.servlet.ModelAndView;
 
 import model.product_favorite;
 import model.product_favorite_view;
+import model.product_info;
 import model.shopping_basket;
 import model.shopping_basket_view;
 import service.FavoriteBasketService;
+import service.ProductService;
 
 @Controller
 public class FavoriteBasketController {
@@ -34,6 +36,19 @@ public class FavoriteBasketController {
 		}
 		mav.setViewName("productFavorite");		
 		return mav;		
+	}
+	
+	@RequestMapping(value="productFavoritePro", method={RequestMethod.GET, RequestMethod.POST})
+	public @ResponseBody int productFavoritePro(HttpSession session, int p_index) {
+		int result = 0;
+		
+		product_favorite product_favorite = new product_favorite();
+		product_favorite.setM_index((Integer)session.getAttribute("m_index"));
+		product_favorite.setP_index(p_index);
+		
+		result = favoriteBasketService.addavorite(product_favorite);
+		
+		return result;		
 	}
 	
 	@RequestMapping("productBasket")
@@ -93,6 +108,20 @@ public class FavoriteBasketController {
 		shopping_basket.setP_index(product_favorite.getP_index());
 		shopping_basket.setSb_num(1);
 		
+		result = favoriteBasketService.setShoppingBasket(shopping_basket);
+
+		return result;  
+	}
+	
+	@RequestMapping(value="immedMoveOnBasket", method={RequestMethod.GET, RequestMethod.POST})
+	public @ResponseBody int immedMoveOnBasket(HttpSession session, int p_index, int new_num) {
+		int result = 1;
+		
+		shopping_basket shopping_basket = new shopping_basket();
+		shopping_basket.setM_index((Integer) session.getAttribute("m_index"));
+		shopping_basket.setP_index(p_index);
+		shopping_basket.setSb_num(new_num);
+				
 		result = favoriteBasketService.setShoppingBasket(shopping_basket);
 
 		return result;  
