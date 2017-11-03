@@ -53,7 +53,6 @@ public class ProductController {
 	public ModelAndView viewProduct(int p_index){
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("product_info", productService.getProduct(p_index));
-		System.out.println(productService.getProduct(p_index).getP_imgSrc());
 		mav.setViewName("productPage");	
 		return mav;	
 	}

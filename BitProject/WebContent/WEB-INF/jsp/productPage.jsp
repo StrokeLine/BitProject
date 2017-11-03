@@ -49,6 +49,62 @@ $(document).ready(function(){
 	});
 });
 </script>
+
+<script type="text/javascript">
+	function varyNum(check, max, price, fee){
+		var num = document.getElementById("text-num");
+		var value = num.value;
+		if(check){
+			num.value = Number(value)+1; 
+		} else {
+			num.value = Number(value)-1;
+		}
+		
+		if(Number(num.value) > max){
+			num.value = max;
+		} else if(Number(num.value) < 1) {
+			num.value = 1;
+		}
+		
+		var payPrice = document.getElementById("payPrice");
+		
+		
+		
+		payPrice.innerHTML = ((price*Number(num.value))+fee).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "원";
+	}
+	
+	function onlyNumber(event, price){
+		event = event || window.event;
+		var keyID = (event.which) ? event.which : event.keyCode;
+		if ( (keyID >= 48 && keyID <= 57) || (keyID >= 96 && keyID <= 105) || keyID == 8 || keyID == 46 || keyID == 37 || keyID == 39 ) {
+			return;
+		} else {
+			return false;			
+		}
+		
+		
+	}
+	
+	function removeChar(event, maxNum, price, fee) {
+		event = event || window.event;
+		var keyID = (event.which) ? event.which : event.keyCode;
+		if ( keyID == 8 || keyID == 46 || keyID == 37 || keyID == 39 ) {
+			return;			
+		} else {
+			event.target.value = event.target.value.replace(/[^0-9]/g, "");
+			if(event.target.value > maxNum){
+				event.target.value = maxNum;				
+			}else if( event.target.value < 0 || event.target.value == ''){
+				event.target.value = 1;
+			}
+			
+			var payPrice = document.getElementById("payPrice");
+			
+			payPrice.innerHTML = ((price*Number(event.target.value))+fee).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "원";
+		}
+	}
+</script>
+
 </head>
 
 <body>
@@ -219,12 +275,12 @@ $(document).ready(function(){
 				<div class="inner-product">		
 					<form action="orderProductForm" method="post" class="form-productPage">						
 						<div class="product_img">
-							이미지 영역
+							<img src="downloadProductImg?p_index=${product_info.p_index}" style="width: 424px; margin-left: auto; margin-right: auto; display: block;">
 						</div>
 						<div class="product_info_wrap">							
 							<div class="product_info">
 								<div class="product_item" style="width: 80%; margin-top: 10px;">
-									<h4>${product_info.p_name}</h4>
+									<h2 style="font-weight: 900; letter-spacing: normal;">${product_info.p_name}</h2>
 								</div>	
 								<div class="hr_line"></div>				
 								<div class="left">
@@ -246,7 +302,7 @@ $(document).ready(function(){
 								</div>
 								<div class="right">
 									<div class="product_value">
-										 ${product_info.p_price} 원
+										 <fmt:formatNumber value="${product_info.p_price}" pattern="###,###,###,###원"></fmt:formatNumber>
 									</div>						
 									<div class="product_value">	
 										<select name="">
@@ -255,18 +311,18 @@ $(document).ready(function(){
 										</select>
 									</div>									
 									<div class="product_value">					
-										<input type="button" class="button small" value=" - ">
-										<input type="text" name="" class="btn-num" id="text-num" value="1">
-										<input type="button" class="button small" value=" + ">
+										<input type="button" class="button small" value=" - " onclick="varyNum(0, ${product_info.p_num }, ${product_info.p_price }, ${product_info.p_fee})">
+										<input type="text" name="" class="btn-num" id="text-num" value="1" maxlength="3" onblur='removeChar(event, ${product_info.p_num })' onkeydown='return onlyNumber(event)' onkeyup='removeChar(event, ${product_info.p_num }, ${product_info.p_price}, ${product_info.p_fee})'>
+										<input type="button" class="button small" value=" + " onclick="varyNum(1, ${product_info.p_num }, ${product_info.p_price }, ${product_info.p_fee})">
 									</div>							
 									<div class="product_value">
-										${product_info.p_fee} 원
+										<fmt:formatNumber value="${product_info.p_fee}" pattern="###,###,###,###원"></fmt:formatNumber>
 										<%-- <ul style="padding: 0px 0px 0px 0px; list-style-type: none;">
 											<li><em style="font-style: normal;">배송비 : ${product_info.p_fee} (주문시 결제)</em></li>						
 										</ul> --%>
 									</div>						
-									<div class="product_value">
-										<span>원</span>
+									<div id="payPrice" class="product_value">
+										<fmt:formatNumber value="${ product_info.p_price + product_info.p_fee}" pattern="###,###,###,###원"></fmt:formatNumber>
 									</div>	
 								</div>									
 							</div>		
