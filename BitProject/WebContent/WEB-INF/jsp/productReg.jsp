@@ -270,10 +270,14 @@ $(document).ready(function(){
 							<div class="reg-input">
 								<select name="p_major_value" class="category-input">
 									<option value="">-- 카테고리 --</option>
-									<option value="식품">식품</option>
-									<option value="식기/집/장난감">식기/집/장난감</option>
+									<option value="사료/간식">사료/간식</option>
+									<option value="배변용품">배변용품</option>
+									<option value="건강관리">건강관리</option>
+									<option value="미용/목욕">미용/목욕</option>
+									<option value="장난감">장난감</option>
+									<option value="리빙">리빙</option>
 									<option value="패션">패션</option>
-									<option value="목욕/미용">목욕/미용</option>
+									<option value="야외용품">야외용품</option>
 								</select>								
 							</div>
 						</div>						
