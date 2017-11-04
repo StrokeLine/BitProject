@@ -58,7 +58,8 @@ public class SellerController {
 	
 	
 	@RequestMapping("modifySellerForm")
-	public String modifySellerForm(int m_index, Model model){
+	public String modifySellerForm(HttpSession session, Model model){
+		int m_index = (Integer)session.getAttribute("m_index");
 		seller_info seller_info = sellerInfoService.getSellerInfo(m_index);
 		model.addAttribute("modifySeller", seller_info);
 		return "modifySeller";
@@ -142,6 +143,6 @@ public class SellerController {
 		sellerInfoService.deleteStoreNotiCheck(Integer.parseInt(sn_index));
 
 		return sellerInfoService.deleteStoreNotiView(Integer.parseInt(sn_index));
-	}
+	}	
 
 }

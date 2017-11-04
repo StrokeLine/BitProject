@@ -229,6 +229,9 @@ $(document).ready(function(){
 									</div> 								
 									<h4 id="store_grade">평점 ${seller_info_select.s_grade}</h4>
 								</div>
+							</div>	
+							<div class="content-middle">
+								<a href=""><i class="fa fa-plus-square"></i>&nbsp;&nbsp;상점 팔로우 하기</a>
 							</div>												
 							<div class="social-icons" id="sellerMyStore-social-icons">
 								<div class="info_frame">				

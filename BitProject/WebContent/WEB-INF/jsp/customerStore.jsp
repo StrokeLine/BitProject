@@ -229,7 +229,10 @@ $(document).ready(function(){
 									</div> 								
 									<h4 id="store_grade">평점 ${seller_info_select.s_grade}</h4>
 								</div>
-							</div>												
+							</div>
+							<div class="content-middle">
+								<a href=""><i class="fa fa-plus-square"></i>&nbsp;&nbsp;상점 팔로우 하기</a>
+							</div>																	
 							<div class="social-icons" id="sellerMyStore-social-icons">
 								<div class="info_frame">				
 									<div class="frame_item" ><i class="fa fa-home"></i>OPEN</div>
@@ -281,19 +284,27 @@ $(document).ready(function(){
 					<section>					
 						<div class="posts">				
 							<c:forEach items="${product_info_list}" var="product_info">
-								<article>
-									<a href="#" class="image"><img src="images/pic01.jpg" alt="" /></a>
+								<article>									
+									<c:if test="${product_info.p_imgSrc != null }">
+					s					<a  class="image" href="productPage?p_index=${product_info.p_index}">
+											<img src="downloadProductImg?p_index=${product_info.p_index}">
+										</a>												
+									</c:if>									
 									<h3 id="productName">${product_info.p_name}</h3>
-									<p>[ ${product_info.p_major_value} ]</p>
-									<p>${product_info.p_price} 원 &emsp; / &emsp; 배송료 ${product_info.p_fee} 원</p>
-									<ul class="actions">
+									<p class="p-title">[ ${product_info.p_major_value} ]</p>
+									<div class="p-wrap">
+										<p class="p-sub-title1">${product_info.p_price} 원 </p>/<p class="p-sub-title2">배송료 ${product_info.p_fee} 원</p>
+									</div>								
+									<ul class="actions" id="actions-btn">
 										<li><a href="#" class="button">찜</a></li>
 										<li><a href="#" class="button">장바구니</a></li>
 									</ul>
 								</article>						
-							</c:forEach>					
+							</c:forEach>						
 						</div>
-					</section>					
+					</section>
+					
+										
 				</div>
 			</div>					
 		</div>

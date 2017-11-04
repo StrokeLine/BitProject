@@ -229,6 +229,9 @@ $(document).ready(function(){
 									</div> 								
 									<h4 id="store_grade">평점 ${seller_info_select.s_grade}</h4>
 								</div>
+							</div>	
+							<div class="content-middle">
+								<a href=""><i class="fa fa-plus-square"></i>&nbsp;&nbsp;상점 팔로우 하기</a>
 							</div>												
 							<div class="social-icons" id="sellerMyStore-social-icons">
 								<div class="info_frame">				
@@ -277,22 +280,22 @@ $(document).ready(function(){
 				<div class="content_title"><h3>상점문의</h3></div>
 				<div class="content_subTitle">GET IN TOUCH</div>	
 				<div class="inner-content1">											
-					<form method="post" action="#" class="content-form">
+					<form action="customerStoreInquiry" method="post" class="content-form">
 						<div class="content-input-wrap">							
 							<div class="content-input">
-								<select class="input-set" name="category" id="category">
+								<select class="input-set" name="si_type">
 									<option value="">--- 문의유형 ---</option>
-									<option value="1">상 품</option>
-									<option value="1">주 문</option>
-									<option value="1">오프라인 상점</option>
-									<option value="1">Others</option>		
+									<option value="상품">상 품</option>
+									<option value="주문">주 문</option>
+									<option value="오프라인 상점">오프라인 상점</option>
+									<option value="Others">Others</option>		
 								</select>
 							</div>							
 							<div class="content-input">
-								<input type="text" class="input-set" name="demo-name" id="demo-name" value="" placeholder="문의 제목" />
+								<input type="text" class="input-set" name="si_subject" placeholder="문의 제목" />
 							</div>
 							<div class="content-input">
-								<textarea class="input-set" name="demo-message" id="demo-message" placeholder="문의 내용" rows="6"></textarea>
+								<textarea class="input-set" name="si_content" placeholder="문의 내용"></textarea>
 							</div>											
 						</div>
 						<div class="inquiry-btn">

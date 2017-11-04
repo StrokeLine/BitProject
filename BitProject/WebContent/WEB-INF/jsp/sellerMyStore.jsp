@@ -217,22 +217,24 @@ $(document).ready(function(){
 			<div class="inner-sellerMyStore">
 				<div class="inner-color">
 					<div class="inner-content1">												
-						<div class="seller_wrap">
+						<div class="seller_wrap" id="seller_wrap_">
 							<div class="seller_img">
 								<img src="/images/home.png" alt="" class="img-circle">
 							</div>
 							<div class="seller_info">
 								<p id="storeName">| ${seller_info_select.s_nick}</p>
 								<div class="store_address">
-									<a href="">오프라인 상점&nbsp;&nbsp;<i class="fa fa-map-marker"></i></a><br>
+									<a href="">오프라인 상점&nbsp;&nbsp;
+										<i class="fa fa-map-marker"></i>
+									</a><br>
 									${seller_info_select.s_address}
 								</div> 								
 								<h4 id="store_grade">평점 ${seller_info_select.s_grade}</h4>
 							</div>
 						</div>
 						<div class="content-middle">
-							<a href=""><i class="fa fa-arrow-circle-right"></i>&nbsp;<h5>상점정보 수정</h5></a>
-						</div>												
+								<a href="modifySellerForm"><i class="fa fa-plus-square"></i>&nbsp;&nbsp;상점정보 수정</a>
+							</div>											
 						<div class="social-icons" id="sellerMyStore-social-icons">
 							<div class="info_frame">				
 								<div class="frame_item" ><i class="fa fa-home"></i>OPEN</div>
@@ -247,6 +249,7 @@ $(document).ready(function(){
 								<div class="frame_value" style="text-align: center;">${seller_info_select.s_sale}</div>
 								<div class="frame_value"></div>
 								<div class="frame_value"></div>
+								<input type="hidden" name="m_index" value="${seller_info_select.m_index}">
 							</div>														
 						</div>							
 					</div>

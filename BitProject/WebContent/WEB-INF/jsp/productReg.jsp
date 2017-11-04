@@ -213,58 +213,78 @@ $(document).ready(function(){
 			</c:choose>
 		</nav>
 		
-		
+	
+	
+	
+	
+	
 	<div class="main">
 		<div class="inner">			
 			<div class="main-title">							
-				<h4>상품등록</h4>			
+				<h4>상품 등록</h4>			
 			</div>			
-			<form action="addProduct" enctype="multipart/form-data" method="post">
-				<div class="main_content">				
-					<div class="item-wrap">
-						<div class="Reg-item"><i class="fa fa-arrow-circle-right"></i> &emsp; 상 품 명</div>
-						<div class="Reg-item"><i class="fa fa-arrow-circle-right"></i> &emsp; 상품금액</div>
-						<div class="Reg-item"><i class="fa fa-arrow-circle-right"></i> &emsp; 배 송 비</div>
-						<div class="Reg-item"><i class="fa fa-arrow-circle-right"></i> &emsp; 수     량</div>
-						<div class="Reg-item"><i class="fa fa-arrow-circle-right"></i> &emsp; 게시마감일</div>
-						<div class="Reg-item"><i class="fa fa-arrow-circle-right"></i> &emsp; 상품 내용</div>
-						<div class="Reg-item"><i class="fa fa-arrow-circle-right"></i> &emsp; 상품 이미지</div>
-						<div class="Reg-item"><i class="fa fa-arrow-circle-right"></i> &emsp; 태     그</div>
-						<div class="Reg-item"><i class="fa fa-arrow-circle-right"></i> &emsp; 분     류</div>
-					</div>
-					<div class="input-wrap">
-						<div class="reg-input"><input type="text" name="p_name"></div>
-						<div class="reg-input"><input type="text" name="p_price"></div>
-						<div class="reg-input"><input type="text" name="p_fee"></div>
-						<div class="reg-input"><input type="number" name="p_num" min=1 max=999 value="1"></div>
-						<div class="reg-input"><input type="date" name="p_posting_deadline"></div>
-						<div class="reg-input"><textarea id="p_content" name="p_content" rows="20" cols="80" lang="1000"></textarea></div>
-						<div class="reg-input"><input type="file" name="imgSrc" accept=".jpg, .png"></div>
-						<div class="reg-input" id="tag-wrap">
-							<input type="text" id="tag-input" name="p_hashTag" value="#" style="width: 400px;">
-							<input type="button" id="tag-btn" class="button small" id="tagAdd-btn" value="추가">
+			<form action="addProduct" enctype="multipart/form-data" method="post">					
+				<div class="main-content-wrap">	
+					<div class="main-content">				
+						<div class="reg-wrap">
+							<div class="reg-item"><i class="fa fa-arrow-circle-right"></i> &emsp; 상품명</div>
+							<div class="reg-input"><input type="text" name="p_name"></div>
 						</div>
-						<div class="reg-input">
-							<select name="p_major_value" class="category-input" >
-								<option value="" selected="selected">-- 카테고리 --</option>
-								<option value="사료/간식">사료/간식</option>
-								<option value="배변용품">배변용품</option>
-								<option value="건강관리">건강관리</option>
-								<option value="미용/목욕">미용/목욕</option>
-								<option value="장난감">장난감</option>
-								<option value="리빙">리빙</option>
-								<option value="패션">패션</option>
-								<option value="야외용품">야외용품</option>
-							</select>	
+						<div class="reg-wrap">
+							<div class="reg-item"><i class="fa fa-arrow-circle-right"></i> &emsp; 상품금액</div>
+							<div class="reg-input"><input type="text" name="p_price"></div>
 						</div>
-					</div>
-					<div class="inputProduct_button">
-						<input type="submit" class="button special fit" value="등록">					
-					</div>		
-				</div>
+						<div class="reg-wrap">
+							<div class="reg-item"><i class="fa fa-arrow-circle-right"></i> &emsp; 배송비</div>
+							<div class="reg-input">
+								<select name="p_fee" class="category-input">
+									<option value="">-- 배송비 선택 --</option>
+									<option value="무료배송">무료배송</option>
+									<option value="2,500원">2,500원</option>
+									<option value="3,500원">3,500원</option>									
+								</select>		
+							</div>
+						</div>
+						<div class="reg-wrap">
+							<div class="reg-item"><i class="fa fa-arrow-circle-right"></i> &emsp; 수량</div>
+							<div class="reg-input"><input type="number" name="p_num"></div>
+						</div>
+						<div class="reg-wrap">
+							<div class="reg-item"><i class="fa fa-arrow-circle-right"></i> &emsp; 게시마감일</div>
+							<div class="reg-input"><input type="date" name="p_posting_deadline"></div>
+						</div>
+						<div class="reg-wrap">
+							<div class="reg-item"><i class="fa fa-arrow-circle-right"></i> &emsp; 상품 내용</div>							
+						</div>
+						<div class="reg-wrap_textarea">
+							<textarea name="p_content"></textarea>
+						</div>
+						<div class="reg-wrap">
+							<div class="reg-item"><i class="fa fa-arrow-circle-right"></i> &emsp; 태그</div>
+							<div class="reg-input2">
+								<input type="text" name="p_hashTag" value="#"></div>
+								<input type="button" class="button smaill" value="추가">
+							</div>
+						<div class="reg-wrap">
+							<div class="reg-item"><i class="fa fa-arrow-circle-right"></i> &emsp; 분류</div>
+							<div class="reg-input">
+								<select name="p_major_value" class="category-input">
+									<option value="">-- 카테고리 --</option>
+									<option value="식품">식품</option>
+									<option value="식기/집/장난감">식기/집/장난감</option>
+									<option value="패션">패션</option>
+									<option value="목욕/미용">목욕/미용</option>
+								</select>								
+							</div>
+						</div>						
+					</div>	
+				</div>								
+				<div class="inputProduct_button">
+					<input type="submit" class="button special" value="등록" style="width: 200px;">					
+				</div>		
 			</form>				
 		</div>
-	</div>
+	</div>	
 	
 	<!-- Footer -->
 		<footer id="footer">
