@@ -60,8 +60,13 @@ public class ProductInfoDao implements IProductInfoDao{
 	}
 	
 	@Override
-	public List<product_info> categoryAll(String p_major_value){
-		return session.selectList("dao.IProductInfoDao.categoryAll", p_major_value);
+	public List<product_info> categorySelect(String major){
+		return session.selectList("dao.IProductInfoDao.categorySelect", major);
+	}
+	
+	@Override
+	public List<product_info> categoryAll(){
+		return session.selectList("dao.IProductInfoDao.categoryAll");
 	}
 
 }

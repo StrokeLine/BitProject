@@ -104,10 +104,14 @@ public class ProductService {
 		return productInfoDao.selectProduct(p_index).getS_index();
 	}
 	
-	// 카테고리 별 상품 리스트
-	public List<product_info> categoryAll(String p_major_value){
-		return productInfoDao.categoryAll(p_major_value);
-	}
+	// 카테고리별 상품 리스트
+		public List<product_info> categorySelect(String major){
+			return productInfoDao.categorySelect(major);
+		}
+		
+		public List<product_info> categoryAll(){
+			return productInfoDao.categoryAll();
+		}
 	
 	public int addProductInquiry(product_inquiry product_inquiry){
 		return inquiryDao.insertProductInquiry(product_inquiry);

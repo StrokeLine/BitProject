@@ -175,12 +175,50 @@ public class ProductController {
 	}
 	
 	@RequestMapping("productList")
-	public ModelAndView productList(HttpSession session){
+	public ModelAndView productList(HttpSession session, int major_num){
 		ModelAndView mav = new ModelAndView();
-		int m_index = (Integer)session.getAttribute("m_index");
-		List<product_info> productInfo_list = productService.getProductList(m_index);		
-		mav.addObject("product_info", productInfo_list);		
-		mav.setViewName("productList");	
+		System.out.println("AAAAAAAAA!!!!!!");
+		String major = "";
+		switch (major_num) {
+		case 1:
+			List<product_info> product_info = productService.categoryAll();
+			System.out.println("CCCCCCCCC!!!!!!");
+			mav.addObject("listSelect", product_info);
+			mav.setViewName("productList");		
+			return mav;
+			
+		case 2:
+			major = "사료/간식";
+			break;
+		case 3:
+			major = "배변용품";
+			break;
+		case 4:
+			major = "건강관리";
+			break;
+		case 5:
+			major = "미용/목욕";
+			break;
+		case 6:
+			major = "장난감";
+			break;
+		case 7:
+			major = "리빙";
+			break;
+		case 8:
+			major = "패션";
+			break;
+		case 9:
+			major = "야외용품";
+			break;
+
+		}
+		
+		System.out.println("BBBBBBBBB!!!!!!");
+		List<product_info> product_info = productService.categorySelect(major);
+		System.out.println("CCCCCCCCC!!!!!!");
+		mav.addObject("listSelect", product_info);
+		mav.setViewName("productList");		
 		return mav;
 	}
 	

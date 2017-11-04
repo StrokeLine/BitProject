@@ -230,7 +230,7 @@ $(document).ready(function(){
 					</header>
 					<hr>
 					<div class="posts">
-						<c:forEach items="${product_info}" var="product_info">
+						<c:forEach items="${listSelect}" var="product_info">
 						<article>
 							<a class="image" href="productPage?p_index=${product_info.p_index}">
 								<c:choose>
@@ -244,6 +244,7 @@ $(document).ready(function(){
 							</a>
 							<h2>${product_info.p_name}</h2>
 							<p>${product_info.p_price} 원</p>
+							<p class="pfee">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;배송료 : ${product_info.p_fee} 원</p>
 							<input type="button" class="button fit small" value="찜">
 							<input type="button" class="button special fit small" value="장바구니">
 							

@@ -15,5 +15,6 @@ public interface IProductInfoDao {
 	public List<product_info> selectAllProductInfoH(String p_hashTag);
 	public List<product_info> selectAllProductInfoMJ(String p_major_value);
 	public List<product_info> selectAllProductInfoMN(String p_miner_value);
-	public List<product_info> categoryAll(String p_magor_value);
+	public List<product_info> categorySelect(String major);
+	public List<product_info> categoryAll();
 }

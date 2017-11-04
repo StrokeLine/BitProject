@@ -3679,11 +3679,15 @@ header.majors>:last-child {
 .posts article .image {
 	display: block;
 	margin: 0 0 2em 0;
+	width: 362.22px;
+    height: 334.5px;
 }
 
 .posts article .image img {
 	display: block;
 	width: 100%;
+	height: 100%;
+	background: center center;
 }
 
 .posts input.button.fit.small {
@@ -3693,6 +3697,16 @@ header.majors>:last-child {
 
 .posts h2 {
     display: initial;
+}
+
+p.pfee {
+    font-size: initial;
+}
+
+.posts p {
+    margin-bottom: auto;
+    display: table-cell;
+    /* margin-left: 20px; */
 }
 
 @media screen and (min-width: 1681px) {
