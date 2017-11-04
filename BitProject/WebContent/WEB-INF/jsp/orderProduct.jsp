@@ -110,7 +110,19 @@ table th td.right{
 	width: 100px;
 }
 
+.address_header{
+    vertical-align: middle;
+    width: 155px;
+    padding: 10px 0 0 20px;
+}
 
+input[type="checkbox"] + label, input[type="radio"] + label {
+    display: block;
+    font-size: 0.9em;
+    font-weight: 900;
+    margin: 0 0 1em 0;
+    color: #585858;
+}
 </style>
 
 
@@ -401,56 +413,47 @@ function orderCheck() {
 			<div class="address_info">
 				<table class="table-wrapper address">
 					<tr>
-						<th>수령인</th>
-						<td><input type="text" name="" width="100px"></td>
+						<th class="address_header">수령인</th>
+						<td><input type="text" name="" style="width: 200px;"></td>
 					</tr>
 					<tr>
-						<th>구매자 연락처</th>
-						<td><input type="text" name="" width="100px"></td>
+						<th class="address_header">구매자 연락처</th>
+						<td><input type="text" name="" style="width: 200px;"></td>
 					</tr>
 					<tr>
-						<th>배송 메모</th>
-						<td><input type="text" name="" width="100px"></td>
+						<th class="address_header">배송지</th>
+						<td>
+							<select>
+								<option>집</option>
+								<option>회사</option>
+							</select>
+						</td>
 					</tr>
-				</table>
-				<div class="shippingAdress_input" style="padding: 10px 5px;">						
-					수령인
-						
-					구매자 연락처
-						
-					배송 메모	
-						<br>					
-				</div>					
+					<tr>
+						<th class="address_header">배송 메모</th>
+						<td><input type="text" name="" ></td>
+					</tr>
+				</table>				
 			</div>
+			
 			<div class="paymentMethod_info" style="margin-top: 50px">
 				<h3>결제수단</h3>
 			</div>
 			
 			<div class="opTable">
 				<div class="paymentCard" style="display: inline-block; width: 30%;">
-					<label><input type="radio" name="paymentMethod" value="card">카드결제</label><br>
-						<select name="">
-							<option value=""></option>
-							<option value=""></option>
-							<option value=""></option>						
-						</select>
+					<input type="radio" name="paymentMethod" value="card" id="payment_card"><label class="payment_label" for="payment_card">카드결제</label><br>
 				</div>
 				<div class="paymentAccount" style="display: inline-block; width: 30%;">
-					<label><input type="radio" name="paymentMethod" value="account">무통장 입금</label><br>
-						<select name="">
-							<option value=""></option>			
-						</select>
+					<input type="radio" name="paymentMethod" value="account" id="payment_bank"><label class="payment_label" for="payment_bank">무통장 입금</label><br>
 				</div>
 				<div class="paymentPhone" style="display: inline-block; width: 30%;">
-					<label><input type="radio" name="paymentMethod" value="phone">휴대폰 결제</label><br>
-						<select name="">
-							<option value=""></option>			
-						</select>
+					<input type="radio" name="paymentMethod" value="phone" id="payment_phon"><label class="payment_label" for="payment_phon">휴대폰 결제</label><br>
 				</div>
 			</div>	
-			<div class="opTable" style="border: none;">
+			<div class="opTable" style="display: inline-block; width: 1103px; margin-top: 100px;">
 				<div class="order_btn">
-					<input type="button" value="결제하기" onclick="orderCheck()">
+					<input class="button special" type="button" value="결제하기" onclick="orderCheck()">
 				</div>
 			</div>
 		</div>
