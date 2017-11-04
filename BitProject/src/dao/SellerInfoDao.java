@@ -39,6 +39,9 @@ public class SellerInfoDao implements ISellerInfoDao {
 		return session.selectList("dao.ISellerInfoDao.selectAllSellerInfo");
 	}
 	
-	
+	@Override
+	public seller_info getStoreinfo(int s_index){
+		return session.selectOne("dao.ISellerInfoDao.getStoreinfo", s_index);
+	}
 	
 }

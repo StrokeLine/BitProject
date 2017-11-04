@@ -547,11 +547,11 @@ $(document).ready(function(){
 					</form>
 				</div>						
 				
+				<div  class="customerS">
+					<a href="customerStore?s_index=${product_info.s_index }"><i class="fa fa-home" id="store-icon"></i>&nbsp;&nbsp; 해당상품의 상점 보러가기</a>				
+				</div>
 				<div class="inner-product" id="product-info">		
 					<h4 class="h4-productPage">상품 정보</h4>
-					<div>
-						<a href="customerStore"><i class="fa fa-home" id="store-icon"></i>&nbsp;&nbsp; 해당상품의 상점 보러가기</a>				
-					</div>
 					<div class="detail-product">
 						<pre style="margin: 50px 100px;">${product_info.p_content }</pre>
 					</div>

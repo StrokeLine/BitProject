@@ -117,4 +117,7 @@ public class SellerInfoService {
 	public int deleteStoreNotiCheck(int sn_index){
 		return checkDao.deleteAllStoreNoticeCheck(sn_index);
 	}
+	public seller_info getStoreinfo(int s_index){
+		return sellerInfoDao.getStoreinfo(s_index);
+	}
 }

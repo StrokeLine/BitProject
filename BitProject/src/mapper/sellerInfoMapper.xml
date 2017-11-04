@@ -24,7 +24,10 @@
 	</select>
 
 	<select id="selectAllSellerInfo" resultType="seller_info">
-		select * from seller_info
+		select * from seller_info;
 	</select>
 
+	<select id="getStoreinfo" parameterType="int" resultType="seller_info">
+		select * from seller_info where s_index = #{s_index};
+	</select>
 </mapper>

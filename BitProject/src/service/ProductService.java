@@ -116,4 +116,8 @@ public class ProductService {
 	public int addProductInquiry(product_inquiry product_inquiry){
 		return inquiryDao.insertProductInquiry(product_inquiry);
 	}
+	
+	public List<product_info> getSellerProductList(int s_index){
+		return productInfoDao.selectAllProductInfoS(s_index);
+	}
 }

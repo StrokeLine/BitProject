@@ -1738,7 +1738,7 @@
 		line-height: 1.5;
 		margin: 0 0 2em 0;
 		text-transform: uppercase;
-		letter-spacing: 0.35em;
+		/* letter-spacing: 0.35em; */
 	}
 
 		h2 a, h3 a, h4 a, h5 a, h6 a {
@@ -3803,3 +3803,87 @@ p.pfee {
 		display: none;
 	}
 }
+
+.posts article > .image {
+	-moz-transition: -moz-transform 0.5s ease;
+	-webkit-transition: -webkit-transform 0.5s ease;
+	-ms-transition: -ms-transform 0.5s ease;
+	transition: transform 0.5s ease;
+	position: relative;
+	display: block;
+	border-radius: 4px;
+	overflow: hidden;
+}
+
+.posts article > .image img {
+	display: block;
+	width: 100%;
+}
+
+.posts article > .image:before {
+	-moz-pointer-events: none;
+	-webkit-pointer-events: none;
+	-ms-pointer-events: none;
+	pointer-events: none;
+	-moz-transition: background-color 0.5s ease, opacity 0.5s ease;
+	-webkit-transition: background-color 0.5s ease, opacity 0.5s ease;
+	-ms-transition: background-color 0.5s ease, opacity 0.5s ease;
+	transition: background-color 0.5s ease, opacity 0.5s ease;
+	content: '';
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	opacity: 1.0;
+	z-index: 1;
+	opacity: 0.8;
+}
+
+.posts article > .image:after {
+	-moz-pointer-events: none;
+	-webkit-pointer-events: none;
+	-ms-pointer-events: none;
+	pointer-events: none;
+	-moz-transition: opacity 0.5s ease;
+	-webkit-transition: opacity 0.5s ease;
+	-ms-transition: opacity 0.5s ease;
+	transition: opacity 0.5s ease;
+	content: '';
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	opacity: 0.25;
+	z-index: 2;
+}
+
+body:not(.is-touch) .posts article:hover > .image {
+	-moz-transform: scale(1.1);
+	-webkit-transform: scale(1.1);
+	-ms-transform: scale(1.1);
+	transform: scale(1.1);
+}
+
+body:not(.is-touch) .posts article:hover > .image:before {
+	opacity: 0.35;
+}
+
+body:not(.is-touch) .posts article:hover > .image:after {
+	opacity: 0;
+}
+
+/* productPage customerS */			
+.customerS {
+    position: static;
+    margin-left: 21px;
+    margin-bottom: 35px;
+}		
+
+		

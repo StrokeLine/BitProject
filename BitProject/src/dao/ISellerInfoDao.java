@@ -10,4 +10,5 @@ public interface ISellerInfoDao {
 	public int deleteSellerInfo(int m_index);
 	public seller_info selectSellerInfo(int s_index);
 	public List<seller_info> selectAllSellerInfo();
+	public seller_info getStoreinfo(int s_index);
 }

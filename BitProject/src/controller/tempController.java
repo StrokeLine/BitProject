@@ -370,13 +370,13 @@ public class tempController {
 		return mav;		
 	}	
 	@RequestMapping("customerStore")
-	public ModelAndView customerStore(HttpSession session){
+	public ModelAndView customerStore(HttpSession session, int s_index){
 		ModelAndView mav = new ModelAndView();
-		int m_index = (Integer)session.getAttribute("m_index");
-		seller_info sellerInfo = sellerInfoService.getSellerInfo(m_index);
+		
+		seller_info sellerInfo = sellerInfoService.getStoreinfo(s_index);
 		mav.addObject("seller_info_select", sellerInfo);
 		
-		List<product_info> productInfo = productService.getProductList(m_index);
+		List<product_info> productInfo = productService.getSellerProductList(s_index);
 		mav.addObject("product_info_list", productInfo);	
 		
 		mav.setViewName("customerStore");		

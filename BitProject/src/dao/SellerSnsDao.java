@@ -30,4 +30,6 @@ public class SellerSnsDao implements ISellerSnsDao {
 	public seller_sns selectSellerSns(int ss_index) {
 		return session.selectOne("dao.ISellerSnsDao.selectSellerSns", ss_index);
 	}
+	
+	
 }
