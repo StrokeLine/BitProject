@@ -233,7 +233,7 @@ $(document).ready(function(){
 							<div class="content-middle">
 								<a href=""><i class="fa fa-plus-square"></i>&nbsp;&nbsp;상점 팔로우 하기</a>
 							</div>																	
-							<div class="social-icons" id="sellerMyStore-social-icons">
+							<div class="social-icons">
 								<div class="info_frame">				
 									<div class="frame_item" ><i class="fa fa-home"></i>OPEN</div>
 									<div class="frame_item"><i class="fa fa-user"></i>VISIT</div>
@@ -286,7 +286,7 @@ $(document).ready(function(){
 							<c:forEach items="${product_info_list}" var="product_info">
 								<article>									
 									<c:if test="${product_info.p_imgSrc != null }">
-					s					<a  class="image" href="productPage?p_index=${product_info.p_index}">
+										<a  class="image" href="productPage?p_index=${product_info.p_index}">
 											<img src="downloadProductImg?p_index=${product_info.p_index}">
 										</a>												
 									</c:if>									

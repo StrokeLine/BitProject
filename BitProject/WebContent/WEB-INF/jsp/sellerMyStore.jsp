@@ -235,7 +235,7 @@ $(document).ready(function(){
 						<div class="content-middle">
 								<a href="modifySellerForm"><i class="fa fa-plus-square"></i>&nbsp;&nbsp;상점정보 수정</a>
 							</div>											
-						<div class="social-icons" id="sellerMyStore-social-icons">
+						<div class="social-icons2">
 							<div class="info_frame">				
 								<div class="frame_item" ><i class="fa fa-home"></i>OPEN</div>
 								<div class="frame_item"><i class="fa fa-user"></i>VISIT</div>
