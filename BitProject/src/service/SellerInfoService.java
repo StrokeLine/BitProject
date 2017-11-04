@@ -99,7 +99,13 @@ public class SellerInfoService {
 	}
 	
 	public int addStoreNotice(store_notice store_notice){
-		return storeNoticeDao.insertStoreNotice(store_notice);
+		int result = 0;
+		result = storeNoticeDao.insertStoreNotice(store_notice);
+		if(result > 0){
+			result = store_notice.getSn_index();
+		}
+		
+		return result;
 	}
 	
 	public int addStoreNotiCheck(store_notice_check store_notice_check){

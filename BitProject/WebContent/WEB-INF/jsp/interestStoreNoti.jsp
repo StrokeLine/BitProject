@@ -47,13 +47,20 @@ table td{
 }
 
 </style>
+
+<script type="text/javascript">
+	function storeNoti(s_index){
+		top.location.href="followingNotiStore?s_index=" + s_index;
+	}
+</script>
+
 <div class="followingNotiSMain">
 	<table class="table-wrapper">
 		<thead>
 			<tr>
-				<th>상점명</th>
+				<th style="width: 400px;">상점명</th>
 				<th>제목</th>
-				<th>등록일</th>
+				<th style="width: 200px;">등록일</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -70,7 +77,7 @@ table td{
 						${notice_view.s_nick }
 					</td>
 					<td>
-						${notice_view.sn_subject}
+						<a href="javascript:storeNoti(${notice_view.s_index })"><div style="width: 100%;">${notice_view.sn_subject}</div></a>
 					</td>
 					<td>
 						${notice_view.sn_date}

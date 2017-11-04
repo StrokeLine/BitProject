@@ -15,13 +15,13 @@ public class StoreFollowingDao implements IStoreFollowingDao{
 	private SqlSession session;
 
 	@Override
-	public int insertStoreFollowing(store_following seller_following) {
-		return session.insert("dao.IStoreFollowingDao.insertStoreFollowing", seller_following);
+	public int insertStoreFollowing(store_following store_following) {
+		return session.insert("dao.IStoreFollowingDao.insertStoreFollowing", store_following);
 	}
 
 	@Override
-	public int updateStoreFollowing(store_following seller_following) {
-		return session.update("dao.IStoreFollowingDao.updateStoreFollowing", seller_following);
+	public int updateStoreFollowing(store_following store_following) {
+		return session.update("dao.IStoreFollowingDao.updateStoreFollowing", store_following);
 	}
 
 	@Override

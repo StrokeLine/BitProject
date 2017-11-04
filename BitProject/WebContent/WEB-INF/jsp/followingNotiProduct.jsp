@@ -34,22 +34,28 @@
 	<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
 	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+	<style>
+	.fnPNoneRow{margin: 5% 39%;}
+	
+	table th{
+		text-align: center;
+	}
+	
+	table td{
+		text-align: center;
+		vertical-align: middle;
+	}
+	
+	</style>
+	
+	<script type="text/javascript">
+		function productInfo(p_index){
+			top.location.href="productPage?p_index="+p_index;
+		}
+	</script>
 </head>
 
-<style>
-.fnPNoneRow{margin: 5% 39%;}
-
-table th{
-	text-align: center;
-}
-
-table td{
-	text-align: center;
-	vertical-align: middle;
-}
-
-
-</style>
 
 <body>
 	<div class="followingNotiPMain">
@@ -74,11 +80,11 @@ table td{
 					<tr>
 						<td>
 							<c:if test="${notice_view.p_img != null }">
-								<img src="downloadProductImg?p_index=${notice_view.p_index }" width="50" height="50">
+								<img src="downloadProductImg?p_index=${notice_view.p_index }" width="92" height="92">
 							</c:if>						
 						</td>
 						<td>
-							${notice_view.p_name }							
+							<a href="javascript:productInfo(${notice_view.p_index })"><div style="width: 100%;">${notice_view.p_name }</div></a>							
 						</td>
 						<td>
 							<fmt:formatNumber value="${notice_view.p_price }" pattern="###,###,###,###원"></fmt:formatNumber>

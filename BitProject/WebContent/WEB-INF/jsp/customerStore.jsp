@@ -49,6 +49,27 @@ $(document).ready(function(){
 	});
 });
 </script>
+
+<script type="text/javascript">
+	function storeFollowing(s_index){
+		
+		$.ajax({
+			data : {
+				s_index : s_index
+			},
+			url : "storeFollowing",
+			success : function(data) {
+				if(data == 1){
+					alert("해당 상점을 팔로워 했습니다.");
+				}
+			},
+			error : function(err) {
+				alert("잠시 후 다시 시도해주십시오.");
+			}
+		});
+	}
+</script>
+
 </head>
 
 <body>
@@ -231,7 +252,7 @@ $(document).ready(function(){
 								</div>
 							</div>
 							<div class="content-middle">
-								<a href=""><i class="fa fa-plus-square"></i>&nbsp;&nbsp;상점 팔로우 하기</a>
+								<a href="javascript:storeFollowing(${seller_info_select.s_index })"><i class="fa fa-plus-square"></i>&nbsp;&nbsp;상점 팔로우 하기</a>
 							</div>																	
 							<div class="social-icons">
 								<div class="info_frame">				

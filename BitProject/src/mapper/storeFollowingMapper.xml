@@ -6,11 +6,11 @@
 <mapper namespace="dao.IStoreFollowingDao">
 	
 	<insert id="insertStoreFollowing" parameterType="store_following" useGeneratedKeys="true" keyProperty="sf_index">
-		insert into store_following values(0, #{s_index}, #{m_index}, #{sf_date});
+		insert into store_following values(0, #{s_index}, #{m_index}, now());
 	</insert>
 	
 	<update id="updateStoreFollowing" parameterType="store_following">
-		update store_following set s_index=#{s_index}, m_index=#{m_index}, sf_date=#{sf_date} where sf_index=#{sf_index};
+		update store_following set s_index=#{s_index}, m_index=#{m_index}, now() where sf_index=#{sf_index};
 	</update>
 	
 	<delete id="deleteStoreFollowing" parameterType="int">

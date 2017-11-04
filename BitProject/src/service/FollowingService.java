@@ -36,6 +36,10 @@ public class FollowingService {
 	@Autowired
 	private StoreFollowingDao storeFollowingDao;
 	
+	public int setStoreFollowing(store_following store_following){
+		return storeFollowingDao.insertStoreFollowing(store_following);
+	}
+	
 	public List<product_notice_view> getProductNotice(int m_index){
 		return productNoticeViewDao.selectProductNoticeView(m_index);
 	}
@@ -51,4 +55,9 @@ public class FollowingService {
 	public int addProductNotice(product_notice product_notice){
 		return productNoticeDao.insertProductNotice(product_notice);
 	}
+	
+	public List<store_notice_view> getSellerNotice(int s_index){
+		return storeNoticeViewDao.selectAllStoreNoticeViewS(s_index);
+	}
+
 }
