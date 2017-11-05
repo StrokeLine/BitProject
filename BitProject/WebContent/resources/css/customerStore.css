@@ -39,8 +39,10 @@
 	font-family: 'Montserrat', sans-serif;	
 }
 .img-circle{
-	width: 320px;	
-	display: inline-block;
+	width: 320px;
+    height: 320px;
+    display: inline-block;
+    background: center center no-repeat;
 }
 .seller_wrap{
 	width: 100%;
