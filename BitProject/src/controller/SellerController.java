@@ -1,5 +1,7 @@
 package controller;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -10,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import model.member_info;
@@ -49,9 +52,25 @@ public class SellerController {
 	}
 		
 	@RequestMapping("sellerReg")
-	public String sellerReg(HttpSession session, seller_info seller_info){
+	public String sellerReg(HttpSession session, seller_info seller_info, MultipartFile store_imgSrc){
+		String mainFilename = store_imgSrc.getOriginalFilename();
+		File imgFile = new File(store_imgSrc + mainFilename);
+		
+		
 		int m_index = (Integer)session.getAttribute("m_index");
-		seller_info.setM_index(m_index);		
+		seller_info.setM_index(m_index);
+		
+		if(mainFilename != ""){
+			
+			try {
+				store_imgSrc.transferTo(imgFile);
+				seller_info.setS_imgSrc(mainFilename);
+			} catch (IllegalStateException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
 		sellerInfoService.addSeller(seller_info);	
 		return "redirect:sellerMyStore";
 	}
@@ -96,7 +115,6 @@ public class SellerController {
 		int s_index = sellerInfoService.getSellerInfo((Integer)session.getAttribute("m_index")).getS_index();
 		store_notice.setS_index(s_index);
 		int sn_index = sellerInfoService.addStoreNotice(store_notice);
-		
 		
 		if(sn_index != 0){
 			sendNoticeMsg(s_index, sn_index);

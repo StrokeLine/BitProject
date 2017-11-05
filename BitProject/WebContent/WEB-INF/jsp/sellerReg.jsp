@@ -224,7 +224,7 @@ $(document).ready(function(){
 					<div class="main-content">				
 						<div class="reg-wrap">
 							<div class="reg-item"><i class="fa fa-arrow-circle-right"></i> &emsp; 상점명</div>
-							<div class="reg-input"><input type="text" name="s_name"></div>
+							<div class="reg-input"><input type="text" name="s_nick"></div>
 						</div>
 						<div class="reg-wrap">
 							<div class="reg-item"><i class="fa fa-arrow-circle-right"></i> &emsp; 거래계좌</div>
@@ -235,17 +235,17 @@ $(document).ready(function(){
 								<select name="s_bank" class="category-input">
 									<option value="">-- 은행 선택 --</option>
 									<option value="국민은행">국민은행</option>
-									<option value="식기/집/장난감">기업은행</option>
-									<option value="식기/집/장난감">우리은행</option>								
-									<option value="식기/집/장난감">신한은행</option>
-									<option value="식기/집/장난감">KEB하나은행</option>
-									<option value="식기/집/장난감">SC(스탠다드차타드)</option>
-									<option value="식기/집/장난감">한국시티은행</option>
-									<option value="식기/집/장난감">신협</option>
-									<option value="식기/집/장난감">수협</option>
-									<option value="식기/집/장난감">우체국</option>
-									<option value="식기/집/장난감">새마을금고</option>
-									<option value="식기/집/장난감">카카오뱅크</option>
+									<option value="기업은행">기업은행</option>
+									<option value="우리은행">우리은행</option>								
+									<option value="신한은행">신한은행</option>
+									<option value="KEB">KEB하나은행</option>
+									<option value="SC(스탠다드차타드)">SC(스탠다드차타드)</option>
+									<option value="한국시티은행">한국시티은행</option>
+									<option value="신협">신협</option>
+									<option value="수협">수협</option>
+									<option value="우체국">우체국</option>
+									<option value="새마을금고">새마을금고</option>
+									<option value="카카오뱅크">카카오뱅크</option>
 								</select>
 							</div>		
 						</div>
@@ -263,12 +263,12 @@ $(document).ready(function(){
 						</div>
 						<div class="reg-wrap">
 							<div class="reg-item"><i class="fa fa-arrow-circle-right"></i> &emsp; 상점 이미지</div>
-							<div class="reg-input"><input type="file" name="s_imgSrc" accept=".jpg, .png" style="padding-top: 40px;"></div>
+							<div class="reg-input"><input type="file" name="store_imgSrc" accept=".jpg, .png" style="padding-top: 40px;"></div>
 						</div>
 					</div>	
 				</div>								
 				<div class="inputProduct_button">
-					<input type="submit" class="button special" value="등록" style="width: 200px;">					
+					<input type="submit" class="button special" value="등록" style="width: 200px; margin-left: 160px;">					
 				</div>		
 			</form>				
 		</div>

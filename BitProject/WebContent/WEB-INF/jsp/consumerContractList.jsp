@@ -296,7 +296,7 @@ table{
 							<td>${order_statement.om_date }</td>
 							<td>
 								<c:if test="${order_statement.p_img != null }">
-									<img src="downloadProductImg?p_index=${order_statement.p_index }">
+									<img src="downloadProductImg?p_index=${order_statement.p_index }" style="width: 120px; height: 120px;">
 								</c:if>
 							</td>
 							<td>${order_statement.p_name }</td>

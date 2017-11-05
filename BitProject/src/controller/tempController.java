@@ -383,10 +383,9 @@ public class tempController {
 		return mav;
 	}	
 	@RequestMapping("customerStoreInquiry")
-	public ModelAndView customerStoreInquiry(HttpSession session){
+	public ModelAndView customerStoreInquiry(HttpSession session, int s_index){
 		ModelAndView mav = new ModelAndView();
-		int m_index = (Integer)session.getAttribute("m_index");
-		seller_info sellerInfo = sellerInfoService.getSellerInfo(m_index);
+		seller_info sellerInfo = sellerInfoService.getStoreinfo(s_index);
 		mav.addObject("seller_info_select", sellerInfo);
 		mav.setViewName("customerStoreInquiry");
 		return mav;

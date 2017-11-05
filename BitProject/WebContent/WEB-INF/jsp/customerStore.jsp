@@ -286,9 +286,9 @@ $(document).ready(function(){
 							    <!-- Collect the nav links, forms, and other content for toggling -->
 							    <div class="collapse navbar-collapse text-center" id="bs-example-navbar-collapse-1">
 							      <ul class="nav navbar-nav">
-							        <li class="nav-item"><a class="active" href="customerStore">상품 보기</a></li>
-							        <li class="nav-item"><a href="followingNotiStore">공지/알림</a></li>
-							        <li class="nav-item"><a href="customerStoreInquiry">문의하기</a></li>							        
+							        <li class="nav-item"><a class="active" href="customerStore?s_index=${seller_info_select.s_index }">상품 보기</a></li>
+							        <li class="nav-item"><a href="followingNotiStore?s_index=${seller_info_select.s_index }">공지/알림</a></li>
+							        <li class="nav-item"><a href="customerStoreInquiry?s_index=${seller_info_select.s_index }">문의하기</a></li>							        
 							      </ul>
 							    </div>
 							  </div>
