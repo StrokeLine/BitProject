@@ -189,7 +189,7 @@ $(document).ready(function(){
 							</ul>
 						</li>
 						<c:choose>
-							<c:when test="${s_index == ''}"><!-- store open X -->
+							<c:when test="${s_index == ''} "><!-- store open X -->
 								<li><a href="sellerRegForm"><i class="fa fa-building-o" aria-hidden="true">&nbsp;Store Open</i></a></li>
 							</c:when>
 							<c:when test="${s_index !='' }"><!-- store open O -->
