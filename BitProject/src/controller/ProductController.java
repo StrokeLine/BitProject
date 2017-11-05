@@ -62,6 +62,9 @@ public class ProductController {
 		ModelAndView mav = new ModelAndView();
 		
 		mav.addObject("product_info", productService.getProduct(p_index));
+		mav.addObject("contentImg", productService.getProductContentImg(p_index));
+		
+		System.out.println(productService.getProductContentImg(p_index));
 		
 		List<product_assessment> product_assessments = productService.getProductAssessmentList(p_index);
 		if(!product_assessments.isEmpty()){
@@ -173,7 +176,19 @@ public class ProductController {
 		
 		File p_imgSrcFile = new File(filePath + p_imgSrcFileName);
 		return new DownloadView(p_imgSrcFile, p_imgSrcFileName);
-	}	
+	}
+	
+	@RequestMapping("downloadProductContentImg")
+	public DownloadView productImgDownload(String content_img){
+		String p_imgSrcFileName = content_img;
+		
+		if(p_imgSrcFileName == null){
+			return null;
+		}
+		
+		File p_imgSrcFile = new File(filePath + p_imgSrcFileName);
+		return new DownloadView(p_imgSrcFile, p_imgSrcFileName);
+	}
 	
 	@RequestMapping("modifyProductForm")
 	public String modifyProductForm(int p_index, Model model){		

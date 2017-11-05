@@ -15,6 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 import model.member_info;
 import model.order_statement;
 import model.order_statement_view_m;
+import model.order_statement_view_s;
 import model.product_info;
 import model.shopping_basket_view;
 import service.FavoriteBasketService;
@@ -33,6 +34,9 @@ public class OrderProductController {
 	
 	@Autowired
 	private ProductService productService;
+	
+	@Autowired
+	private SellerInfoService sellerInfoService;
 	
 	@RequestMapping(value="checkSeller", method={RequestMethod.GET, RequestMethod.POST})
 	public @ResponseBody int checkSeller(HttpSession session, int p_index) {
@@ -173,13 +177,7 @@ public class OrderProductController {
 		
 		return result;  
 	}
-	
-	@RequestMapping("customerOrderDelivery")
-	public ModelAndView customerOrderDelivery(HttpSession session) {
-		ModelAndView mav = new ModelAndView();	
-		mav.setViewName("customerOrderDelivery");		
-		return mav;
-	}
+
 	
 	@RequestMapping("customerTakeBack")
 	public ModelAndView customerTakeBack(HttpSession session) {

@@ -13,8 +13,8 @@ public class order_statement_view_s {
 	private String p_img;
 	private String m_email;
 	private String m_name;
-	private String om_ds;
-	private String om_hs;
+	private String os_ds;
+	private String os_hs;
 	private int om_view;
 	private Date om_date;
 	
@@ -73,17 +73,18 @@ public class order_statement_view_s {
 	public void setM_name(String m_name) {
 		this.m_name = m_name;
 	}
-	public String getOm_ds() {
-		return om_ds;
+	
+	public String getOs_ds() {
+		return os_ds;
 	}
-	public void setOm_ds(String om_ds) {
-		this.om_ds = om_ds;
+	public void setOs_ds(String os_ds) {
+		this.os_ds = os_ds;
 	}
-	public String getOm_hs() {
-		return om_hs;
+	public String getOs_hs() {
+		return os_hs;
 	}
-	public void setOm_hs(String om_hs) {
-		this.om_hs = om_hs;
+	public void setOs_hs(String os_hs) {
+		this.os_hs = os_hs;
 	}
 	public int getOm_view() {
 		return om_view;
@@ -97,14 +98,14 @@ public class order_statement_view_s {
 	public void setOm_date(Date om_date) {
 		this.om_date = om_date;
 	}
-	
-	
 	@Override
 	public String toString() {
 		return "order_statement_view_s [os_index=" + os_index + ", s_index=" + s_index + ", m_index=" + m_index
 				+ ", p_index=" + p_index + ", os_num=" + os_num + ", p_name=" + p_name + ", p_img=" + p_img
-				+ ", m_email=" + m_email + ", m_name=" + m_name + ", om_ds=" + om_ds + ", om_hs=" + om_hs + ", om_view="
+				+ ", m_email=" + m_email + ", m_name=" + m_name + ", os_ds=" + os_ds + ", os_hs=" + os_hs + ", om_view="
 				+ om_view + ", om_date=" + om_date + "]";
 	}
+	
+	
 	
 }
