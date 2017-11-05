@@ -22,6 +22,9 @@ import service.MyPetService;
 
 @Controller
 public class memberController {
+	
+	private String filePath = "c:\\Users\\bit\\git\\BitProject\\BitProject\\WebContent\\resources\\images\\petImg\\";
+	
 	@Autowired
 	private MemberInfoService memberinfoservice;
 	
@@ -99,16 +102,15 @@ public class memberController {
 	@RequestMapping("downloadPetImg")
 	public DownloadView downloadPetImg(HttpSession session){
 		String pet_imgSrcFileName = petService.mainPet((Integer)session.getAttribute("m_index")).getPet_img();
-		File pet_imgSrcFile = new File("c:\\Upload\\image\\" + pet_imgSrcFileName);
+		File pet_imgSrcFile = new File(filePath + pet_imgSrcFileName);
 		return new DownloadView(pet_imgSrcFile, pet_imgSrcFileName);
 	}
 	
 	@RequestMapping("PetImgupload")
 	public ModelAndView uploadPetImg(HttpSession session, int pet_index, MultipartFile imgSrc){
 		ModelAndView mav = new ModelAndView();
-		String path = "c:\\Upload\\image\\";
 		String filename = imgSrc.getOriginalFilename();
-		File imgFile = new File(path + filename);
+		File imgFile = new File(filePath + filename);
 		
 		pet_info pet_info = petService.getPetInfo(pet_index);
 		

@@ -83,7 +83,7 @@ function addPet() {
 	var pet_gender = null;
 	var pet_birthday = null;
 	var pet_breeds = null;
-	var pet_img = document.getElementById("imgForm").value;
+	var pet_img = document.getElementById("imgSrc").value;	
 	
 	var radio = document.getElementsByName("pet_gender");
 	for(var i = 0; i < radio.length; i++) {
@@ -114,9 +114,7 @@ function addPet() {
 		alert("반려견의 프로필 이미지를 선택해 주세요.");
 		return false;
 	}
-	
-	
-	
+
 	
 	$.ajax({
         data : {
@@ -435,7 +433,7 @@ window.onload = function(){
 											<div class="input-group">
 												<form id="imgForm" action="PetImgupload" enctype="multipart/form-data" method="post" >
 													<span class="input-group-addon"><i class="fa fa-heart" aria-hidden="true"></i></span>
-													<input type="file" name="imgSrc" accept=".jpg, .png"> 
+													<input type="file" id="imgSrc" name="imgSrc" accept=".jpg, .png"> 
 												</form>
 											</div>
 										</dd>

@@ -56,7 +56,7 @@ $(document).ready(function(){
 </script>
 <style>
 .main{ padding: 0 230px;}
-.followingNotiMain{margin-top: 90px; margin-left: 100px; display: inline-block;}
+.followingNotiMain{margin-top: 90px; margin-left: 50px; display: inline-block;}
 .followingNotiMenu{width:1000px; height:100px; border:0;}
 .followingNotiContent{width:1000px; height:400px; border:0;}
 .followingStoreList{margin-top: 90px; margin-left: 50px; display: inline-block; float: left;}
