@@ -21,7 +21,7 @@
 
 <script type="text/javascript">
 	function goMain() {
-		opener.parent.location.replace("consumerContractList");
+		opener.location.replace("consumerContractList");
 		window.close();
 	}
 </script>

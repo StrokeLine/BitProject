@@ -215,53 +215,38 @@ $(document).ready(function(){
 		<div class="main">
 			<div class="inner">			
 				<div class="main-title2">							
-					<h4>상품관리</h4>			
+					<h4>주문 배송</h4>			
 				</div>		
 				<div class="content-wrap">					
 					<div class="button-wrap">
-						<div class="deleteProduct_btn">					
-							<input type="submit" class="button small" id="del" value="삭제">
-						</div>				
-						<div class="regProduct_button">
-							<input type="button" value="주문배송" class="button special" onclick="location.href='addProductForm'">
-						</div>				
+<!-- 						<div class="deleteProduct_btn">					
+							<select class="option-set">
+								<option class="option-set" value="">--- 조&emsp;회 ---</option>
+								<option class="option-set" value="">&emsp;배&emsp;송</option>
+								<option class="option-set" value="">&emsp;환&emsp;불</option>
+								<option class="option-set" value="">&emsp;교&emsp;환</option>
+							</select>
+						</div>	 -->							
 					</div>
 					<div class="table-wrapper">				
 						<table>
 							<thead>
-								<tr>
-									<th class="title" width="30"><input type="checkbox" id="checkAll"></th>								
-									<th class="title" width="85">상품 이미지</th>
-									<th class="title" width="170">상품명</th>
-									<th class="title" width="50">수량</th>
-									<th class="title" width="80">가격</th>
-									<th class="title" width="80">배송비</th>
-									<th class="title" width="90">등록일</th>
-									<th class="title" width="50">상품수정</th>
+								<tr>														
+									<th class="title" style="width: 300px;">상품 이미지</th>
+									<th class="title" style="width: 900px;">상품명</th>
+									<th class="title" style="width: 250px;">구매자 아이디</th>
+									<th class="title" style="width: 200px;">입금상태</th>
+									<th class="title" style="width: 200px;">처리상태</th>									
 								</tr>					
 							</thead>
 							<tbody>
-								<c:forEach items="${product_info}" var="productInfo">
-									<tr>
-										<td class="content"><input type="checkbox" id="checkRow"></td>									
-										<td class="content">
-											<c:if test="${productInfo.p_imgSrc != null }">
-												<a href="productPage?p_index=${productInfo.p_index}"><img src="downloadProductImg?p_index=${productInfo.p_index}"></a>												
-											</c:if>
-										</td>
-										<td class="content" style="text-align: left;">
-											<h3><a href="productPage?p_index=${productInfo.p_index}">${productInfo.p_name}</a><br></h3>									
-											<p>[${productInfo.p_major_value}]</p>
-										</td>
-										<td class="content">${productInfo.p_num}</td>
-										<td class="content">${productInfo.p_price} 원</td>
-										<td class="content">${productInfo.p_fee}</td>
-										<td class="content">
-											<fmt:formatDate value="${productInfo.p_date}" pattern="yyyy-MM-dd"/>
-										</td>									
-										<td class="content">
-											<input type="button" class="button small" value="수정" onclick="location.href='modifyProductForm?p_index=${productInfo.p_index}'">
-										</td>
+								<c:forEach items="${os_seller_list}" var="productInfo">
+									<tr>																			
+										<td><img src="downloadProductImg?p_index=${productInfo.p_index}"></td>
+										<td >${ productInfo.p_name}</td>	
+										<td>${ productInfo.m_name}</td>	
+										<td>${ productInfo.os_ds}</td>	
+										<td>${ productInfo.os_hs}</td>								
 									</tr>						
 								</c:forEach>					
 							</tbody>				
