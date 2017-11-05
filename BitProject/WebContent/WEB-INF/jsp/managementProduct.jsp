@@ -241,26 +241,26 @@ $(document).ready(function(){
 								</tr>					
 							</thead>
 							<tbody>
-								<c:forEach items="${product_info}" var="product_info">
+								<c:forEach items="${product_info}" var="productInfo">
 									<tr>
 										<td class="content"><input type="checkbox" id="checkRow"></td>									
 										<td class="content">
-											<c:if test="${product_info.p_imgSrc != null }">
-												<a href="productPage?p_index=${product_info.p_index}"><img src="downloadProductImg?p_index=${product_info.p_index}"></a>												
+											<c:if test="${productInfo.p_imgSrc != null }">
+												<a href="productPage?p_index=${productInfo.p_index}"><img src="downloadProductImg?p_index=${productInfo.p_index}"></a>												
 											</c:if>
 										</td>
 										<td class="content" style="text-align: left;">
-											<h3><a href="productPage?p_index=${product_info.p_index}">${product_info.p_name}</a><br></h3>									
-											<p>[${product_info.p_major_value}]</p>
+											<h3><a href="productPage?p_index=${productInfo.p_index}">${productInfo.p_name}</a><br></h3>									
+											<p>[${productInfo.p_major_value}]</p>
 										</td>
-										<td class="content">${product_info.p_num}</td>
-										<td class="content">${product_info.p_price} 원</td>
-										<td class="content">${product_info.p_fee}</td>
+										<td class="content">${productInfo.p_num}</td>
+										<td class="content">${productInfo.p_price} 원</td>
+										<td class="content">${productInfo.p_fee}</td>
 										<td class="content">
-											<fmt:formatDate value="${product_info.p_date}" pattern="yyyy-MM-dd"/>
+											<fmt:formatDate value="${productInfo.p_date}" pattern="yyyy-MM-dd"/>
 										</td>									
 										<td class="content">
-											<input type="button" class="button small" value="수정" onclick="location.href='modifyProductForm?p_index=${product_info.p_index}'">
+											<input type="button" class="button small" value="수정" onclick="location.href='modifyProductForm?p_index=${productInfo.p_index}'">
 										</td>
 									</tr>						
 								</c:forEach>					

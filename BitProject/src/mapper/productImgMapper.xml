@@ -6,11 +6,11 @@
 <mapper namespace="dao.IProductImgDao">
 
 	<insert id="insertProductImg" parameterType="product_img" useGeneratedKeys="true" keyProperty="p_index">
-		insert into product_img values(0, #{p_index}, #{pi_diff}, #{pi_src}, #{pi_date});
+		insert into product_img values(0, #{p_index}, #{pi_diff}, #{pi_src}, now());
 	</insert>
 	
 	<update id="updateProductImg" parameterType="product_img">
-		update product_img set pi_diff = #{pi_diff}, pi_src = #{pi_src}, pi_date = #{pi_date} where pi_index = #{pi_index}
+		update product_img set pi_diff = #{pi_diff}, pi_src = #{pi_src}, pi_date = now() where pi_index = #{pi_index}
 	</update>
 	
 	<delete id="deleteProductImg" parameterType="int">

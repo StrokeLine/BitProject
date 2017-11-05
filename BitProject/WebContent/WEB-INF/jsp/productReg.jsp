@@ -238,16 +238,16 @@ $(document).ready(function(){
 							<div class="reg-item"><i class="fa fa-arrow-circle-right"></i> &emsp; 배송비</div>
 							<div class="reg-input">
 								<select name="p_fee" class="category-input">
-									<option value="">-- 배송비 선택 --</option>
-									<option value="무료배송">무료배송</option>
-									<option value="2,500원">2,500원</option>
-									<option value="3,500원">3,500원</option>									
+									<option value="0">-- 배송비 선택 --</option>
+									<option value="0">무료배송</option>
+									<option value="2500">2,500원</option>
+									<option value="3500">3,500원</option>									
 								</select>		
 							</div>
 						</div>
 						<div class="reg-wrap">
 							<div class="reg-item"><i class="fa fa-arrow-circle-right"></i> &emsp; 수량</div>
-							<div class="reg-input"><input type="number" name="p_num"></div>
+							<div class="reg-input"><input type="number" name="p_num" ></div>
 						</div>
 						<div class="reg-wrap">
 							<div class="reg-item"><i class="fa fa-arrow-circle-right"></i> &emsp; 게시마감일</div>
@@ -257,13 +257,12 @@ $(document).ready(function(){
 							<div class="reg-item"><i class="fa fa-arrow-circle-right"></i> &emsp; 상품 내용</div>							
 						</div>
 						<div class="reg-wrap_textarea">
-							<textarea name="p_content"></textarea>
+							<textarea name="p_content" style="resize: none;"></textarea>
 						</div>
 						<div class="reg-wrap">
 							<div class="reg-item"><i class="fa fa-arrow-circle-right"></i> &emsp; 태그</div>
 							<div class="reg-input2">
-								<input type="text" name="p_hashTag" value="#"></div>
-								<input type="button" class="button smaill" value="추가">
+								<input type="text" name="p_hashTag" value="#"></div>							
 							</div>
 						<div class="reg-wrap">
 							<div class="reg-item"><i class="fa fa-arrow-circle-right"></i> &emsp; 분류</div>
@@ -280,12 +279,20 @@ $(document).ready(function(){
 									<option value="야외용품">야외용품</option>
 								</select>								
 							</div>
-						</div>						
-					</div>	
-				</div>								
-				<div class="inputProduct_button">
-					<input type="submit" class="button special" value="등록" style="width: 200px;">					
-				</div>		
+						</div>
+						<div class="reg-wrap">
+							<div class="reg-item"><i class="fa fa-arrow-circle-right"></i> &emsp; 대표 이미지</div>
+							<div class="reg-input"><input type="file" name="main_img"></div>							
+						</div>
+						<div class="reg-wrap">
+							<div class="reg-item"><i class="fa fa-arrow-circle-right"></i> &emsp; 내용이미지</div>
+							<div class="reg-input"><input type="file" name="content_img"></div>							
+						</div>					
+					</div>								
+					<div class="inputProduct_button">					
+						<input type="submit" class="button special" value="등록" style="width: 200px;">					
+					</div>
+				</div>			
 			</form>				
 		</div>
 	</div>	

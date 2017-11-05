@@ -3,6 +3,7 @@ package dao;
 import java.util.List;
 
 import model.product_img;
+import model.product_info;
 
 public interface IProductImgDao {
 	public int insertProductImg(product_img product_img);

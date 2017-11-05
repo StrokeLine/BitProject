@@ -22,6 +22,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import model.product_assessment;
+import model.product_img;
 import model.product_info;
 import model.product_inquiry;
 import model.product_inquiry_view;
@@ -87,15 +88,17 @@ public class ProductController {
 	}	
 	
 	@RequestMapping("addProduct")
-	public String addProduct(HttpSession session, product_info product_info, MultipartFile imgSrc){
-		String filename = imgSrc.getOriginalFilename();
-		File imgFile = new File(filePath + filename);
+	public String addProduct(HttpSession session, product_info product_info, MultipartFile main_img,  MultipartFile content_img){
+		String mainFilename = main_img.getOriginalFilename();
+		File imgFile = new File(filePath + mainFilename);
 		
-		if(filename != ""){
+		System.out.println(mainFilename);
+		
+		if(mainFilename != ""){
 			
 			try {
-				imgSrc.transferTo(imgFile);
-				product_info.setP_imgSrc(filename);
+				main_img.transferTo(imgFile);
+				product_info.setP_imgSrc(mainFilename);
 			} catch (IllegalStateException e) {
 				e.printStackTrace();
 			} catch (IOException e) {
@@ -107,6 +110,25 @@ public class ProductController {
 		product_info.setM_index(m_index);
 		product_info.setS_index(sellerInfoService.getSellerInfo(m_index).getS_index());
 		int result = productService.addProduct(product_info);
+		
+		String contentFilename = content_img.getOriginalFilename();
+		File imgFile_sub = new File(filePath + contentFilename);
+		
+		if(contentFilename != ""){
+			
+			try {
+				content_img.transferTo(imgFile_sub);
+				product_img product_img = new product_img();
+				product_img.setP_index(result);
+				product_img.setPi_src(contentFilename);
+				productService.addProductImg(product_img);
+			} catch (IllegalStateException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		
 		
 		if(result != 0){
 			int s_index = sellerInfoService.getSellerInfo(m_index).getS_index();

@@ -9,10 +9,12 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import dao.ProductAssessmentDao;
+import dao.ProductImgDao;
 import dao.ProductInfoDao;
 import dao.ProductInquiryDao;
 import dao.ProductInquiryViewDao;
 import model.product_assessment;
+import model.product_img;
 import model.product_info;
 import model.product_inquiry;
 import model.product_inquiry_view;
@@ -31,6 +33,9 @@ public class ProductService {
 	
 	@Autowired
 	private ProductInquiryDao inquiryDao;
+	
+	@Autowired
+	private ProductImgDao productImgDao;
 	
 	// 상품 추가
 	public int addProduct(product_info product_info){		
@@ -59,7 +64,18 @@ public class ProductService {
 		} else{ 
 			return 0;
 		}	
-	}	
+	}
+	
+	public int addProductImg(product_img product_img){
+		int result = productImgDao.insertProductImg(product_img);
+		
+		if( result > 0){
+			return product_img.getP_index();
+		} else{
+			return 0;
+		}
+	}
+	
 	// 선택 상품 가져오기
 	public product_info getProduct(int p_index){
 		return productInfoDao.selectProduct(p_index);
@@ -105,13 +121,13 @@ public class ProductService {
 	}
 	
 	// 카테고리별 상품 리스트
-		public List<product_info> categorySelect(String major){
-			return productInfoDao.categorySelect(major);
-		}
-		
-		public List<product_info> categoryAll(){
-			return productInfoDao.categoryAll();
-		}
+	public List<product_info> categorySelect(String major){
+		return productInfoDao.categorySelect(major);
+	}
+	
+	public List<product_info> categoryAll(){
+		return productInfoDao.categoryAll();
+	}
 	
 	public int addProductInquiry(product_inquiry product_inquiry){
 		return inquiryDao.insertProductInquiry(product_inquiry);

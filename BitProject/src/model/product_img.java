@@ -5,7 +5,7 @@ import java.sql.Date;
 public class product_img {
 	private int pi_index;	// index
 	private int p_index;	// 상품 index
-	private String diff;	// 구분 - 메인/내용
+	private String pi_diff;	// 구분 - 메인/내용
 	private String pi_src;	// 경로
 	private Date pi_date;	// 등록일
 	
@@ -22,11 +22,11 @@ public class product_img {
 	public void setP_index(int p_index) {
 		this.p_index = p_index;
 	}
-	public String getDiff() {
-		return diff;
+	public String getPi_diff() {
+		return pi_diff;
 	}
-	public void setDiff(String diff) {
-		this.diff = diff;
+	public void setPi_diff(String diff) {
+		this.pi_diff = diff;
 	}
 	public String getPi_src() {
 		return pi_src;
@@ -40,10 +40,11 @@ public class product_img {
 	public void setPi_date(Date pi_date) {
 		this.pi_date = pi_date;
 	}
+	
 	@Override
 	public String toString() {
-		return "product_img [pi_index=" + pi_index + ", p_index=" + p_index + ", diff=" + diff + ", pi_src=" + pi_src
-				+ ", pi_date=" + pi_date + "]";
+		return "product_img [pi_index=" + pi_index + ", p_index=" + p_index + ", pi_diff=" + pi_diff + ", pi_src="
+				+ pi_src + ", pi_date=" + pi_date + "]";
 	}
-	
+
 }
