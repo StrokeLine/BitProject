@@ -1,40 +1,46 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+
 <!DOCTYPE html>
-<html>
+<html lang="ko">
+
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<meta name="description" content="">
-	<meta name="author" content="">
-	
-	<title>Hand Made - Pet Product</title>
-	
-	<!-- Bootstrap core JavaScript -->
-	<script src="/jquery/jquery.min.js"></script>
-	<script src="/bootstrap/js/bootstrap.min.js"></script>
-	
-	<!-- Bootstrap core CSS -->
-	<link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-	
-	<!-- Custom fonts for this template -->
-	<link href="/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-	
-	<!-- Custom styles for this template -->
-	<link rel="stylesheet" href="/css/main.css" />
-	<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
-	<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
-	
-	<!-- Scripts -->
-	<script src="/js/skel.min.js"></script>
-	<script src="/js/util.js"></script>
-	<script src="/js/main.js"></script>
-	<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-	<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
-	
-	<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/css/select2.min.css" rel="stylesheet" />
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/js/select2.min.js"></script>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
+
+<title>Hand Made - Pet Product</title>
+
+<!-- Bootstrap core JavaScript -->
+<script src="/jquery/jquery.min.js"></script>
+<script src="/bootstrap/js/bootstrap.min.js"></script>
+
+<!-- Bootstrap core CSS -->
+<link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Custom fonts for this template -->
+<link href="/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+<!-- Custom styles for this template -->
+<link rel="stylesheet" href="/css/main.css" />
+<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+
+<!-- Scripts -->
+<script src="/js/skel.min.js"></script>
+<script src="/js/util.js"></script>
+<script src="/js/main.js"></script>
+<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+
+<!-- select2 -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/js/select2.min.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/css/select2.min.css" rel="stylesheet" />
+
 	
 <!-- 펫처리 부분 -->
 <script type="text/javascript">
@@ -710,11 +716,11 @@ $(document).ready(function(){
 									</ul>
 								</li>
 								<c:choose>
-									<c:when test="${s_index == ''}"><!-- store open X -->
+									<c:when test="${empty sessionScope.s_index}"><!-- store open X -->
 										<li> <i class="fa fa-building-o" aria-hidden="true" onclick="location='sellerRegForm'"> <span>&nbsp;Store Open&nbsp;|&nbsp;</span> </i> </li>									
 									</c:when>
-									<c:when test="${s_index != ''}"><!-- store open O -->
-										<li> <i class="fa fa-building-o" aria-hidden="true" onclick="location='sellerMyMain'"> <span>&nbsp;My Store&nbsp;|&nbsp;</span> </i> 
+									<c:when test="${not empty sessionScope.s_index}"><!-- store open O -->
+										<li> <i class="fa fa-building-o" aria-hidden="true" onclick="location='sellerMyStore'"> <span>&nbsp;My Store&nbsp;|&nbsp;</span> </i> 
 											<ul>
 												<li><a href="sellerMyStore"><i class="fa fa-building-o" aria-hidden="true">&nbsp;상점 정보</i></a></li>
 												<li><a href="customerNotice"><i class="fa fa-building-o" aria-hidden="true">&nbsp;공지 사항</i></a></li>
@@ -725,7 +731,7 @@ $(document).ready(function(){
 										</li>
 									</c:when>
 								</c:choose>
-								<li> <i class="fa fa-question-circle-o" aria-hidden="true" onclick="location='customerCenterInquiry'"> <span>&nbsp;Customer Service&nbsp;|</span> </i> </li>
+								<li> <i class="fa fa-question-circle-o" aria-hidden="true" onclick="location='#'"> <span>&nbsp;Customer Service&nbsp;|</span> </i> </li>
 							</ul>
 							</c:when>
 						</c:choose>
@@ -764,7 +770,7 @@ $(document).ready(function(){
 						<li><a href="loginForm"><i class="fa fa-sign-in" aria-hidden="true">&nbsp;Sign in</i></a></li>
 						<li><a href="joinForm"><i class="fa fa-pencil-square-o" aria-hidden="true">&nbsp;Sign up</i></a></li>
 						<li><a href="loginForm"><i class="fa fa-building-o" aria-hidden="true">&nbsp;Store Open</i></a></li>
-						<li><a href="customerCenterInquiry"><i class="fa fa-question-circle-o" aria-hidden="true">&nbsp;Customer Service</i></a></li>
+						<li><a href="#"><i class="fa fa-question-circle-o" aria-hidden="true">&nbsp;Customer Service</i></a></li>
 					</ul>
 				
 				</c:when>
@@ -784,15 +790,15 @@ $(document).ready(function(){
 								<li><a href="#" class="product_list"><i class="fa fa-paw" aria-hidden="true">&nbsp;야외용품</i></a></li>
 							</ul>
 						</li>
-						<li><a href="main"><i class="fa fa-sign-out" aria-hidden="true">&nbsp;Sign out</i></a></li>
+						<li><a href="logoutPro"><i class="fa fa-sign-out" aria-hidden="true">&nbsp;Sign out</i></a></li>
 						<li><p class="p_mypage"><i class="fa fa-user" aria-hidden="true">&nbsp;My page</i></p>
 							<ul class="subMy">
 								<li><a href="memberInfo" class="product_list"><i class="fa fa-user" aria-hidden="true">&nbsp;내정보</i></a></li>
 								<c:choose>
-									<c:when test="${s_index == ''}"><!-- store open X -->
+									<c:when test="${empty sessionScope.s_index}"><!-- store open X -->
 										<li><a href="sellerRegForm" class="product_list"><i class="fa fa-user" aria-hidden="true">&nbsp;판매자 등록</i></a></li>
 									</c:when>
-									<c:when test="${s_index != ''}"><!-- store open O -->
+									<c:when test="${not empty sessionScope.s_index}"><!-- store open O -->
 										<li><a href="sellerMyMain" class="product_list"><i class="fa fa-user" aria-hidden="true">&nbsp;내상점</i></a></li>						
 									</c:when>
 								</c:choose>
@@ -805,10 +811,10 @@ $(document).ready(function(){
 							</ul>
 						</li>
 						<c:choose>
-							<c:when test="${s_index == ''}"><!-- store open X -->
+							<c:when test="${empty sessionScope.s_index}"><!-- store open X -->
 								<li><a href="sellerRegForm"><i class="fa fa-building-o" aria-hidden="true">&nbsp;Store Open</i></a></li>
 							</c:when>
-							<c:when test="${s_index !='' }"><!-- store open O -->
+							<c:when test="${not empty sessionScope.s_index}"><!-- store open O -->
 								<li><p><i class="fa fa-building-o" aria-hidden="true">&nbsp;My Store</i></p>
 									<ul class="subms">
 										<li><a href="sellerMyStore"><i class="fa fa-building-o" aria-hidden="true">&nbsp;상점 정보</i></a></li>
@@ -822,7 +828,7 @@ $(document).ready(function(){
 							</c:when>
 						</c:choose>
 						
-						<li><a href="customerCenterInquiry"><i class="fa fa-question-circle-o" aria-hidden="true">&nbsp;Customer Service</i></a></li>
+						<li><a href="#"><i class="fa fa-question-circle-o" aria-hidden="true">&nbsp;Customer Service</i></a></li>
 						
 					</ul>
 				</c:when>
@@ -1029,7 +1035,6 @@ $(document).ready(function(){
 				</ul>
 			</div>
 		</footer>
-
 	</div>
 
 </body>

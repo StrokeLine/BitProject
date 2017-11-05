@@ -1,7 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -12,19 +13,21 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
+<title>Hand Made - Pet Product</title>
+
 <!-- Bootstrap core JavaScript -->
 <script src="/jquery/jquery.min.js"></script>
 <script src="/bootstrap/js/bootstrap.min.js"></script>
 
 <!-- Bootstrap core CSS -->
 <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet" href="/css/customerStore.css" />
 
 <!-- Custom fonts for this template -->
 <link href="/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
 <!-- Custom styles for this template -->
 <link rel="stylesheet" href="/css/main.css" />
+<link rel="stylesheet" href="/css/customerStore.css" />
 <!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
 <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
 
@@ -93,11 +96,11 @@ $(document).ready(function(){
 									</ul>
 								</li>
 								<c:choose>
-									<c:when test="${s_index == ''}"><!-- store open X -->
+									<c:when test="${empty sessionScope.s_index}"><!-- store open X -->
 										<li> <i class="fa fa-building-o" aria-hidden="true" onclick="location='sellerRegForm'"> <span>&nbsp;Store Open&nbsp;|&nbsp;</span> </i> </li>									
 									</c:when>
-									<c:when test="${s_index != ''}"><!-- store open O -->
-										<li> <i class="fa fa-building-o" aria-hidden="true" onclick="location='sellerMyMain'"> <span>&nbsp;My Store&nbsp;|&nbsp;</span> </i> 
+									<c:when test="${not empty sessionScope.s_index}"><!-- store open O -->
+										<li> <i class="fa fa-building-o" aria-hidden="true" onclick="location='sellerMyStore'"> <span>&nbsp;My Store&nbsp;|&nbsp;</span> </i> 
 											<ul>
 												<li><a href="sellerMyStore"><i class="fa fa-building-o" aria-hidden="true">&nbsp;상점 정보</i></a></li>
 												<li><a href="customerNotice"><i class="fa fa-building-o" aria-hidden="true">&nbsp;공지 사항</i></a></li>
@@ -172,10 +175,10 @@ $(document).ready(function(){
 							<ul class="subMy">
 								<li><a href="memberInfo" class="product_list"><i class="fa fa-user" aria-hidden="true">&nbsp;내정보</i></a></li>
 								<c:choose>
-									<c:when test="${s_index == ''}"><!-- store open X -->
+									<c:when test="${empty sessionScope.s_index}"><!-- store open X -->
 										<li><a href="sellerRegForm" class="product_list"><i class="fa fa-user" aria-hidden="true">&nbsp;판매자 등록</i></a></li>
 									</c:when>
-									<c:when test="${s_index != ''}"><!-- store open O -->
+									<c:when test="${not empty sessionScope.s_index}"><!-- store open O -->
 										<li><a href="sellerMyMain" class="product_list"><i class="fa fa-user" aria-hidden="true">&nbsp;내상점</i></a></li>						
 									</c:when>
 								</c:choose>
@@ -188,10 +191,10 @@ $(document).ready(function(){
 							</ul>
 						</li>
 						<c:choose>
-							<c:when test="${s_index == ''}"><!-- store open X -->
+							<c:when test="${empty sessionScope.s_index}"><!-- store open X -->
 								<li><a href="sellerRegForm"><i class="fa fa-building-o" aria-hidden="true">&nbsp;Store Open</i></a></li>
 							</c:when>
-							<c:when test="${s_index !='' }"><!-- store open O -->
+							<c:when test="${not empty sessionScope.s_index}"><!-- store open O -->
 								<li><p><i class="fa fa-building-o" aria-hidden="true">&nbsp;My Store</i></p>
 									<ul class="subms">
 										<li><a href="sellerMyStore"><i class="fa fa-building-o" aria-hidden="true">&nbsp;상점 정보</i></a></li>
@@ -208,7 +211,8 @@ $(document).ready(function(){
 						<li><a href="#"><i class="fa fa-question-circle-o" aria-hidden="true">&nbsp;Customer Service</i></a></li>
 						
 					</ul>
-				</c:when>				
+				</c:when>
+				
 			</c:choose>
 		</nav>
 					
@@ -219,7 +223,7 @@ $(document).ready(function(){
 					<div class="inner-content1">												
 						<div class="seller_wrap" id="seller_wrap_">
 							<div class="seller_img">
-								<img src="/images/home.png" alt="" class="img-circle">
+								<img src="sellerMyStoreImg?s_imgSrc=${seller_info_select.s_imgSrc}" alt="" class="img-circle">
 							</div>
 							<div class="seller_info">
 								<p id="storeName">| ${seller_info_select.s_nick}</p>
@@ -296,7 +300,8 @@ $(document).ready(function(){
 					<li>&copy; Untitled. All rights reserved</li>
 				</ul>
 			</div>
-		</footer>	
-	</div>	
+		</footer>
+	</div>
+
 </body>
 </html>

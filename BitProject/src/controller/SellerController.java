@@ -28,11 +28,13 @@ import service.SellerInfoService;
 @Controller
 public class SellerController {
 	
-	@Autowired
-	SellerInfoService sellerInfoService;
+	private String filePath = "c:\\Users\\bit\\git\\BitProject\\BitProject\\WebContent\\resources\\images\\MyStoreImg\\";
 	
 	@Autowired
-	FollowingService followingService;
+	private SellerInfoService sellerInfoService;
+	
+	@Autowired
+	private FollowingService followingService;
 	
 	@RequestMapping("sellerMyStore")
 	public ModelAndView sellerMyStore(HttpSession session) {
@@ -42,6 +44,18 @@ public class SellerController {
 		mav.addObject("seller_info_select", sellerInfo);		
 		mav.setViewName("sellerMyStore");		
 		return mav;
+	}
+	
+	@RequestMapping("sellerMyStoreImg")
+	public DownloadView sellerMyStoreImg(String s_imgSrc){
+		String p_imgSrcFileName = s_imgSrc;
+		
+		if(p_imgSrcFileName == null){
+			return null;
+		}
+		
+		File p_imgSrcFile = new File(filePath + p_imgSrcFileName);
+		return new DownloadView(p_imgSrcFile, p_imgSrcFileName);
 	}
 	
 	@RequestMapping("sellerRegForm")

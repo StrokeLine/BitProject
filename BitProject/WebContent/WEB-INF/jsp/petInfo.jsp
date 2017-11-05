@@ -1,8 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-s
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -37,8 +37,9 @@ s
 <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
 
-<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/css/select2.min.css" rel="stylesheet" />
+<!-- select2 -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/js/select2.min.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/css/select2.min.css" rel="stylesheet" />
 
 <script type="text/javascript">
 $(document).ready(function(){
@@ -82,7 +83,7 @@ function addPet() {
 	var pet_gender = null;
 	var pet_birthday = null;
 	var pet_breeds = null;
-	
+	var pet_img = document.getElementById("imgForm").value;
 	
 	var radio = document.getElementsByName("pet_gender");
 	for(var i = 0; i < radio.length; i++) {
@@ -100,16 +101,23 @@ function addPet() {
 	if(pet_name == null || pet_name == "") {
 		alert("반려견의 이름을 입력해주세요.");
 		return false;
-	} else if(pet_gender == null){
-		alert("반려견의 성별을 선택해 주세요.");
-		return false;
-	} else if(pet_birthday == null || pet_birthday == "") {
+	} else if(pet_birthday == null || pet_birthday == "Invalid Date") {
 		alert("반려견의 생일을 선택해 주세요.");
 		return false;
-	} else if(pet_breeds == null || pet_breeds == "" || select.selectedIndex == 0){
+	} else if(pet_gender == null || pet_gender == ""){
+		alert("반려견의 성별을 선택해 주세요.");
+		return false;
+	}  else if(pet_breeds == null || pet_breeds == "" || select.selectedIndex == 0){
 		alert("반려견의 견종을 선택해 주세요.");
 		return false;
-	} 
+	} else if(pet_img == null || pet_img == "") {
+		alert("반려견의 프로필 이미지를 선택해 주세요.");
+		return false;
+	}
+	
+	
+	
+	
 	$.ajax({
         data : {
         	pet_name : pet_name,
@@ -225,10 +233,10 @@ window.onload = function(){
 									</ul>
 								</li>
 								<c:choose>
-									<c:when test="${s_index == ''}"><!-- store open X -->
+									<c:when test="${empty sessionScope.s_index}"><!-- store open X -->
 										<li> <i class="fa fa-building-o" aria-hidden="true" onclick="location='sellerRegForm'"> <span>&nbsp;Store Open&nbsp;|&nbsp;</span> </i> </li>									
 									</c:when>
-									<c:when test="${s_index != ''}"><!-- store open O -->
+									<c:when test="${not empty sessionScope.s_index}"><!-- store open O -->
 										<li> <i class="fa fa-building-o" aria-hidden="true" onclick="location='sellerMyStore'"> <span>&nbsp;My Store&nbsp;|&nbsp;</span> </i> 
 											<ul>
 												<li><a href="sellerMyStore"><i class="fa fa-building-o" aria-hidden="true">&nbsp;상점 정보</i></a></li>
@@ -304,10 +312,10 @@ window.onload = function(){
 							<ul class="subMy">
 								<li><a href="memberInfo" class="product_list"><i class="fa fa-user" aria-hidden="true">&nbsp;내정보</i></a></li>
 								<c:choose>
-									<c:when test="${s_index == ''}"><!-- store open X -->
+									<c:when test="${empty sessionScope.s_index}"><!-- store open X -->
 										<li><a href="sellerRegForm" class="product_list"><i class="fa fa-user" aria-hidden="true">&nbsp;판매자 등록</i></a></li>
 									</c:when>
-									<c:when test="${s_index != ''}"><!-- store open O -->
+									<c:when test="${not empty sessionScope.s_index}"><!-- store open O -->
 										<li><a href="sellerMyMain" class="product_list"><i class="fa fa-user" aria-hidden="true">&nbsp;내상점</i></a></li>						
 									</c:when>
 								</c:choose>
@@ -320,10 +328,10 @@ window.onload = function(){
 							</ul>
 						</li>
 						<c:choose>
-							<c:when test="${s_index == ''}"><!-- store open X -->
+							<c:when test="${empty sessionScope.s_index}"><!-- store open X -->
 								<li><a href="sellerRegForm"><i class="fa fa-building-o" aria-hidden="true">&nbsp;Store Open</i></a></li>
 							</c:when>
-							<c:when test="${s_index !='' }"><!-- store open O -->
+							<c:when test="${not empty sessionScope.s_index}"><!-- store open O -->
 								<li><p><i class="fa fa-building-o" aria-hidden="true">&nbsp;My Store</i></p>
 									<ul class="subms">
 										<li><a href="sellerMyStore"><i class="fa fa-building-o" aria-hidden="true">&nbsp;상점 정보</i></a></li>
@@ -394,7 +402,7 @@ window.onload = function(){
 										<dd>
 											<div class="input-group">
 												<span class="input-group-addon"><i class="fa fa-heart" aria-hidden="true"></i></span>
-												<input type="radio" id="petgender" value="1" name="pet_gender" checked="checked"><label for="petgender"><i class="fa fa-mars" aria-hidden="true">남아</i></label>
+												<input type="radio" id="petgender" value="1" name="pet_gender"><label for="petgender"><i class="fa fa-mars" aria-hidden="true">남아</i></label>
 												<input type="radio" id="pet_gender" value="2" name="pet_gender"><label for="pet_gender"><i class="fa fa-venus" aria-hidden="true">여아</i></label>
 											</div>
 										</dd>
@@ -484,8 +492,7 @@ window.onload = function(){
 				</ul>
 			</div>
 		</footer>
-	
-</div>
-</body>
+	</div>
 
+</body>
 </html>

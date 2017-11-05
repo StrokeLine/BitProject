@@ -108,11 +108,9 @@ public class tempController {
 				session.setAttribute("m_index", member_info.getM_index());
 				System.out.println(member_info.getM_index());
 				System.out.println("login success !!!");
-				seller_info sellerInfo = sellerInfoService.getSellerInfo((Integer)session.getAttribute("m_index"));
-				if(sellerInfo != null){
-					mav.addObject("s_index", sellerInfo.getS_index());			
-				} else {
-					mav.addObject("s_index", "");
+				seller_info sellerInfo = sellerInfoService.getSellerInfo(member_info.getM_index());
+				if(sellerInfo != null){	
+					session.setAttribute("s_index", sellerInfo.getS_index());
 				}
 				
 				pet_info pet_info =	petService.mainPet(member_info.getM_index());

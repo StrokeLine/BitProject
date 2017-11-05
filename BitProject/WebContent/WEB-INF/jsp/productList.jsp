@@ -1,7 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -95,10 +95,10 @@ $(document).ready(function(){
 									</ul>
 								</li>
 								<c:choose>
-									<c:when test="${s_index == ''}"><!-- store open X -->
+									<c:when test="${empty sessionScope.s_index}"><!-- store open X -->
 										<li> <i class="fa fa-building-o" aria-hidden="true" onclick="location='sellerRegForm'"> <span>&nbsp;Store Open&nbsp;|&nbsp;</span> </i> </li>									
 									</c:when>
-									<c:when test="${s_index != ''}"><!-- store open O -->
+									<c:when test="${not empty sessionScope.s_index}"><!-- store open O -->
 										<li> <i class="fa fa-building-o" aria-hidden="true" onclick="location='sellerMyStore'"> <span>&nbsp;My Store&nbsp;|&nbsp;</span> </i> 
 											<ul>
 												<li><a href="sellerMyStore"><i class="fa fa-building-o" aria-hidden="true">&nbsp;상점 정보</i></a></li>
@@ -174,10 +174,10 @@ $(document).ready(function(){
 							<ul class="subMy">
 								<li><a href="memberInfo" class="product_list"><i class="fa fa-user" aria-hidden="true">&nbsp;내정보</i></a></li>
 								<c:choose>
-									<c:when test="${s_index == ''}"><!-- store open X -->
+									<c:when test="${empty sessionScope.s_index}"><!-- store open X -->
 										<li><a href="sellerRegForm" class="product_list"><i class="fa fa-user" aria-hidden="true">&nbsp;판매자 등록</i></a></li>
 									</c:when>
-									<c:when test="${s_index != ''}"><!-- store open O -->
+									<c:when test="${not empty sessionScope.s_index}"><!-- store open O -->
 										<li><a href="sellerMyMain" class="product_list"><i class="fa fa-user" aria-hidden="true">&nbsp;내상점</i></a></li>						
 									</c:when>
 								</c:choose>
@@ -190,10 +190,10 @@ $(document).ready(function(){
 							</ul>
 						</li>
 						<c:choose>
-							<c:when test="${s_index == ''}"><!-- store open X -->
+							<c:when test="${empty sessionScope.s_index}"><!-- store open X -->
 								<li><a href="sellerRegForm"><i class="fa fa-building-o" aria-hidden="true">&nbsp;Store Open</i></a></li>
 							</c:when>
-							<c:when test="${s_index !='' }"><!-- store open O -->
+							<c:when test="${not empty sessionScope.s_index}"><!-- store open O -->
 								<li><p><i class="fa fa-building-o" aria-hidden="true">&nbsp;My Store</i></p>
 									<ul class="subms">
 										<li><a href="sellerMyStore"><i class="fa fa-building-o" aria-hidden="true">&nbsp;상점 정보</i></a></li>
@@ -214,6 +214,7 @@ $(document).ready(function(){
 				
 			</c:choose>
 		</nav>
+		
 		<!-- Main -->
 		<div id="main">
 			<div class="inner">
@@ -294,9 +295,7 @@ $(document).ready(function(){
 				</ul>
 			</div>
 		</footer>
-
 	</div>
 
 </body>
-
 </html>
