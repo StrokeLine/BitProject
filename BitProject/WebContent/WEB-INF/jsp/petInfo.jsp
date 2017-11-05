@@ -83,6 +83,7 @@ function addPet() {
 	var pet_birthday = null;
 	var pet_breeds = null;
 	
+	
 	var radio = document.getElementsByName("pet_gender");
 	for(var i = 0; i < radio.length; i++) {
 		if(radio[i].checked == true) {
@@ -108,7 +109,7 @@ function addPet() {
 	} else if(pet_breeds == null || pet_breeds == "" || select.selectedIndex == 0){
 		alert("반려견의 견종을 선택해 주세요.");
 		return false;
-	}
+	} 
 	$.ajax({
         data : {
         	pet_name : pet_name,

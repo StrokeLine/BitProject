@@ -180,10 +180,10 @@ public class tempController {
 		return mav;
 	}
 	
-	@RequestMapping("mainLogin")
-	public ModelAndView mainLogin(){
+	@RequestMapping("customerService")
+	public ModelAndView customerService(){
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("mainLogin");
+		mav.setViewName("customerService");
 		
 		return mav;
 	}

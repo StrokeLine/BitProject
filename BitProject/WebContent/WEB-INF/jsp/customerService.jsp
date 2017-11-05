@@ -1,4 +1,4 @@
-﻿﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
+﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
@@ -237,13 +237,11 @@ $(document).ready(function(){
 										<img alt="" src="/images/pet2.jpg">
 									</div>
 									<div class="petimg">
-									
-											<ul>
-												<li>
-													<img alt="" src="downloadPetImg">
-												</li>
-											</ul>
-										
+										<ul>
+											<li>
+												<img alt="" src="downloadPetImg">
+											</li>
+										</ul>
 									</div>
 									<div class="petinfo">
 										<ul>
@@ -277,114 +275,7 @@ $(document).ready(function(){
 				</header>
 				
 				<section class="tiles">
-									
-					<article class="style1">
-						<span class="image">
-							<img src="/images/all.png" alt="" />
-						</span>
-						<a href="productList?major_num=1">
-							<h2>전체</h2>
-							<div class="content">
-								<p>Hand Made - Pet Product</p>
-							</div>
-						</a>
-					</article>
 					
-					<article class="style2">
-						<span class="image">
-							<img src="/images/food.png" alt="" />
-						</span>
-						<a href="productList?major_num=2">
-							<h2>사료/간식</h2>
-							<div class="content">
-								<p>건식사료, 소프트사료, 캔사료, 개껌, 사사미, 수제간식, 비스켓/시리얼/쿠키, 동결/건조간식, 캔/파우치, 저키/스틱</p>
-							</div>
-						</a>
-					</article>
-					
-					<article class="style3">
-						<span class="image">
-							<img src="/images/defecate.png" alt="" />
-						</span>
-						<a href="productList?major_num=3">
-							<h2>배변용품</h2>
-							<div class="content">
-								<p>배변패드, 배변판, 기저귀/팬티, 탈취제/소독제, 배변봉투/집게</p>
-							</div>
-						</a>
-					</article>
-					
-					<article class="style4">
-						<span class="image">
-							<img src="/images/health.png" alt="" />
-						</span>
-						<a href="productList?major_num=4">
-							<h2>건강관리</h2>
-							<div class="content">
-								<p>영양제, 눈/귀 관리용품</p>
-							</div>
-						</a>
-					</article>
-					
-					<article class="style5">
-						<span class="image">
-							<img src="/images/beautybath.png" alt="" />
-						</span>
-						<a href="productList?major_num=5">
-							<h2>미용/목욕</h2>
-							<div class="content">
-								<p>샴푸/린스/비누, 에센스/향수, 브러쉬/빗, 이발기, 미용가위, 발톱/발 관리, 타월/가운, 기타미용/목욕용품</p>
-							</div>
-						</a>
-					</article>
-					
-					<article class="style6">
-						<span class="image">
-							<img src="/images/toy.png" alt="" />
-						</span>
-						<a href="productList?major_num=6">
-							<h2>장난감</h2>
-							<div class="content">
-								<p>노즈워크, 장남감/토이, 공/원반</p>
-							</div>
-						</a>
-					</article>
-					
-					<article class="style2">
-						<span class="image">
-							<img src="/images/living.png" alt="" />
-						</span>
-						<a href="productList?major_num=7">
-							<h2>리빙</h2>
-							<div class="content">
-								<p>울타리, 식기/식탁, 급수병/물병, 쿠션/방석, 하우스, 매트, 강아지 계단/스텝</p>
-							</div>
-						</a>
-					</article>
-					
-					<article class="style3">
-						<span class="image">
-							<img src="/images/fashion.png" alt="" />
-						</span>
-						<a href="productList?major_num=8">
-							<h2>패션</h2>
-							<div class="content">
-								<p>패딩/아우터, 올인원/원피스, 티셔츠, 기타의류, 악세서리</p>
-							</div>
-						</a>
-					</article>
-					
-					<article class="style1">
-						<span class="image">
-							<img src="/images/outdoor.png" alt="" />
-						</span>
-						<a href="productList?major_num=9">
-							<h2>야외용품</h2>
-							<div class="content">
-								<p>목줄, 가슴줄, 목걸이/인식표, 리드줄, 캐리어, 유모자, 카시트</p>
-							</div>
-						</a>
-					</article>
 					
 				</section>
 			</div>

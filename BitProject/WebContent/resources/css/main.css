@@ -3596,8 +3596,8 @@ span.signin_jh {
     margin-top: -218px;
     margin-left: 674px;
     background-color: aliceblue;
-    width: 200px;
-    text-align: right;
+    width: 400px;
+    text-align: center;
 }
 
 .petbtn {
@@ -3886,4 +3886,8 @@ body:not(.is-touch) .posts article:hover > .image:after {
     margin-bottom: 35px;
 }		
 
+/* textarea 크기 조절 X*/
+textarea {
+	resize: none;
+}
 		
