@@ -422,9 +422,9 @@ function orderCheck() {
 					</tr>
 					<tr>
 						<th class="address_header">배송지</th>
-						<td>
+						
 							<td><input type="text" name=""></td>
-						</td>
+						
 					</tr>
 					<tr>
 						<th class="address_header">배송 메모</th>
