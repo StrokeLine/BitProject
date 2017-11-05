@@ -64,7 +64,6 @@ public class FollowingController {
 		ModelAndView mav = new ModelAndView();
 		
 		List<store_following_view> following_view_list = followingService.getFollowingStoreList((Integer)session.getAttribute("m_index"));
-		
 		if(!following_view_list.isEmpty()){
 			mav.addObject("following_view_list", following_view_list);
 		} else {

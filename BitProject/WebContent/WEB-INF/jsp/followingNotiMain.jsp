@@ -49,12 +49,24 @@ $(document).ready(function(){
 	});
 });
 </script>
+<script type="text/javascript">
+	function storeNoti(s_index){
+		top.location.href="customerStore?s_index=" + s_index;
+	}
+</script>
 <style>
 .main{ padding: 0 230px;}
-.followingNotiMain{margin-top: 90px; display: inline-block;}
+.followingNotiMain{margin-top: 90px; margin-left: 100px; display: inline-block;}
 .followingNotiMenu{width:1000px; height:100px; border:0;}
 .followingNotiContent{width:1000px; height:400px; border:0;}
-.followingStoreList{margin-top: 90px; display: inline-block;}
+.followingStoreList{margin-top: 90px; margin-left: 50px; display: inline-block; float: left;}
+
+table td{
+	padding: 0.5em 0.5em;
+	font-size: 15px;
+    font-weight: 900;
+    text-align: center;
+}
 </style>
 
 <body>
@@ -223,9 +235,20 @@ $(document).ready(function(){
 			<div class="followingStoreList">
 				<h2>팔로워 상점 리스트</h2>
 				<table class="table-wrapper">
-					<thead>
-						<c:forEach var="" items=""></c:forEach>
-					</thead>
+					<tbody>
+						<c:if test='${following_view_list == "" }'>
+							<tr>
+								<td>등록된 정보가 없습니다.</td>
+							</tr>
+						</c:if>
+						<c:forEach var="following_view" items="${following_view_list }">
+							<tr>
+								<td>
+									<a href="javascript:storeNoti(${following_view.s_index })"><div style="width: 100%;">${following_view.s_nick }</div></a>
+								</td>
+							</tr>
+						</c:forEach>
+					</tbody>
 				</table>
 			</div>
 			<div class="followingNotiMain">

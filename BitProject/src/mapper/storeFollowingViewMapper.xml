@@ -6,7 +6,7 @@
 <mapper namespace="dao.IStoreFollowingViewDao">
 	
 	<select id="selectFollowingListView" parameterType="int" resultType="store_following_view">
-		select * from store_following_view where m_index=#{m_index};
+		select * from store_following_view where m_index = #{m_index};
 	</select>
 	
 	<select id="selectFollowerListView" parameterType="int" resultType="store_following_view">
