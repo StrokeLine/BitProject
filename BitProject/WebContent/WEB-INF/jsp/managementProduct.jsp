@@ -49,6 +49,72 @@ $(document).ready(function(){
 	});
 });
 </script>
+
+<script type="text/javascript">
+	function allCheck() {
+		var allchd = document.getElementById("checkAll");
+		var product = document.getElementsByName("checkRow");
+		
+		if(allchd.checked){
+			for(var i = 0; i < product.length; i++) {
+				product[i].checked = true;
+			}
+		} else {
+			for(var i = 0; i < product.length; i++) {
+				product[i].checked = false;
+			}
+		}	
+	}
+
+
+	function deleteProduct() {
+		var allchdBox = document.getElementsByName("checkRow");
+		
+		var c = 0;
+		for(var i = 0; i < allchdBox.length; i++) {
+			if(allchdBox[i].checked){
+				c += 1;
+			}
+		}
+		
+		if(c == 0) {
+			alert("1개 이상의 상품을 선택하셔야 합니다.");
+			return false;
+		}
+		
+		var check = confirm("선택한 상품을 삭제하시겠습니까?");
+		
+		var j = 0;
+		if(check) {
+			for(var i = 0; i < allchdBox.length; i++) {
+				if(allchdBox[i].checked){
+					var boxId = document.getElementById("product"+i);
+					var p_index = boxId.value;
+					$.ajax({
+				           data : {
+				        	   p_index : p_index
+				           }, 
+				           url : "deleteProduct",
+				           success : function(data) {
+				        	    j += 1;
+				        	    if(c == j){
+									if(data){
+										alert("선택한 상품이 삭제 되었습니다.");
+										location.replace("managementProduct");
+									}				        	    	
+				        	    }
+				           },
+				           error : function(err){
+				           		console.log(err.status);
+				           		alert("잠시 후에 다시 시도해주세요.");
+				           }
+				    });	
+				}
+			}
+		}		
+	}
+</script>
+
 </head>
 
 <body>
@@ -230,7 +296,7 @@ $(document).ready(function(){
 						<table>
 							<thead>
 								<tr>
-									<th class="title" width="30"><input type="checkbox" id="checkAll"></th>								
+									<th class="title" width="30"><input type="checkbox" id="checkAll" onclick="allCheck()"><label for="checkAll"></label></th>					
 									<th class="title" width="85">상품 이미지</th>
 									<th class="title" width="170">상품명</th>
 									<th class="title" width="50">수량</th>
@@ -241,28 +307,30 @@ $(document).ready(function(){
 								</tr>					
 							</thead>
 							<tbody>
-								<c:forEach items="${product_info}" var="productInfo">
+								<c:set var="i" value="${0 }"></c:set>
+								<c:forEach items="${product_info}" var="product_info">
 									<tr>
-										<td class="content"><input type="checkbox" id="checkRow"></td>									
+										<td class="content"><input type="checkbox" name="checkRow" id="product${i }" value="${product_info.p_index }"><label for="product${i}"></label></td>									
 										<td class="content">
-											<c:if test="${productInfo.p_imgSrc != null }">
-												<a href="productPage?p_index=${productInfo.p_index}"><img src="downloadProductImg?p_index=${productInfo.p_index}"></a>												
+											<c:if test="${product_info.p_imgSrc != null }">
+												<a href="productPage?p_index=${product_info.p_index}"><img src="downloadProductImg?p_index=${product_info.p_index}"></a>												
 											</c:if>
 										</td>
 										<td class="content" style="text-align: left;">
-											<h3><a href="productPage?p_index=${productInfo.p_index}">${productInfo.p_name}</a><br></h3>									
-											<p>[${productInfo.p_major_value}]</p>
+											<h3><a href="productPage?p_index=${product_info.p_index}">${product_info.p_name}</a><br></h3>									
+											<p>[${product_info.p_major_value}]</p>
 										</td>
-										<td class="content">${productInfo.p_num}</td>
-										<td class="content">${productInfo.p_price} 원</td>
-										<td class="content">${productInfo.p_fee}</td>
+										<td class="content">${product_info.p_num}</td>
+										<td class="content"><fmt:formatNumber value="${product_info.p_price}" pattern="###,###,###,###원"></fmt:formatNumber></td>
+										<td class="content"><fmt:formatNumber value="${product_info.p_fee}" pattern="###,###,###,###원"></fmt:formatNumber></td>
 										<td class="content">
-											<fmt:formatDate value="${productInfo.p_date}" pattern="yyyy-MM-dd"/>
+											<fmt:formatDate value="${product_info.p_date}" pattern="yyyy-MM-dd"/>
 										</td>									
 										<td class="content">
-											<input type="button" class="button small" value="수정" onclick="location.href='modifyProductForm?p_index=${productInfo.p_index}'">
+											<input type="button" class="button small" value="수정" onclick="location.href='modifyProductForm?p_index=${product_info.p_index}'">
 										</td>
-									</tr>						
+									</tr>
+									<c:set var="i" value="${i + 1 }"></c:set>					
 								</c:forEach>					
 							</tbody>				
 						</table>

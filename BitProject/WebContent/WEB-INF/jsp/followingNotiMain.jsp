@@ -50,9 +50,11 @@ $(document).ready(function(){
 });
 </script>
 <style>
-.followingNotiMain{margin: 3em 10em; padding: 0 10em;}
+.main{ padding: 0 230px;}
+.followingNotiMain{margin-top: 90px; display: inline-block;}
 .followingNotiMenu{width:1000px; height:100px; border:0;}
 .followingNotiContent{width:1000px; height:400px; border:0;}
+.followingStoreList{margin-top: 90px; display: inline-block;}
 </style>
 
 <body>
@@ -218,6 +220,14 @@ $(document).ready(function(){
 		</nav>
 		
 		<div class="main">
+			<div class="followingStoreList">
+				<h2>팔로워 상점 리스트</h2>
+				<table class="table-wrapper">
+					<thead>
+						<c:forEach var="" items=""></c:forEach>
+					</thead>
+				</table>
+			</div>
 			<div class="followingNotiMain">
 				<h2>관심스토어 알림</h2>
 				<div class="followingNotiMenu">

@@ -190,10 +190,11 @@ public class ProductController {
 		return "redirect:managementProduct?p_index=" + product_info.getP_index();
 	}
 	
-	@RequestMapping("deleteProduct")
-	public String deleteProduct(int p_index){
-		productService.deleteProduct(p_index);
-		return "redirect:managementProduct";
+	@RequestMapping(value="deleteProduct", method={RequestMethod.GET, RequestMethod.POST})
+	public @ResponseBody boolean deleteProduct(HttpSession session, int p_index) {
+		boolean result = false;
+		result = productService.deleteProduct(p_index);
+		return result;
 	}
 	
 	@RequestMapping("productList")

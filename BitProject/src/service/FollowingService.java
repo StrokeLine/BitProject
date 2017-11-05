@@ -16,6 +16,7 @@ import dao.StoreNoticeViewDao;
 import model.product_notice;
 import model.product_notice_view;
 import model.store_following;
+import model.store_following_view;
 import model.store_notice_view;
 
 @Service
@@ -35,6 +36,9 @@ public class FollowingService {
 	
 	@Autowired
 	private StoreFollowingDao storeFollowingDao;
+	
+	@Autowired
+	private StoreFollowingViewDao sFollowingViewDao;
 	
 	public int setStoreFollowing(store_following store_following){
 		return storeFollowingDao.insertStoreFollowing(store_following);
@@ -58,6 +62,10 @@ public class FollowingService {
 	
 	public List<store_notice_view> getSellerNotice(int s_index){
 		return storeNoticeViewDao.selectAllStoreNoticeViewS(s_index);
+	}
+	
+	public List<store_following_view> getFollowingStoreList(int m_index){
+		return sFollowingViewDao.selectFollowingListView(m_index);
 	}
 
 }

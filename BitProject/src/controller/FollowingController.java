@@ -16,6 +16,7 @@ import com.fasterxml.jackson.databind.annotation.JsonAppend.Attr;
 import model.product_notice_view;
 import model.seller_info;
 import model.store_following;
+import model.store_following_view;
 import model.store_notice_view;
 import service.FollowingService;
 import service.SellerInfoService;
@@ -59,8 +60,17 @@ public class FollowingController {
 	}
 		
 	@RequestMapping("followingNotiMain")
-	public ModelAndView followingNotiMain() {
-		ModelAndView mav = new ModelAndView();		
+	public ModelAndView followingNotiMain(HttpSession session) {
+		ModelAndView mav = new ModelAndView();
+		
+		List<store_following_view> following_view_list = followingService.getFollowingStoreList((Integer)session.getAttribute("m_index"));
+		
+		if(!following_view_list.isEmpty()){
+			mav.addObject("following_view_list", following_view_list);
+		} else {
+			mav.addObject("following_view_list", "");
+		}
+		
 		mav.setViewName("followingNotiMain");		
 		return mav;
 	}
