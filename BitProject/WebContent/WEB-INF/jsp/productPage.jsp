@@ -189,9 +189,9 @@ $(document).ready(function(){
 			url : "checkSeller",
 			success : function(data) {
 				if(data){
-/* 					document.getElementById("p_dibs_btn").disabled = true;
+ 					document.getElementById("p_dibs_btn").disabled = true;
 					document.getElementById("p_basket_btn").disabled = true;
-					document.getElementById("p_order_btn").disabled = true; */
+					document.getElementById("p_order_btn").disabled = true;
 				}
 			}		
 		});
@@ -531,17 +531,32 @@ $(document).ready(function(){
 										<fmt:formatNumber value="${ product_info.p_price + product_info.p_fee}" pattern="###,###,###,###원"></fmt:formatNumber>
 									</div>	
 								</div>									
-							</div>		
+							</div>
 							<div class="product_btn_wrap">
-								<div class="product_btn">
-									<input id="p_dibs_btn" type="button" class="button fit" value="찜" onclick="dibsCheck()">
-								</div>
-								<div class="product_btn">
-									<input id="p_basket_btn" type="button" class="button special fit" id="bsk_btn" value="장바구니" onclick="shoppingBasketCheck()">
-								</div>
-								<div class="product_btn">
-									<input id="p_order_btn" type="submit" class="button special fit" id="order_btn" value="주문하기">
-								</div>					
+								<c:choose>
+									<c:when test="${not empty sessionScope.m_index }">
+										<div class="product_btn">
+											<input id="p_dibs_btn" type="button" class="button fit" value="찜" onclick="dibsCheck()">
+										</div>
+										<div class="product_btn">
+											<input id="p_basket_btn" type="button" class="button special fit" id="bsk_btn" value="장바구니" onclick="shoppingBasketCheck()">
+										</div>
+										<div class="product_btn">
+											<input id="p_order_btn" type="submit" class="button special fit" id="order_btn" value="주문하기">
+										</div>														
+									</c:when>
+									<c:when test="${empty sessionScope.m_index }">
+										<div class="product_btn">
+											<input id="p_dibs_btn" type="button" class="button fit" value="찜" onclick="location='loginForm'">
+										</div>
+										<div class="product_btn">
+											<input id="p_basket_btn" type="button" class="button special fit" id="bsk_btn" value="장바구니" onclick="location='loginForm'">
+										</div>
+										<div class="product_btn">
+											<input id="p_order_btn" type="button" class="button special fit" id="order_btn" value="주문하기" onclick="location='loginForm'">
+										</div>
+									</c:when>
+								</c:choose>
 							</div>
 						</div>
 					</form>
@@ -552,8 +567,9 @@ $(document).ready(function(){
 				</div>
 				<div class="inner-product" id="product-info">		
 					<h4 class="h4-productPage">상품 정보</h4>
-					<div class="detail-product">
+					<div class="detail-product" style="width: 100%; display: inline-grid;">
 						<pre style="margin: 50px 100px;">${product_info.p_content }</pre>
+						<img src='downloadProductContentImg?content_img=${contentImg.pi_src }' style="margin-left: auto; margin-right: auto;">
 					</div>
 					<div class="detail-product-img">
 						

@@ -136,4 +136,8 @@ public class ProductService {
 	public List<product_info> getSellerProductList(int s_index){
 		return productInfoDao.selectAllProductInfoS(s_index);
 	}
+	
+	public product_img getProductContentImg(int p_index){
+		return productImgDao.selectProductImg(p_index);
+	}
 }
