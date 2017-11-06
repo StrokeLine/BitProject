@@ -3283,6 +3283,31 @@
 	div#signip {
     width: 318px;
 	}
+	
+	div#result_check {
+    width: fit-content;
+    margin-left: 190px;
+    font-size: small;
+	}
+	
+	div#result_checkpwd{
+	width: fit-content;
+    margin-left: 190px;
+    font-size: small;
+	}
+	
+	div#result_checkname{
+	width: fit-content;
+    margin-left: 190px;
+    font-size: small;
+	}
+	
+	div#result_checkphone{
+	width: fit-content;
+    margin-left: 190px;
+    font-size: small;
+	}
+	
 
 .input-group-addon {
 	padding: 6px 12px;

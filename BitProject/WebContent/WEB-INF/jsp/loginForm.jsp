@@ -225,7 +225,7 @@ $(document).ready(function(){
 					<br>
 					<form action="loginPro" method="post">
 						<div class="4u 12u$(xsmall)" id="signip">
-							<input type="email" class="form-control input-lg" name="m_email" placeholder="Email" required  /> 
+							<input type="email" class="form-control input-lg" name="m_email" placeholder="Email" required autofocus="autofocus"/> 
 							<input type="password" class="form-control input-lg" id="password" name="m_password" placeholder="Password" required />
 						</div>
 						<div>

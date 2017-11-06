@@ -67,6 +67,7 @@
 					idCheck = 0;
 				} else if (data == '0') {
 					$("#emailid").css("background-color", "#B0F6AC");
+					
 					idCheck = 1;
 					if (idCheck == 1 && pwdCheck == 1 && emailCheck == 1 && passwdCheck == 1 && phoneCheck == 1 && telCheck == 1 && nameCheck == 1 && nickCheck == 1) {
 						$("#inputjoin").prop("disabled", false);
@@ -153,7 +154,7 @@
 						
 				} else if (data == '1'){
 					$("#inputjoin").prop("disabled", true);
-					$("#mName").css("background-color", "#FFCECE");
+					$("#mName").css("background-color", "#FFCECE");					
 					nickCheck = 0;
 				}
 			}
@@ -182,22 +183,24 @@
 		var email = $('#emailid').val();
 		// if value is empty then exit
 		if (email == '' || email == 'undefined') {
+			
 			$("#inputjoin").prop("disabled", true);
 			return;
 		}
 		// valid check
-		if (!email_check(email)) {
-			$("#result_check").text('Not valid email.');
+		if	 (!email_check(email)) {
+			$("#result_check").text('이메일 주소 형식이 아닙니다. 본인확인이 가능한 이메일 주소를 입력해 주세요.');
 			$("#result_check").css("color","red");
 			$("#inputjoin").prop("disabled", true);
 			/* $(this).focus(); */
 			return false;
 		} else if (email_check(email)){
-			$("#result_check").text('Email address test OK.');
+			$("#result_check").text('이메일 주소 형식이 맞습	니다.');
 			$("#result_check").css("color","blue");
 			emailCheck = 1;
 			if (idCheck == 1 && pwdCheck == 1 && emailCheck == 1 && passwdCheck == 1 && phoneCheck == 1 && telCheck == 1 && nameCheck == 1 && nickCheck == 1) {
 				$("#inputjoin").prop("disabled", false);
+				
 			}
 		}
 	}
@@ -219,10 +222,12 @@
 			$("#inputjoin").prop("disabled", true);
 			return;
 		}
-				
+		
+		
+		
 		// valid check
 		if (!passwd_check(passwd)) {
-			$("#result_checkpwd").text('Not valid passwd.');
+			$("#result_checkpwd").text('6~16자 영문 대 소문자, 숫자, 특수문자를 사용하세요.');
 			$("#result_checkpwd").css("color","red");
 			$("#inputjoin").prop("disabled", true);
 			/* $(this).focus(); */
@@ -232,7 +237,7 @@
 			$("#result_checkpwd").css("color","red");
 			$("#inputjoin").prop("disabled", true);
 		} else if (passwd_check(passwd)){
-			$("#result_checkpwd").text('passwd test OK.');
+			$("#result_checkpwd").text('비밀번호 형식에 맞습니다.');
 			$("#result_checkpwd").css("color","blue");
 			passwdCheck = 1;
 			if (idCheck == 1 && pwdCheck == 1 && emailCheck == 1 && passwdCheck == 1 && phoneCheck == 1 && telCheck == 1 && nameCheck == 1 && nickCheck == 1) {
@@ -252,19 +257,21 @@
 		
 		
 		if (mPhone == '' || mPhone == 'undefined') {
+			$("#result_checkphone").text('휴대폰 번호를 입력해주세요. 본인확인이 가능한 이메일 주소를 입력해 주세요.');
+			$("#result_checkphone").css("color","red");
 			$("#inputjoin").prop("disabled", true);
 			return;
 		}
 		if (!phone_check(mPhone)) {
 			$("#mPhone").css("background-color", "#FFCECE");
-			$("#result_checkphone").text('Not valid phone number.');
+			$("#result_checkphone").text('-를 제외한 10~11자리의 휴대폰 번호를 입력해주세요.');
 			$("#result_checkphone").css("color","red");
 			$("#inputjoin").prop("disabled", true);
 			/* $(this).focus(); */
 			return false;
 		} else if (phone_check(mPhone)){
 			$("#mPhone").css("background-color", "#B0F6AC");
-			$("#result_checkphone").text('phone number test OK.');
+			$("#result_checkphone").text('휴대혼 형식에 맞습니다.');
 			$("#result_checkphone").css("color","blue");
 			phoneCheck = 1;
 			if (idCheck == 1 && pwdCheck == 1 && emailCheck == 1 && passwdCheck == 1 && phoneCheck == 1 && telCheck == 1 && nameCheck == 1 && nickCheck == 1) {
@@ -285,19 +292,21 @@
 		
 		
 		if (mName == '' || mName == 'undefined') {
+			$("#result_checkname").text('별명을 입력해주세요.');
+			$("#result_checkname").css("color","red");
 			$("#inputjoin").prop("disabled", true);
 			return;
 		}
 		if (!name_check(mName)) {
 			$("#mName").css("background-color", "#FFCECE");
-			$("#result_checkname").text('Not valid name.');
+			$("#result_checkname").text('한글, 영어(대소문자), 숫자만 사용 가능합니다.');
 			$("#result_checkname").css("color","red");
 			$("#inputjoin").prop("disabled", true);
 			/* $(this).focus(); */
 			return false;
 		} else if (name_check(mName)){
 			$("#mName").css("background-color", "#B0F6AC");
-			$("#result_checkname").text('name test OK.');
+			$("#result_checkname").text('별명 형식에 맞습니다.');
 			$("#result_checkname").css("color","blue");
 			nameCheck = 1;
 			if (idCheck == 1 && pwdCheck == 1 && emailCheck == 1 && passwdCheck == 1 && phoneCheck == 1 && telCheck == 1 && nameCheck == 1 && nickCheck == 1) {
@@ -748,8 +757,8 @@ $(document).ready(function(){
 											<div class="input-group">
 												<span class="input-group-addon"><i class="fa fa-envelope-o" aria-hidden="true"></i></span> 
 												<input type="text" class="form-control" name="m_email" 
-													id="emailid" placeholder="Enter your Email ID" value=""
-													oninput="javascript:checkId();" onkeyup="on_key()">
+													id="emailid" placeholder="이메일(ID)를 입력해주세요." value=""
+													oninput="javascript:checkId();" onkeyup="on_key()" autofocus="autofocus">
 											</div>
 											<div id="result_check"></div>
 										</dd>
@@ -765,7 +774,7 @@ $(document).ready(function(){
 											<div class="input-group">
 												<span class="input-group-addon"><i class="fa fa-expeditedssl" aria-hidden="true"></i></span> 
 												<input type="password" class="form-control" name="m_password"
-													id="password" placeholder="Choose password (5-15 chars)"
+													id="password" placeholder="비밀번호를 입력해주세요."
 													value="" oninput="checkPwd()" onkeyup="on_keypasswd()">
 											</div>
 											<div id="result_checkpwd"></div>
@@ -782,7 +791,7 @@ $(document).ready(function(){
 											<div class="input-group">
 												<span class="input-group-addon"><i class="fa fa-expeditedssl" aria-hidden="true"></i></span> 
 												<input type="password" class="form-control" id="cpassword"
-													placeholder="Confirm your password" value=""
+													placeholder="비밀번호를 한 번 더 입력해주세요." value=""
 													oninput="checkPwd()">
 											</div>
 										</dd>
@@ -798,7 +807,7 @@ $(document).ready(function(){
 											<div class="input-group">				
 												<span class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></span>
 												<input type="text" class="form-control" name="m_name"
-													id="mName" placeholder="Enter your Name here" value=""
+													id="mName" placeholder="별명을 입력해주세요." value=""
 													oninput="checkName()" onkeyup="on_keyname()">
 											</div>
 											<div id="result_checkname"></div>
@@ -816,7 +825,7 @@ $(document).ready(function(){
 												<span class="input-group-addon"><i
 													class="fa fa-mobile" aria-hidden="true"></i></span> <input
 													type="text" class="form-control" name="m_tel" id="mPhone"
-													placeholder="Enter your Mobile Phone number." value=""
+													placeholder="핸드폰 번호를 입력해주세요." value=""
 													oninput="checkPhone()" onkeyup="on_keyphone()">
 											</div>
 											<div id="result_checkphone"></div>
