@@ -68,7 +68,7 @@ public class SellerController {
 	@RequestMapping("sellerReg")
 	public String sellerReg(HttpSession session, seller_info seller_info, MultipartFile store_imgSrc){
 		String mainFilename = store_imgSrc.getOriginalFilename();
-		File imgFile = new File(store_imgSrc + mainFilename);
+		File imgFile = new File(filePath + mainFilename);
 		
 		
 		int m_index = (Integer)session.getAttribute("m_index");
