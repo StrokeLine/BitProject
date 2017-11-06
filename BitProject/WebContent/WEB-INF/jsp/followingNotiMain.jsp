@@ -70,7 +70,7 @@ table td{
 </style>
 
 <body>
-		<!-- Wrapper -->
+	<!-- Wrapper -->
 	<div id="wrapper">
 
 		<!-- Header -->
@@ -90,7 +90,7 @@ table td{
 								<li> <i class="fa fa-sign-in" aria-hidden="true" onclick="location='loginForm'"> <span>&nbsp;Sign In&nbsp;|&nbsp;</span> </i> </li>
 								<li> <i class="fa fa-pencil-square-o" aria-hidden="true" onclick="location='joinForm'"> <span>&nbsp;Sign Up&nbsp;|&nbsp;</span> </i> </li>
 								<li> <i class="fa fa-building-o" aria-hidden="true" onclick="location='loginForm'"> <span>&nbsp;Store Open&nbsp;|&nbsp;</span> </i> </li>
-								<li> <i class="fa fa-question-circle-o" aria-hidden="true"> <span>&nbsp;Customer Service&nbsp;|</span> </i> </li>
+								<li> <i class="fa fa-shopping-cart" aria-hidden="true" onclick="location='mapTest'"> <span>&nbsp;Off-Line Store&nbsp;|</span> </i> </li>
 							</ul>
 							
 							</c:when>
@@ -111,11 +111,11 @@ table td{
 									</ul>
 								</li>
 								<c:choose>
-									<c:when test="${s_index == ''}"><!-- store open X -->
+									<c:when test="${empty sessionScope.s_index}"><!-- store open X -->
 										<li> <i class="fa fa-building-o" aria-hidden="true" onclick="location='sellerRegForm'"> <span>&nbsp;Store Open&nbsp;|&nbsp;</span> </i> </li>									
 									</c:when>
-									<c:when test="${s_index != ''}"><!-- store open O -->
-										<li> <i class="fa fa-building-o" aria-hidden="true" onclick="location='sellerMyMain'"> <span>&nbsp;My Store&nbsp;|&nbsp;</span> </i> 
+									<c:when test="${not empty sessionScope.s_index}"><!-- store open O -->
+										<li> <i class="fa fa-building-o" aria-hidden="true" onclick="location='sellerMyStore'"> <span>&nbsp;My Store&nbsp;|&nbsp;</span> </i> 
 											<ul>
 												<li><a href="sellerMyStore"><i class="fa fa-building-o" aria-hidden="true">&nbsp;상점 정보</i></a></li>
 												<li><a href="customerNotice"><i class="fa fa-building-o" aria-hidden="true">&nbsp;공지 사항</i></a></li>
@@ -126,7 +126,7 @@ table td{
 										</li>
 									</c:when>
 								</c:choose>
-								<li> <i class="fa fa-question-circle-o" aria-hidden="true" onclick="location='customerCenterInquiry'"> <span>&nbsp;Customer Service&nbsp;|</span> </i> </li>
+								<li> <i class="fa fa-shopping-cart" aria-hidden="true" onclick="location='mapTest'"> <span>&nbsp;Off-Line Store&nbsp;|</span> </i> </li>
 							</ul>
 							</c:when>
 						</c:choose>
@@ -165,7 +165,7 @@ table td{
 						<li><a href="loginForm"><i class="fa fa-sign-in" aria-hidden="true">&nbsp;Sign in</i></a></li>
 						<li><a href="joinForm"><i class="fa fa-pencil-square-o" aria-hidden="true">&nbsp;Sign up</i></a></li>
 						<li><a href="loginForm"><i class="fa fa-building-o" aria-hidden="true">&nbsp;Store Open</i></a></li>
-						<li><a href="#"><i class="fa fa-question-circle-o" aria-hidden="true">&nbsp;Customer Service</i></a></li>
+						<li><a href="mapTest"><i class="fa fa-shopping-cart" aria-hidden="true">&nbsp;Off-Line Store</i></a></li>
 					</ul>
 				
 				</c:when>
@@ -223,7 +223,7 @@ table td{
 							</c:when>
 						</c:choose>
 						
-						<li><a href="#"><i class="fa fa-question-circle-o" aria-hidden="true">&nbsp;Customer Service</i></a></li>
+						<li><a href="mapTest"><i class="fa fa-shopping-cart" aria-hidden="true">&nbsp;Off-Line Store</i></a></li>
 						
 					</ul>
 				</c:when>

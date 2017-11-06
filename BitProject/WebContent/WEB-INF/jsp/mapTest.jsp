@@ -68,8 +68,7 @@ $(document).ready(function(){
     .great_stars {position: relative; overflow: hidden; display: inline-block; width: 54px; height: 10px; background: no-repeat 0 0 url(/images/img_star.gif); vertical-align: text-top;}
 	.great_stars * {overflow: hidden; float: left; width: 0; height: 100%; background: no-repeat 0 -25px url(/images/img_star.gif);}
 	.main{margin: 10px 230px;}
-	.offlineMap{margin: 50px 320px;}
-	.offlineTitle{margin: 50px 315px;}
+	.offlineTitle{margin: 34px 0px;}
 </style>
 
 <script type="text/javascript">
@@ -281,7 +280,7 @@ $(document).ready(function(){
 								<li> <i class="fa fa-sign-in" aria-hidden="true" onclick="location='loginForm'"> <span>&nbsp;Sign In&nbsp;|&nbsp;</span> </i> </li>
 								<li> <i class="fa fa-pencil-square-o" aria-hidden="true" onclick="location='joinForm'"> <span>&nbsp;Sign Up&nbsp;|&nbsp;</span> </i> </li>
 								<li> <i class="fa fa-building-o" aria-hidden="true" onclick="location='loginForm'"> <span>&nbsp;Store Open&nbsp;|&nbsp;</span> </i> </li>
-								<li> <i class="fa fa-question-circle-o" aria-hidden="true"> <span>&nbsp;Customer Service&nbsp;|</span> </i> </li>
+								<li> <i class="fa fa-shopping-cart" aria-hidden="true" onclick="location='mapTest'"> <span>&nbsp;Off-Line Store&nbsp;|</span> </i> </li>
 							</ul>
 							
 							</c:when>
@@ -317,7 +316,7 @@ $(document).ready(function(){
 										</li>
 									</c:when>
 								</c:choose>
-								<li> <i class="fa fa-question-circle-o" aria-hidden="true" onclick="location='#'"> <span>&nbsp;Customer Service&nbsp;|</span> </i> </li>
+								<li> <i class="fa fa-shopping-cart" aria-hidden="true" onclick="location='mapTest'"> <span>&nbsp;Off-Line Store&nbsp;|</span> </i> </li>
 							</ul>
 							</c:when>
 						</c:choose>
@@ -356,7 +355,7 @@ $(document).ready(function(){
 						<li><a href="loginForm"><i class="fa fa-sign-in" aria-hidden="true">&nbsp;Sign in</i></a></li>
 						<li><a href="joinForm"><i class="fa fa-pencil-square-o" aria-hidden="true">&nbsp;Sign up</i></a></li>
 						<li><a href="loginForm"><i class="fa fa-building-o" aria-hidden="true">&nbsp;Store Open</i></a></li>
-						<li><a href="#"><i class="fa fa-question-circle-o" aria-hidden="true">&nbsp;Customer Service</i></a></li>
+						<li><a href="mapTest"><i class="fa fa-shopping-cart" aria-hidden="true">&nbsp;Off-Line Store</i></a></li>
 					</ul>
 				
 				</c:when>
@@ -414,7 +413,7 @@ $(document).ready(function(){
 							</c:when>
 						</c:choose>
 						
-						<li><a href="#"><i class="fa fa-question-circle-o" aria-hidden="true">&nbsp;Customer Service</i></a></li>
+						<li><a href="mapTest"><i class="fa fa-shopping-cart" aria-hidden="true">&nbsp;Off-Line Store</i></a></li>
 						
 					</ul>
 				</c:when>
@@ -428,7 +427,7 @@ $(document).ready(function(){
 			<div class="offlineMap">
 				<div id="print"></div>
 				
-				<div id="map" style="width:800px;height:600px;"></div>				
+				<div id="map" style="width:1400px;height:800px; border-radius: "></div>				
 			</div>
 	
 		</div>
