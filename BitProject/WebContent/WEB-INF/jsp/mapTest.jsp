@@ -88,7 +88,7 @@ $(document).ready(function(){
 	
 	function geo_success(position) {
 		/* do_something(position.coords.latitube, posision.coords.longitude); */
-		
+	
 /* 		var print = document.getElementById("print");
 		print.innerHTML = "위치 정보를 가져왔습니다.</br>"; */
 		
@@ -101,7 +101,7 @@ $(document).ready(function(){
 		var container = document.getElementById('map');
 		var options = { //지도를 생성할 때 필요한 기본 옵션
 			center: new daum.maps.LatLng(latitude, longitude), //지도의 중심좌표.
-			level: 3 //지도의 레벨(확대, 축소 정도)
+			level: 6 //지도의 레벨(확대, 축소 정도)
 		};
 		
 		map = new daum.maps.Map(container, options);
@@ -132,7 +132,7 @@ $(document).ready(function(){
 	var geo_options = {
 		enableHighAccuracy	: true,
 		maximunAge			: 30000,
-		timeout				: 15000
+		timeout				: 15000,
 		
 	};
 	
