@@ -141,7 +141,7 @@ $(document).ready(function(){
 								<li> <i class="fa fa-sign-in" aria-hidden="true" onclick="location='loginForm'"> <span>&nbsp;Sign In&nbsp;|&nbsp;</span> </i> </li>
 								<li> <i class="fa fa-pencil-square-o" aria-hidden="true" onclick="location='joinForm'"> <span>&nbsp;Sign Up&nbsp;|&nbsp;</span> </i> </li>
 								<li> <i class="fa fa-building-o" aria-hidden="true" onclick="location='loginForm'"> <span>&nbsp;Store Open&nbsp;|&nbsp;</span> </i> </li>
-								<li> <i class="fa fa-shopping-cart" aria-hidden="true" onclick="location='mapTest'"> <span>&nbsp;Off-Line Store&nbsp;|</span> </i> </li>
+								<li> <i class="fa fa-question-circle-o" aria-hidden="true"> <span>&nbsp;Customer Service&nbsp;|</span> </i> </li>
 							</ul>
 							
 							</c:when>
@@ -177,7 +177,7 @@ $(document).ready(function(){
 										</li>
 									</c:when>
 								</c:choose>
-								<li> <i class="fa fa-shopping-cart" aria-hidden="true" onclick="location='mapTest'"> <span>&nbsp;Off-Line Store&nbsp;|</span> </i> </li>
+								<li> <i class="fa fa-question-circle-o" aria-hidden="true" onclick="location='#'"> <span>&nbsp;Customer Service&nbsp;|</span> </i> </li>
 							</ul>
 							</c:when>
 						</c:choose>
@@ -216,7 +216,7 @@ $(document).ready(function(){
 						<li><a href="loginForm"><i class="fa fa-sign-in" aria-hidden="true">&nbsp;Sign in</i></a></li>
 						<li><a href="joinForm"><i class="fa fa-pencil-square-o" aria-hidden="true">&nbsp;Sign up</i></a></li>
 						<li><a href="loginForm"><i class="fa fa-building-o" aria-hidden="true">&nbsp;Store Open</i></a></li>
-						<li><a href="mapTest"><i class="fa fa-shopping-cart" aria-hidden="true">&nbsp;Off-Line Store</i></a></li>
+						<li><a href="#"><i class="fa fa-question-circle-o" aria-hidden="true">&nbsp;Customer Service</i></a></li>
 					</ul>
 				
 				</c:when>
@@ -274,7 +274,7 @@ $(document).ready(function(){
 							</c:when>
 						</c:choose>
 						
-						<li><a href="mapTest"><i class="fa fa-shopping-cart" aria-hidden="true">&nbsp;Off-Line Store</i></a></li>
+						<li><a href="#"><i class="fa fa-question-circle-o" aria-hidden="true">&nbsp;Customer Service</i></a></li>
 						
 					</ul>
 				</c:when>
@@ -290,7 +290,7 @@ $(document).ready(function(){
 				<div class="content-wrap">					
 					<div class="button-wrap">
 						<div class="deleteProduct_btn">					
-							<input type="submit" class="button small" id="del" value="삭제">
+							<input type="button" class="button small" id="del" value="삭제" onclick="deleteProduct()">
 						</div>				
 						<div class="regProduct_button">
 							<input type="button" value="상품 등록" class="button special" onclick="location.href='addProductForm'">
