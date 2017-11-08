@@ -23,6 +23,7 @@ import model.store_notice;
 import model.store_notice_check;
 import model.store_notice_view;
 import service.FollowingService;
+import service.MemberInfoService;
 import service.SellerInfoService;
 
 @Controller
@@ -85,7 +86,14 @@ public class SellerController {
 				e.printStackTrace();
 			}
 		}
-		sellerInfoService.addSeller(seller_info);	
+		sellerInfoService.addSeller(seller_info);
+		
+		int s_index = sellerInfoService.getSellerInfo((Integer)session.getAttribute("m_index")).getS_index();
+		
+		session.setAttribute("s_index", s_index);
+		
+		
+		
 		return "redirect:sellerMyStore";
 	}
 	
