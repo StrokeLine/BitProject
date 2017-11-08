@@ -131,7 +131,7 @@
 			}
 		});
 	}
-	
+	//별명
 	function checkName(){
 		var inputed = $('#mName').val();
 		$.ajax({
