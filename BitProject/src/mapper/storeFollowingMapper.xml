@@ -6,7 +6,7 @@
 <mapper namespace="dao.IStoreFollowingDao">
 	
 	<insert id="insertStoreFollowing" parameterType="store_following" useGeneratedKeys="true" keyProperty="sf_index">
-		insert into store_following values(0, #{s_index}, #{m_index}, now());
+		insert into store_following values(0, #{m_index}, #{s_index}, now());
 	</insert>
 	
 	<update id="updateStoreFollowing" parameterType="store_following">
