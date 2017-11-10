@@ -61,7 +61,7 @@
 			},
 			url : "checkID",
 			success : function(data) {
-				if (inputed == "" && data == '0') {
+				if (inputed == "" && data == '0') { // data값이 controller의 result값 0가 중복된 값 없음
 					$("#inputjoin").prop("disabled", true);
 					$("#emailid").css("background-color", "#FFCECE");
 					idCheck = 0;
@@ -221,9 +221,7 @@
 			$("#inputjoin").prop("disabled", true);
 			return;
 		}
-		
-		
-		
+				
 		// valid check
 		if (!passwd_check(passwd)) {
 			$("#result_checkpwd").text('6~16자 영문 대 소문자, 숫자, 특수문자를 사용하세요.');
@@ -256,7 +254,7 @@
 		
 		
 		if (mPhone == '' || mPhone == 'undefined') {
-			$("#result_checkphone").text('휴대폰 번호를 입력해주세요. 본인확인이 가능한 이메일 주소를 입력해 주세요.');
+			$("#result_checkphone").text('휴대폰 번호를 입력해주세요. 본인확인이 가능한 휴대폰 번호를 입력해 주세요.');
 			$("#result_checkphone").css("color","red");
 			$("#inputjoin").prop("disabled", true);
 			return;
@@ -314,11 +312,7 @@
 		}
 	
 	}
-	
-	//pet info
-	
-	
-	
+		
 </script>
 
 <script type="text/javascript">
